@@ -1,5 +1,5 @@
 # Salla Webhook Events - Research Document
-# أحداث Webhook الخاصة بسالة - بحث شامل
+# أحداث Webhook الخاصة بسلة - بحث شامل
 
 ## Official Documentation Links
 

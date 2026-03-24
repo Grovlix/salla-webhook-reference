@@ -6,8 +6,9 @@ export default defineConfig({
   lang: 'en-US',
   dir: 'ltr',
   base: '/',
+  cleanUrls: true,
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/assets/logo.svg' }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:locale', content: 'en_US' }],
@@ -164,7 +165,7 @@ export default defineConfig({
   },
 
   themeConfig: {
-    logo: '/logo.svg',
+    logo: '/assets/logo.svg',
 
     nav: [
       { text: 'Home', link: '/' },
@@ -249,7 +250,7 @@ export default defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/grovlix/salla-webhook-reference/edit/main/docs/:path',
+      pattern: 'https://github.com/grovlix/salla-webhook-reference/edit/master/docs/:path',
       text: 'Edit this page on GitHub | عدل هذه الصفحة على GitHub'
     },
 
@@ -306,46 +307,13 @@ export default defineConfig({
     }
   },
 
-  markdown: {
-    config: (md) => {
-      // Add support for bilingual content
-      md.use(bilingualContainers)
-    }
-  },
-
-  vite: {
-    css: {
-      postcss: {
-        plugins: [
-          // RTL support
-          {
-            postcssPlugin: 'rtl-support',
-            Once(root) {
-              root.walkAtRules('rtl', (rule) => {
-                // Process RTL-specific styles
-              })
-            }
-          }
-        ]
-      }
-    }
-  },
-
   // Performance optimization
-  srcDir: 'docs',
   srcExclude: ['**/README.md'],
-  outDir: 'docs/.vitepress/dist',
-  cacheDir: 'docs/.vitepress/cache'
-})
+  cacheDir: 'docs/.vitepress/cache',
 
-function bilingualContainers(md) {
-  // Add custom parser for bilingual content blocks
-  md.block.ruler.before(
-    'fence',
-    'bilingual',
-    (state, start, end, silent) => {
-      // Custom parsing logic
-      return false
-    }
-  )
-}
+  // Ignore files that shouldn't be processed
+  transformPageData(pageData) {
+    // Add custom processing if needed
+    return pageData
+  }
+})

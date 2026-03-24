@@ -1,11 +1,11 @@
 # Salla Webhooks Documentation
-# دليل Webhooks الخاص بسالة
+# دليل Webhooks الخاص بسلة
 
 ## Overview (نظرة عامة)
 
 **English:** Salla webhooks enable real-time notifications for events occurring in your Salla store. This documentation covers all available webhook events, their payloads, and implementation examples.
 
-**العربية:** تمكنك Webhooks الخاصة بسالة من الحصول على إشعارات فورية للأحداث التي تحدث في متجرك. يغطي هذا الدليل جميع أحداث Webhook المتاحة وحمولاتها وأمثلة التنفيذ.
+**العربية:** تمكنك Webhooks الخاصة بسلة من الحصول على إشعارات فورية للأحداث التي تحدث في متجرك. يغطي هذا الدليل جميع أحداث Webhook المتاحة وحمولاتها وأمثلة التنفيذ.
 
 ## Table of Contents (فهرس المحتويات)
 
