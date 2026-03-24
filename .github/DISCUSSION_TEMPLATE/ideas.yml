@@ -1,0 +1,74 @@
+title: "[Feature Idea] "
+description: "Share your ideas for improving the webhook documentation"
+labels: ["idea", "enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Feature Idea / فكرة ميزة جديدة
+
+        Thank you for sharing your ideas to improve the Salla & Zid Webhook Reference documentation!
+        شكراً لمشاركة أفكارك لتحسين وثائق مرجع Webhooks سلة وزد!
+
+  - type: textarea
+    id: idea-description
+    attributes:
+      label: Idea Description / وصف الفكرة
+      description: Clearly describe your feature idea
+      placeholder: |
+        I would like to see...
+        أرغب في رؤية...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform / المنصة
+      description: Which platform does this relate to?
+      options:
+        - Salla / سلة
+        - Zid / زد
+        - Both / كلاهما
+        - General / عام
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category / الفئة
+      options:
+        - Documentation / التوثيق
+        - Examples / الأمثلة
+        - Tools / الأدوات
+        - Translation / الترجمة
+        - Other / أخرى
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case / حالة الاستخدام
+      description: How would this feature help you?
+      placeholder: |
+        This would help me because...
+        هذا سيساعدني لأن...
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered / البدائل المدروسة
+      description: Have you considered any alternatives?
+      placeholder: |
+        I've tried...
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct / قواعد السلوك
+      description: By submitting this idea, you agree to follow our Code of Conduct
+      options:
+        - label: I agree to follow this project's Code of Conduct / أوافق على اتباع قواعد السلوك للمشروع
+          required: true

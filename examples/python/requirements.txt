@@ -1,0 +1,41 @@
+# Salla/Zid Webhook Handler Dependencies
+# تبعيات معالج الويب هوك لـ Salla و Zid
+
+# Web Frameworks
+# أطر عمل الويب
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+flask==3.0.0
+gunicorn==21.2.0
+
+# Security & Verification
+# الأمان والتحقق
+cryptography==41.0.7
+
+# Environment Variables
+# متغيرات البيئة
+python-dotenv==1.0.0
+
+# HTTP Client (for optional retry logic)
+# عميل HTTP (لمنطق إعادة المحاولة الاختياري)
+requests==2.31.0
+httpx==0.25.1
+
+# Async Support
+# دعم التزامن
+aiohttp==3.9.1
+
+# Data Validation
+# التحقق من صحة البيانات
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# Logging & Monitoring
+# التسجيل والمراقبة
+python-json-logger==2.0.7
+
+# Testing (optional)
+# الاختبار (اختياري)
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0

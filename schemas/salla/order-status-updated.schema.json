@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/order-status-updated.schema.json",
+  "title": "Salla Order Status Updated Webhook",
+  "description": "Payload schema for order.status.updated webhook event - triggered when order status changes",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "order.status.updated"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["id", "reference", "status", "previous_status"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique order identifier"
+        },
+        "reference": {
+          "type": "string",
+          "description": "Order reference number"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["new", "preparing", "ready", "in_delivery", "delivered", "cancelled", "returned", "failed"],
+          "description": "New order status"
+        },
+        "previous_status": {
+          "type": "string",
+          "enum": ["new", "preparing", "ready", "in_delivery", "delivered", "cancelled", "returned", "failed"],
+          "description": "Previous order status"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}

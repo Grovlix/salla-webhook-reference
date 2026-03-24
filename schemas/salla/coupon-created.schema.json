@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/coupon-created.schema.json",
+  "title": "Salla Coupon Created Webhook",
+  "description": "Payload schema for coupon.created webhook event - triggered when coupon is created",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "coupon.created"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["id", "code", "discount", "created_at"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Coupon ID"
+        },
+        "code": {
+          "type": "string",
+          "description": "Coupon code"
+        },
+        "description": {
+          "type": "string",
+          "description": "Coupon description"
+        },
+        "discount": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Discount amount or percentage"
+        },
+        "discount_type": {
+          "type": "string",
+          "enum": ["fixed", "percentage"],
+          "description": "Discount type"
+        },
+        "max_uses": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Maximum number of uses"
+        },
+        "used_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of times coupon has been used"
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Coupon expiration date"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Coupon creation timestamp"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}

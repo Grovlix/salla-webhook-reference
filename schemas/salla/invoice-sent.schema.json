@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/invoice-sent.schema.json",
+  "title": "Salla Invoice Sent Webhook",
+  "description": "Payload schema for invoice.sent webhook event - triggered when invoice is sent to customer",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "invoice.sent"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["id", "order_id", "sent_at"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Invoice ID"
+        },
+        "order_id": {
+          "type": "integer",
+          "description": "Associated order ID"
+        },
+        "recipient_email": {
+          "type": "string",
+          "format": "email",
+          "description": "Email address where invoice was sent"
+        },
+        "sent_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Invoice send timestamp"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}

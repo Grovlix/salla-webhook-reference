@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3eaf7c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#34947c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#grad)" opacity="0.1"/>
+
+  <!-- Webhook Icon -->
+  <g fill="none" stroke="url(#grad)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Left Hook -->
+    <path d="M60,100 Q60,60 100,60 Q140,60 140,100 Q140,140 100,140 Q70,140 70,110"/>
+
+    <!-- Right Hook -->
+    <path d="M140,100 Q140,60 100,60 Q60,60 60,100 Q60,140 100,140 Q130,140 130,110"/>
+
+    <!-- Connection Nodes -->
+    <circle cx="60" cy="100" r="12" fill="url(#grad)" stroke="none"/>
+    <circle cx="140" cy="100" r="12" fill="url(#grad)" stroke="none"/>
+    <circle cx="100" cy="60" r="8" fill="url(#grad)" stroke="none"/>
+    <circle cx="100" cy="140" r="8" fill="url(#grad)" stroke="none"/>
+  </g>
+
+  <!-- Text: S&Z -->
+  <text x="100" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#3eaf7c">S&amp;Z</text>
+</svg>

@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/store-app-uninstalled.schema.json",
+  "title": "Salla Store App Uninstalled Webhook",
+  "description": "Payload schema for store.app.uninstalled webhook event - triggered when app is removed",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "store.app.uninstalled"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["app_id", "app_name", "uninstalled_at"],
+      "properties": {
+        "app_id": {
+          "type": "string",
+          "description": "App ID that was uninstalled"
+        },
+        "app_name": {
+          "type": "string",
+          "description": "App name"
+        },
+        "store_id": {
+          "type": "string",
+          "description": "Store ID that uninstalled the app"
+        },
+        "merchant_id": {
+          "type": "string",
+          "description": "Merchant ID"
+        },
+        "uninstalled_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Uninstallation timestamp"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}

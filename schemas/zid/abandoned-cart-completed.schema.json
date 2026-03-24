@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/zid/abandoned-cart-completed.schema.json",
+  "title": "Zid Abandoned Cart Completed Webhook",
+  "description": "Payload schema for abandoned_cart.completed webhook event - triggered when abandoned cart is completed",
+  "type": "object",
+  "required": ["event", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "abandoned_cart.completed"
+    },
+    "data": {
+      "type": "object",
+      "required": ["cart_id", "order_id"],
+      "properties": {
+        "cart_id": {
+          "type": "integer",
+          "description": "Cart ID that was completed"
+        },
+        "order_id": {
+          "type": "integer",
+          "description": "Order ID created from cart"
+        },
+        "order_reference": {
+          "type": "string"
+        },
+        "completed_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/branch-created.schema.json",
+  "title": "Salla Branch Created Webhook",
+  "description": "Payload schema for branch.created webhook event - triggered when a new branch is created",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "branch.created"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["id", "name", "created_at"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Branch ID"
+        },
+        "name": {
+          "type": "string",
+          "description": "Branch name"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Branch phone number"
+        },
+        "city": {
+          "type": "string",
+          "description": "Branch city"
+        },
+        "address": {
+          "type": "string",
+          "description": "Branch address"
+        },
+        "latitude": {
+          "type": "number",
+          "description": "Branch latitude"
+        },
+        "longitude": {
+          "type": "number",
+          "description": "Branch longitude"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Branch creation timestamp"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}

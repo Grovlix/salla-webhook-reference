@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/cart-completed.schema.json",
+  "title": "Salla Cart Completed Webhook",
+  "description": "Payload schema for cart.completed webhook event - triggered when cart is converted to order",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "cart.completed"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["cart_id", "order_id", "completed_at"],
+      "properties": {
+        "cart_id": {
+          "type": "integer",
+          "description": "Cart ID that was completed"
+        },
+        "order_id": {
+          "type": "integer",
+          "description": "Order ID that was created from the cart"
+        },
+        "order_reference": {
+          "type": "string",
+          "description": "Order reference number"
+        },
+        "completed_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Cart completion timestamp"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}

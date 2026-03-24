@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/shipment-returned.schema.json",
+  "title": "Salla Shipment Returned Webhook",
+  "description": "Payload schema for shipment.returned webhook event - triggered when shipment is returned to sender",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "shipment.returned"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["id", "order_id", "status", "returned_at"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Shipment ID"
+        },
+        "order_id": {
+          "type": "integer",
+          "description": "Associated order ID"
+        },
+        "tracking_number": {
+          "type": "string",
+          "description": "Shipment tracking number"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["returned"],
+          "description": "Shipment status (returned)"
+        },
+        "returned_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Return timestamp"
+        },
+        "reason": {
+          "type": "string",
+          "description": "Return reason"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}

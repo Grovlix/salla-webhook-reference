@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/zid/customer-merchant-update.schema.json",
+  "title": "Zid Customer Merchant Update Webhook",
+  "description": "Payload schema for customer.merchant.update webhook event - triggered when merchant updates customer data",
+  "type": "object",
+  "required": ["event", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "customer.merchant.update"
+    },
+    "data": {
+      "type": "object",
+      "required": ["id", "name"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Customer ID"
+        },
+        "name": {
+          "type": "string",
+          "description": "Customer name"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

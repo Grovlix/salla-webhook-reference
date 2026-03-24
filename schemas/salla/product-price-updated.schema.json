@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/product-price-updated.schema.json",
+  "title": "Salla Product Price Updated Webhook",
+  "description": "Payload schema for product.price.updated webhook event - triggered when product price changes",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "product.price.updated"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["id", "name", "price", "updated_at"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique product identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Product name"
+        },
+        "old_price": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Previous product price"
+        },
+        "price": {
+          "type": "number",
+          "minimum": 0,
+          "description": "New product price"
+        },
+        "old_sale_price": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Previous sale price (optional)"
+        },
+        "sale_price": {
+          "type": "number",
+          "minimum": 0,
+          "description": "New sale price (optional)"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Price update timestamp"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}

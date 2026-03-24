@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/product-visible.schema.json",
+  "title": "Salla Product Visible Webhook",
+  "description": "Payload schema for product.visible webhook event - triggered when product becomes visible",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "product.visible"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["id", "name", "status", "updated_at"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique product identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Product name"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active"],
+          "description": "Product visibility status"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Status update timestamp"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}

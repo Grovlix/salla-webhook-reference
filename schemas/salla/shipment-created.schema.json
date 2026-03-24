@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/shipment-created.schema.json",
+  "title": "Salla Shipment Created Webhook",
+  "description": "Payload schema for shipment.created webhook event - triggered when a shipment is created",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "shipment.created"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["id", "order_id", "shipping_company", "status", "created_at"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Shipment ID"
+        },
+        "order_id": {
+          "type": "integer",
+          "description": "Associated order ID"
+        },
+        "order_reference": {
+          "type": "string",
+          "description": "Order reference number"
+        },
+        "shipping_company": {
+          "type": "string",
+          "description": "Shipping company name"
+        },
+        "tracking_number": {
+          "type": "string",
+          "description": "Shipment tracking number"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["created", "in_delivery", "delivered", "failed", "cancelled", "returned"],
+          "description": "Shipment status"
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string"
+            },
+            "district": {
+              "type": "string"
+            },
+            "street": {
+              "type": "string"
+            },
+            "building": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            }
+          }
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Shipment creation timestamp"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}

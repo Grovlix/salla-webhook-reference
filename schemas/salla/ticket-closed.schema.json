@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/ticket-closed.schema.json",
+  "title": "Salla Ticket Closed Webhook",
+  "description": "Payload schema for ticket.closed webhook event - triggered when support ticket is resolved/closed",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "ticket.closed"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["id", "status", "closed_at"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Ticket ID"
+        },
+        "customer_id": {
+          "type": "integer",
+          "description": "Customer ID who created the ticket"
+        },
+        "subject": {
+          "type": "string",
+          "description": "Ticket subject"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["closed"],
+          "description": "Ticket status (closed)"
+        },
+        "resolution": {
+          "type": "string",
+          "description": "Ticket resolution notes"
+        },
+        "closed_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Ticket closure timestamp"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}

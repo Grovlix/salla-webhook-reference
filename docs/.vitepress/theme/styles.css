@@ -1,0 +1,137 @@
+/* VitePress Custom Styles for RTL Support */
+
+/* Base font configuration */
+:root {
+  --font-ltr: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  --font-rtl: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* LTR languages */
+html[lang="en-US"] body {
+  font-family: var(--font-ltr);
+}
+
+/* RTL languages */
+html[lang="ar-SA"] body {
+  font-family: var(--font-rtl);
+}
+
+/* RTL overrides */
+html[dir="rtl"] {
+  direction: rtl;
+}
+
+html[dir="rtl"] .VPDoc {
+  direction: rtl;
+}
+
+/* RTL specific adjustments */
+html[dir="rtl"] .container {
+  text-align: right;
+}
+
+html[dir="rtl"] .warning,
+html[dir="rtl"] .tip,
+html[dir="rtl"] .danger {
+  padding-left: 1rem;
+  padding-right: 2.5rem;
+  background-position: right 1rem center;
+}
+
+html[dir="rtl"] .VPNav {
+  text-align: right;
+}
+
+/* Bilingual content styling */
+.bilingual-section {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border-left: 3px solid var(--vp-c-brand);
+  border-right: 3px solid var(--vp-c-brand);
+  background: var(--vp-c-bg-soft);
+}
+
+html[dir="rtl"] .bilingual-section {
+  border-left-width: 0;
+  border-right-width: 3px;
+}
+
+.language-divider {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0;
+  color: var(--vp-c-text-2);
+}
+
+.language-divider::before,
+.language-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--vp-c-divider);
+}
+
+.language-divider span {
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Code block direction */
+html[dir="rtl"] div[class*="language-"] {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Table alignment */
+html[dir="rtl"] table {
+  text-align: right;
+}
+
+/* Sidebar RTL adjustments */
+html[dir="rtl"] .VPSidebar {
+  text-align: right;
+}
+
+html[dir="rtl"] .VPSidebar .item {
+  padding-left: 0;
+  padding-right: 1rem;
+}
+
+/* Mobile navigation RTL */
+html[dir="rtl"] .VPNav .menu {
+  text-align: right;
+}
+
+/* Search RTL */
+html[dir="rtl"] .DocSearch-Input {
+  text-align: right;
+}
+
+/* Custom scrollbar for better UX */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--vp-c-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--vp-c-brand);
+  border-radius: 4px;
+}
+
+/* Print styles */
+@media print {
+  .language-divider {
+    page-break-after: avoid;
+  }
+
+  .bilingual-section {
+    page-break-inside: avoid;
+  }
+}

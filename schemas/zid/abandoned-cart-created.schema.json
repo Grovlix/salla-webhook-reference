@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/zid/abandoned-cart-created.schema.json",
+  "title": "Zid Abandoned Cart Created Webhook",
+  "description": "Payload schema for abandoned_cart.created webhook event - triggered when cart is abandoned",
+  "type": "object",
+  "required": ["event", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "abandoned_cart.created"
+    },
+    "data": {
+      "type": "object",
+      "required": ["id", "items"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Cart ID"
+        },
+        "customer": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string",
+              "format": "email"
+            },
+            "phone": {
+              "type": "string"
+            }
+          }
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "product_id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "integer"
+              },
+              "price": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "total": {
+          "type": "number"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

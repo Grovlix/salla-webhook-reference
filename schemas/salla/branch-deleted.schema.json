@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/branch-deleted.schema.json",
+  "title": "Salla Branch Deleted Webhook",
+  "description": "Payload schema for branch.deleted webhook event - triggered when a branch is removed",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "branch.deleted"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["id", "name", "deleted_at"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Branch ID that was deleted"
+        },
+        "name": {
+          "type": "string",
+          "description": "Branch name (for reference)"
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Deletion timestamp"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}

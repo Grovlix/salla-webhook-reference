@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/ticket-created.schema.json",
+  "title": "Salla Ticket Created Webhook",
+  "description": "Payload schema for ticket.created webhook event - triggered when support ticket is created",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "ticket.created"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["id", "customer_id", "subject", "status", "created_at"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Ticket ID"
+        },
+        "customer_id": {
+          "type": "integer",
+          "description": "Customer ID who created the ticket"
+        },
+        "customer_name": {
+          "type": "string",
+          "description": "Customer name"
+        },
+        "subject": {
+          "type": "string",
+          "description": "Ticket subject"
+        },
+        "description": {
+          "type": "string",
+          "description": "Ticket description/content"
+        },
+        "priority": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "urgent"],
+          "description": "Ticket priority"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["open", "in_progress", "waiting", "closed"],
+          "description": "Ticket status"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Ticket creation timestamp"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}

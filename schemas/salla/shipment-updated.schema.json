@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/shipment-updated.schema.json",
+  "title": "Salla Shipment Updated Webhook",
+  "description": "Payload schema for shipment.updated webhook event - triggered when shipment details change",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "shipment.updated"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["id", "order_id", "status", "updated_at"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Shipment ID"
+        },
+        "order_id": {
+          "type": "integer",
+          "description": "Associated order ID"
+        },
+        "shipping_company": {
+          "type": "string",
+          "description": "Shipping company name"
+        },
+        "tracking_number": {
+          "type": "string",
+          "description": "Updated tracking number"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["created", "in_delivery", "delivered", "failed", "cancelled", "returned"],
+          "description": "Shipment status"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Shipment update timestamp"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}

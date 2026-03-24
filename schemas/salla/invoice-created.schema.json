@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/invoice-created.schema.json",
+  "title": "Salla Invoice Created Webhook",
+  "description": "Payload schema for invoice.created webhook event - triggered when an invoice is generated",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "invoice.created"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["id", "order_id", "amount", "currency", "status", "created_at"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Invoice ID"
+        },
+        "order_id": {
+          "type": "integer",
+          "description": "Associated order ID"
+        },
+        "order_reference": {
+          "type": "string",
+          "description": "Order reference number"
+        },
+        "amount": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Invoice amount"
+        },
+        "currency": {
+          "type": "string",
+          "description": "Currency code (e.g., SAR)"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "paid", "cancelled"],
+          "description": "Invoice status"
+        },
+        "due_date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Invoice due date"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Invoice creation timestamp"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}

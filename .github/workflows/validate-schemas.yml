@@ -1,0 +1,83 @@
+name: Validate Schemas
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'schemas/**'
+      - 'examples/**'
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - 'schemas/**'
+      - 'examples/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm install -g ajv-cli
+          npm install -g json-schema-validator
+
+      - name: Validate all JSON schemas
+        run: |
+          echo "Validating JSON schemas..."
+          for schema in schemas/**/*.json; do
+            if [ -f "$schema" ]; then
+              echo "Checking $schema..."
+              ajv validate -s "$schema" -d "{}" --strict=false || exit 1
+            fi
+          done
+
+      - name: Validate example payloads against schemas
+        run: |
+          echo "Validating example payloads..."
+          # Find all example files and validate against corresponding schema
+          for example in examples/**/*.json; do
+            if [ -f "$example" ]; then
+              # Determine corresponding schema path
+              schema=$(echo "$example" | sed 's|examples/|schemas/|')
+              if [ -f "$schema" ]; then
+                echo "Validating $example against $schema..."
+                ajv validate -s "$schema" -d "$example" --strict=false || exit 1
+              else
+                echo "Warning: No schema found for $example"
+              fi
+            fi
+          done
+
+      - name: Check schema validity
+        run: |
+          echo "Checking schema syntax and structure..."
+          for schema in schemas/**/*.json; do
+            if [ -f "$schema" ]; then
+              echo "Syntax checking $schema..."
+              # Check if valid JSON
+              jq empty "$schema" || exit 1
+              # Check if valid JSON Schema
+              ajv compile -s "$schema" --strict=false || exit 1
+            fi
+          done
+
+      - name: Comment PR with results (if on PR)
+        if: failure() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '## Schema Validation Failed\n\nSome JSON schemas or example payloads failed validation. Please review the logs and fix the issues.'
+            })

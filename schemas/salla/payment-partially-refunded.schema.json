@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/payment-partially-refunded.schema.json",
+  "title": "Salla Payment Partially Refunded Webhook",
+  "description": "Payload schema for payment.partially_refunded webhook event - triggered when partial refund is issued",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "payment.partially_refunded"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["id", "order_id", "amount", "currency", "status", "refunded_at"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Payment ID"
+        },
+        "order_id": {
+          "type": "integer",
+          "description": "Associated order ID"
+        },
+        "original_amount": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Original payment amount"
+        },
+        "amount": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Partial refund amount"
+        },
+        "currency": {
+          "type": "string",
+          "description": "Currency code (e.g., SAR)"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["partially_refunded"],
+          "description": "Payment status (partially_refunded)"
+        },
+        "refund_id": {
+          "type": "string",
+          "description": "Refund transaction ID"
+        },
+        "reason": {
+          "type": "string",
+          "description": "Refund reason"
+        },
+        "refunded_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Partial refund timestamp"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}

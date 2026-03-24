@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/order-returned.schema.json",
+  "title": "Salla Order Returned Webhook",
+  "description": "Payload schema for order.returned webhook event - triggered when an order is returned",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "order.returned"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["id", "reference", "status", "returned_at"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique order identifier"
+        },
+        "reference": {
+          "type": "string",
+          "description": "Order reference number"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["returned"],
+          "description": "Order status (returned)"
+        },
+        "returned_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Return timestamp"
+        },
+        "reason": {
+          "type": "string",
+          "description": "Return reason (optional)"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}

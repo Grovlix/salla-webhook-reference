@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/cart-reminder-sent.schema.json",
+  "title": "Salla Cart Reminder Sent Webhook",
+  "description": "Payload schema for cart.reminder.sent webhook event - triggered when abandoned cart reminder is sent",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "cart.reminder.sent"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["cart_id", "customer_id", "sent_at"],
+      "properties": {
+        "cart_id": {
+          "type": "integer",
+          "description": "Cart ID that reminder was sent for"
+        },
+        "customer_id": {
+          "type": "integer",
+          "description": "Customer ID"
+        },
+        "customer_email": {
+          "type": "string",
+          "format": "email",
+          "description": "Customer email where reminder was sent"
+        },
+        "sent_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Reminder send timestamp"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}

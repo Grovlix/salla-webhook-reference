@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/zid/order-payment-status-update.schema.json",
+  "title": "Zid Order Payment Status Update Webhook",
+  "description": "Payload schema for order.payment_status.update webhook event - triggered when payment status changes",
+  "type": "object",
+  "required": ["event", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "order.payment_status.update"
+    },
+    "data": {
+      "type": "object",
+      "required": ["id", "payment_status"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Order ID"
+        },
+        "reference": {
+          "type": "string",
+          "description": "Order reference number"
+        },
+        "payment_status": {
+          "type": "string",
+          "enum": ["paid", "unpaid", "pending", "refunded", "voided"],
+          "description": "New payment status"
+        },
+        "previous_payment_status": {
+          "type": "string",
+          "enum": ["paid", "unpaid", "pending", "refunded", "voided"],
+          "description": "Previous payment status"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

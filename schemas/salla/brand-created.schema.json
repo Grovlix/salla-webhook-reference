@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/brand-created.schema.json",
+  "title": "Salla Brand Created Webhook",
+  "description": "Payload schema for brand.created webhook event - triggered when new brand is created",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "brand.created"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["id", "name", "created_at"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Brand ID"
+        },
+        "name": {
+          "type": "string",
+          "description": "Brand name"
+        },
+        "description": {
+          "type": "string",
+          "description": "Brand description"
+        },
+        "slug": {
+          "type": "string",
+          "description": "URL-friendly brand identifier"
+        },
+        "logo": {
+          "type": "string",
+          "format": "uri",
+          "description": "Brand logo URL"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Brand creation timestamp"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}

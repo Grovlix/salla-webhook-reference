@@ -1,0 +1,65 @@
+{
+  "name": "salla-zid-webhook-reference",
+  "version": "1.0.0",
+  "description": "Comprehensive webhook documentation for Salla and Zid e-commerce platforms | دليل شامل لـ Webhooks منصتي سلة وزد",
+  "keywords": [
+    "salla",
+    "zid",
+    "webhook",
+    "webhooks",
+    "e-commerce",
+    "saudi-arabia",
+    "mena",
+    "api",
+    "integration",
+    "سلة",
+    "زد",
+    "أحداث",
+    "تجارة إلكترونية"
+  ],
+  "author": {
+    "name": "Grovlix",
+    "url": "https://grovlix.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grovlix/salla-webhook-reference.git"
+  },
+  "bugs": {
+    "url": "https://github.com/grovlix/salla-webhook-reference/issues"
+  },
+  "homepage": "https://grovlix.github.io/salla-webhook-reference/",
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "docs:serve": "vitepress serve docs",
+    "sitemap:generate": "node scripts/generate-sitemap.js",
+    "seo:audit": "npm run sitemap:generate && node scripts/seo-audit.js",
+    "lint": "markdownlint '**/*.md' '.github/**/*.md'",
+    "lint:fix": "markdownlint '**/*.md' '.github/**/*.md' --fix",
+    "check:links": "markdown-link-check *.md '**/*.md'",
+    "prepare": "husky install || true"
+  },
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.4.0",
+    "markdown-link-check": "^3.12.0",
+    "markdownlint-cli": "^0.38.0",
+    "sitemap": "^7.1.1",
+    "vitepress": "^1.0.0",
+    "vue": "^3.4.0"
+  },
+  "dependencies": {
+    "vue-gtag": "^2.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/grovlix"
+  }
+}

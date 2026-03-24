@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/cart-updated.schema.json",
+  "title": "Salla Cart Updated Webhook",
+  "description": "Payload schema for cart.updated webhook event - triggered when cart is modified",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "cart.updated"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["id", "items", "total", "updated_at"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Cart ID"
+        },
+        "customer_id": {
+          "type": "integer",
+          "description": "Customer ID (if logged in)"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["product_id", "name", "quantity", "price"],
+            "properties": {
+              "product_id": {
+                "type": "integer",
+                "description": "Product ID"
+              },
+              "name": {
+                "type": "string",
+                "description": "Product name"
+              },
+              "quantity": {
+                "type": "integer",
+                "minimum": 1,
+                "description": "Item quantity"
+              },
+              "price": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Price per unit"
+              }
+            }
+          }
+        },
+        "total": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Cart total amount"
+        },
+        "currency": {
+          "type": "string",
+          "description": "Currency code (e.g., SAR)"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Cart update timestamp"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}

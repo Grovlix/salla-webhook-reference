@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/product-updated.schema.json",
+  "title": "Salla Product Updated Webhook",
+  "description": "Payload schema for product.updated webhook event - triggered when product details are updated",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "product.updated"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["id", "name", "price", "quantity", "status", "updated_at"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique product identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Product name"
+        },
+        "description": {
+          "type": "string",
+          "description": "Product description"
+        },
+        "price": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Product regular price"
+        },
+        "sale_price": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Product sale price (optional)"
+        },
+        "quantity": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Stock quantity"
+        },
+        "sku": {
+          "type": "string",
+          "description": "Product SKU"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active", "hidden", "out_of_stock"],
+          "description": "Product status"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "description": "Product category IDs"
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "description": "Product images"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Product update timestamp"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}

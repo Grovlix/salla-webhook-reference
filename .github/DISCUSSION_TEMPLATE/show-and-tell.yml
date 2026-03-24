@@ -1,0 +1,95 @@
+title: "[Show & Tell] "
+description: "Share your integrations and projects using Salla or Zid webhooks"
+labels: ["show-and-tell"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Show & Tell / اعرض وأخبر
+
+        Built something cool with Salla or Zid webhooks? Share it with the community!
+        هل بنيت شيئاً رائعاً باستخدام Webhooks سلة أو زد؟ شاركه مع المجتمع!
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Project Description / وصف المشروع
+      description: Tell us about your integration or project
+      placeholder: |
+        I built a...
+        بنيت...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform / المنصة
+      description: Which platform(s) does your integration use?
+      options:
+        - Salla / سلة
+        - Zid / زد
+        - Both / كلاهما
+    validations:
+      required: true
+
+  - type: input
+    id: repo-link
+    attributes:
+      label: Repository Link / رابط المستودع
+      description: Link to your GitHub repository (if public)
+      placeholder: https://github.com/username/repo
+
+  - type: input
+    id: demo-link
+    attributes:
+      label: Demo Link / رابط العرض التوضيحي
+      placeholder: https://your-demo.com
+
+  - type: textarea
+    id: features
+    attributes:
+      label: Key Features / الميزات الرئيسية
+      placeholder: |
+        - Feature 1
+        - Feature 2
+
+  - type: textarea
+    id: tech-stack
+    attributes:
+      label: Tech Stack / التقنيات المستخدمة
+      placeholder: |
+        - Node.js
+        - Express
+        - MongoDB
+
+  - type: textarea
+    id: code-snippet
+    attributes:
+      label: Code Snippet / مقتطف الكود
+      description: Share a relevant code snippet
+      render: language
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshots / لقطات الشاشة
+      description: Paste image URLs or describe what you've built
+      placeholder: |
+        ![Screenshot](url)
+
+  - type: textarea
+    id: lessons
+    attributes:
+      label: Lessons Learned / الدروس المستفادة
+      description: Share any tips or challenges you faced
+      placeholder: |
+        The main challenge was...
+
+  - type: checkboxes
+    id: open-source
+    attributes:
+      label: Open Source / مفتوح المصدر
+      options:
+        - label: This project is open source / هذا المشروع مفتوح المصدر
+        - label: I welcome contributions / أرحب بالمساهمات

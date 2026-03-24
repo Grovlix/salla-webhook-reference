@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/review-created.schema.json",
+  "title": "Salla Review Created Webhook",
+  "description": "Payload schema for review.created webhook event - triggered when new review is submitted",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "review.created"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["id", "product_id", "customer_id", "rating", "created_at"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Review ID"
+        },
+        "product_id": {
+          "type": "integer",
+          "description": "Product ID being reviewed"
+        },
+        "product_name": {
+          "type": "string",
+          "description": "Product name"
+        },
+        "customer_id": {
+          "type": "integer",
+          "description": "Customer ID who submitted the review"
+        },
+        "customer_name": {
+          "type": "string",
+          "description": "Customer name"
+        },
+        "rating": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5,
+          "description": "Star rating (1-5)"
+        },
+        "comment": {
+          "type": "string",
+          "description": "Review comment/text"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "approved", "rejected"],
+          "description": "Review moderation status"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Review submission timestamp"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}

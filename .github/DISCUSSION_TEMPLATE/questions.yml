@@ -1,0 +1,80 @@
+title: "[Question] "
+description: "Ask questions about Salla or Zid webhooks"
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Ask a Question / اطرح سؤالاً
+
+        Have a question about Salla or Zid webhooks? This is the place to ask!
+        هل لديك سؤال حول Webhooks سلة أو زد؟ هذا هو المكان المناسب!
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question / سؤالك
+      description: Be specific and clear about what you're asking
+      placeholder: |
+        How do I implement...?
+        كيف يمكنني تنفيذ...؟
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform / المنصة
+      description: Which platform is your question about?
+      options:
+        - Salla / سلة
+        - Zid / زد
+        - Both / كلاهما
+    validations:
+      required: true
+
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Topic / الموضوع
+      options:
+        - Setup & Configuration / الإعداد والتكوين
+        - Authentication & Security / المصادقة والأمان
+        - Specific Event / حدث معين
+        - Integration / التكامل
+        - Troubleshooting / استكشاف الأخطاء
+        - Other / أخرى
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context / السياق
+      description: Provide any relevant context about your situation
+      placeholder: |
+        I'm trying to...
+        أحاول...
+
+  - type: textarea
+    id: code-snippet
+    attributes:
+      label: Code Snippet (if applicable) / مقتطف الكود (إذا كان ينطبق)
+      description: Share any relevant code
+      render: language
+
+  - type: textarea
+    id: attempted
+    attributes:
+      label: What have you tried? / ما الذي جربته؟
+      description: Let us know what you've already tried
+      placeholder: |
+        I've already tried...
+
+  - type: checkboxes
+    id: checked
+    attributes:
+      label: Before asking / قبل السؤال
+      options:
+        - label: I've searched the documentation / بحثت في التوثيق
+        - label: I've checked existing discussions / تحققت من النقاشات الموجودة

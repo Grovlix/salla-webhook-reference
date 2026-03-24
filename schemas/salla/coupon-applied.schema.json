@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Grovlix/salla-webhook-reference/schemas/salla/coupon-applied.schema.json",
+  "title": "Salla Coupon Applied Webhook",
+  "description": "Payload schema for coupon.applied webhook event - triggered when coupon is used",
+  "type": "object",
+  "required": ["event", "store_id", "data"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "const": "coupon.applied"
+    },
+    "store_id": {
+      "type": "string",
+      "description": "The store ID that triggered the event"
+    },
+    "data": {
+      "type": "object",
+      "required": ["code", "order_id", "discount", "applied_at"],
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Coupon code that was applied"
+        },
+        "coupon_id": {
+          "type": "integer",
+          "description": "Coupon ID"
+        },
+        "order_id": {
+          "type": "integer",
+          "description": "Order ID where coupon was applied"
+        },
+        "discount": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Discount amount"
+        },
+        "discount_type": {
+          "type": "string",
+          "enum": ["fixed", "percentage"],
+          "description": "Discount type"
+        },
+        "customer_id": {
+          "type": "integer",
+          "description": "Customer ID who applied the coupon"
+        },
+        "applied_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Coupon application timestamp"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Webhook event creation timestamp"
+    }
+  }
+}
