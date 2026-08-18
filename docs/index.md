@@ -41,11 +41,6 @@ features:
 
 ---
 
-<div align="center" style="margin: 2rem 0;">
-  <img src="/assets/salla-logo.svg" alt="Salla Logo" width="200" style="margin: 0 2rem;">
-  <img src="/assets/zid-logo.svg" alt="Zid Logo" width="200" style="margin: 0 2rem;">
-</div>
-
 ## Quick Start (بدء سريع)
 
 ### Salla Webhook Example
@@ -116,7 +111,7 @@ function verifyZidWebhook(payload, signature, secret) {
 
 ## Contributing (المساهمة)
 
-We welcome contributions! Please see our [Contributing Guide](https://github.com/grovlix/salla-webhook-reference/blob/main/CONTRIBUTING.md) for details.
+We welcome contributions! Please see our [Contributing Guide](https://github.com/grovlix/salla-webhook-reference/blob/master/CONTRIBUTING.md) for details.
 
 ## License
 

@@ -125,6 +125,43 @@ html[dir="rtl"] .DocSearch-Input {
   border-radius: 4px;
 }
 
+/* Platform logos display on home page */
+.platform-logos-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.platform-logo {
+  max-width: 180px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  transition: transform 0.3s ease;
+}
+
+.platform-logo:hover {
+  transform: scale(1.05);
+}
+
+.platform-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  gap: 2rem;
+}
+
+.platform-logos img {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+}
+
 /* Print styles */
 @media print {
   .language-divider {
