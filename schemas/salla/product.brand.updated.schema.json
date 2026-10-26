@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "product.brand.updated",
+  "description": "Triggered when a product's brand is updated. Generated from https://docs.salla.dev/webhook-events/products (fetched 2026-10-26).",
+  "type": "object",
+  "properties": {
+    "event": {
+      "type": "string",
+      "description": "Event Name",
+      "enum": [
+        "product.brand.updated"
+      ]
+    },
+    "merchant": {
+      "type": "number",
+      "description": "Unique identifier associated with the Merchant who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/9466620e0)"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Timestamp of the created Event"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique identifier associated with a product. Get a list of products IDs [here](https://docs.salla.dev/5394168e0)"
+        },
+        "barcode": {
+          "type": "string",
+          "description": "Product barcode"
+        },
+        "sku": {
+          "type": "string",
+          "description": "Stock Keeping Unit (SKU)"
+        },
+        "mpn": {
+          "type": "string",
+          "description": "Manufacturer Part Number"
+        },
+        "gtin": {
+          "type": "string",
+          "description": "Global Trade Item Number"
+        },
+        "brand": {
+          "type": "object",
+          "description": "Brand associated with the product",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "Unique identifier associated with the brand, get a list of brands IDs [here](https://docs.salla.dev/5394213e0)"
+            }
+          }
+        }
+      }
+    }
+  }
+}

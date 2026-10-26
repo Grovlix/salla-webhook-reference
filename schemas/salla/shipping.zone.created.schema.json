@@ -1,0 +1,264 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "shipping.zone.created",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "event": {
+      "type": "string",
+      "description": "Event Name",
+      "enum": [
+        "shipping.zone.created",
+        "shipping.zone.updated"
+      ]
+    },
+    "merchant": {
+      "type": "number",
+      "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Timestamp of webhook creation"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "Shipping Zone ID"
+        },
+        "zone_code": {
+          "type": "string",
+          "description": "Shipping Zone Code"
+        },
+        "company": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "Shipping Company ID"
+            },
+            "slug": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Shipping Company Slug"
+            }
+          }
+        },
+        "country": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "Country ID"
+            },
+            "name_en": {
+              "type": "string",
+              "description": "Country Name in English"
+            },
+            "code": {
+              "type": "string",
+              "description": "Country Code"
+            },
+            "mobile_code": {
+              "type": "string",
+              "description": "Country Mobile Code"
+            }
+          }
+        },
+        "city": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "City ID"
+            },
+            "name_en": {
+              "type": "string",
+              "description": "City Name in English"
+            }
+          }
+        },
+        "cities_excluded": {
+          "type": "array",
+          "description": "Cities Excluded from Shipping",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number",
+                "description": "Excluded City ID",
+                "examples": [
+                  374975390
+                ]
+              },
+              "name_en": {
+                "type": "string",
+                "description": "Excluded City Name in English",
+                "examples": [
+                  "AJMAN CITY"
+                ]
+              }
+            }
+          }
+        },
+        "fees": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "string",
+              "description": "Fees Amount"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Fees Currency"
+            },
+            "type": {
+              "type": "string",
+              "description": "Fees Type",
+              "enum": [
+                "fixed",
+                "rate",
+                "distance"
+              ]
+            },
+            "weight_unit": {
+              "type": "string",
+              "description": "Weight Unit"
+            },
+            "up_to_weight": {
+              "type": "string",
+              "description": "Weight Limit Allowed"
+            },
+            "amount_per_unit": {
+              "type": "string",
+              "description": "Amount Per Unit"
+            },
+            "per_unit": {
+              "type": "string",
+              "description": "Per Unit Value"
+            }
+          }
+        },
+        "cash_on_delivery": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "boolean",
+              "description": "COD Status (Cash On Delivery)"
+            },
+            "fees": {
+              "type": "string",
+              "description": "COD Fees (Cash On Delivery)"
+            }
+          }
+        },
+        "duration": {
+          "type": "string",
+          "description": "Shipping Duration in Days"
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "event": "shipping.zone.created",
+      "merchant": 1305146709,
+      "created_at": "Thu Apr 14 2022 11:21:47 GMT+0300",
+      "data": {
+        "id": 870442223,
+        "zone_code": ".AE.ajman-city",
+        "company": {
+          "id": 488260393,
+          "slug": null
+        },
+        "country": {
+          "id": 566146469,
+          "name": "الامارات",
+          "name_en": "United Arab Emirates",
+          "code": "AE",
+          "mobile_code": "+971"
+        },
+        "city": {
+          "id": 374975390,
+          "name": "مدينة عجمان",
+          "name_en": "AJMAN CITY"
+        },
+        "cities_excluded": [
+          {
+            "id": 257742554,
+            "name": "أبو حليفة",
+            "name_en": "ABU HALIFA"
+          },
+          {
+            "id": 81998629,
+            "name": "الأحمدي",
+            "name_en": "AHMADI"
+          }
+        ],
+        "fees": {
+          "amount": "30",
+          "currency": "SAR",
+          "type": "rate",
+          "weight_unit": "kg",
+          "up_to_weight": "15",
+          "amount_per_unit": "2",
+          "per_unit": "1"
+        },
+        "cash_on_delivery": {
+          "status": true,
+          "fees": "12"
+        },
+        "duration": "3-5"
+      }
+    },
+    {
+      "id": 870442223,
+      "zone_code": ".AE.ajman-city",
+      "company": {
+        "id": 488260393,
+        "slug": null
+      },
+      "country": {
+        "id": 566146469,
+        "name": "الامارات",
+        "name_en": "United Arab Emirates",
+        "code": "AE",
+        "mobile_code": "+971"
+      },
+      "city": {
+        "id": 374975390,
+        "name": "مدينة عجمان",
+        "name_en": "AJMAN CITY"
+      },
+      "cities_excluded": [
+        {
+          "id": 257742554,
+          "name": "أبو حليفة",
+          "name_en": "ABU HALIFA"
+        },
+        {
+          "id": 81998629,
+          "name": "الأحمدي",
+          "name_en": "AHMADI"
+        }
+      ],
+      "fees": {
+        "amount": "30",
+        "currency": "SAR",
+        "type": "rate",
+        "weight_unit": "kg",
+        "up_to_weight": "15",
+        "amount_per_unit": "2",
+        "per_unit": "1"
+      },
+      "cash_on_delivery": {
+        "status": true,
+        "fees": "12"
+      },
+      "duration": "3-5"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Generated files are up to date
+        run: |
+          npm run build
+          if [ -n "$(git status --porcelain -- docs schemas)" ]; then
+            git status --short -- docs schemas
+            echo "Run 'npm run build' and commit the result."
+            exit 1
+          fi
+      - run: npm run validate
+      - run: npm run lint
+      - name: Build site (fails on dead links)
+        run: npx vitepress build docs

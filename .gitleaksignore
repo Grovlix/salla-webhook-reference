@@ -1,0 +1,5 @@
+# Placeholder tokens copied from Salla's public app.store.authorize example (they end in xxxx).
+docs/salla/app/app.store.authorize.md:generic-api-key:26
+docs/salla/app/app.store.authorize.md:generic-api-key:28
+sources/salla/app.json:generic-api-key:15
+sources/salla/app.json:generic-api-key:17

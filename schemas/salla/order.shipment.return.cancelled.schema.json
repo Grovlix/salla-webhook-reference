@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "order.shipment.return.cancelled",
+  "description": "Triggered when an order return shipment is cancelled. Generated from https://docs.salla.dev/webhook-events/orders (fetched 2026-10-26).",
+  "type": "object",
+  "properties": {
+    "event": {
+      "type": "string",
+      "description": "Event Name",
+      "enum": [
+        "order.shipment.cancelled",
+        "order.shipment.return.cancelled"
+      ]
+    },
+    "merchant": {
+      "type": "number",
+      "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Timestamp of webhook creation"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "Order ID"
+        },
+        "reference_id": {
+          "type": "number",
+          "description": "Order refrence ID, that appears to customers in the store."
+        },
+        "shipping_number": {
+          "type": "string",
+          "description": "Shipping Number"
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "event": "order.shipment.cancelled",
+      "merchant": 1305146709,
+      "created_at": "Sun Jun 26 2022 14:41:11 GMT+0300",
+      "data": {
+        "id": 1427738113,
+        "reference_id": 41030566,
+        "shipping_number": "846984645"
+      }
+    }
+  ]
+}

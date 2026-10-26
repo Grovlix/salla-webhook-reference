@@ -1,145 +1,64 @@
 # Salla & Zid Webhook Reference
 
-<!-- English -->
-A comprehensive reference guide for Salla and Zid webhook events, payloads, and integration patterns.
+Every [Salla](https://salla.dev) and [Zid](https://docs.zid.sa) webhook event on one site: the official example
+payload, the field list from the platform's own schema, and a JSON Schema per event.
 
-<!-- Arabic -->
-دليل شامل لأحداث الـ Webhook الخاصة بمنصتي سلة وزد، يتضمن الـ payloads ونماذج التكامل.
+<p dir="rtl" lang="ar">
+مرجع لجميع أحداث الويب هوك في سلة وزد: مثال البيانات الرسمي، وقائمة الحقول من مخطط المنصة نفسها،
+وملف JSON Schema لكل حدث.
+</p>
 
----
+**Site:** <https://grovlix.github.io/salla-webhook-reference/>
 
-## English
+- **109 events:** 81 Salla (68 store events, 13 app and subscription events) and 28 Zid (16 store, 12 app).
+- **Generated, not hand-written.** Payloads and fields come from Salla's and Zid's published documentation, fetched
+  into [`sources/`](sources/). Each page links back to the official page it came from.
+- **JSON Schemas** in [`schemas/`](schemas/), also served from the site at `/schemas/<platform>/<event>.schema.json`.
+- **Guides:** [getting started](docs/guides/getting-started.md),
+  [verifying requests](docs/guides/webhook-security.md),
+  [retries and troubleshooting](docs/guides/troubleshooting.md),
+  [Salla vs Zid](docs/comparison/salla-vs-zid-webhooks.md).
+- **Examples:** small receivers that verify requests correctly, in [Node.js](examples/node/server.mjs),
+  [PHP](examples/php/webhook.php) and [Python](examples/python/app.py).
 
-## About This Project
+## Validate a payload
 
-This repository serves as a complete reference for developers integrating with [Salla](https://www.salla.sa) and [Zid](https://zid.sa) e-commerce platforms through their webhook systems. It includes:
-
-- **Complete webhook event documentation** for both platforms
-- **JSON schemas** for validating webhook payloads
-- **Code examples** in multiple programming languages
-- **Integration guides** and best practices
-- **Security guidelines** for webhook verification
-
-## Quick Start
-
-1. **Explore the Documentation**
-   - Visit [docs.zid.sa](https://docs.zid.sa) or [docs.salla.sa](https://docs.salla.sa) for official API documentation
-   - Browse the `/docs` folder in this repository for detailed event references
-
-2. **Use the Schemas**
-   ```bash
-   # Validate a webhook payload against a schema
-   npx ajv validate -s schemas/salla/order.created.json -d payload.json
-   ```
-
-3. **Implement Webhook Verification**
-   ```javascript
-   import { verifySallaSignature } from './examples/verify-signature.js';
-
-   const isValid = verifySallaSignature(
-     request.headers['x-salla-signature'],
-     request.body,
-     process.env.SALLA_WEBHOOK_SECRET
-   );
-   ```
-
-## Repository Structure
-
+```bash
+npx ajv-cli validate --spec=draft7 --strict=false -s schemas/salla/order.created.schema.json -d payload.json
 ```
-.
-├── docs/              # Detailed webhook documentation
-│   ├── salla/         # Salla platform events
-│   ├── zid/           # Zid platform events
-│   └── guides/        # Integration guides
-├── schemas/           # JSON schemas for validation
-├── examples/          # Code examples
-└── guides/            # Quick reference guides
+
+The schemas keep the platforms' field types but drop `required`, because the official examples often leave out
+fields the official schemas mark as required. Some official examples also disagree with their own schema on a type
+(`npm run validate` lists them). When a real delivery disagrees with a schema, trust the delivery and
+[open an issue](https://github.com/Grovlix/salla-webhook-reference/issues/new?labels=accuracy).
+
+## How it's built
+
+```text
+sources/   Official schemas and examples, fetched from docs.salla.dev and docs.zid.sa
+data/      The event list: names, groups, English and Arabic descriptions, notes
+scripts/   fetch-sources.mjs (refresh sources/), build.mjs (generate), validate.mjs
+docs/      VitePress site; docs/salla and docs/zid are generated
+schemas/   Generated JSON Schemas
 ```
+
+```bash
+npm install
+npm run docs:dev        # generate and serve locally
+npm run sources:fetch   # refresh sources/ from the official docs (needs Chrome)
+npm run build           # regenerate docs/salla, docs/zid and schemas/
+npm run validate        # compile every schema, check official examples against them
+```
+
+Don't edit `docs/salla`, `docs/zid` or `schemas/` by hand; change `data/` or refresh `sources/` and run
+`npm run build`. CI fails if the generated files are out of date.
 
 ## Contributing
 
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-## Resources
-
-- [Official Salla Docs](https://docs.salla.sa)
-- [Official Zid Docs](https://docs.zid.sa)
-- [Grovlix.com](https://grovlix.com) - Integration services and consulting
+Corrections from real deliveries are the most useful contribution. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-This project is licensed under the MIT License - see [LICENSE](LICENSE) for details.
-
----
-
-## العربية
-
-## حول هذا المشروع
-
-يخدم هذا المستودع كمرجع شامل للمطورين الذين يدمجون مع منصتي [سلة](https://www.salla.sa) و[زد](https://zid.sa) للتجارة الإلكترونية من خلال أنظمة الـ Webhook الخاصة بهم. يتضمن:
-
-- **توثيق شامل لأحداث الـ Webhook** لكلا المنصتين
-- **مخططات JSON** للتحقق من صحة الـ payloads
-- **أمثلة برمجية** بلغات متعددة
-- **أدلة التكامل** وأفضل الممارسات
-- **إرشادات الأمان** للتحقق من الـ webhooks
-
-## البدء السريع
-
-1. **استكشف التوثيق**
-   - قم بزيارة [docs.zid.sa](https://docs.zid.sa) أو [docs.salla.sa](https://docs.salla.sa) للتوثيق الرسمي
-   - تصفح المجلد `/docs` في هذا المستودع للمراجع التفصيلية للأحداث
-
-2. **استخدم المخططات**
-   ```bash
-   # تحقق من صحة webhook payload باستخدام المخطط
-   npx ajv validate -s schemas/salla/order.created.json -d payload.json
-   ```
-
-3. **طبق التحقق من الـ Webhook**
-   ```javascript
-   import { verifySallaSignature } from './examples/verify-signature.js';
-
-   const isValid = verifySallaSignature(
-     request.headers['x-salla-signature'],
-     request.body,
-     process.env.SALLA_WEBHOOK_SECRET
-   );
-   ```
-
-## هيكل المستودع
-
-```
-.
-├── docs/              # توثيق webhook المفصل
-│   ├── salla/         # أحداث منصة سلة
-│   ├── zid/           # أحداث منصة زد
-│   └── guides/        # أدلة التكامل
-├── schemas/           # مخططات JSON للتحقق من الصحة
-├── examples/          # أمثلة برمجية
-└── guides/            # أدلة مرجعية سريعة
-```
-
-## المساهمة
-
-نرحب بمساهماتكم! يرجى مراجعة [CONTRIBUTING.md](CONTRIBUTING.md) للإرشادات.
-
-## موارد
-
-- [توثيق سلة الرسمي](https://docs.salla.sa)
-- [توثيق زد الرسمي](https://docs.zid.sa)
-- [Grovlix.com](https://grovlix.com) - خدمات التكامل والاستشارات
-
-## الترخيص
-
-هذا المشروع مرخص تحت ترخيص MIT - راجع [LICENSE](LICENSE) للتفاصيل.
-
----
-
-<div align="center">
-
-**Powered by [Grovlix.com](https://grovlix.com)**
-
-Made with ❤️ for the Saudi developer community
-
-</div>
+Code and text: [MIT](LICENSE). Payload examples and schemas are derived from Salla's and Zid's public
+documentation and belong to their owners. This project is maintained by [Grovlix](https://grovlix.com) and isn't
+affiliated with or endorsed by Salla or Zid.

@@ -1,0 +1,507 @@
+{
+  "source_url": "https://docs.salla.dev/webhook-events/shippings",
+  "fetched_at": "2026-10-26",
+  "definitions": {
+    "1307427": {
+      "type": "object",
+      "x-examples": {
+        "Webhook V2": {
+          "event": "shipping.zone.created",
+          "merchant": 1305146709,
+          "created_at": "Thu Apr 14 2022 11:21:47 GMT+0300",
+          "data": {
+            "id": 870442223,
+            "zone_code": ".AE.ajman-city",
+            "company": {
+              "id": 488260393,
+              "slug": null
+            },
+            "country": {
+              "id": 566146469,
+              "name": "الامارات",
+              "name_en": "United Arab Emirates",
+              "code": "AE",
+              "mobile_code": "+971"
+            },
+            "city": {
+              "id": 374975390,
+              "name": "مدينة عجمان",
+              "name_en": "AJMAN CITY"
+            },
+            "cities_excluded": [
+              {
+                "id": 257742554,
+                "name": "أبو حليفة",
+                "name_en": "ABU HALIFA"
+              },
+              {
+                "id": 81998629,
+                "name": "الأحمدي",
+                "name_en": "AHMADI"
+              }
+            ],
+            "fees": {
+              "amount": "30",
+              "currency": "SAR",
+              "type": "rate",
+              "weight_unit": "kg",
+              "up_to_weight": "15",
+              "amount_per_unit": "2",
+              "per_unit": "1"
+            },
+            "cash_on_delivery": {
+              "status": true,
+              "fees": "12"
+            },
+            "duration": "3-5"
+          }
+        },
+        "Webhook V1": {
+          "id": 870442223,
+          "zone_code": ".AE.ajman-city",
+          "company": {
+            "id": 488260393,
+            "slug": null
+          },
+          "country": {
+            "id": 566146469,
+            "name": "الامارات",
+            "name_en": "United Arab Emirates",
+            "code": "AE",
+            "mobile_code": "+971"
+          },
+          "city": {
+            "id": 374975390,
+            "name": "مدينة عجمان",
+            "name_en": "AJMAN CITY"
+          },
+          "cities_excluded": [
+            {
+              "id": 257742554,
+              "name": "أبو حليفة",
+              "name_en": "ABU HALIFA"
+            },
+            {
+              "id": 81998629,
+              "name": "الأحمدي",
+              "name_en": "AHMADI"
+            }
+          ],
+          "fees": {
+            "amount": "30",
+            "currency": "SAR",
+            "type": "rate",
+            "weight_unit": "kg",
+            "up_to_weight": "15",
+            "amount_per_unit": "2",
+            "per_unit": "1"
+          },
+          "cash_on_delivery": {
+            "status": true,
+            "fees": "12"
+          },
+          "duration": "3-5"
+        }
+      },
+      "title": "Shipping Zone Webhook Model",
+      "x-tags": [
+        "Store Events Webhook Model"
+      ],
+      "properties": {
+        "event": {
+          "type": "string",
+          "description": "Event Name",
+          "enum": [
+            "shipping.zone.created",
+            "shipping.zone.updated"
+          ]
+        },
+        "merchant": {
+          "type": "number",
+          "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)"
+        },
+        "created_at": {
+          "type": "string",
+          "description": "Timestamp of webhook creation"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "Shipping Zone ID"
+            },
+            "zone_code": {
+              "type": "string",
+              "description": "Shipping Zone Code"
+            },
+            "company": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "Shipping Company ID"
+                },
+                "slug": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "Shipping Company Slug"
+                }
+              },
+              "x-apidog-orders": [
+                "id",
+                "slug"
+              ]
+            },
+            "country": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "Country ID"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Country Name"
+                },
+                "name_en": {
+                  "type": "string",
+                  "description": "Country Name in English"
+                },
+                "code": {
+                  "type": "string",
+                  "description": "Country Code"
+                },
+                "mobile_code": {
+                  "type": "string",
+                  "description": "Country Mobile Code"
+                }
+              },
+              "x-apidog-orders": [
+                "id",
+                "name",
+                "name_en",
+                "code",
+                "mobile_code"
+              ]
+            },
+            "city": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "City ID"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "City Name"
+                },
+                "name_en": {
+                  "type": "string",
+                  "description": "City Name in English"
+                }
+              },
+              "x-apidog-orders": [
+                "id",
+                "name",
+                "name_en"
+              ]
+            },
+            "cities_excluded": {
+              "type": "array",
+              "description": "Cities Excluded from Shipping",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number",
+                    "description": "Excluded City ID",
+                    "examples": [
+                      374975390
+                    ]
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Excluded City Name",
+                    "examples": [
+                      "مدينة عجمان"
+                    ]
+                  },
+                  "name_en": {
+                    "type": "string",
+                    "description": "Excluded City Name in English",
+                    "examples": [
+                      "AJMAN CITY"
+                    ]
+                  }
+                },
+                "x-apidog-orders": [
+                  "id",
+                  "name",
+                  "name_en"
+                ]
+              }
+            },
+            "fees": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "string",
+                  "description": "Fees Amount"
+                },
+                "currency": {
+                  "type": "string",
+                  "description": "Fees Currency"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Fees Type",
+                  "enum": [
+                    "fixed",
+                    "rate",
+                    "distance"
+                  ],
+                  "x-apidog": {
+                    "enumDescriptions": {
+                      "fixed": " Fixed type",
+                      "rate": " Rate type",
+                      "distance": " Distance type"
+                    }
+                  }
+                },
+                "weight_unit": {
+                  "type": "string",
+                  "description": "Weight Unit"
+                },
+                "up_to_weight": {
+                  "type": "string",
+                  "description": "Weight Limit Allowed"
+                },
+                "amount_per_unit": {
+                  "type": "string",
+                  "description": "Amount Per Unit"
+                },
+                "per_unit": {
+                  "type": "string",
+                  "description": "Per Unit Value"
+                }
+              },
+              "x-apidog-orders": [
+                "amount",
+                "currency",
+                "type",
+                "weight_unit",
+                "up_to_weight",
+                "amount_per_unit",
+                "per_unit"
+              ]
+            },
+            "cash_on_delivery": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "boolean",
+                  "description": "COD Status (Cash On Delivery)"
+                },
+                "fees": {
+                  "type": "string",
+                  "description": "COD Fees (Cash On Delivery)"
+                }
+              },
+              "x-apidog-orders": [
+                "status",
+                "fees"
+              ]
+            },
+            "duration": {
+              "type": "string",
+              "description": "Shipping Duration in Days"
+            }
+          },
+          "x-apidog-orders": [
+            "id",
+            "zone_code",
+            "company",
+            "country",
+            "city",
+            "cities_excluded",
+            "fees",
+            "cash_on_delivery",
+            "duration"
+          ]
+        }
+      },
+      "description": "",
+      "x-apidog-orders": [
+        "event",
+        "merchant",
+        "created_at",
+        "data"
+      ],
+      "name": "Shipping Zone Webhook Model"
+    },
+    "1307428": {
+      "title": "Shipping Company Webhook Model",
+      "x-stoplight": {
+        "id": "71udhxbec2ui5"
+      },
+      "type": "object",
+      "properties": {
+        "event": {
+          "type": "string",
+          "description": "Event Name",
+          "enum": [
+            "shipping.company.created",
+            "shipping.company.updated",
+            "shipping.company.deleted"
+          ]
+        },
+        "merchant": {
+          "type": "number",
+          "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)",
+          "examples": [
+            1305146709
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "description": "Timestamp of webhook creation",
+          "examples": [
+            "Thu Apr 07 2022 13:48:22 GMT+0300"
+          ]
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "Shipping Company ID",
+              "examples": [
+                488260393
+              ]
+            },
+            "name": {
+              "type": "string",
+              "description": "Shipping Company Name",
+              "examples": [
+                "شركة سريع"
+              ]
+            },
+            "status": {
+              "type": "boolean",
+              "description": "Shipping Company Status",
+              "default": false
+            }
+          },
+          "x-apidog-orders": [
+            "id",
+            "name",
+            "status"
+          ]
+        }
+      },
+      "x-examples": {
+        "Webhook V2": {
+          "event": "shipping.company.deleted",
+          "merchant": 1305146709,
+          "created_at": "Thu Apr 07 2022 13:48:22 GMT+0300",
+          "data": {
+            "id": 488260393,
+            "name": "شركة سريع",
+            "status": false
+          }
+        },
+        "Webhook V1": {
+          "id": 488260393,
+          "name": "شركة سريع",
+          "status": false
+        }
+      },
+      "x-tags": [
+        "Store Events Webhook Model"
+      ],
+      "x-apidog-orders": [
+        "event",
+        "merchant",
+        "created_at",
+        "data"
+      ],
+      "name": "Shipping Company Webhook Model"
+    }
+  },
+  "examples": [
+    {
+      "heading": "Shipping Zone Webhook Events Model",
+      "event": "shipping.zone.created",
+      "repaired": false,
+      "payload": {
+        "event": "shipping.zone.created",
+        "merchant": 1305146709,
+        "created_at": "Thu Apr 14 2022 11:21:47 GMT+0300",
+        "data": {
+          "id": 870442223,
+          "zone_code": ".AE.ajman-city",
+          "company": {
+            "id": 488260393,
+            "slug": null
+          },
+          "country": {
+            "id": 566146469,
+            "name": "الامارات",
+            "name_en": "United Arab Emirates",
+            "code": "AE",
+            "mobile_code": "+971"
+          },
+          "city": {
+            "id": 374975390,
+            "name": "مدينة عجمان",
+            "name_en": "AJMAN CITY"
+          },
+          "cities_excluded": [
+            {
+              "id": 257742554,
+              "name": "أبو حليفة",
+              "name_en": "ABU HALIFA"
+            },
+            {
+              "id": 81998629,
+              "name": "الأحمدي",
+              "name_en": "AHMADI"
+            }
+          ],
+          "fees": {
+            "amount": "30",
+            "currency": "SAR",
+            "type": "rate",
+            "weight_unit": "kg",
+            "up_to_weight": "15",
+            "amount_per_unit": "2",
+            "per_unit": "1"
+          },
+          "cash_on_delivery": {
+            "status": true,
+            "fees": "12"
+          },
+          "duration": "3-5"
+        }
+      }
+    },
+    {
+      "heading": "Shipping Company Webhook Events Model",
+      "event": "shipping.company.deleted",
+      "repaired": false,
+      "payload": {
+        "event": "shipping.company.deleted",
+        "merchant": 1305146709,
+        "created_at": "Thu Apr 07 2022 13:48:22 GMT+0300",
+        "data": {
+          "id": 488260393,
+          "name": "شركة سريع",
+          "status": false
+        }
+      }
+    }
+  ]
+}

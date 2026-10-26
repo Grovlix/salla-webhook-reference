@@ -1,0 +1,584 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "invoice.created",
+  "description": "Triggered when an order's status becomes `completed` or `restored`. Generated from https://docs.salla.dev/webhook-events/invoice (fetched 2026-10-26).",
+  "type": "object",
+  "properties": {
+    "event": {
+      "type": "string",
+      "description": "Event Name",
+      "enum": [
+        "invoice.created"
+      ]
+    },
+    "merchant": {
+      "type": "number",
+      "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Created At Timestamp"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "Invoice ID"
+        },
+        "uuid": {
+          "type": "string",
+          "description": "Universally Unique Identifier for the Invoice"
+        },
+        "invoice_reference_id": {
+          "type": "string",
+          "description": "Invoice Reference ID"
+        },
+        "order_id": {
+          "type": "number",
+          "description": "Order ID"
+        },
+        "type": {
+          "type": "string",
+          "description": "Invoice Type"
+        },
+        "date": {
+          "type": "string",
+          "description": "Invoice Date"
+        },
+        "invoice_number": {
+          "type": "integer",
+          "description": "Invoice Number"
+        },
+        "payment_method": {
+          "type": "string",
+          "description": "Invoice Payment Method"
+        },
+        "sub_total": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "integer",
+              "description": "Subtotal Amount"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Subtotal Currency"
+            }
+          }
+        },
+        "shipping_cost": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "integer",
+              "description": "Shipping Cost Amount"
+            },
+            "taxable": {
+              "type": "boolean",
+              "description": "Whether or not the Shipping Cost is taxable"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Shipping Cost Currency"
+            }
+          }
+        },
+        "cod_cost": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "integer",
+              "description": "Cash on Delivery Amount"
+            },
+            "taxable": {
+              "type": "boolean",
+              "description": "Whether or not Cash on Delivery is taxable"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Cash on Delivery Currency"
+            }
+          }
+        },
+        "discount": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "integer",
+              "description": "Discount Amount"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Discount Currency"
+            }
+          }
+        },
+        "tax": {
+          "type": "object",
+          "properties": {
+            "percent": {
+              "type": "integer",
+              "description": "Tax Percentage"
+            },
+            "amount": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "number",
+                  "description": "Tax Amount"
+                },
+                "currency": {
+                  "type": "string",
+                  "description": "Tax "
+                }
+              }
+            }
+          }
+        },
+        "total": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "Total Amount"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Total Currency"
+            }
+          }
+        },
+        "shipping_cost_discount": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "integer",
+              "description": "Shipping Cost Discount Amount"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Shipping Cost Discount Currency"
+            }
+          }
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number",
+                "description": "ID value"
+              },
+              "item_id": {
+                "type": "integer",
+                "description": "Item ID"
+              },
+              "quantity": {
+                "type": "integer",
+                "description": "Item Quantity"
+              },
+              "type": {
+                "type": "string",
+                "description": "Item Type"
+              },
+              "price": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": "integer",
+                    "description": "Item Amount"
+                  },
+                  "currency": {
+                    "type": "string",
+                    "description": "Item Currency"
+                  }
+                }
+              },
+              "discount": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": "integer",
+                    "description": "Discount Amount"
+                  },
+                  "currency": {
+                    "type": "string",
+                    "description": "Discount Currency"
+                  }
+                }
+              },
+              "tax": {
+                "type": "object",
+                "properties": {
+                  "percent": {
+                    "type": "integer",
+                    "description": "Tax Percent"
+                  },
+                  "amount": {
+                    "type": "object",
+                    "properties": {
+                      "amount": {
+                        "type": [
+                          "integer",
+                          "number"
+                        ],
+                        "description": "Tax Amount"
+                      },
+                      "currency": {
+                        "type": "string",
+                        "description": "Tax Currency"
+                      }
+                    }
+                  }
+                }
+              },
+              "total": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": [
+                      "integer"
+                    ],
+                    "description": "Total Amount"
+                  },
+                  "currency": {
+                    "type": "string",
+                    "description": "Tot"
+                  }
+                }
+              },
+              "product_id": {
+                "type": "integer",
+                "description": "Product ID"
+              },
+              "sku": {
+                "type": "string",
+                "description": "Item sku"
+              },
+              "options": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "customer": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "A unique identifier for the customer."
+            },
+            "first_name": {
+              "type": "string",
+              "description": "The customer's first name.",
+              "maxLength": 25
+            },
+            "last_name": {
+              "type": "string",
+              "description": "The customer's last name.",
+              "maxLength": 25
+            },
+            "mobile": {
+              "type": "number",
+              "description": "The customer's mobile phone number without the country code."
+            },
+            "mobile_code": {
+              "type": "string",
+              "description": "The country code for the customer's mobile phone number."
+            },
+            "email": {
+              "type": "string",
+              "format": "email",
+              "description": "The customer's email address."
+            },
+            "avatar": {
+              "type": "string",
+              "description": "A URL to the customer's avatar image."
+            },
+            "gender": {
+              "type": "string",
+              "description": "The customer's gender",
+              "enum": [
+                "male",
+                "female"
+              ]
+            },
+            "birthday": {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "The customer's date of birth."
+                },
+                "timezone_type": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "The time zone type for the customer's date of birth."
+                },
+                "timezone": {
+                  "type": "string",
+                  "description": "The time zone for the customer's date of birth."
+                }
+              },
+              "description": "The customer date of birth"
+            },
+            "country_code": {
+              "type": "string",
+              "description": "The country code for the customer's country."
+            },
+            "currency": {
+              "type": "string",
+              "description": "The currency that the customer uses."
+            },
+            "updated_at": {
+              "$ref": "#/definitions/1307388",
+              "description": "The date and time when the customer's information was last updated."
+            },
+            "address": {
+              "type": "object",
+              "description": "Customer's shipping address details",
+              "properties": {
+                "country": {
+                  "type": "string",
+                  "description": "Country name"
+                },
+                "city": {
+                  "type": "string",
+                  "description": "City name"
+                },
+                "district": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "District or region "
+                },
+                "street_name": {
+                  "type": "string",
+                  "description": "Street name"
+                },
+                "additional_number": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "Additional address number "
+                },
+                "building_number": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "Building number "
+                },
+                "postal_code": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "Postal code "
+                },
+                "description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "Full free-text address description "
+                }
+              }
+            }
+          }
+        },
+        "company": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "tax_number": {
+              "type": "string",
+              "description": "Tax identification number of the company"
+            },
+            "commercial_number": {
+              "type": "string",
+              "description": "Commercial registration number of the company"
+            }
+          }
+        },
+        "slug": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "Slug"
+        },
+        "qr_code": {
+          "type": "string",
+          "description": "QR Code"
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "event": "invoice.created",
+      "merchant": 1601633483,
+      "created_at": "Mon Feb 20 2023 15:58:00 GMT+0300",
+      "data": {
+        "id": 952648521,
+        "uuid": "a2bffe40-adf7-4bfe-8782-c34ca567ec98",
+        "invoice_reference_id": "1772",
+        "order_id": 315606782,
+        "type": "Credit Note",
+        "date": "2023-02-20 15:58:00",
+        "invoice_number": 13,
+        "payment_method": "bank",
+        "sub_total": {
+          "amount": 50,
+          "currency": "SAR"
+        },
+        "shipping_cost": {
+          "amount": 33,
+          "taxable": true,
+          "currency": "SAR"
+        },
+        "cod_cost": {
+          "amount": 0,
+          "taxable": true,
+          "currency": "SAR"
+        },
+        "discount": {
+          "amount": 0,
+          "currency": "SAR"
+        },
+        "tax": {
+          "percent": 50,
+          "amount": {
+            "amount": 41.5,
+            "currency": "SAR"
+          }
+        },
+        "total": {
+          "amount": 124.5,
+          "currency": "SAR"
+        },
+        "shipping_cost_discount": {
+          "amount": 0,
+          "currency": "SAR"
+        },
+        "items": [
+          {
+            "id": 710619710,
+            "item_id": 409661958,
+            "name": "User Product Demo",
+            "quantity": 1,
+            "type": "product",
+            "price": {
+              "amount": 50,
+              "currency": "SAR"
+            },
+            "discount": {
+              "amount": 0,
+              "currency": "SAR"
+            },
+            "tax": {
+              "percent": 50,
+              "amount": {
+                "amount": 25,
+                "currency": "SAR"
+              }
+            },
+            "total": {
+              "amount": 75,
+              "currency": "SAR"
+            }
+          },
+          {
+            "name": "رسوم الشحن",
+            "quantity": 1,
+            "type": "service",
+            "price": {
+              "amount": 33,
+              "currency": "SAR"
+            },
+            "discount": {
+              "amount": 0,
+              "currency": "SAR"
+            },
+            "tax": {
+              "percent": 50,
+              "amount": {
+                "amount": 16.5,
+                "currency": "SAR"
+              }
+            },
+            "total": {
+              "amount": 49.5,
+              "currency": "SAR"
+            }
+          }
+        ],
+        "customer": {
+          "id": 166343388,
+          "first_name": "Username",
+          "last_name": "Demo",
+          "mobile": 555555555,
+          "mobile_code": "+966",
+          "email": "username@salla.sa",
+          "avatar": "https://logo.com/logo.png",
+          "gender": "female",
+          "birthday": {
+            "date": "1997-03-06 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "Asia/Riyadh"
+          },
+          "city": "جدة",
+          "country": "السعودية",
+          "country_code": "SA",
+          "currency": "SAR",
+          "location": "31.221365",
+          "updated_at": {
+            "date": "2023-02-20 15:44:35.000000",
+            "timezone_type": 3,
+            "timezone": "Asia/Riyadh"
+          },
+          "order_address": {
+            "description": "Lorem Ipsum",
+            "street_name": "abu umayyah ad damri",
+            "additional_number": null,
+            "building_number": null,
+            "district": null
+          }
+        }
+      }
+    }
+  ],
+  "definitions": {
+    "1307388": {
+      "type": "object",
+      "title": "Date",
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "A specific point in time, typically expressed in terms of a calendar system, including the day, month, year, hour, minutes, seconds and nano seconds. For example: \"2020-10-14 14:28:03.000000\""
+        },
+        "timezone_type": {
+          "type": "number",
+          "description": "Timezone type of the date, for Middel East = 3 "
+        },
+        "timezone": {
+          "type": "string",
+          "description": "Timezone value \"Asia/Riyadh\""
+        }
+      }
+    }
+  }
+}

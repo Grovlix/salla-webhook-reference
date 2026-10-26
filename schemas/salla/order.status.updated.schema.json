@@ -1,0 +1,1992 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "order.status.updated",
+  "description": "Triggered when an order's status changes. Generated from https://docs.salla.dev/webhook-events/orders (fetched 2026-10-26).",
+  "type": "object",
+  "properties": {
+    "event": {
+      "type": "string",
+      "description": "Event Name",
+      "enum": [
+        "order.status.updated"
+      ]
+    },
+    "merchant": {
+      "type": "number",
+      "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)"
+    },
+    "created_at": {
+      "description": "Created At Date Timestamp",
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "Status ID"
+        },
+        "status": {
+          "type": "string",
+          "description": "Order Status"
+        },
+        "customized": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "Customized Status ID"
+            },
+            "type": {
+              "type": "string",
+              "description": "Customized Status Type"
+            },
+            "slug": {
+              "type": "string",
+              "description": "Customized Status Slug"
+            },
+            "original": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "Original Status ID"
+                }
+              }
+            },
+            "parent": {
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "Parent Status ID"
+                }
+              }
+            }
+          }
+        },
+        "note": {
+          "type": "string",
+          "description": "Order Note"
+        },
+        "created_at": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string",
+              "description": "Order Created at timestamp date"
+            },
+            "timezone_type": {
+              "type": "number",
+              "description": "Order Created at timestamp timezone type"
+            },
+            "timezone": {
+              "type": "string",
+              "description": "Order Created at timestamp timezone"
+            }
+          }
+        },
+        "order": {
+          "$ref": "#/definitions/1698878"
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "event": "order.status.updated",
+      "merchant": 193718979,
+      "created_at": "Wed Aug 17 2022 23:59:38 GMT+0300",
+      "data": {
+        "id": 198290473,
+        "status": "تم التنفيذ",
+        "customized": null,
+        "note": "تم إرسال تفاصيل الطلب  إلى بريد العميل",
+        "created_at": {
+          "date": "2022-08-17 23:59:38.000000",
+          "timezone_type": 3,
+          "timezone": "Asia/Riyadh"
+        },
+        "order": {
+          "id": 629263027,
+          "reference_id": 42264,
+          "urls": {
+            "customer": "https://web-f71c00b38eb7308ff0ec2198afc21531.salla.group/test/order/P4GV9LQN3veZl1PV6AWBR6rJ5kzEoxYd",
+            "admin": "https://dashboard-f71c00b38eb7308ff0ec2198afc21531.salla.group/orders/order/P4GV9LQN3veZl1PV6AWBR6rJ5kzEoxYd"
+          },
+          "date": {
+            "date": "2022-08-17 20:59:36.000000",
+            "timezone_type": 3,
+            "timezone": "Asia/Riyadh"
+          },
+          "source": "store",
+          "source_device": "desktop",
+          "source_details": {
+            "type": "direct",
+            "value": null,
+            "device": "desktop",
+            "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36",
+            "ip": null
+          },
+          "first_complete_at": {
+            "date": "2022-08-17 23:59:36.000000",
+            "timezone_type": 3,
+            "timezone": "Asia/Riyadh"
+          },
+          "status": {
+            "id": 1298199463,
+            "name": "تم التنفيذ",
+            "slug": "completed"
+          },
+          "payment_method": "cod",
+          "currency": "SAR",
+          "amounts": {
+            "sub_total": {
+              "amount": 246,
+              "currency": "SAR"
+            },
+            "shipping_cost": {
+              "amount": 33,
+              "currency": "SAR"
+            },
+            "cash_on_delivery": {
+              "amount": 1,
+              "currency": "SAR"
+            },
+            "tax": {
+              "percent": "0.00",
+              "amount": {
+                "amount": 0,
+                "currency": "SAR"
+              }
+            },
+            "discounts": [
+              {
+                "title": "منتج مجاني: عطر إترنتي مومنت من كالفن كلاين للنساء، او دي بارفان، 100 مل",
+                "type": "loyalty_prize",
+                "code": "FREE_PRODUCT",
+                "discount": "126.00",
+                "currency": "SAR"
+              }
+            ],
+            "total": {
+              "amount": 154,
+              "currency": "SAR"
+            }
+          },
+          "shipping": {
+            "id": 147641223,
+            "app_id": "618297749",
+            "company": "محمول",
+            "logo": "https://cdn.salla.sa/jKxK/y1fgSXdUBbKwKXb6jE3dbmx8zDozt5KuQJ9McXX9.png",
+            "receiver": {
+              "name": "User Name",
+              "email": "test@user.name",
+              "phone": "96652318526"
+            },
+            "shipper": {
+              "name": "Mohammed Test",
+              "company_name": "Test",
+              "email": "Test@salla.sa",
+              "phone": "96652318526"
+            },
+            "pickup_address": {
+              "country": "السعودية",
+              "country_code": "SA",
+              "city": "المدينة المنورة",
+              "shipping_address": "Macca,Macca,1111, Macca, المدينة المنورة,السعودية",
+              "street_number": "Macca",
+              "block": "Macca",
+              "postal_code": "1111",
+              "geo_coordinates": {
+                "lat": 24.45196726,
+                "lng": 39.587448815
+              }
+            },
+            "address": {
+              "country": "SA",
+              "country_code": "SA",
+              "city": "الرياض",
+              "shipping_address": " شارع Macca، الحي Macca 1111،, Macca,, الرياض, السعودية",
+              "street_number": "Macca",
+              "block": "Macca",
+              "postal_code": "1111",
+              "geo_coordinates": {
+                "lat": 0,
+                "lng": 0
+              }
+            },
+            "shipment": {
+              "id": "SALLA000121",
+              "pickup_id": "SALLA000121001",
+              "tracking_link": "SALLA000121",
+              "label": []
+            },
+            "policy_options": {
+              "return_police": "0",
+              "restore_items": "1",
+              "refund_loyalty_prize_points": "on",
+              "send_status_sms": true,
+              "companyServiceType": "",
+              "boxes": "1"
+            }
+          },
+          "can_cancel": false,
+          "show_weight": false,
+          "can_reorder": false,
+          "is_pending_payment": false,
+          "pending_payment_ends_at": 0,
+          "total_weight": "١ كجم",
+          "rating_link": "https://store-test.com/rating-link",
+          "shipment_branch": [
+            {
+              "id": 2019138561,
+              "name": "الرئيسي",
+              "status": "active",
+              "is_default": true,
+              "type": {}
+            }
+          ],
+          "customer": {
+            "id": 1779795066,
+            "name": "Test Salla",
+            "mobile": "+96652318526",
+            "email": "Test.2022@salla.sa",
+            "avatar": "https://dashboard-f71c00b38eb7308ff0ec2198afc21531.salla.group/cp/assets/images/avatar_male.png",
+            "country": "السعودية",
+            "city": "الرياض"
+          },
+          "items": [
+            {
+              "id": 2105258904,
+              "product_id": 2047473815,
+              "name": "سي كيه وان شوك من كالفن كلاين، فور هي، 100 مل",
+              "sku": "",
+              "quantity": 1,
+              "weight": 0.5,
+              "amounts": {
+                "price_without_tax": {
+                  "amount": 120,
+                  "currency": "SAR"
+                },
+                "total_discount": {
+                  "amount": 0,
+                  "currency": "SAR"
+                },
+                "tax": {
+                  "percent": "0.00",
+                  "amount": {
+                    "amount": 0,
+                    "currency": "SAR"
+                  }
+                },
+                "total": {
+                  "amount": 120,
+                  "currency": "SAR"
+                }
+              }
+            },
+            {
+              "id": 1329648281,
+              "product_id": 674027926,
+              "name": "عطر إترنتي مومنت من كالفن كلاين للنساء، او دي بارفان، 100 مل",
+              "sku": "",
+              "quantity": 1,
+              "weight": 0.5,
+              "amounts": {
+                "price_without_tax": {
+                  "amount": 126,
+                  "currency": "SAR"
+                },
+                "total_discount": {
+                  "amount": 126,
+                  "currency": "SAR"
+                },
+                "tax": {
+                  "percent": "0.00",
+                  "amount": {
+                    "amount": 0,
+                    "currency": "SAR"
+                  }
+                },
+                "total": {
+                  "amount": 126,
+                  "currency": "SAR"
+                }
+              }
+            }
+          ],
+          "total": {
+            "amount": 154,
+            "currency": "SAR"
+          }
+        }
+      }
+    }
+  ],
+  "definitions": {
+    "1307288": {
+      "description": "Detailed structure of the customer model object showing its fields and data types.",
+      "type": "object",
+      "title": "Customer",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "A unique identifier for the customer."
+        },
+        "first_name": {
+          "type": "string",
+          "description": "The customer's first name.",
+          "maxLength": 25
+        },
+        "last_name": {
+          "type": "string",
+          "description": "The customer's last name.",
+          "maxLength": 25
+        },
+        "mobile": {
+          "type": "number",
+          "description": "The customer's mobile phone number without the country code."
+        },
+        "mobile_code": {
+          "type": "string",
+          "description": "The country code for the customer's mobile phone number."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The customer's email address."
+        },
+        "urls": {
+          "$ref": "#/definitions/1307398",
+          "description": "A list of URLs associated with the customer, such as their website or social media profiles."
+        },
+        "avatar": {
+          "type": "string",
+          "description": "A URL to the customer's avatar image."
+        },
+        "gender": {
+          "type": "string",
+          "description": "The customer's gender",
+          "enum": [
+            "male",
+            "female"
+          ]
+        },
+        "birthday": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string",
+              "format": "date-time",
+              "description": "The customer's date of birth."
+            },
+            "timezone_type": {
+              "type": "integer",
+              "format": "int32",
+              "description": "The time zone type for the customer's date of birth."
+            },
+            "timezone": {
+              "type": "string",
+              "description": "The time zone for the customer's date of birth."
+            }
+          },
+          "description": "The customer date of birth"
+        },
+        "city": {
+          "type": "string",
+          "description": "The city where the customer lives."
+        },
+        "country": {
+          "type": "string",
+          "description": "The country where the customer lives."
+        },
+        "country_code": {
+          "type": "string",
+          "description": "The country code for the customer's country."
+        },
+        "currency": {
+          "type": "string",
+          "description": "The currency that the customer uses."
+        },
+        "location": {
+          "type": "string",
+          "description": "The customer's location, represented as a string."
+        },
+        "updated_at": {
+          "$ref": "#/definitions/1307388",
+          "description": "The date and time when the customer's information was last updated."
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "description": "A list of group IDs that the customer belongs to."
+        }
+      }
+    },
+    "1307300": {
+      "description": "Detailed structure of the branch model object showing its fields and data types.",
+      "type": "object",
+      "title": "Branch",
+      "properties": {
+        "id": {
+          "description": "The unique identifier of a branch.",
+          "type": "number"
+        },
+        "status": {
+          "type": "string",
+          "description": "The status of the branch, indicating whether it is \"Active\" as open for business or \"Inactive\" as closed.",
+          "enum": [
+            "active",
+            "inactive"
+          ]
+        },
+        "location": {
+          "type": "object",
+          "description": "Branch's location on map in both longitude and latitude",
+          "properties": {
+            "lat": {
+              "type": "string",
+              "description": "Latitude of the location."
+            },
+            "lng": {
+              "type": "string",
+              "description": "Longitude of the location."
+            }
+          }
+        },
+        "street": {
+          "type": "string",
+          "description": "Branch's street name. 🌐 [Support multi-language](doc-421122) The name of the street where the branch building is located."
+        },
+        "address_description": {
+          "type": "string",
+          "description": "Branch's address description. 🌐 [Support multi-language](doc-421122)"
+        },
+        "additional_number": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Branch's additional (alternative) phone number. Required if National Address is mandatory"
+        },
+        "building_number": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Branch's building number. Required if National Address is mandatory"
+        },
+        "local": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Branch's local district. 🌐 [Support multi-language](doc-421122)Required if district_id is NOT provided"
+        },
+        "postal_code": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Branch's postal code. Value length is 5 characters long. Required if National Address is mandatory"
+        },
+        "contacts": {
+          "type": "object",
+          "description": "Branch's contacts details.",
+          "properties": {
+            "phone": {
+              "type": "string",
+              "description": "Branch phone number."
+            },
+            "whatsapp": {
+              "type": "string",
+              "description": "Branch whatsapp number."
+            },
+            "telephone": {
+              "type": "string",
+              "description": "Branch telephone number."
+            }
+          }
+        },
+        "is_open": {
+          "type": "boolean",
+          "description": "Whether or not the branch is currently `open` or `closed`"
+        },
+        "closest_time": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "from": {
+              "type": "string"
+            },
+            "to": {
+              "type": "string"
+            }
+          },
+          "description": "The time when the branch will be closed based on the request time. Each request may have a different value. "
+        },
+        "working_hours": {
+          "description": "Branch working hours. Required if `branch.type is \"branch\"`",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "times": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "from": {
+                      "type": "string"
+                    },
+                    "to": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "is_cod_available": {
+          "type": "boolean",
+          "description": "Whether or not Cash on delivery available."
+        },
+        "is_default": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Whether or not this branch is the default branch for all operations."
+        },
+        "type": {
+          "type": "string",
+          "description": "Branch type, either a standard `branch` or `warehouse`",
+          "enum": [
+            "branch",
+            "warehouse"
+          ]
+        },
+        "cod_cost": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Cash on delivery cost value\n\n"
+        },
+        "country": {
+          "$ref": "#/definitions/1307301",
+          "description": "The country where the branch is physically located, and from which goods are stored and delivered to customers."
+        },
+        "city": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "A unique identifier or code assigned to a specific city."
+            },
+            "name_en": {
+              "type": "string",
+              "description": "City name expressed in English characters."
+            },
+            "country_id": {
+              "type": "number",
+              "description": "Unique identifier of the country"
+            }
+          },
+          "description": "The city where the branch operates to manage logistics and deliver orders within its boundaries and belongs to country"
+        },
+        "district": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "id": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "A unique identifier or code assigned to a specific district."
+            },
+            "name_en": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "District name expressed in English characters."
+            },
+            "city_id": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Unique identifier of the city"
+            }
+          },
+          "description": "The administrative district or region that the branch belongs to and belongs to city."
+        },
+        "branch_code": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "a reference code for branch"
+        },
+        "short_address": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A compact 8-character Saudi address code (4 letters + 4 digits), e.g., RHMA3184.\nIt provides a simplified, precise version of the National Address to speed up delivery and reduce input errors. This field is required only for addresses in Saudi Arabia (KSA)."
+        },
+        "users": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "description": "The employee unique identifier"
+              }
+            }
+          },
+          "description": "A list of authorized staff members or employees assigned to the branch. These users are responsible for managing branch-level operations, specifically the personnel in charge of receiving incoming shipments, handling inventory, and processing orders at this location"
+        },
+        "pickable": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Indicates whether the branch supports customer pick-up (Click & Collect). If true, customers can choose to physically visit this branch to collect their orders directly."
+        },
+        "shippable": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Indicates whether the branch acts as a fulfillment center capable of dispatching orders. If true, the branch is equipped to prepare goods and hand them over to shipping couriers for delivery to customers."
+        },
+        "pos": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Indicates whether the branch operates as a physical Point of Sale. This attribute is applicable exclusively to merchants who have the POS feature activated on their accounts, meaning the branch is equipped to conduct in-person, offline sales directly with customers at this location."
+        },
+        "always_open": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "if the branch is open all the time"
+        },
+        "order_while_closed": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "if clients can make orders while the branch closed"
+        },
+        "safety_stock": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "The inventory threshold or buffer limit set for the product at this branch. When the actual stock level equals or falls below this value, the system automatically triggers an `Out of Stock` status on the storefront and disables new orders to prevent complete inventory depletion and protect the safety margin."
+        },
+        "preparation_time_range": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "from": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "integer"
+                },
+                "unit": {
+                  "type": "string",
+                  "enum": [
+                    "minute",
+                    "hour",
+                    "day"
+                  ]
+                }
+              },
+              "description": "The minimum preparation time. It contains a numeric value (e.g., 2) and a unit of time (e.g., \"hours\", \"days\")."
+            },
+            "to": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "integer"
+                },
+                "unit": {
+                  "type": "string",
+                  "enum": [
+                    "minute",
+                    "hour",
+                    "day"
+                  ]
+                }
+              },
+              "description": "The maximum preparation time. It contains a numeric value (e.g., 4) and a unit of time."
+            }
+          },
+          "description": "Defines the estimated time window required by the branch to prepare and pack an order before it is ready for shipping or customer pickup."
+        },
+        "is_stock": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "it checks if the branch is default return true else check manage-products-by-branches feature is activated to store or not"
+        },
+        "region": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "A unique identifier or code assigned to a specific region."
+            },
+            "code": {
+              "type": "string",
+              "description": "Unique identifier of the region"
+            }
+          },
+          "description": "The region that the branch belongs to and belongs to city."
+        },
+        "fulfillment_center": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "The fulfillment center ID"
+            },
+            "external_reference": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "A short code or identifier representing a specific fulfillment center. It is used primarily for shipping integrations to map and link the merchant's branch directly to the shipping company's corresponding logistics hub or facility."
+            }
+          },
+          "description": "if the branch belongs to fulfillment_center_id  identifier representing a specific fulfillment center. It is used primarily for shipping integrations to map and link the merchant's branch directly to the shipping company's corresponding logistics hub or facility."
+        }
+      }
+    },
+    "1307301": {
+      "description": "Detailed structure of the country model object showing its fields and data types.",
+      "type": "object",
+      "title": "Country",
+      "properties": {
+        "id": {
+          "description": "A unique identifier assigned to a specific country.",
+          "type": "number"
+        },
+        "name_en": {
+          "type": "string",
+          "description": "Country name expressed in English characters."
+        },
+        "code": {
+          "type": "string",
+          "description": "Country iso code , a standardized, three-letter code assigned to each country by the International Organization for Standardization."
+        },
+        "mobile_code": {
+          "type": "string",
+          "description": "The international dialing code used to make phone calls to a specific country from abroad, also known as the country's \"calling code.\""
+        }
+      }
+    },
+    "1307388": {
+      "type": "object",
+      "title": "Date",
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "A specific point in time, typically expressed in terms of a calendar system, including the day, month, year, hour, minutes, seconds and nano seconds. For example: \"2020-10-14 14:28:03.000000\""
+        },
+        "timezone_type": {
+          "type": "number",
+          "description": "Timezone type of the date, for Middel East = 3 "
+        },
+        "timezone": {
+          "type": "string",
+          "description": "Timezone value \"Asia/Riyadh\""
+        }
+      }
+    },
+    "1307389": {
+      "description": "Detailed structure of the Product short payload model object showing its fields and data types.",
+      "type": "object",
+      "title": "ProductCard",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "A unique identifier associated with a specific product."
+        },
+        "type": {
+          "type": "string",
+          "description": "The category or classification that a specific product belongs to based on its attributes, characteristics, or intended use.",
+          "enum": [
+            "product",
+            "service",
+            "group_products",
+            "codes",
+            "digital",
+            "food",
+            "donating"
+          ]
+        },
+        "promotion": {
+          "type": "object",
+          "description": "Product promotion details.",
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "The name or label assigned to a specific marketing or promotional campaign, deal, or offer."
+            },
+            "sub_title": {
+              "type": "string",
+              "description": "The additional name or label assigned to a specific marketing or promotional campaign, deal, or offer. "
+            }
+          }
+        },
+        "status": {
+          "type": "string",
+          "description": "The product status. available values 'hidden','sale','out'."
+        },
+        "is_available": {
+          "type": "boolean",
+          "description": "Check if the product is available to order or in-stock."
+        },
+        "sku": {
+          "type": "string",
+          "description": "A unique Stock Keeping Unit (SKU) identifier assigned to a specific variant of a product."
+        },
+        "price": {
+          "type": "object",
+          "description": "Product price details",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "Product price amount"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Product price currency"
+            }
+          }
+        },
+        "sale_price": {
+          "type": "object",
+          "description": "Product sale price details",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "Product sale price amount"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Product sale price curren"
+            }
+          }
+        },
+        "url": {
+          "type": "string",
+          "description": "Product url "
+        },
+        "has_special_price": {
+          "type": "boolean",
+          "description": "Whether or not the product has a special price"
+        },
+        "regular_price": {
+          "type": "object",
+          "description": "Product regular price details",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "Product regular price amount"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Product regular price currency"
+            }
+          }
+        },
+        "currency": {
+          "type": "string",
+          "description": "The specific currency of the product price."
+        },
+        "thumbnail": {
+          "type": "string",
+          "description": "Scaled-down image or visual representation of a product."
+        },
+        "calories": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Calories amount of the product."
+        },
+        "mpn": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Manufacturer Part Number, a unique identifier assigned by a manufacturer to a specific product or component, which helps distinguish it from other similar products and facilitates inventory management, product tracking, and ordering processes."
+        },
+        "gtin": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "\"Global Trade Item Number\" (GTIN), a unique and standardized identifier used to uniquely represent products, items, or services in the global marketplace, to enable efficient tracking and management across supply chains and retail sectors."
+        },
+        "favorite": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Product marked as favorite"
+        },
+        "starting_price": {
+          "description": "Product starting price",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "1307398": {
+      "description": "To help companies and merchants, Salla provides a “urls” attribute that has been added to different modules to guide the merchants to have the full URL of this module from both scopes, the dashboard scope as a store admin, and as a customer.",
+      "type": "object",
+      "title": "Urls",
+      "properties": {
+        "customer": {
+          "type": "string",
+          "description": "Customer link directly to the order.",
+          "examples": [
+            "https://salla.sa/StoreLink"
+          ]
+        },
+        "admin": {
+          "type": "string",
+          "description": "Admin dashboard link directly to the order.",
+          "examples": [
+            "https://s.salla./YourStoreDashboard"
+          ]
+        },
+        "digital_content": {
+          "type": "string",
+          "description": "A direct URL link to the digital asset, such as an e-book, image, PDF, video, or any downloadable file linked to the order or product."
+        },
+        "rating": {
+          "type": "string",
+          "description": "Order Rating Link. <br> Note that the order has to be of either of the following statuses: `completed`, `delivered`, or `shipped`. The merchant has to allow the product to be rated from the [Store Settings](https://s.salla.sa/settings) > Rating Settings"
+        },
+        "checkout": {
+          "type": "string",
+          "description": "Order Checkout URL. <br>Note that the variable will only be returned if the order is unpaid. If the order is already paid, the variable will not appear in the response."
+        }
+      }
+    },
+    "1307401": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int64"
+        },
+        "status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "is_default": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "title": "ShipmentBranch"
+    },
+    "1389473": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "tracking_link": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ship_to": {
+          "$ref": "#/definitions/14071964"
+        },
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "type": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "pickup",
+            "delivery"
+          ]
+        },
+        "courier_id": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "courier_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "courier_logo": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "shipping_number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tracking_number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pickup_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "trackable": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "payment_method": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "pending",
+            "under_review",
+            "in_progress",
+            "completed",
+            "canceled",
+            "payment_failed",
+            "payment_pending",
+            "restored",
+            "delivering",
+            "delivered",
+            "restoring",
+            "shipped",
+            "cancelled",
+            "returned",
+            "returning",
+            "created",
+            "creating",
+            "deleted",
+            "other"
+          ]
+        },
+        "total": {
+          "$ref": "#/definitions/14071961"
+        },
+        "cash_on_delivery": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/14071961"
+            }
+          ],
+          "type": "null"
+        },
+        "is_international": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "packages": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "object",
+            "properties": {
+              "item_id": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "external_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "sku": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "price": {
+                "$ref": "#/definitions/14071961"
+              },
+              "quantity": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "ship_from": {
+          "$ref": "#/definitions/14071964"
+        },
+        "translated_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tracking_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "driver_info": {
+          "type": "object",
+          "properties": {
+            "mobile": {
+              "type": "string"
+            },
+            "reference_number": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "title": "Shipment"
+    },
+    "1698878": {
+      "description": "Detailed structure of the Order model object showing its fields and data types.",
+      "type": "object",
+      "title": "OrderStatusUpdated",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "A unique identifier assigned to a specific order."
+        },
+        "reference_id": {
+          "type": "number",
+          "description": "A unique alphanumeric code or identifier associated with an order, used for easy and precise reference and tracking of that particular order, this reference ID appears to customers in the store."
+        },
+        "urls": {
+          "type": "object",
+          "properties": {
+            "rating": {
+              "type": "string",
+              "description": "Order Rating Link. <br> Note that the order has to be of either of the following statuses: `completed`, `delivered`, or `shipped`. The merchant has to allow the product to be rated from the [Store Settings](https://s.salla.sa/settings) > Rating Settings"
+            },
+            "checkout": {
+              "type": "string",
+              "description": "Order Checkout URL. <br>Note that will only be returned if the order is unpaid. If the order is already paid, the variable will not appear in the response."
+            }
+          }
+        },
+        "date": {
+          "$ref": "#/definitions/1307388"
+        },
+        "source": {
+          "type": "string",
+          "description": "The source of the order.",
+          "enum": [
+            "store",
+            "landing",
+            "forgotten_basket",
+            "abandoned-cart",
+            "campaign",
+            "dashboard",
+            "buy_as_gift",
+            "mahly-app",
+            "buy_now",
+            "one-click",
+            "complete_orde"
+          ]
+        },
+        "source_device": {
+          "type": "string",
+          "description": "The machine or device used when the customer placed the order."
+        },
+        "source_details": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "Order Source Type"
+            },
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Order Source Value"
+            },
+            "device": {
+              "type": "string",
+              "description": "he electronic device, such as a computer, smartphone, or tablet, through which an order or purchase is initiated or processed."
+            },
+            "user-agent": {
+              "type": "string",
+              "description": "a piece of information sent by a web browser or other client software, that provides details about the user's browser, device, and operating system when an order or action is initiated."
+            },
+            "ip": {
+              "type": "string",
+              "description": "The Internet Protocol (IP) address associated with the device or network location from which an order or transaction request originates, providing information about the geographical or network source of the order."
+            }
+          }
+        },
+        "first_complete_at": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string",
+              "description": "The date stampe of first 'completed' status for the order."
+            },
+            "timeone_type": {
+              "type": "integer",
+              "description": "Timezone type of first 'completed' for the order"
+            },
+            "timezone": {
+              "type": "string",
+              "description": "Timezone value of first 'completed' for the order."
+            }
+          },
+          "description": "Gets the first date of changing the order status to `completed`."
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "A unique numerical or alphanumeric identifier used to represent the current status or stage of the order."
+            },
+            "slug": {
+              "type": "string",
+              "description": "A URL-friendly version of a status name or label, created by converting spaces and special characters into hyphens or underscores and ensuring it contains only lowercase letters."
+            }
+          }
+        },
+        "payment_method": {
+          "type": "string",
+          "description": "The specific payment option or financial mechanism chosen and used by a customer to pay for a product or service as part of an order, encompassing various methods."
+        },
+        "currency": {
+          "type": "string",
+          "description": "The specific type of currency  in which the total cost is represented."
+        },
+        "amounts": {
+          "type": "object",
+          "properties": {
+            "sub_total": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "integer",
+                  "description": "Order sub total amount"
+                },
+                "currency": {
+                  "type": "string",
+                  "description": "Order sub total currency"
+                }
+              }
+            },
+            "shipping_cost": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "integer",
+                  "description": "Order shipping cost amount"
+                },
+                "currency": {
+                  "type": "string",
+                  "description": "Order shipping cost amount"
+                }
+              }
+            },
+            "cash_on_delivery": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "integer",
+                  "description": "Order cash on delivery cost amount"
+                },
+                "currency": {
+                  "type": "string",
+                  "description": "Order cash on delivery cost curreny"
+                }
+              }
+            },
+            "tax": {
+              "type": "object",
+              "properties": {
+                "percent": {
+                  "type": "string",
+                  "description": "Tax percentage value"
+                },
+                "amount": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "integer",
+                      "description": "Order tax amount"
+                    },
+                    "currency": {
+                      "type": "string",
+                      "description": "Order tax amount currency"
+                    }
+                  }
+                }
+              }
+            },
+            "discounts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "The name or label given to a specific discount or promotional offer applied to an order, helping to identify and describe the type of discount or deal being applied to the order's total cost."
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "The category or classification of the discount or promotional offer applied to an order, indicating the nature or mechanism of the discount, such as percentage-based, fixed amount, free shipping, buy one get one free, or any other specific type of discount."
+                  },
+                  "code": {
+                    "type": "string",
+                    "description": "A unique alphanumeric sequence or code that can be u during the checkout process to apply a specific discount."
+                  },
+                  "discount": {
+                    "type": "string",
+                    "description": "The numerical amount or percentage by which the total cost of an order is reduced as a result of a discount or promotional offer, representing the savings or reduction in price that the customer receives."
+                  },
+                  "discounted_shipping": {
+                    "type": "integer",
+                    "description": "A reduction in the cost of shipping services associated with an order, typically provided as part of a promotional offer or incentive, resulting in a lower shipping fee."
+                  }
+                }
+              }
+            },
+            "total": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "integer",
+                  "description": "The final monetary sum that is required to be paid for the order, including the prices of all items or services ordered, any applicable taxes, fees, and shipping costs, as well as any discounts or promotional savings that have been applied."
+                },
+                "currency": {
+                  "type": "string",
+                  "description": "he specific currency in which the total cost of an order is expressed, representing the monetary unit used for calculating and displaying the final amount required to be paid for the order."
+                }
+              }
+            }
+          }
+        },
+        "shipping": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "A unique identifier, typically numerical or alphanumeric, assigned to a specific shipping or delivery process associated with an order within a system or database, facilitating tracking and management of the shipping details and status related to that order."
+            },
+            "app_id": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "A unique identifier, typically numerical or alphanumeric, associated with a specific shipping application used to manage and track the shipping and delivery of orders."
+            },
+            "company": {
+              "type": "string",
+              "description": "The company or service provider responsible for the transportation and delivery of an order from the seller or sender to the recipient or customer."
+            },
+            "logo": {
+              "type": "string",
+              "description": "A text or string variable that stores the name or path to the image file of a shipping company's logo."
+            },
+            "receiver": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "description": "he email address associated with the customer designated as the recipient of an order, often used for communication, notifications, and confirmation related to the order, including shipping updates and order-related information."
+                },
+                "phone": {
+                  "type": "string",
+                  "description": "The telephone number associated with the customer designated as the recipient of an order, commonly used for communication, coordination, and contact purposes, particularly in the context of order delivery or customer service inquiries."
+                }
+              }
+            },
+            "shipper": {
+              "type": "object",
+              "properties": {
+                "company_name": {
+                  "type": "string",
+                  "description": "The name of the company or business entity responsible for shipping and sending out an order."
+                },
+                "email": {
+                  "type": "string",
+                  "description": "The email address associated with the individual or entity responsible for shipping and sending out an order, often used for communication and contact purposes related to the shipping and fulfillment of the order."
+                },
+                "phone": {
+                  "type": "string",
+                  "description": "The telephone number associated with the individual or entity responsible for shipping and sending out an order, typically used for communication, coordination, and contact purposes, particularly in matters related to the shipment and fulfillment of the order."
+                }
+              }
+            },
+            "pickup_address": {
+              "type": "object",
+              "properties": {
+                "country": {
+                  "type": "string",
+                  "description": "The specific country in which the location or address for picking up an order is situated."
+                },
+                "country_code": {
+                  "type": "string",
+                  "description": "A standardized code or abbreviation that represents the specific country where the location or address for picking up an order is situated."
+                },
+                "city": {
+                  "type": "string",
+                  "description": "The name of the city or urban area where the location or address for picking up an order is situated."
+                },
+                "shipping_address": {
+                  "type": "string",
+                  "description": "The location or address where the order is to be delivered or shipped to in order to be picked up."
+                },
+                "street_number": {
+                  "type": "string",
+                  "description": "The specific numerical identifier associated with a building or location on a street where a customer intends to pick up an order."
+                },
+                "block": {
+                  "type": "string",
+                  "description": "The particular block or section on a street where a customer intends to pick up their order."
+                },
+                "postal_code": {
+                  "type": "string",
+                  "description": "The postal code associated with the location where a customer plans to pick up their order, aiding in precise order retrieval."
+                },
+                "geo_coordinates": {
+                  "type": "object",
+                  "properties": {
+                    "lat": {
+                      "type": "number",
+                      "description": "Pick Up address GEO coordinates latitude "
+                    },
+                    "lng": {
+                      "type": "number",
+                      "description": "Pick Up address GEO coordinates longitude"
+                    }
+                  }
+                }
+              }
+            },
+            "address": {
+              "type": "object",
+              "properties": {
+                "country": {
+                  "type": "string",
+                  "description": "The country specified in the address where an order is to be shipped, providing the destination for the order's delivery."
+                },
+                "country_code": {
+                  "type": "string",
+                  "description": "The code for the destination country in an order's shipping address, often following ISO standards (e.g., \"US\" for the United States)."
+                },
+                "city": {
+                  "type": "string",
+                  "description": "The name of the city or urban area specified in the address where an order is to be shipped, identifying the destination city for the order's delivery."
+                },
+                "shipping_address": {
+                  "type": "string",
+                  "description": "The complete address provided for the delivery of an order, typically including details such as street name, house or building number, city or locality, postal or ZIP code, and country, ensuring accurate shipment to the intended destination."
+                },
+                "street_number": {
+                  "type": "string",
+                  "description": "The specific numerical identifier associated with a building or location on a street in the address provided for the delivery of an order."
+                },
+                "block": {
+                  "type": "string",
+                  "description": " specific section or segment of a street or road mentioned in the address for the delivery of an order."
+                },
+                "postal_code": {
+                  "type": "string",
+                  "description": "The numeric or alphanumeric code included in the address for the delivery of an order, representing a specific geographic area within a country or region."
+                },
+                "geo_coordinates": {
+                  "type": "object",
+                  "properties": {
+                    "lat": {
+                      "type": "integer",
+                      "description": "Address GEO latitude "
+                    },
+                    "lng": {
+                      "type": "integer",
+                      "description": "Address GEO longitude"
+                    }
+                  }
+                }
+              }
+            },
+            "shipment": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "A unique identifier, typically numerical or alphanumeric, assigned to a specific shipment or parcel associated with the order."
+                },
+                "pickup_id": {
+                  "type": "integer",
+                  "description": "A unique identifier for the pickup or collection of a shipment related to an order, aiding in tracking and management."
+                },
+                "tracking_link": {
+                  "type": "string",
+                  "description": "A URL provided to customers for real-time order status updates."
+                },
+                "label": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "format": {
+                        "type": "string",
+                        "description": "The layout of information on a shipment label, aiding in proper identification during shipping."
+                      },
+                      "url": {
+                        "type": "string",
+                        "description": "A textual context to represent the shipment URL."
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "policy_options": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "boxes": {
+                    "type": "string",
+                    "description": " the quantity or count of individual boxes or packages associated with a shipment when creating an Air Waybill (AWB)"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "shipments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/1389473"
+          }
+        },
+        "can_cancel": {
+          "type": "boolean",
+          "description": "The option to enable order cancellation by the store customer.<br>\n`True` value should be set if the order status is in under review and in progress, as according to the store settings."
+        },
+        "show_weight": {
+          "type": "boolean",
+          "description": "The option to show the weight value."
+        },
+        "can_reorder": {
+          "type": "boolean",
+          "description": "The option to enable reorder ."
+        },
+        "is_pending_payment": {
+          "type": "boolean",
+          "description": "The option of displaying order is pending payment to the customer when the order status is `payment_pending`."
+        },
+        "rating_link": {
+          "type": "string",
+          "description": "The rating URL to review the order.\n\n🛑 The variable is to be deprecated; use `data.urls.rating` variable instead.",
+          "deprecated": true
+        },
+        "checkout_url": {
+          "type": "string",
+          "description": "The checkout URL to settle payments related to the order\n\n🛑 The variable is to be deprecated; use `data.urls.checkout` variable instead.",
+          "deprecated": true
+        },
+        "pending_payment_ends_at": {
+          "type": "integer",
+          "description": "Last date allowed to customer to pay the order."
+        },
+        "total_weight": {
+          "type": "string",
+          "description": "Total weight value"
+        },
+        "shipment_branch": {
+          "$ref": "#/definitions/1307401"
+        },
+        "customer": {
+          "$ref": "#/definitions/1307288"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number",
+                "description": "A unique identifier, typically numerical or alphanumeric, assigned to an individual item or product within an order."
+              },
+              "sku": {
+                "type": "string",
+                "description": "Stock Keeping Unit, and it is a unique code or identifier used to track and manage individual products or items in inventory, facilitating inventory management, sales tracking, and product identification."
+              },
+              "quantity": {
+                "type": "integer",
+                "description": "The numerical count of a specific item or product included in an order, indicating how many of that particular item have been purchased or are part of the order."
+              },
+              "currency": {
+                "type": "string",
+                "description": "The specific currency in which the price or value of an individual item within an order is expressed, indicating the monetary unit used for pricing that particular item."
+              },
+              "weight": {
+                "type": "number",
+                "description": "The numerical measurement representing the weight of an individual item or product within an order. "
+              },
+              "weight_label": {
+                "type": "string",
+                "description": "A textual label or description associated with the weight of an individual item within an order, typically used to indicate the unit of measurement (e.g., kg, lb) and provide clarity regarding how the item's weight is expressed."
+              },
+              "amounts": {
+                "type": "object",
+                "properties": {
+                  "price_without_tax": {
+                    "type": "object",
+                    "properties": {
+                      "amount": {
+                        "type": "integer",
+                        "description": "Order item amounts price without tax "
+                      },
+                      "currency": {
+                        "type": "string",
+                        "description": "Order item amounts price without tax currency"
+                      }
+                    }
+                  },
+                  "total_discount": {
+                    "type": "object",
+                    "properties": {
+                      "amount": {
+                        "type": "integer",
+                        "description": "Total discount amount of the order item amounts."
+                      },
+                      "currency": {
+                        "type": "string",
+                        "description": "Order item amounts total discount currency"
+                      }
+                    }
+                  },
+                  "tax": {
+                    "type": "object",
+                    "properties": {
+                      "percent": {
+                        "type": "string",
+                        "description": "Order item amounts tax percent"
+                      },
+                      "amount": {
+                        "type": "object",
+                        "properties": {
+                          "amount": {
+                            "type": "integer",
+                            "description": "Order item amounts tax amount"
+                          },
+                          "currency": {
+                            "type": "string",
+                            "description": "Order item amounts tax caurrency"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "total": {
+                    "type": "object",
+                    "properties": {
+                      "amount": {
+                        "type": "integer",
+                        "description": "Order item amounts total amount"
+                      },
+                      "currency": {
+                        "type": "string",
+                        "description": "Total discount currency of the order item amounts."
+                      }
+                    }
+                  }
+                }
+              },
+              "notes": {
+                "type": "string",
+                "description": "Order items notes"
+              },
+              "product": {
+                "$ref": "#/definitions/1307389"
+              },
+              "options": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "description": "A unique identifier, often numerical or alphanumeric, assigned to a specific item."
+                    },
+                    "product_option_id": {
+                      "type": "number",
+                      "description": "A unique identifier, often numerical or alphanumeric, assigned to a specific product option , enabling easy tracking and management of various product configurations, such as size, color, or other customizable features."
+                    },
+                    "type": {
+                      "type": "string",
+                      "description": "Type of the product option.",
+                      "enum": [
+                        "radio",
+                        "date",
+                        "datetime",
+                        "image",
+                        "text",
+                        "text area",
+                        "number",
+                        "checkbox",
+                        "splitter"
+                      ]
+                    },
+                    "value": {
+                      "type": [
+                        "array",
+                        "string"
+                      ],
+                      "description": "If `type` value is set to `radio` or `checkbox`, the returned response is an object. Otherwise, a string is returned in all other available `type` values.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "description": "A unique identifier, typically numerical or alphanumeric, associated with a specific value or choice within a product option."
+                          },
+                          "price": {
+                            "type": "object",
+                            "properties": {
+                              "amount": {
+                                "type": "integer",
+                                "description": "Option value amount."
+                              },
+                              "currency": {
+                                "type": "string",
+                                "description": "Option value currency."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "images": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "description": "A unique identifier, typically numerical or alphanumeric, associated with a specific product image in a database or system, enabling easy tracking and referencing of images used for a product."
+                    },
+                    "image": {
+                      "type": "string",
+                      "description": "Textual reference, such as a file path or URL link, that points to the location of an image file representing a product. "
+                    },
+                    "type": {
+                      "type": "string",
+                      "description": "Type of the product image."
+                    }
+                  }
+                }
+              },
+              "codes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string",
+                      "description": "Product codes value"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Product codes status"
+                    }
+                  }
+                }
+              },
+              "files": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "description": "A web address (URL) that provides access to a file associated with a product."
+                    },
+                    "size": {
+                      "type": "number",
+                      "description": "The numerical measurement that represents the size of a file associated with a product."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "pickup_branch": {
+          "$ref": "#/definitions/1307300"
+        },
+        "cart_reference_id": {
+          "type": "number",
+          "description": "Order cart reference unique identification."
+        },
+        "type": {
+          "type": "string",
+          "description": "Order Type",
+          "enum": [
+            "gift",
+            "pre-order",
+            "normal"
+          ]
+        }
+      }
+    },
+    "14071961": {
+      "type": "object",
+      "description": "Monetary amount with currency",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "format": "double",
+          "examples": [
+            150
+          ]
+        },
+        "currency": {
+          "type": "string",
+          "examples": [
+            "SAR"
+          ]
+        }
+      },
+      "title": "Price"
+    },
+    "14071964": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "country": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "city": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "company": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "branch_id": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int64"
+        },
+        "address_line": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "title": "ShippingAddress"
+    }
+  }
+}

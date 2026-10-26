@@ -1,0 +1,1358 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "order.create",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "The unique identifier for the order.",
+      "examples": [
+        25304285
+      ]
+    },
+    "code": {
+      "type": "string",
+      "description": "The code associated with the order.",
+      "examples": [
+        "8OVNEhyqcf"
+      ]
+    },
+    "store_id": {
+      "type": "integer",
+      "description": "The unique identifier for the store where the order was placed.",
+      "examples": [
+        251073
+      ]
+    },
+    "order_url": {
+      "type": "string",
+      "description": "The URL link to the order's invoice.",
+      "examples": [
+        "https://zid.store/osama/o/6IJWXOYLuR/inv"
+      ]
+    },
+    "store_name": {
+      "type": "string",
+      "description": "The name of the store.",
+      "examples": [
+        "Osama's Store"
+      ]
+    },
+    "shipping_method_code": {
+      "type": "string",
+      "description": "The code representing the shipping method used for the order.",
+      "examples": [
+        "custom"
+      ]
+    },
+    "store_url": {
+      "type": "string",
+      "description": "The URL link to the store.",
+      "examples": [
+        "https://zid.store/osama/"
+      ]
+    },
+    "order_status": {
+      "$ref": "#/definitions/2771505"
+    },
+    "currency_code": {
+      "type": "string",
+      "description": "The code representing the currency used for the order.",
+      "examples": [
+        "KWD"
+      ]
+    },
+    "customer": {
+      "$ref": "#/definitions/2771507"
+    },
+    "has_different_consignee": {
+      "type": "boolean",
+      "description": "Indicates if the consignee is different from the customer.",
+      "examples": [
+        false
+      ]
+    },
+    "is_guest_customer": {
+      "type": "boolean",
+      "description": "Indicates if the order was placed by a guest customer.",
+      "examples": [
+        false
+      ]
+    },
+    "is_gift_order": {
+      "type": "boolean",
+      "description": "Indicates if the order is a gift.",
+      "examples": [
+        false
+      ]
+    },
+    "gift_card_details": {
+      "type": "object",
+      "description": "Details of any gift card associated with the order.",
+      "properties": {
+        "card_design": {
+          "type": "string",
+          "description": "The design of the gift card.",
+          "examples": [
+            "Birthday Theme"
+          ]
+        },
+        "gift_message": {
+          "type": "string",
+          "description": "A message associated with the gift card.",
+          "examples": [
+            "Happy Birthday, Ahmed! Wishing you all the best."
+          ]
+        },
+        "media_link": {
+          "type": "string",
+          "description": "A link to any media associated with the gift card, such as an image or video.",
+          "examples": [
+            "https://example.com/gift_card_image.jpg"
+          ]
+        },
+        "receiver_name": {
+          "type": "string",
+          "description": "The name of the person receiving the gift card.",
+          "examples": [
+            "Ahmed Al-Salem"
+          ]
+        },
+        "sender_name": {
+          "type": "string",
+          "description": "The name of the person sending the gift card.",
+          "examples": [
+            "Fatima Al-Rashed"
+          ]
+        }
+      }
+    },
+    "order_total": {
+      "type": "string",
+      "description": "The total amount of the order.",
+      "examples": [
+        "6.00000000000000"
+      ]
+    },
+    "order_total_string": {
+      "type": "string",
+      "description": "The total amount of the order in a human-readable format.",
+      "examples": [
+        "6.00 KWD"
+      ]
+    },
+    "has_different_transaction_currency": {
+      "type": "boolean",
+      "description": "Indicates if the transaction currency is different from the order currency.",
+      "examples": [
+        true
+      ]
+    },
+    "transaction_reference": {
+      "type": "string",
+      "description": "The reference number for the transaction.",
+      "examples": [
+        "TRN-123456"
+      ]
+    },
+    "transaction_amount": {
+      "type": "number",
+      "description": "The amount of the transaction.",
+      "examples": [
+        60
+      ]
+    },
+    "transaction_amount_string": {
+      "type": "string",
+      "description": "The amount of the transaction in a human-readable format.",
+      "examples": [
+        "60.00 SAR"
+      ]
+    },
+    "issue_date": {
+      "type": "string",
+      "description": "The date and time when the order was issued.",
+      "examples": [
+        "04-07-2023 | 12:12 م"
+      ]
+    },
+    "payment_status": {
+      "type": "string",
+      "description": "The payment status of the order.\n\n1. `paid`: Payment has successfully completed.\n1. `pending`: Payment is still pending or hasn't been made yet.\n1. `refunded`: Payment has been refunded to the Customer.\n1. `voided`: Payment has been voided or canceled.\n",
+      "enum": [
+        "paid",
+        "pending",
+        "refunded",
+        "voided"
+      ],
+      "examples": [
+        "paid"
+      ]
+    },
+    "payment_status_change": {
+      "type": "object",
+      "description": "Indicates the most recent change in the payment status of the order, \nby specifiying the previous (`old`) and the updated (`new`) payment statuses. \nThis field is particularly relevant for [webhook events](../docs/webhooks-overview.md#supported-webhook-events) like `order.payment_status.update`. \nThe `new` status will be `paid` for successful payments. \nThe `unpaid` status represents any payment status other than `paid`, \nincluding `pending`, `refunded`, and `voided`. \nThis categorization aligns with the merchant's view of payment statuses \non the Merchant Dashboard.\n",
+      "properties": {
+        "old": {
+          "type": "string",
+          "description": "The previous payment status of the order (e.g., 'unpaid').",
+          "enum": [
+            "paid",
+            "unpaid"
+          ]
+        },
+        "new": {
+          "type": "string",
+          "description": "The updated payment status of the order (e.g., 'paid').",
+          "enum": [
+            "paid",
+            "unpaid"
+          ]
+        }
+      }
+    },
+    "source": {
+      "type": "string",
+      "description": "The human-readable name indicating the source where the order was created.  This field is localized and provides a description of the sale channel, e.g., \"Store\" or \"المتجر الإلكتروني\".\n",
+      "examples": [
+        "Store"
+      ],
+      "enum": [
+        "Mazeed",
+        "Mazeed Services",
+        "Merchant Admin",
+        "Order Api",
+        "Store",
+        "Store App",
+        "ZidPOS",
+        "Others"
+      ]
+    },
+    "source_code": {
+      "type": "string",
+      "enum": [
+        "pos",
+        "catalog",
+        "md",
+        "mazeed",
+        "mazeed_marketplace",
+        "mobile_app",
+        "api"
+      ],
+      "description": "The code indicating the source or channel of the order. This can be one of several predefined values:\n- **pos**: Point of Sale (typically used in physical stores).\n- **catalog**: Order was made through a product catalog or online storefront.\n- **md**. Order was made from the Merchant Dashboard.\n- **mazeed_marketplace**: Order was made through Mazeed.\n- **mazeed**: Order was made at the Merchant's Store, but the Customer was redirected from Mazeed to the Merchant's Store.\n- **mobile_app**: Order was made through the store's mobile application.\n- **api**: Order was made through an API call, typically from third-party integrations or apps.\n",
+      "examples": [
+        "catalog"
+      ]
+    },
+    "is_reseller_transaction": {
+      "type": "boolean",
+      "description": "Indicates if the order was made by a reseller intending to sell the products to end consumers, rather than for personal use.",
+      "examples": [
+        false
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "description": "The date and time when the order was created.",
+      "examples": [
+        "2023-07-04 09:12:36"
+      ]
+    },
+    "updated_at": {
+      "type": "string",
+      "description": "The date and time when the order was last updated.",
+      "examples": [
+        "2023-07-04 09:14:28"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "description": "Any tags associated with the order.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "requires_shipping": {
+      "type": "boolean",
+      "description": "Indicates if the order requires shipping.",
+      "examples": [
+        true
+      ]
+    },
+    "shipping": {
+      "$ref": "#/definitions/2771508"
+    },
+    "payment": {
+      "$ref": "#/definitions/2771511"
+    },
+    "cod_confirmed": {
+      "type": "boolean",
+      "description": "Indicates if the Cash On Delivery (COD) payment is confirmed.",
+      "examples": [
+        false
+      ]
+    },
+    "reverse_order_label_request": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Any request for a reverse order label.",
+      "examples": [
+        null
+      ]
+    },
+    "customer_note": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Any note provided by the customer regarding the order.",
+      "examples": [
+        "أحتاج تغليف هدية"
+      ]
+    },
+    "gift_message": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Any gift message associated with the order.",
+      "examples": [
+        "كل عام وأنتم بخير"
+      ]
+    },
+    "payment_link": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The link for payment, if applicable.",
+      "examples": [
+        "https://payment.example.sa/order/123456"
+      ]
+    },
+    "weight": {
+      "type": "number",
+      "description": "The weight of the order in grams.",
+      "examples": [
+        500
+      ]
+    },
+    "weight_cost_details": {
+      "type": "object",
+      "description": "Details about the cost of the weight of the order.",
+      "properties": {
+        "weight_total": {
+          "type": "integer",
+          "description": "The total weight of the order in grams.",
+          "examples": [
+            150
+          ]
+        },
+        "weight_total_string": {
+          "type": "string",
+          "description": "The total weight of the order in a human-readable format.",
+          "examples": [
+            "150 gm"
+          ]
+        },
+        "cost": {
+          "type": "string",
+          "description": "The cost associated with the weight of the order.",
+          "examples": [
+            "1.000 KWD"
+          ]
+        },
+        "cost_string": {
+          "type": "string",
+          "description": "The cost associated with the weight of the order in a human-readable format.",
+          "examples": [
+            "1 KWD"
+          ]
+        }
+      }
+    },
+    "currency": {
+      "$ref": "#/definitions/2771514"
+    },
+    "coupon": {
+      "type": "string",
+      "description": "Any coupon code applied to the order.",
+      "examples": [
+        "SUMMER20"
+      ]
+    },
+    "products": {
+      "type": "object",
+      "properties": {
+        "is_external_product": {
+          "type": "boolean",
+          "default": true
+        },
+        "id": {
+          "type": "null",
+          "description": "Set to null if is_external_product is true."
+        },
+        "parent_id": {
+          "type": "null",
+          "description": "Set to null if is_external_product is true."
+        },
+        "quantity": {
+          "type": "string",
+          "examples": [
+            "2"
+          ],
+          "description": "The number of units of this product included in the order."
+        },
+        "weight": {
+          "type": "string",
+          "examples": [
+            "150"
+          ],
+          "description": "The weight of a single item, expressed in grams."
+        },
+        "net_price_with_additions": {
+          "type": "string",
+          "examples": [
+            "50"
+          ],
+          "description": "The net price of a single item after including any additional charges (such as add-ons or customization fees) but before applying tax.\nThis value represents the item’s base selling price plus additions, excluding VAT or other tax amounts."
+        },
+        "price_with_additions": {
+          "type": "string",
+          "examples": [
+            "55"
+          ],
+          "description": "The final price of a single item after including any additional charges and applying tax.\nThis is the tax-inclusive price of the product with all additions, representing the customer-facing per-item cost."
+        },
+        "parent_name": {
+          "type": "string",
+          "examples": [
+            "سماعات بلوتوث"
+          ]
+        },
+        "sku": {
+          "type": "string",
+          "description": "A unique stock-keeping unit identifier for the product.",
+          "examples": [
+            "Z.3.1726750799757576"
+          ]
+        },
+        "barcode": {
+          "type": "null",
+          "description": "The barcode number associated with the product."
+        },
+        "custom_fields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "examples": [
+              "[]"
+            ]
+          },
+          "description": "An array of custom attributes or metadata associated with the product."
+        },
+        "price_before": {
+          "type": "null",
+          "description": "The product price before any discounts or adjustments. "
+        },
+        "total_before": {
+          "type": "null",
+          "description": "The total value for the product line before adjustments."
+        },
+        "net_sale_price": {
+          "type": "null",
+          "description": "The net sale price of the product after discounts."
+        },
+        "gross_sale_price": {
+          "type": "null",
+          "description": "The gross sale price of the product before discounts."
+        },
+        "gross_additions_price": {
+          "type": "null",
+          "description": "The gross price of additional items associated with the product."
+        },
+        "tax_percentage": {
+          "type": "string",
+          "description": "The percentage of tax applied to the product.",
+          "examples": [
+            "0.12"
+          ]
+        },
+        "tax_amount_string_per_item": {
+          "type": "string",
+          "description": "The tax amount per item as a formatted string.",
+          "examples": [
+            "0.000 KWD"
+          ]
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "An array of image URLs for the product with various sizes (e.g., thumbnail, small, medium, large)."
+        },
+        "review_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "URL of the storefront page where the customer can submit a review for this product. Returned when the order status is `delivered` and product reviews are enabled for the store; otherwise, `null`. The customer must be signed in to the storefront to submit the review.",
+          "examples": [
+            "https://mystore.zid.store/products/e23703d4-aa41-4eee-a4a3-35439f788e31/reviews/new"
+          ]
+        }
+      }
+    },
+    "products_count": {
+      "type": "integer",
+      "description": "The total number of products in the order.",
+      "examples": [
+        1
+      ]
+    },
+    "products_sum_total_string": {
+      "type": "string",
+      "description": "The total sum of all products in the order in a human-readable format.",
+      "examples": [
+        "30.00 SAR"
+      ]
+    },
+    "language": {
+      "type": "string",
+      "description": "The language used to diplay the order's page.",
+      "examples": [
+        "ar"
+      ]
+    },
+    "histories": {
+      "type": "array",
+      "description": "A list of historical records associated with the order.",
+      "items": {
+        "$ref": "#/definitions/2771516"
+      }
+    },
+    "is_reactivated": {
+      "type": "boolean",
+      "description": "Indicates if the order was previously canceled or closed and has since been reopened or reactivated.",
+      "examples": [
+        false
+      ]
+    },
+    "return_policy": {
+      "type": "string",
+      "description": "A human-readable string describing the return policy of the order.",
+      "examples": [
+        "Returns are accepted within 14 days of receipt."
+      ]
+    },
+    "packages_count": {
+      "type": "integer",
+      "description": "The number of packages in the order.",
+      "examples": [
+        1
+      ]
+    },
+    "inventory_address": {
+      "type": "string",
+      "description": "The address of the inventory for the order.",
+      "examples": [
+        "123 King Fahd Road, Al Olaya, Riyadh 12212, Saudi Arabia"
+      ]
+    },
+    "reseller_meta": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Metadata associated with the reseller.",
+      "examples": [
+        null
+      ]
+    },
+    "previous_order": {
+      "type": "integer",
+      "description": "The ID of the previous order, if any.",
+      "examples": [
+        23874634
+      ]
+    },
+    "next_order": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The ID of the next order, if any.",
+      "examples": [
+        null
+      ]
+    },
+    "invoice_settings": {
+      "type": "object",
+      "properties": {
+        "is_order_notifications_enabled": {
+          "type": "boolean",
+          "description": "Indicates if order notifications are enabled.",
+          "examples": [
+            true
+          ]
+        }
+      }
+    },
+    "comment": {
+      "type": "string",
+      "description": "Any comments or notes about the order.",
+      "examples": [
+        "This is a VIP customer. Handle with extra care."
+      ]
+    },
+    "is_marketplace_order": {
+      "type": "boolean",
+      "description": "The is_marketplace_order property indicates whether the order originates from a marketplace. When set to true, it signifies that the order was placed through a third-party marketplace platform rather than directly through the store's website.",
+      "default": false
+    },
+    "is_quick_checkout_order": {
+      "type": "boolean",
+      "description": "ndicates whether the order was placed using a quick checkout feature.",
+      "default": false
+    },
+    "is_potential_fraud": {
+      "type": "boolean",
+      "description": "Flags the order as potentially fraudulent.",
+      "default": false
+    },
+    "is_on_demand": {
+      "type": "boolean",
+      "description": "Specifies if the order is part of an on-demand request.",
+      "default": false
+    },
+    "should_merchant_set_shipping_method": {
+      "type": "boolean",
+      "description": "Determines whether the merchant must set the shipping method manually.",
+      "default": false
+    },
+    "expected_shipping_method_type": {
+      "type": "null",
+      "description": "Specifies the expected type of shipping method for the order."
+    },
+    "zidship_ticket_number": {
+      "type": "null",
+      "description": "A unique reference number for tracking orders via Zidship."
+    },
+    "edits_count": {
+      "type": "string",
+      "description": "The number of edits made to the order after its creation.",
+      "examples": [
+        "0"
+      ]
+    },
+    "delivered_at": {
+      "type": "null",
+      "description": "Timestamp indicating when the order was delivered."
+    },
+    "options": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "examples": [
+          "[]"
+        ]
+      },
+      "description": "An array of additional options or configurations applied to the product. (e.g., color, size)"
+    },
+    "invoice_link": {
+      "type": "string",
+      "description": "URL to the downloadable PDF invoice for the order.",
+      "examples": [
+        "https://zid-testing-907587157081.s3-accelerate.amazonaws.com/pdf/order_44834593.pdf"
+      ]
+    }
+  },
+  "definitions": {
+    "2771505": {
+      "title": "OrderStatus",
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "The status code of the order. Each code represents a specific state of the order:\n\n1. `new`: The order has been recently created.\n1. `failed`: The order transaction failed.\n1. `refunded`: The order has been refunded (typically by the merchant).\n1. `reversed`: The order payment has been reversed (typically by the payment provider or the bank).\n1. `chargeback`: A chargeback has been initiated for the order.\n1. `expired`: The order has expired due to non-payment.\n1. `processed`: The order has been processed.\n1. `voided`: The order has been voided.\n1. `ready`: The order is ready for shipment.\n1. `reverse_in_progress`: The order is in the process of being reversed.\n1. `preparing`: The order is being prepared for shipment.\n1. `indelivery`: The order is currently in delivery.\n1. `delivered`: The order has been delivered.\n1. `cancelled`: The order has been cancelled.\n1. `denied`: The order has been denied.\n1. `canceledReversal`: The reversal of the order has been canceled.\n",
+          "enum": [
+            "new",
+            "failed",
+            "refunded",
+            "reversed",
+            "chargeback",
+            "expired",
+            "processed",
+            "voided",
+            "ready",
+            "processingReverse",
+            "preparing",
+            "inDelivery",
+            "delivered",
+            "cancelled",
+            "denied",
+            "canceledReversal"
+          ],
+          "examples": [
+            "delivered"
+          ]
+        }
+      }
+    },
+    "2771507": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "The email address of the customer. (Masked if is_marketplace_order is true)",
+          "examples": [
+            "example.user@email.com"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the customer who placed the order.",
+          "examples": [
+            "2083543"
+          ]
+        },
+        "mobile": {
+          "type": "string",
+          "description": "The phone number of the customer. (Masked if is_marketplace_order is true)",
+          "examples": [
+            "+966501234567"
+          ]
+        },
+        "note": {
+          "type": "string",
+          "description": "Any note for the customer. ",
+          "examples": [
+            "\" \""
+          ]
+        },
+        "verified": {
+          "type": "string",
+          "description": "Indicates if the customer’s account is verified. (1 for verified, 0 otherwise)",
+          "examples": [
+            "1"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "description": "Specifies the type of customer, such as \"individual\" or \"business.\"",
+          "examples": [
+            "individual"
+          ]
+        }
+      },
+      "title": "OrderCustomer"
+    },
+    "2771508": {
+      "type": "object",
+      "properties": {
+        "method": {
+          "$ref": "#/definitions/2771509"
+        },
+        "address": {
+          "$ref": "#/definitions/2771510"
+        }
+      },
+      "title": "OrderShipping"
+    },
+    "2771509": {
+      "title": "OrderShippingMethod",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the shipping method.",
+          "examples": [
+            "SHM-123456"
+          ]
+        },
+        "code": {
+          "type": "string",
+          "description": "The code of the shipping method.",
+          "examples": [
+            "EXP_DEL"
+          ]
+        },
+        "estimated_delivery_time": {
+          "type": "string",
+          "description": "The estimated delivery time of the shipping method.",
+          "examples": [
+            "3-5 Business Days"
+          ]
+        },
+        "icon": {
+          "type": "string",
+          "description": "The icon URL of the shipping method.",
+          "examples": [
+            "https://cdn.example.com/icons/shipping/express_delivery.png"
+          ]
+        },
+        "is_system_option": {
+          "type": "boolean",
+          "description": "Indicates if the shipping method is a default option provided by the platform.",
+          "examples": [
+            false
+          ]
+        },
+        "waybill": {
+          "type": "string",
+          "description": "The waybill of the shipping method.",
+          "examples": [
+            "WB-12345678"
+          ]
+        },
+        "waybill_tracking_id": {
+          "type": "string",
+          "description": "The tracking id of the waybill of the shipping method.",
+          "examples": [
+            "TRACK-12345678"
+          ]
+        },
+        "has_waybill_and_packing_list": {
+          "type": "boolean",
+          "description": "Indicates if the shipping method includes both a waybill (shipment details and instructions) and a packing list (detailed list of items in the shipment).",
+          "examples": [
+            false
+          ]
+        },
+        "tracking": {
+          "type": "object",
+          "description": "The tracking details of the shipping method.",
+          "properties": {
+            "number": {
+              "type": "string",
+              "description": "The tracking number.",
+              "examples": [
+                "TRACK-12345678"
+              ]
+            },
+            "status": {
+              "type": "string",
+              "description": "The status of the shipment.",
+              "examples": [
+                "In Transit"
+              ]
+            },
+            "url": {
+              "type": "string",
+              "description": "The URL for tracking the shipment.",
+              "examples": [
+                "https://example.com/track?number=TRACK-12345678"
+              ]
+            }
+          }
+        },
+        "courier": {
+          "type": "string",
+          "description": "The courier for the shipping method.",
+          "examples": [
+            "FedEx"
+          ]
+        },
+        "return_shipment": {
+          "type": "string",
+          "description": "The return shipment details of the shipping method.",
+          "examples": [
+            "RET-12345678"
+          ]
+        },
+        "had_errors_while_fetching_waybill": {
+          "type": "boolean",
+          "default": false
+        },
+        "order_shipping_status": {
+          "type": "null",
+          "description": "Reflects the current status of the shipping method for this order."
+        },
+        "inventory_address": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "examples": [
+              "[]"
+            ]
+          },
+          "description": "An array of addresses from which the inventory for the order is sourced."
+        }
+      },
+      "type": "object"
+    },
+    "2771510": {
+      "type": "object",
+      "properties": {
+        "formatted_address": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The full formatted address. (Masked if is_marketplace_order is true)",
+          "examples": [
+            "Masked Address"
+          ]
+        },
+        "street": {
+          "type": "string",
+          "description": "The street name or number. (Masked if is_marketplace_order is true)",
+          "examples": [
+            "Masked Street"
+          ]
+        },
+        "district": {
+          "type": "string",
+          "description": "The district or area name. (Masked if is_marketplace_order is true)",
+          "examples": [
+            "Masked District"
+          ]
+        },
+        "lat": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The latitude coordinate of the address.",
+          "examples": [
+            "24.7136"
+          ]
+        },
+        "lng": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The longitude coordinate of the address.",
+          "examples": [
+            "46.6753"
+          ]
+        },
+        "meta": {
+          "type": "object",
+          "description": "Meta data of an Order's shipping address.",
+          "properties": {
+            "buyer": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "description": "The type of the buyer (e.g., individual, business).",
+                  "examples": [
+                    "individual"
+                  ]
+                },
+                "email": {
+                  "type": "string",
+                  "description": "The email address of the buyer.",
+                  "examples": [
+                    "ahmed@example.sa"
+                  ]
+                },
+                "telephone": {
+                  "type": "string",
+                  "description": "The telephone number of the buyer.",
+                  "examples": [
+                    "966501234567"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "city": {
+          "$ref": "#/definitions/2771518"
+        },
+        "country": {
+          "$ref": "#/definitions/2771517"
+        },
+        "short_address": {
+          "type": "null",
+          "description": "A concise version of the shipping address."
+        }
+      },
+      "title": "OrderShippingAddress"
+    },
+    "2771511": {
+      "type": "object",
+      "properties": {
+        "method": {
+          "$ref": "#/definitions/2771513"
+        },
+        "invoice": {
+          "type": "array",
+          "description": "A list of invoice details related to the payment.",
+          "items": {
+            "$ref": "#/definitions/2771512"
+          }
+        }
+      },
+      "title": "OrderPayment"
+    },
+    "2771512": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Represents the type of invoice detail. The possible values for this field are:\n- `sub_totals_before_vat`: المجموع غير شامل الضريبة - Represents the total amount before the application of VAT.\n- `taxable_amount`: المبلغ الخاضع للضريبة - The amount that is subject to VAT.\n- `vat`: ضريبة القيمة المضافة (15%) - Value Added Tax applied to the taxable amount.\n- `sub_totals`: قيمة المنتجات - Represents a general total in cases where VAT doesn't apply or VAT is already included in the price of each item.\n- `sub_totals_after_vat`: مجموع المنتجات شامل ضريبة القيمة المضافة - Represents the total amount after the application of VAT.\n- `coupon`: خصم - Represents any discount applied to the order.\n- `shipping`: التوصيل - Cost associated with the delivery of the order.\n- `shipping_discount`: خصم التوصيل - Discount applied to the shipping cost.\n- `zid_cod`: دفع عند الإستلام - Represents the Cash on Delivery payment method.\n- `total`: المجموع الكلي - The grand total amount for the order.\n",
+          "examples": [
+            "sub_totals"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "description": "The monetary value associated with the invoice detail.",
+          "examples": [
+            "30.00000000000000"
+          ]
+        },
+        "value_string": {
+          "type": "string",
+          "description": "The monetary value in a human-readable format.",
+          "examples": [
+            "30.00 SAR"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "description": "A descriptive title for the invoice detail.",
+          "examples": [
+            "قيمة المنتجات"
+          ]
+        }
+      },
+      "title": "InvoiceDetail"
+    },
+    "2771513": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "The unique identifier for the payment method.",
+          "examples": [
+            1
+          ]
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "Indicates if the payment method is enabled.",
+          "examples": [
+            true
+          ]
+        },
+        "code": {
+          "type": "string",
+          "description": "The code representing the payment method.",
+          "examples": [
+            "zid_cod"
+          ]
+        },
+        "fees": {
+          "type": "number",
+          "description": "The fees associated with the payment method.",
+          "examples": [
+            5
+          ]
+        },
+        "fees_string": {
+          "type": "string",
+          "description": "The fees associated with the payment method in a human-readable format.",
+          "examples": [
+            "5.00 SAR"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of the payment method.",
+          "examples": [
+            "zid_cod"
+          ]
+        },
+        "icon": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The URL link to the icon representing the payment method.",
+          "examples": [
+            "https://example.com/payment-icon.png"
+          ]
+        },
+        "cart_payment_request_token": {
+          "type": "null",
+          "description": "A unique token for processing payments within the cart."
+        },
+        "payment_network": {
+          "type": "string",
+          "description": "Specifies the payment network used for processing the transaction. This can include networks such as Visa, MasterCard, American Express, PayPal, Stripe, Apple Pay, Google Pay, or other supported payment providers.",
+          "examples": [
+            "visa"
+          ]
+        }
+      },
+      "title": "OrderPaymentMethod"
+    },
+    "2771514": {
+      "type": "object",
+      "properties": {
+        "order_currency": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "The unique identifier for the currency.",
+              "examples": [
+                4
+              ]
+            },
+            "code": {
+              "type": "string",
+              "description": "The code representing the currency (e.g., USD, SAR).",
+              "examples": [
+                "SAR"
+              ]
+            },
+            "exchange_rate": {
+              "type": "number",
+              "description": "The exchange rate of the order's currency relative to the store's currency.",
+              "examples": [
+                1
+              ]
+            }
+          }
+        },
+        "order_store_currency": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "The unique identifier for the currency.",
+              "examples": [
+                4
+              ]
+            },
+            "code": {
+              "type": "string",
+              "description": "The code representing the currency (e.g., USD, SAR).",
+              "examples": [
+                "SAR"
+              ]
+            },
+            "exchange_rate": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "The exchange rate in this object is typically `null` because it is comparing the store currency relative to itself.\n",
+              "examples": [
+                null
+              ]
+            }
+          }
+        }
+      },
+      "title": "OrderCurrency"
+    },
+    "2771516": {
+      "type": "object",
+      "properties": {
+        "order_status_id": {
+          "type": "integer",
+          "description": "The unique identifier for the order status. Each ID corresponds to a specific status code of the order:\n\n1. `1`: Corresponds to `new` (The order has been recently created).\n2. `2`: Corresponds to `preparing` (The order is being prepared for shipment).\n3. `3`: Corresponds to `inDelivery`.\n4. `5`: Corresponds to `delivered`.\n5. `7`: Corresponds to `canceled`.\n6. `12`: Corresponds to `reversed` (The order payment has been reversed).\n7. `17`: Corresponds to `ready` (The order is ready for shipment).\n8. `18`: Corresponds to `processingReverse` (The order is in the process of being reversed).\n\nFor a detailed description of each status code, please refer to the [`OrderStatus`](6syqus5mk8zjv) schema.\n",
+          "enum": [
+            1,
+            2,
+            3,
+            5,
+            7,
+            12,
+            17,
+            18
+          ]
+        },
+        "order_status_name": {
+          "type": "string",
+          "description": "The name of the order status.",
+          "examples": [
+            "جديد"
+          ]
+        },
+        "changed_by_id": {
+          "type": "integer",
+          "description": "The unique identifier of the entity/person who changed the order status.",
+          "examples": [
+            37
+          ]
+        },
+        "changed_by_type": {
+          "type": "string",
+          "description": "The type of entity/person who changed the order status (e.g., customer, manager).",
+          "examples": [
+            "عميل"
+          ]
+        },
+        "changed_by_details": {
+          "type": "object",
+          "description": "Details about the entity/person who changed the order status.",
+          "properties": {
+            "action": {
+              "type": "string",
+              "description": "The action that was taken on the order.",
+              "examples": [
+                "تم إنشاء الطلب ."
+              ]
+            },
+            "by": {
+              "type": "string",
+              "description": "The name of the entity/person who took the action.",
+              "examples": [
+                "Ahmed Al-Saud"
+              ]
+            },
+            "comment": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Any comment or note related to the action taken.",
+              "examples": [
+                "Manually created after size-change request. Check inventory."
+              ]
+            }
+          }
+        },
+        "comment": {
+          "type": "string",
+          "description": "A comment or note about the order history event.",
+          "examples": [
+            "تم إنشاء الطلب ."
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp when the order history event was created.",
+          "examples": [
+            "2023-07-04 09:12:36"
+          ]
+        },
+        "humanized_created_at": {
+          "type": "string",
+          "description": "A human-readable representation of the time elapsed since the order history event was created.",
+          "examples": [
+            "منذ شهر"
+          ]
+        }
+      },
+      "title": "OrderHistory"
+    },
+    "2771517": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique identifier of the country",
+          "examples": [
+            184
+          ]
+        },
+        "code": {
+          "type": "string",
+          "description": "Two-letter country code according to ISO 3166-1 alpha-2",
+          "examples": [
+            "SA"
+          ]
+        },
+        "country_code": {
+          "type": "string",
+          "description": "Three-letter country code according to ISO 3166-1 alpha-3",
+          "examples": [
+            "SAU"
+          ]
+        },
+        "flag": {
+          "type": "string",
+          "description": "URL to the country's flag image",
+          "examples": [
+            "https://media.zid.store/static/sa.svg"
+          ]
+        }
+      },
+      "title": "Country"
+    },
+    "2771518": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique identifier of the city",
+          "examples": [
+            1
+          ]
+        },
+        "national_id": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "National identifier of the city.",
+          "examples": [
+            3
+          ]
+        },
+        "priority": {
+          "type": "integer",
+          "description": "Priority of the city. Higher number indicates higher priority.",
+          "examples": [
+            10
+          ]
+        },
+        "country_id": {
+          "type": "integer",
+          "description": "Unique identifier of the country the city is located in",
+          "examples": [
+            184
+          ]
+        },
+        "country_name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Name of the country the city is located in (in Arabic)",
+          "examples": [
+            "السعودية"
+          ]
+        },
+        "country_code": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Two-letter country code according to ISO 3166-1 alpha-2",
+          "examples": [
+            "SA"
+          ]
+        },
+        "ar_name": {
+          "type": "string",
+          "description": "Name of the city in Arabic",
+          "examples": [
+            "الرياض"
+          ]
+        },
+        "en_name": {
+          "type": "string",
+          "description": "Name of the city in English",
+          "examples": [
+            "Riyadh"
+          ]
+        }
+      },
+      "title": "CityPresenter"
+    }
+  }
+}

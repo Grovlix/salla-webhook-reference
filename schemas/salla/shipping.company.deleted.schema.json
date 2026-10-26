@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "shipping.company.deleted",
+  "description": "Triggered when a custom shipping company is deleted. Generated from https://docs.salla.dev/webhook-events/shippings (fetched 2026-10-26).",
+  "type": "object",
+  "properties": {
+    "event": {
+      "type": "string",
+      "description": "Event Name",
+      "enum": [
+        "shipping.company.created",
+        "shipping.company.updated",
+        "shipping.company.deleted"
+      ]
+    },
+    "merchant": {
+      "type": "number",
+      "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)",
+      "examples": [
+        1305146709
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Timestamp of webhook creation",
+      "examples": [
+        "Thu Apr 07 2022 13:48:22 GMT+0300"
+      ]
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "Shipping Company ID",
+          "examples": [
+            488260393
+          ]
+        },
+        "status": {
+          "type": "boolean",
+          "description": "Shipping Company Status",
+          "default": false
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "event": "shipping.company.deleted",
+      "merchant": 1305146709,
+      "created_at": "Thu Apr 07 2022 13:48:22 GMT+0300",
+      "data": {
+        "id": 488260393,
+        "name": "شركة سريع",
+        "status": false
+      }
+    },
+    {
+      "id": 488260393,
+      "name": "شركة سريع",
+      "status": false
+    }
+  ]
+}

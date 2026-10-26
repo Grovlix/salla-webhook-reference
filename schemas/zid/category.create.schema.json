@@ -1,0 +1,304 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "category.create",
+  "description": "Triggered when a new category is created. Generated from https://docs.zid.sa/webhook-events-product-category (fetched 2026-10-26).",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier for the category",
+      "examples": [
+        875210
+      ]
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL-friendly version of the category name",
+      "examples": [
+        "sport-shoes"
+      ]
+    },
+    "SEO_category_title": {
+      "type": "string",
+      "description": "SEO optimized title for the category",
+      "examples": [
+        "Sport Shoes - Run with Comfort"
+      ]
+    },
+    "SEO_category_description": {
+      "type": "string",
+      "description": "SEO optimized description for the category",
+      "examples": [
+        "Our selection of sport shoes offers the best in comfort and performance for your athletic needs."
+      ]
+    },
+    "names": {
+      "type": "object",
+      "description": "Category names in different languages",
+      "properties": {
+        "en": {
+          "type": "string",
+          "examples": [
+            "Sport Shoes"
+          ]
+        },
+        "ar": {
+          "type": "string",
+          "examples": [
+            "أحذية رياضية"
+          ]
+        }
+      }
+    },
+    "description": {
+      "type": "object",
+      "description": "Category descriptions in different languages",
+      "properties": {
+        "en": {
+          "type": "string",
+          "examples": [
+            "Featuring a range of sport shoes for every sport from running to football."
+          ]
+        },
+        "ar": {
+          "type": "string",
+          "examples": [
+            "مجموعة متنوعة من الأحذية الرياضية لكل الرياضات من الجري إلى كرة القدم."
+          ]
+        }
+      }
+    },
+    "url": {
+      "type": "string",
+      "description": "URL of the category on the web store",
+      "examples": [
+        "https://example.zid.store/categories/875210/sport-shoes"
+      ]
+    },
+    "image": {
+      "type": "string",
+      "description": "URL of the category's image (thumbnail size)",
+      "examples": [
+        "https://media.zid.store/example-store/75decdde-4e94-45fe-8eb1-1edf4ead3ff0-260x260.png"
+      ]
+    },
+    "image_full_size": {
+      "type": "string",
+      "description": "URL of the category's image (full size)",
+      "examples": [
+        "https://media.zid.store/example-store/75decdde-4e94-45fe-8eb1-1edf4ead3ff0.png"
+      ]
+    },
+    "img_alt_text": {
+      "type": "string",
+      "description": "Alternative text for the image for accessibility and SEO",
+      "examples": [
+        "Sport shoes collection"
+      ]
+    },
+    "cover_image": {
+      "type": "string",
+      "description": "URL of the category's cover image",
+      "examples": [
+        "https://media.zid.store/example-store/94b62e84-4ee3-4bfb-9833-6de53e2b8e1a.png"
+      ]
+    },
+    "image_full": {
+      "type": "string",
+      "description": "Full sized category image",
+      "examples": [
+        "https://media.zid.store/example-store/75decdde-4e94-45fe-8eb1-1edf4ead3ff0.png"
+      ]
+    },
+    "products_count": {
+      "type": "integer",
+      "description": "Number of products under the category",
+      "examples": [
+        120
+      ]
+    },
+    "sub_categories": {
+      "type": "array",
+      "description": "List of sub-categories under this category. Empty if no sub-categories exist.",
+      "items": {
+        "$ref": "#/definitions/2771475"
+      }
+    },
+    "parent_id": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "ID of the parent category. `Null` if this is a top-level category.",
+      "examples": [
+        null
+      ]
+    },
+    "flat_name": {
+      "type": "string",
+      "description": "Flat representation of the category name",
+      "examples": [
+        "Sport Shoes"
+      ]
+    },
+    "is_published": {
+      "type": "boolean",
+      "description": "Flag indicating if the category is currently published and visible on the store",
+      "examples": [
+        true
+      ]
+    }
+  },
+  "definitions": {
+    "2771475": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique identifier for the category",
+          "examples": [
+            875210
+          ]
+        },
+        "slug": {
+          "type": "string",
+          "description": "URL-friendly version of the category name",
+          "examples": [
+            "sport-shoes"
+          ]
+        },
+        "SEO_category_title": {
+          "type": "string",
+          "description": "SEO optimized title for the category",
+          "examples": [
+            "Sport Shoes - Run with Comfort"
+          ]
+        },
+        "SEO_category_description": {
+          "type": "string",
+          "description": "SEO optimized description for the category",
+          "examples": [
+            "Our selection of sport shoes offers the best in comfort and performance for your athletic needs."
+          ]
+        },
+        "names": {
+          "type": "object",
+          "description": "Category names in different languages",
+          "properties": {
+            "en": {
+              "type": "string",
+              "examples": [
+                "Sport Shoes"
+              ]
+            },
+            "ar": {
+              "type": "string",
+              "examples": [
+                "أحذية رياضية"
+              ]
+            }
+          }
+        },
+        "description": {
+          "type": "object",
+          "description": "Category descriptions in different languages",
+          "properties": {
+            "en": {
+              "type": "string",
+              "examples": [
+                "Featuring a range of sport shoes for every sport from running to football."
+              ]
+            },
+            "ar": {
+              "type": "string",
+              "examples": [
+                "مجموعة متنوعة من الأحذية الرياضية لكل الرياضات من الجري إلى كرة القدم."
+              ]
+            }
+          }
+        },
+        "url": {
+          "type": "string",
+          "description": "URL of the category on the web store",
+          "examples": [
+            "https://example.zid.store/categories/875210/sport-shoes"
+          ]
+        },
+        "image": {
+          "type": "string",
+          "description": "URL of the category's image (thumbnail size)",
+          "examples": [
+            "https://media.zid.store/example-store/75decdde-4e94-45fe-8eb1-1edf4ead3ff0-260x260.png"
+          ]
+        },
+        "image_full_size": {
+          "type": "string",
+          "description": "URL of the category's image (full size)",
+          "examples": [
+            "https://media.zid.store/example-store/75decdde-4e94-45fe-8eb1-1edf4ead3ff0.png"
+          ]
+        },
+        "img_alt_text": {
+          "type": "string",
+          "description": "Alternative text for the image for accessibility and SEO",
+          "examples": [
+            "Sport shoes collection"
+          ]
+        },
+        "cover_image": {
+          "type": "string",
+          "description": "URL of the category's cover image",
+          "examples": [
+            "https://media.zid.store/example-store/94b62e84-4ee3-4bfb-9833-6de53e2b8e1a.png"
+          ]
+        },
+        "image_full": {
+          "type": "string",
+          "description": "Full sized category image",
+          "examples": [
+            "https://media.zid.store/example-store/75decdde-4e94-45fe-8eb1-1edf4ead3ff0.png"
+          ]
+        },
+        "products_count": {
+          "type": "integer",
+          "description": "Number of products under the category",
+          "examples": [
+            120
+          ]
+        },
+        "sub_categories": {
+          "type": "array",
+          "description": "List of sub-categories under this category. Empty if no sub-categories exist.",
+          "items": {
+            "$ref": "#/definitions/2771475"
+          }
+        },
+        "parent_id": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "ID of the parent category. `Null` if this is a top-level category.",
+          "examples": [
+            null
+          ]
+        },
+        "flat_name": {
+          "type": "string",
+          "description": "Flat representation of the category name",
+          "examples": [
+            "Sport Shoes"
+          ]
+        },
+        "is_published": {
+          "type": "boolean",
+          "description": "Flag indicating if the category is currently published and visible on the store",
+          "examples": [
+            true
+          ]
+        }
+      },
+      "title": "ProductCategory"
+    }
+  }
+}

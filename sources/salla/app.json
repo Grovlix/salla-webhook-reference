@@ -1,0 +1,643 @@
+{
+  "source_url": "https://docs.salla.dev/partner-apis/app-events",
+  "fetched_at": "2026-10-26",
+  "definitions": {},
+  "examples": [
+    {
+      "heading": "Payload",
+      "event": "app.store.authorize",
+      "repaired": false,
+      "payload": {
+        "event": "app.store.authorize",
+        "merchant": 1234509876,
+        "created_at": "2022-12-31 12:31:25",
+        "data": {
+          "access_token": "KGsnBcNNkR2AgHnrd0U9lCIjrUiukF_-Fb8OjRiEcog.NuZv_mJaB46jA2OHaxxxx",
+          "expires": 1634819484,
+          "refresh_token": "fWcceFWF9eFH4yPVOCaYHy-UolnU7iJNDH-dnZwakUE.bpSNQCNjbNg6hTxxxx",
+          "scope": "settings.read branches.read offline_access",
+          "token_type": "bearer"
+        }
+      }
+    },
+    {
+      "heading": "Payload",
+      "event": "app.installed",
+      "repaired": true,
+      "payload": {
+        "event": "app.installed",
+        "merchant": 1234509876,
+        "created_at": "2022-12-31 12:31:25",
+        "data": {
+          "id": 6789012345,
+          "app_name": "Shipping app",
+          "description": "App Description",
+          "app_type": "app",
+          "app_scopes": [
+            "settings.read",
+            "customers.read_write",
+            "orders.read_write",
+            "carts.read",
+            "branches.read_write",
+            "categories.read_write",
+            "brands.read_write",
+            "products.read_write",
+            "webhooks.read_write",
+            "payments.read",
+            "taxes.read_write",
+            "specialoffers.read_write",
+            "countries.read",
+            "metadata.read_write",
+            "offline_access"
+          ],
+          "installation_date": "2021-09-28 06:06:56",
+          "store_type": "development"
+        }
+      }
+    },
+    {
+      "heading": "Payload",
+      "event": "app.updated",
+      "repaired": true,
+      "payload": {
+        "event": "app.updated",
+        "merchant": 1234509876,
+        "created_at": "2022-12-31 12:31:25",
+        "data": {
+          "id": 6789012345,
+          "app_name": "Shipping app",
+          "description": "App Description",
+          "app_type": "app",
+          "categories": [
+            "Accounting & Finance"
+          ],
+          "app_scopes": [
+            "settings.read",
+            "branches.read",
+            "offline_access"
+          ],
+          "installation_date": "2021-10-06 16:16:49",
+          "update_date": "2021-10-07 12:31:24",
+          "store_type": "demo"
+        }
+      }
+    },
+    {
+      "heading": "Payload",
+      "event": "app.uninstalled",
+      "repaired": false,
+      "payload": {
+        "event": "app.uninstalled",
+        "merchant": 1234509876,
+        "created_at": "2022-12-31 12:31:25",
+        "data": {
+          "id": 6789012345,
+          "app_name": "Cool app",
+          "app_description": "This App provides a seamless, on-the-go shipping experience for businesses and individuals.",
+          "app_type": "shipping",
+          "categories": [
+            "Shipping and Delivery"
+          ],
+          "installation_date": "2021-10-06 16:16:49",
+          "uninstallation_date": "2021-10-07 12:46:07",
+          "refunded": false,
+          "store_type": "live"
+        }
+      }
+    },
+    {
+      "heading": "Payload",
+      "event": "app.trial.started",
+      "repaired": true,
+      "payload": {
+        "event": "app.trial.started",
+        "merchant": 1234509876,
+        "created_at": "2022-12-31 12:31:25",
+        "data": {
+          "id": 6789012345,
+          "app_name": "Shipping app",
+          "app_description": "App Description",
+          "app_type": "app",
+          "categories": [
+            "Accounting & Finance"
+          ],
+          "plan_name": "Diamond Plan",
+          "plan_type": "one_time",
+          "start_date": "2023-07-27",
+          "end_date": "2023-07-28",
+          "created_at": "2023-07-27 12:23:19",
+          "features": [],
+          "store_type": "development"
+        }
+      }
+    },
+    {
+      "heading": "Payload",
+      "event": "app.trial.expired",
+      "repaired": true,
+      "payload": {
+        "event": "app.trial.expired",
+        "merchant": 1234509876,
+        "created_at": "2022-12-31 12:31:25",
+        "data": {
+          "id": 6789012345,
+          "app_name": "Shipping app",
+          "description": "App Description",
+          "app_type": "app",
+          "categories": [
+            "Accounting & Finance"
+          ],
+          "plan_name": "Diamond Plan",
+          "plan_type": "one_time",
+          "start_date": "2021-10-06T21:00:00.000000Z",
+          "end_date": "2021-10-07T21:00:00.000000Z",
+          "store_type": "demo"
+        }
+      }
+    },
+    {
+      "heading": "Payload",
+      "event": "app.trial.canceled",
+      "repaired": false,
+      "payload": {
+        "event": "app.trial.canceled",
+        "merchant": 74955415,
+        "created_at": "2023-07-27 12:32:17",
+        "data": {
+          "id": 2114981050,
+          "app_name": "Shipping App",
+          "app_description": "App Description",
+          "app_type": "public",
+          "categories": [
+            "Accounting & Finance"
+          ],
+          "plan_type": "recurring",
+          "plan_name": null,
+          "start_date": "2023-07-27",
+          "end_date": "2023-07-28",
+          "subscription_at": "2023-07-27 12:13:58",
+          "created_at": "2023-07-27 12:32:17",
+          "features": [],
+          "store_type": "live"
+        }
+      }
+    },
+    {
+      "heading": "Payload (App subscription)",
+      "event": "app.subscription.started",
+      "repaired": false,
+      "payload": {
+        "event": "app.subscription.started",
+        "merchant": 1234509876,
+        "created_at": "2022-12-31 12:31:25",
+        "data": {
+          "id": 6789012345,
+          "subscription_id": 1510766049,
+          "item_type": "plan",
+          "item_slug": null,
+          "quantity": 1,
+          "app_name": "Shipping app",
+          "description": "App Description",
+          "app_type": "app",
+          "categories": [
+            "Marketing"
+          ],
+          "plan_type": "recurring",
+          "plan_name": null,
+          "plan_period": "1",
+          "start_date": "2021-10-09T21:00:00.000000Z",
+          "end_date": "2022-10-09T21:00:00.000000Z",
+          "coupon": {
+            "name": "SPZGRDFS",
+            "amount": "0.15"
+          },
+          "initialization_cost": 10,
+          "price_before_discount": 5,
+          "price": "20.00",
+          "tax": "0.15",
+          "tax_value": "3.00",
+          "total": "23.00",
+          "subscription_balance": "null",
+          "features": [
+            {
+              "key": "Feature1",
+              "quantity": 1
+            },
+            {
+              "key": "Feature3",
+              "quantity": 5
+            }
+          ],
+          "store_type": "development",
+          "promotion": {
+            "id": 98784255,
+            "requirement": 1,
+            "reward": 1
+          }
+        }
+      }
+    },
+    {
+      "heading": "Payload (Addon subscription)",
+      "event": "app.subscription.started",
+      "repaired": false,
+      "payload": {
+        "event": "app.subscription.started",
+        "merchant": 1234509876,
+        "created_at": "2022-12-31 12:31:25",
+        "data": {
+          "id": 6789012345,
+          "subscription_id": 1510766049,
+          "item_type": "addon",
+          "item_slug": "addon_chat_support",
+          "quantity": 3,
+          "app_name": "Shipping app",
+          "description": "App Description",
+          "app_type": "app",
+          "categories": [
+            "Marketing"
+          ],
+          "plan_type": "one_time",
+          "plan_name": "Addon Chat Support",
+          "plan_period": null,
+          "start_date": null,
+          "end_date": null,
+          "coupon": {
+            "name": "SPZGRDFS",
+            "amount": "0.15"
+          },
+          "initialization_cost": 10,
+          "price_before_discount": null,
+          "price": "20.00",
+          "tax": "0.15",
+          "tax_value": "3.00",
+          "total": "23.00",
+          "subscription_balance": "null",
+          "features": [
+            {
+              "key": "Feature1",
+              "quantity": 1
+            },
+            {
+              "key": "Feature3",
+              "quantity": 5
+            }
+          ],
+          "store_type": "development"
+        }
+      }
+    },
+    {
+      "heading": "Payload (App subscription)",
+      "event": "app.subscription.canceled",
+      "repaired": false,
+      "payload": {
+        "event": "app.subscription.canceled",
+        "merchant": 1234509876,
+        "created_at": "2022-12-31 12:31:25",
+        "data": {
+          "id": 6789012345,
+          "subscription_id": 1510766049,
+          "item_type": "plan",
+          "item_slug": null,
+          "quantity": 1,
+          "app_name": "Shipping app",
+          "description": "App Description",
+          "app_type": "app",
+          "categories": [
+            "Marketing"
+          ],
+          "plan_type": "recurring",
+          "plan_name": null,
+          "plan_period": "1",
+          "start_date": "2021-10-09T21:00:00.000000Z",
+          "end_date": "2021-11-09T21:00:00.000000Z",
+          "coupon": {
+            "name": "SPZGRDFS",
+            "amount": "0.15"
+          },
+          "initialization_cost": 10,
+          "price_before_discount": 5,
+          "price": "20.00",
+          "tax": "0.15",
+          "tax_value": "3.00",
+          "total": "23.00",
+          "subscription_balance": "null",
+          "features": [
+            {
+              "key": "Feature1",
+              "quantity": 1
+            },
+            {
+              "key": "Feature3",
+              "quantity": 5
+            }
+          ],
+          "store_type": "demo"
+        }
+      }
+    },
+    {
+      "heading": "Payload (Addon subscription)",
+      "event": "app.subscription.canceled",
+      "repaired": false,
+      "payload": {
+        "event": "app.subscription.canceled",
+        "merchant": 1234509876,
+        "created_at": "2022-12-31 12:31:25",
+        "data": {
+          "id": 6789012345,
+          "subscription_id": 1510766049,
+          "item_type": "addon",
+          "item_slug": "addon_chat_support",
+          "quantity": 3,
+          "app_name": "Shipping app",
+          "description": "App Description",
+          "app_type": "app",
+          "categories": [
+            "Marketing"
+          ],
+          "plan_type": "one_time",
+          "plan_name": "Addon Chat Support",
+          "plan_period": null,
+          "start_date": null,
+          "end_date": null,
+          "coupon": {
+            "name": "SPZGRDFS",
+            "amount": "0.15"
+          },
+          "initialization_cost": 10,
+          "price_before_discount": null,
+          "price": "20.00",
+          "tax": "0.15",
+          "tax_value": "3.00",
+          "total": "23.00",
+          "subscription_balance": "null",
+          "features": [
+            {
+              "key": "Feature1",
+              "quantity": 1
+            },
+            {
+              "key": "Feature3",
+              "quantity": 5
+            }
+          ],
+          "store_type": "demo"
+        }
+      }
+    },
+    {
+      "heading": "Payload (App subscription)",
+      "event": "app.subscription.expired",
+      "repaired": false,
+      "payload": {
+        "event": "app.subscription.expired",
+        "merchant": 1234509876,
+        "created_at": "2022-12-31 12:31:25",
+        "data": {
+          "id": 6789012345,
+          "subscription_id": 1510766049,
+          "item_type": "plan",
+          "item_slug": null,
+          "quantity": 1,
+          "app_name": "Shipping app",
+          "description": "App Description",
+          "app_type": "app",
+          "categories": [
+            "Marketing"
+          ],
+          "plan_type": "recurring",
+          "plan_name": null,
+          "plan_period": "1",
+          "start_date": "2021-10-09T21:00:00.000000Z",
+          "end_date": "2021-11-09T21:00:00.000000Z",
+          "coupon": {
+            "name": "SPZGRDFS",
+            "amount": "0.15"
+          },
+          "initialization_cost": 10,
+          "price_before_discount": 5,
+          "price": "20.00",
+          "tax": "0.15",
+          "tax_value": "3.00",
+          "total": "23.00",
+          "subscription_balance": "null",
+          "features": [
+            {
+              "key": "Feature1",
+              "quantity": 1
+            },
+            {
+              "key": "Feature3",
+              "quantity": 5
+            }
+          ],
+          "store_type": "live"
+        }
+      }
+    },
+    {
+      "heading": "Payload (Addon subscription)",
+      "event": "app.subscription.expired",
+      "repaired": false,
+      "payload": {
+        "event": "app.subscription.expired",
+        "merchant": 1234509876,
+        "created_at": "2022-12-31 12:31:25",
+        "data": {
+          "id": 6789012345,
+          "subscription_id": 1510766049,
+          "item_type": "addon",
+          "item_slug": "addon_chat_support",
+          "quantity": 3,
+          "app_name": "Shipping app",
+          "description": "App Description",
+          "app_type": "app",
+          "categories": [
+            "Marketing"
+          ],
+          "plan_type": "recurring",
+          "plan_name": "Addon Chat Support",
+          "plan_period": "1",
+          "start_date": "2021-10-09T21:00:00.000000Z",
+          "end_date": "2021-12-09T21:00:00.000000Z",
+          "coupon": {
+            "name": "SPZGRDFS",
+            "amount": "0.15"
+          },
+          "initialization_cost": 10,
+          "price_before_discount": null,
+          "price": "20.00",
+          "tax": "0.15",
+          "tax_value": "3.00",
+          "total": "23.00",
+          "subscription_balance": "null",
+          "features": [
+            {
+              "key": "Feature1",
+              "quantity": 1
+            },
+            {
+              "key": "Feature3",
+              "quantity": 5
+            }
+          ],
+          "store_type": "live"
+        }
+      }
+    },
+    {
+      "heading": "Payload (App subscription)",
+      "event": "app.subscription.renewed",
+      "repaired": false,
+      "payload": {
+        "event": "app.subscription.renewed",
+        "merchant": 1234509876,
+        "created_at": "2022-12-31 12:31:25",
+        "data": {
+          "id": 6789012345,
+          "subscription_id": 1510766049,
+          "item_type": "plan",
+          "item_slug": null,
+          "quantity": 1,
+          "app_name": "Shipping app",
+          "description": "App Description",
+          "app_type": "app",
+          "categories": [
+            "Marketing"
+          ],
+          "plan_type": "recurring",
+          "plan_name": null,
+          "plan_period": "1",
+          "start_date": "2021-10-09T21:00:00.000000Z",
+          "renew_date": "2021-11-09T21:00:00.000000Z",
+          "end_date": "2021-12-09T21:00:00.000000Z",
+          "coupon": {
+            "name": "SPZGRDFS",
+            "amount": "0.15"
+          },
+          "initialization_cost": 10,
+          "price_before_discount": 5,
+          "price": "20.00",
+          "tax": "0.15",
+          "tax_value": "3.00",
+          "total": "23.00",
+          "subscription_balance": "null",
+          "features": [
+            {
+              "key": "Feature1",
+              "quantity": 1
+            },
+            {
+              "key": "Feature3",
+              "quantity": 5
+            }
+          ],
+          "store_type": "development"
+        }
+      }
+    },
+    {
+      "heading": "Payload (Addon subscription)",
+      "event": "app.subscription.renewed",
+      "repaired": false,
+      "payload": {
+        "event": "app.subscription.renewed",
+        "merchant": 1234509876,
+        "created_at": "2022-12-31 12:31:25",
+        "data": {
+          "id": 6789012345,
+          "subscription_id": 1510766049,
+          "item_type": "addon",
+          "item_slug": "addon_chat_support",
+          "quantity": 3,
+          "app_name": "Shipping app",
+          "description": "App Description",
+          "app_type": "app",
+          "categories": [
+            "Marketing"
+          ],
+          "plan_type": "recurring",
+          "plan_name": "Addon Chat Support",
+          "plan_period": "1",
+          "start_date": "2021-10-09T21:00:00.000000Z",
+          "renew_date": "2021-11-09T21:00:00.000000Z",
+          "end_date": "2021-12-09T21:00:00.000000Z",
+          "coupon": {
+            "name": "SPZGRDFS",
+            "amount": "0.15"
+          },
+          "initialization_cost": 10,
+          "price_before_discount": null,
+          "price": "20.00",
+          "tax": "0.15",
+          "tax_value": "3.00",
+          "total": "23.00",
+          "subscription_balance": "null",
+          "features": [
+            {
+              "key": "Feature1",
+              "quantity": 1
+            },
+            {
+              "key": "Feature3",
+              "quantity": 5
+            }
+          ],
+          "store_type": "development"
+        }
+      }
+    },
+    {
+      "heading": "Payload",
+      "event": "app.feedback.created",
+      "repaired": true,
+      "payload": {
+        "event": "app.feedback.created",
+        "merchant": 1234509876,
+        "created_at": "2022-12-31 12:31:25",
+        "data": {
+          "id": 6789012345,
+          "app_name": "Shipping app",
+          "description": "App Description",
+          "app_type": "app",
+          "categories": [
+            "Marketing"
+          ],
+          "rating": "5",
+          "rated_by": "الإخلاص-تعديل",
+          "comment": "No Comments"
+        }
+      }
+    },
+    {
+      "heading": "Payload",
+      "event": "app.settings.updated",
+      "repaired": false,
+      "payload": {
+        "event": "app.settings.updated",
+        "merchant": 1234509876,
+        "created_at": "2022-12-31 12:31:25",
+        "data": {
+          "id": 6789012345,
+          "app_name": "Shipping app",
+          "app_description": "App Description",
+          "app_type": "public",
+          "settings": {
+            "name": "Mohammed",
+            "email": "Mohammed@Gmail.com",
+            "subscription_num": 375853796,
+            "door_to_door": true,
+            "pickup_time": "09:00:00",
+            "box_size": [
+              "25x25",
+              "10x10"
+            ],
+            "ads_activated": "true"
+          }
+        }
+      }
+    }
+  ]
+}

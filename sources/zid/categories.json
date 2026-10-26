@@ -1,0 +1,196 @@
+{
+  "source_url": "https://docs.zid.sa/webhook-events-product-category",
+  "fetched_at": "2026-10-26",
+  "definitions": {
+    "2771475": {
+      "type": "object",
+      "x-stoplight": {
+        "id": "hqjze8ddvvret"
+      },
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique identifier for the category",
+          "examples": [
+            875210
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the category",
+          "examples": [
+            "Sport Shoes"
+          ]
+        },
+        "slug": {
+          "type": "string",
+          "description": "URL-friendly version of the category name",
+          "examples": [
+            "sport-shoes"
+          ]
+        },
+        "SEO_category_title": {
+          "type": "string",
+          "description": "SEO optimized title for the category",
+          "examples": [
+            "Sport Shoes - Run with Comfort"
+          ]
+        },
+        "SEO_category_description": {
+          "type": "string",
+          "description": "SEO optimized description for the category",
+          "examples": [
+            "Our selection of sport shoes offers the best in comfort and performance for your athletic needs."
+          ]
+        },
+        "names": {
+          "type": "object",
+          "description": "Category names in different languages",
+          "properties": {
+            "en": {
+              "type": "string",
+              "examples": [
+                "Sport Shoes"
+              ]
+            },
+            "ar": {
+              "type": "string",
+              "examples": [
+                "أحذية رياضية"
+              ]
+            }
+          },
+          "x-apidog-orders": [
+            "en",
+            "ar"
+          ]
+        },
+        "description": {
+          "type": "object",
+          "description": "Category descriptions in different languages",
+          "properties": {
+            "en": {
+              "type": "string",
+              "examples": [
+                "Featuring a range of sport shoes for every sport from running to football."
+              ]
+            },
+            "ar": {
+              "type": "string",
+              "examples": [
+                "مجموعة متنوعة من الأحذية الرياضية لكل الرياضات من الجري إلى كرة القدم."
+              ]
+            }
+          },
+          "x-apidog-orders": [
+            "en",
+            "ar"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "description": "URL of the category on the web store",
+          "examples": [
+            "https://example.zid.store/categories/875210/sport-shoes"
+          ]
+        },
+        "image": {
+          "type": "string",
+          "description": "URL of the category's image (thumbnail size)",
+          "examples": [
+            "https://media.zid.store/example-store/75decdde-4e94-45fe-8eb1-1edf4ead3ff0-260x260.png"
+          ]
+        },
+        "image_full_size": {
+          "type": "string",
+          "description": "URL of the category's image (full size)",
+          "examples": [
+            "https://media.zid.store/example-store/75decdde-4e94-45fe-8eb1-1edf4ead3ff0.png"
+          ]
+        },
+        "img_alt_text": {
+          "type": "string",
+          "description": "Alternative text for the image for accessibility and SEO",
+          "examples": [
+            "Sport shoes collection"
+          ]
+        },
+        "cover_image": {
+          "type": "string",
+          "description": "URL of the category's cover image",
+          "examples": [
+            "https://media.zid.store/example-store/94b62e84-4ee3-4bfb-9833-6de53e2b8e1a.png"
+          ]
+        },
+        "image_full": {
+          "type": "string",
+          "description": "Full sized category image",
+          "examples": [
+            "https://media.zid.store/example-store/75decdde-4e94-45fe-8eb1-1edf4ead3ff0.png"
+          ]
+        },
+        "products_count": {
+          "type": "integer",
+          "description": "Number of products under the category",
+          "examples": [
+            120
+          ]
+        },
+        "sub_categories": {
+          "type": "array",
+          "description": "List of sub-categories under this category. Empty if no sub-categories exist.",
+          "items": {
+            "$ref": "#/definitions/2771475"
+          }
+        },
+        "parent_id": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "ID of the parent category. `Null` if this is a top-level category.",
+          "examples": [
+            null
+          ]
+        },
+        "flat_name": {
+          "type": "string",
+          "description": "Flat representation of the category name",
+          "examples": [
+            "Sport Shoes"
+          ]
+        },
+        "is_published": {
+          "type": "boolean",
+          "description": "Flag indicating if the category is currently published and visible on the store",
+          "examples": [
+            true
+          ]
+        }
+      },
+      "x-apidog-orders": [
+        "id",
+        "name",
+        "slug",
+        "SEO_category_title",
+        "SEO_category_description",
+        "names",
+        "description",
+        "url",
+        "image",
+        "image_full_size",
+        "img_alt_text",
+        "cover_image",
+        "image_full",
+        "products_count",
+        "sub_categories",
+        "parent_id",
+        "flat_name",
+        "is_published"
+      ],
+      "title": "ProductCategory",
+      "name": "ProductCategory"
+    }
+  },
+  "examples": []
+}

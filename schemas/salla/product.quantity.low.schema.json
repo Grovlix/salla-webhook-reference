@@ -1,0 +1,1528 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "product.quantity.low",
+  "description": "Triggered when a product's stock is low. Generated from https://docs.salla.dev/webhook-events/products (fetched 2026-10-26).",
+  "type": "object",
+  "properties": {
+    "event": {
+      "type": "string",
+      "description": "Event Name",
+      "enum": [
+        "product.created",
+        "product.updated",
+        "product.deleted",
+        "product.available",
+        "product.quantity.low"
+      ]
+    },
+    "merchant": {
+      "type": "number",
+      "description": "Unique identifier associated with the Merchant who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/9466620e0)"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Timestamp of the created Event"
+    },
+    "data": {
+      "$ref": "#/definitions/1307305"
+    }
+  },
+  "examples": [
+    {
+      "event": "product.created",
+      "merchant": 1305146709,
+      "created_at": "Mon Apr 17 2023 12:14:21 GMT+0300",
+      "data": {
+        "id": 1025569331,
+        "promotion": {
+          "title": null,
+          "sub_title": null
+        },
+        "sku": "",
+        "mpn": null,
+        "gtin": null,
+        "type": "booking",
+        "name": "Product-Booking-API-Date-and-Time",
+        "short_link_code": "aezvrRn",
+        "urls": {
+          "customer": "https://salla.sa/dev-wofftr4xsra5xtlv/product-booking-api-date-and-time/p1025569331",
+          "admin": "https://s.salla.sa/products/1025569331"
+        },
+        "price": {
+          "amount": 299,
+          "currency": "SAR"
+        },
+        "taxed_price": {
+          "amount": 343.85,
+          "currency": "SAR"
+        },
+        "pre_tax_price": {
+          "amount": 299,
+          "currency": "SAR"
+        },
+        "tax": {
+          "amount": 44.85,
+          "currency": "SAR"
+        },
+        "description": "",
+        "quantity": 20,
+        "status": "hidden",
+        "is_available": false,
+        "views": 0,
+        "sale_price": {
+          "amount": 0,
+          "currency": "SAR"
+        },
+        "sale_end": null,
+        "require_shipping": false,
+        "cost_price": null,
+        "weight": 0,
+        "weight_type": null,
+        "with_tax": true,
+        "url": "https://salla.sa/dev-wofftr4xsra5xtlv/product-booking-api-date-and-time/p1025569331",
+        "main_image": null,
+        "images": [],
+        "sold_quantity": 0,
+        "rating": {
+          "total": 0,
+          "count": 0,
+          "rate": 0
+        },
+        "regular_price": {
+          "amount": 299,
+          "currency": "SAR"
+        },
+        "max_items_per_user": 1,
+        "maximum_quantity_per_order": null,
+        "show_in_app": false,
+        "notify_quantity": null,
+        "hide_quantity": true,
+        "unlimited_quantity": false,
+        "managed_by_branches": false,
+        "services_blocks": {
+          "installments": []
+        },
+        "calories": null,
+        "customized_sku_quantity": false,
+        "channels": [],
+        "starting_price": null,
+        "metadata": {
+          "title": null,
+          "description": null
+        },
+        "booking_details": {
+          "id": 231783151,
+          "type": "date_time",
+          "session_duration": 50,
+          "session_gap": 3,
+          "sessions_count": 10,
+          "location": "Medina",
+          "time_strict_type": "days",
+          "time_strict": 5,
+          "overrides": [
+            {
+              "id": 1476756183,
+              "date": "2023-04-23"
+            },
+            {
+              "id": 904045008,
+              "date": "2023-04-24"
+            }
+          ],
+          "availabilities": [
+            {
+              "day": "sunday",
+              "is_available": true,
+              "times": [
+                {
+                  "from": "09:30",
+                  "to": "13:00"
+                },
+                {
+                  "from": "12:00",
+                  "to": "22:00"
+                }
+              ]
+            },
+            {
+              "day": "monday",
+              "is_available": true,
+              "times": [
+                {
+                  "from": "10:00",
+                  "to": "12:00"
+                }
+              ]
+            }
+          ]
+        },
+        "allow_attachments": false,
+        "is_pinned": false,
+        "pinned_date": "2023-04-17 12:14:20",
+        "sort": 0,
+        "enable_upload_image": false,
+        "updated_at": "2023-04-17 12:14:21",
+        "options": [],
+        "skus": [],
+        "categories": [],
+        "brand": null,
+        "tags": []
+      }
+    },
+    {
+      "id": 1025569331,
+      "promotion": {
+        "title": null,
+        "sub_title": null
+      },
+      "sku": "",
+      "mpn": null,
+      "gtin": null,
+      "type": "booking",
+      "name": "Product-Booking-API-Date-and-Time",
+      "short_link_code": "aezvrRn",
+      "urls": {
+        "customer": "https://salla.sa/dev-wofftr4xsra5xtlv/product-booking-api-date-and-time/p1025569331",
+        "admin": "https://s.salla.sa/products/1025569331"
+      },
+      "price": {
+        "amount": 299,
+        "currency": "SAR"
+      },
+      "taxed_price": {
+        "amount": 343.85,
+        "currency": "SAR"
+      },
+      "pre_tax_price": {
+        "amount": 299,
+        "currency": "SAR"
+      },
+      "tax": {
+        "amount": 44.85,
+        "currency": "SAR"
+      },
+      "description": "",
+      "quantity": 20,
+      "status": "hidden",
+      "is_available": false,
+      "views": 0,
+      "sale_price": {
+        "amount": 0,
+        "currency": "SAR"
+      },
+      "sale_end": null,
+      "require_shipping": false,
+      "cost_price": null,
+      "weight": 0,
+      "weight_type": null,
+      "with_tax": true,
+      "url": "https://salla.sa/dev-wofftr4xsra5xtlv/product-booking-api-date-and-time/p1025569331",
+      "main_image": null,
+      "images": [],
+      "sold_quantity": 0,
+      "rating": {
+        "total": 0,
+        "count": 0,
+        "rate": 0
+      },
+      "regular_price": {
+        "amount": 299,
+        "currency": "SAR"
+      },
+      "max_items_per_user": 1,
+      "maximum_quantity_per_order": null,
+      "show_in_app": false,
+      "notify_quantity": null,
+      "hide_quantity": true,
+      "unlimited_quantity": false,
+      "managed_by_branches": false,
+      "services_blocks": {
+        "installments": []
+      },
+      "calories": null,
+      "customized_sku_quantity": false,
+      "channels": [],
+      "starting_price": null,
+      "metadata": {
+        "title": null,
+        "description": null
+      },
+      "booking_details": {
+        "id": 231783151,
+        "type": "date_time",
+        "session_duration": 50,
+        "session_gap": 3,
+        "sessions_count": 10,
+        "location": "Medina",
+        "time_strict_type": "days",
+        "time_strict": 5,
+        "overrides": [
+          {
+            "id": 1476756183,
+            "date": "2023-04-23"
+          },
+          {
+            "id": 904045008,
+            "date": "2023-04-24"
+          }
+        ],
+        "availabilities": [
+          {
+            "day": "sunday",
+            "is_available": true,
+            "times": [
+              {
+                "from": "09:30",
+                "to": "13:00"
+              },
+              {
+                "from": "12:00",
+                "to": "22:00"
+              }
+            ]
+          },
+          {
+            "day": "monday",
+            "is_available": true,
+            "times": [
+              {
+                "from": "10:00",
+                "to": "12:00"
+              }
+            ]
+          }
+        ]
+      },
+      "allow_attachments": false,
+      "is_pinned": false,
+      "pinned_date": "2023-04-17 12:14:20",
+      "sort": 0,
+      "enable_upload_image": false,
+      "updated_at": "2023-04-17 12:14:21",
+      "options": [],
+      "skus": [],
+      "categories": [],
+      "brand": null,
+      "tags": []
+    }
+  ],
+  "definitions": {
+    "1307294": {
+      "description": "Detailed structure of the product value model object showing its fields and data types.",
+      "type": "object",
+      "title": "ProductValue",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "A unique identifier assigned to a value associated with a product."
+        },
+        "price": {
+          "type": "object",
+          "description": "The product price.",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "Amout of the price."
+            },
+            "currency": {
+              "type": "string",
+              "description": "The currency of the amount."
+            }
+          }
+        },
+        "display_value": {
+          "type": "string",
+          "description": "The UI displays values based on the option's display type. By default, it shows the name when `display_value=text`. For `image`, use the image ID (uploaded via the attach image endpoint). For `color`, provide a value like `#000` for black."
+        },
+        "option_id": {
+          "description": "A unique identifier assigned to a specific choice.",
+          "type": "number"
+        },
+        "image_url": {
+          "type": "string",
+          "description": "The web address where the corresponding image is hosted."
+        },
+        "hashed_display_value": {
+          "type": "string",
+          "description": "if `option.type` = `image` then hashed display value return `image id`. \nif `option.type` = `text` then hashed display value return value `name` "
+        },
+        "is_default": {
+          "type": "boolean",
+          "description": "This option will be enabled when this particular value is the default value."
+        },
+        "formatted_price": {
+          "type": "string",
+          "description": "The extra formatted price added when a customer selects a specific value."
+        },
+        "advance": {
+          "type": "boolean",
+          "description": "Is the option value is advanced or not"
+        },
+        "translations": {
+          "type": "object",
+          "properties": {
+            "ar": {
+              "type": "object",
+              "properties": {
+                "option_details_name": {
+                  "type": "string",
+                  "readOnly": true,
+                  "description": "Option Details Name in Arabic"
+                }
+              },
+              "readOnly": true,
+              "description": "Translation provided in Arabic language."
+            }
+          },
+          "readOnly": true,
+          "description": "Translation of option values in different languages"
+        },
+        "is_out_of_stock": {
+          "type": "boolean",
+          "description": "Whether or not the option value is out of stock.",
+          "readOnly": true
+        }
+      }
+    },
+    "1307297": {
+      "description": "Detailed structure of the brand model object showing its fields and data types.",
+      "type": "object",
+      "title": "Brand",
+      "properties": {
+        "id": {
+          "description": "A unique identifier assigned to a specific brand.",
+          "type": "number"
+        },
+        "description": {
+          "type": "string",
+          "description": "A brief summary of a company, highlighting key attributes, values, and offerings to convey its identity and purpose. 🌐 [Support multi-language](doc-421122)"
+        },
+        "banner": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A text or URL linking to a banner file, used as a visual identifier for a brand on a webpage or platform."
+        },
+        "logo": {
+          "type": "string",
+          "description": "A text-based representation or URL link that directs to the logo file."
+        },
+        "ar_char": {
+          "type": "string",
+          "description": "Brand represented in Arabic characters."
+        },
+        "en_char": {
+          "type": "string",
+          "description": "Brand represented in English characters."
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "A concise metadata title used to improve search engine visibility and optimize a brand page’s search ranking. 🌐 [Support multi-language](doc-421122)"
+            },
+            "description": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Concise content enhancing search visibility and social sharing.  🌐 [Support multi-language](doc-421122)"
+            },
+            "url": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Web link for enhanced search engine visibility and social media sharing.  🌐 🌐 [Support multi-language](doc-421122)"
+            }
+          }
+        },
+        "label": {
+          "type": "string",
+          "description": "The label given to a particular  company, to identify its products in the market. 🌐 [Support multi-language](doc-421122)"
+        },
+        "status": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Brand status"
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Brand channels"
+        }
+      }
+    },
+    "1307305": {
+      "description": "Detailed structure of the Product model object showing its fields and data types.",
+      "type": "object",
+      "title": "ProductDetails",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "A unique identifier for a specific product within a database."
+        },
+        "promotion": {
+          "type": "object",
+          "description": "Product promotion details",
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "Name of a marketing or advertising campaign, offer, or special event to attract and inform potential customers about the promotion's content or benefits. 🌐 [Support multi-language](doc-421122)"
+            },
+            "sub_title": {
+              "type": "string",
+              "description": "A secondary title that provides additional context about a promotion, complementing the main title. 🌐 [Support multi-language](doc-421122)"
+            }
+          }
+        },
+        "sku": {
+          "type": "string",
+          "description": "Stock Keeping Unit is a unique alphanumeric code used to identify and manage specific products within a company's inventory."
+        },
+        "mpn": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Manufacturer Part Number (MPN) is a unique identifier assigned by manufacturers to products.",
+          "examples": [
+            "45343"
+          ]
+        },
+        "gtin": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "\"Global Trade Item Number\" (GTIN), a unique and standardized identifier used to uniquely represent products in the global marketplace.",
+          "examples": [
+            "14643439"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "description": "The categorization of a product based on its characteristics, features, or intended use.",
+          "enum": [
+            "product",
+            "service",
+            "group_products",
+            "codes",
+            "digital",
+            "food",
+            "donating",
+            "booking"
+          ]
+        },
+        "short_link_code": {
+          "type": "string",
+          "description": "A short and simplified alphanumeric code or URL used to provide a quick and easy way to access or share a specific product's webpage or information."
+        },
+        "urls": {
+          "$ref": "#/definitions/1307398"
+        },
+        "price": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "Product price amount"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Product price currency"
+            }
+          }
+        },
+        "taxed_price": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "Product taxed price amount"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Product taxed price currency"
+            }
+          }
+        },
+        "pre_tax_price": {
+          "type": "object",
+          "description": "Product price details before the tax is applied.",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "Product price amount"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Product pretax price currency"
+            }
+          }
+        },
+        "tax": {
+          "type": "object",
+          "description": "Product tax price details",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "Product tax price amount before the tax is applied."
+            },
+            "currency": {
+              "type": "string",
+              "description": "Product price currency before the tax is applied.."
+            }
+          }
+        },
+        "description": {
+          "type": "string",
+          "description": "A detailed information about an item. 🌐 [Support multi-language](doc-421122)"
+        },
+        "quantity": {
+          "type": "integer",
+          "description": "The number of items available in stock."
+        },
+        "unlimited_quantity": {
+          "type": "boolean",
+          "description": "Whether or not the product is of unlimited quantity."
+        },
+        "status": {
+          "type": "string",
+          "description": "Product status refers to the current state of availability of a particular item within a product catalog or inventory. ",
+          "enum": [
+            "sale",
+            "out",
+            "hidden",
+            "deleted"
+          ]
+        },
+        "is_available": {
+          "type": "boolean",
+          "description": "Whether or not the product is available."
+        },
+        "views": {
+          "type": "integer",
+          "description": "The total number of times a specific product has been viewed by users."
+        },
+        "sale_price": {
+          "type": "object",
+          "description": "The information about the discounted price or special pricing for a product.",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "Product sale price amount"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Product sale price currency"
+            }
+          }
+        },
+        "sale_end": {
+          "type": "string",
+          "description": "The date or time when a promotional sale or discount on a product is scheduled to expire."
+        },
+        "require_shipping": {
+          "type": "boolean",
+          "description": "Whether or not the product necessitates a physical delivery process or can be provided digitally without shipping."
+        },
+        "cost_price": {
+          "type": "number",
+          "description": "The amount a business pays to acquire or manufacture a product before any additional expenses, such as overhead or markup, are applied"
+        },
+        "weight": {
+          "type": "number",
+          "description": "The weight of the product represented in numerical form if applicable."
+        },
+        "weight_type": {
+          "type": "string",
+          "description": "The classification or unit of measurement used to specify the weight of an object or item, such as kilograms (kg), pounds (lb), ounces (oz), or grams (g).",
+          "enum": [
+            "kg",
+            "g",
+            "lb",
+            "oz"
+          ]
+        },
+        "with_tax": {
+          "type": "boolean",
+          "description": "Whether or not a tax applied to this product or not."
+        },
+        "url": {
+          "type": "string",
+          "description": "The hyperlink that leads to a specific product's page."
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number",
+                "description": "product image ID  is a unique identifier or code assigned to a specific product image within a database or system, enabling efficient management and retrieval of images associated with a product."
+              },
+              "url": {
+                "type": "string",
+                "description": "The web addresses or hyperlinks that point to the online locations of images associated with  the product, making it possible to display those images on websites, e-commerce platforms, or other online channels."
+              },
+              "main": {
+                "type": "boolean",
+                "default": true,
+                "description": "Image Attribute as ma"
+              },
+              "alt": {
+                "type": "string",
+                "description": "Product images alternative text"
+              },
+              "video_url": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "description": "Product images type as `image` or `video`.",
+                "enum": [
+                  "image",
+                  "video"
+                ]
+              },
+              "sort": {
+                "type": "number",
+                "description": "Product images sort number,  a numerical value or order assigned to product images to determine their sequence or arrangement when displayed."
+              },
+              "three_d_image_url": {
+                "type": "string",
+                "description": "The URL of a 3D image, A product can only has __one__ product image with a 3D URL."
+              },
+              "main_image": {
+                "type": "string",
+                "description": "The URL of the main image of the product."
+              }
+            }
+          },
+          "description": "Visual representations or pictures of a product, to showcase its appearance, features, and details to potential customers."
+        },
+        "sold_quantity": {
+          "type": "integer",
+          "description": "The total number of items of the product that have been purchased or sold over a certain period."
+        },
+        "rating": {
+          "type": "object",
+          "description": "Product rating details, include information about the ratings and reviews provided by customers for a specific product.",
+          "properties": {
+            "total": {
+              "type": "integer",
+              "description": "Total quantity of  reviews or ratings that a specific product has received, which is often used as a metric to assess the popularity and credibility of the product."
+            },
+            "count": {
+              "type": "integer",
+              "description": "Counted number of ratings to the product"
+            },
+            "rate": {
+              "type": "number",
+              "description": "The numerical evaluation or score given to a product based on level of satisfaction."
+            }
+          }
+        },
+        "regular_price": {
+          "type": "object",
+          "description": "Product regular price details.",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "Product regular price amount."
+            },
+            "currency": {
+              "type": "string",
+              "description": "Product regular price currency"
+            }
+          }
+        },
+        "max_items_per_user": {
+          "type": "number",
+          "description": "The limit set on the number of products that an individual user is allowed to purchase."
+        },
+        "maximum_quantity_per_order": {
+          "description": "Maximum quantity per order for the customer or the maximum quantity for the product.",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "show_in_app": {
+          "type": "boolean",
+          "description": "Whether or not to show the product in the App."
+        },
+        "notify_quantity": {
+          "description": "Notify quantity of the product.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "hide_quantity": {
+          "description": "Whether or not to hide the product quantity.",
+          "type": "boolean"
+        },
+        "channels": {
+          "type": "array",
+          "description": "The product to appear in specific channels.",
+          "items": {
+            "type": "string",
+            "enum": [
+              "app",
+              "web"
+            ]
+          }
+        },
+        "managed_by_branches": {
+          "type": "boolean",
+          "description": "Whether or not to indicate if the product is managed by branches."
+        },
+        "service_blocks": {
+          "type": "object",
+          "description": "External services for the prodcut. ",
+          "properties": {
+            "installments": {
+              "type": "array",
+              "description": "Payment gateways that supports install-mental payments, which have been activated by the merchant from the [dashboard](https://s.salla.sa/payment). ",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "Payment gateway title,"
+                  },
+                  "logo": {
+                    "type": "string",
+                    "description": "Payment gateway logo, a text string containing the URL or file path to an image file that serves as the logo for a particular payment gateway. "
+                  },
+                  "details": {
+                    "type": "string",
+                    "description": "Comprehensive information about a specific payment processing service."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "calories": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Calories amount of the product.",
+          "examples": [
+            "500.00"
+          ]
+        },
+        "starting_price": {
+          "description": "The merchant owner should activate this feature from his store from [here](https://s.salla.sa/settings/component/options).",
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "integer",
+              "description": "Product starting price amount,the initial or base price at which a product is offered for sale, typically before any additional options, variations, or customizations are factored in, and it serves as the starting point for pricing."
+            },
+            "currency": {
+              "type": "string",
+              "description": "Currency of the starting price amount."
+            }
+          },
+          "examples": [
+            "500.00"
+          ]
+        },
+        "allow_attachments": {
+          "type": "boolean",
+          "description": "Whether or not to allow adding attachments to the prodcut details."
+        },
+        "is_pinned": {
+          "type": "boolean",
+          "description": "Whether or not to show if the prodcut is pinned."
+        },
+        "pinned_date": {
+          "type": "string",
+          "description": "The date which the product was pinned at."
+        },
+        "sort": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Passing sort will no longer update product sort, use ctegory create/update endpoints to do that.\n",
+          "deprecated": true
+        },
+        "active_advance": {
+          "type": "boolean",
+          "description": "Whether or not to activate advance product details."
+        },
+        "enable_upload_image": {
+          "type": "boolean",
+          "description": "Whether or not to allow image uploading."
+        },
+        "updated_at": {
+          "type": "string",
+          "description": "Product last updated date."
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/1579787"
+          },
+          "description": "The additional choices that can be selected to customize the product according to preferences. "
+        },
+        "skus": {
+          "description": "Product variants SKUs details",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/1307391"
+          }
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "Product de SEO Metadata Title which is a concise label used to optimize search engine results and enhance the visibility of a product details page. 🌐 [Support multi-language](doc-421122)"
+            },
+            "description": {
+              "type": "string",
+              "description": "A succinct summary crafted to enhance search engine optimization . 🌐 [Support multi-language](doc-421122)"
+            },
+            "url": {
+              "type": "string",
+              "description": "The web address of the Product Deatils page with embedded metadata (title, description, keywords) to enhance its search engine visibility. 🌐 [Support multi-language](doc-421122)"
+            }
+          },
+          "description": "The data that describes other data, providing details on its creation, format, and context."
+        },
+        "booking_details": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "Unique identifier or code assigned to a specific booking or reservation, used for tracking, reference, and management purposes",
+              "examples": [
+                1521087104
+              ]
+            },
+            "location": {
+              "type": "string",
+              "description": "The specific place or venue where a booking or reservation is made, such as a hotel, restaurant, event venue, or transportation service.",
+              "examples": [
+                "Medina"
+              ]
+            },
+            "type": {
+              "type": "string",
+              "description": "Refers to the category or classification of a reservation or booking, indicating the nature or purpose of the booking. Required if `booking_details != null`",
+              "enum": [
+                "date_time",
+                "date"
+              ],
+              "examples": [
+                "time"
+              ]
+            },
+            "session_duration": {
+              "type": "string",
+              "description": "Booking duration is mandatory when the booking type is set as `date_time`.",
+              "format": "date-time"
+            },
+            "session_gap": {
+              "type": "number",
+              "description": "Booking session gap is necessary when the booking type is `date_time`, and it specifies the amount of time between consecutive booking sessions or appointments."
+            },
+            "time_strict_value": {
+              "type": "number",
+              "description": "A timeframe where it is not applicable to make reservations.",
+              "examples": [
+                2
+              ]
+            },
+            "time_strict_type": {
+              "type": "string",
+              "description": "The restriction on making bookings within a specific timeframe is measured in minutes, hours, or days.",
+              "enum": [
+                "minutes",
+                "hours",
+                "days"
+              ],
+              "default": "days"
+            },
+            "availabilities": {
+              "type": [
+                "array"
+              ],
+              "description": "Available slots for booking. Required if `booking_details != null`",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "day": {
+                    "type": "string",
+                    "description": "Days which are available for booking.",
+                    "enum": [
+                      "sunday",
+                      "monday",
+                      "tuesday",
+                      "wednesday",
+                      "thursday",
+                      "friday",
+                      "saturday"
+                    ],
+                    "examples": [
+                      "sunday"
+                    ]
+                  },
+                  "is_available": {
+                    "type": "boolean",
+                    "description": "Option to enable booking availability.",
+                    "default": true
+                  },
+                  "times": {
+                    "type": "array",
+                    "description": "Required if `booking_details.type = date_time`",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "from": {
+                          "type": "string",
+                          "description": "The starting time of the of available booking slot in 24 hours format. Required if `booking_details.type = date_time`\r\n",
+                          "examples": [
+                            "14:30"
+                          ]
+                        },
+                        "to": {
+                          "type": "string",
+                          "description": "The ending time of the of available booking slot in 24 hours format. Required if `booking_details.type = date_time`\r\n",
+                          "examples": [
+                            "17:30"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "overrides": {
+              "type": [
+                "array"
+              ],
+              "description": "Overwrite availability for a particular day, on a particular date.",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number",
+                    "description": "Booking Overrides ID",
+                    "examples": [
+                      520625452
+                    ]
+                  },
+                  "date": {
+                    "type": "string",
+                    "description": "The value of specific date that has been overridden in a booking ",
+                    "examples": [
+                      "2022-01-10"
+                    ]
+                  }
+                }
+              }
+            },
+            "sessions_count": {
+              "type": "number",
+              "description": "Booking Sessions Count, which is the number of sessions allowed for one customer . Required if `booking_details != null`"
+            }
+          },
+          "description": "The information related to a specific booking, such as date, time, location, and other relevant particulars"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/1387918"
+          },
+          "description": "The various sections or attributes that describe a product, such as name, price, description, specifications, and availability."
+        },
+        "brand": {
+          "$ref": "#/definitions/1307297"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number",
+                "description": "A unique identifier or code assigned to a specific tag or label used for categorization or classification purposes within a system or database."
+              }
+            }
+          }
+        },
+        "scoped_prices": {
+          "type": "object",
+          "properties": {
+            "scope_id": {
+              "type": "string",
+              "description": "Branch (scope) unique identification. Get a list of Scope IDs related to the store from [here](https://docs.salla.dev/15104922e0)"
+            },
+            "price": {
+              "type": "integer",
+              "description": "Price of the item / product based on the branch (scope)"
+            },
+            "cost_price": {
+              "type": "integer",
+              "description": "Cost price of the item / product based on the branch (scope)"
+            },
+            "sale_price": {
+              "type": "integer",
+              "description": "Item reduced price due to sale based on the branch (scope)"
+            },
+            "sale_end": {
+              "type": "string",
+              "description": "End of the sale of the product / item before the original price is back based on the branch (scope)"
+            },
+            "sale_start": {
+              "type": "string",
+              "description": "Start of the sale of the product / item before the original price is back based on the branch (scope)"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Price's currency based on the branch (scope)"
+            }
+          }
+        }
+      }
+    },
+    "1307388": {
+      "type": "object",
+      "title": "Date",
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "A specific point in time, typically expressed in terms of a calendar system, including the day, month, year, hour, minutes, seconds and nano seconds. For example: \"2020-10-14 14:28:03.000000\""
+        },
+        "timezone_type": {
+          "type": "number",
+          "description": "Timezone type of the date, for Middel East = 3 "
+        },
+        "timezone": {
+          "type": "string",
+          "description": "Timezone value \"Asia/Riyadh\""
+        }
+      }
+    },
+    "1307391": {
+      "description": "Detailed structure of the product variant model object showing its fields and data types.",
+      "type": "object",
+      "title": "ProductVariant",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "A unique identifier associated with a specific variant of a product or item."
+        },
+        "barcode": {
+          "type": "string",
+          "description": "The barcode value of product variant.",
+          "examples": [
+            "abc01"
+          ]
+        },
+        "sku": {
+          "type": "string",
+          "description": "A unique Stock Keeping Unit (SKU) identifier assigned to a specific variant of a product.",
+          "examples": [
+            "23-TD23-32"
+          ]
+        },
+        "price": {
+          "type": "object",
+          "description": "The price of the product variant.",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "The amount of the product price. Example: 96.33",
+              "examples": [
+                96.33
+              ]
+            },
+            "currency": {
+              "type": "string"
+            }
+          }
+        },
+        "sale_price": {
+          "type": "object",
+          "description": "The sale price of the product variant.",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "The value of the sale price a Example: 100.33"
+            },
+            "currency": {
+              "type": "string"
+            }
+          }
+        },
+        "regular_price": {
+          "type": "object",
+          "description": "The regular price of the product variant.",
+          "properties": {
+            "amount": {
+              "type": "number"
+            },
+            "currency": {
+              "type": "string"
+            }
+          }
+        },
+        "cost_price": {
+          "type": "object",
+          "description": "The purchase price excluding any additional expenses.",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "The value of the cost price amount. Example: 100.33"
+            },
+            "currency": {
+              "type": "string"
+            }
+          }
+        },
+        "stock_quantity": {
+          "type": "integer",
+          "description": "The amount of the product variant total stock quantity. Only updated if the store feature manage product by branches is not activated.",
+          "examples": [
+            4
+          ]
+        },
+        "unlimited_quantity": {
+          "type": "boolean",
+          "description": "Whether or not the product variant is of unlimit quantity."
+        },
+        "related_options": {
+          "type": "array",
+          "description": "An array for the related options to this variant.",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "related_option_values": {
+          "type": "array",
+          "description": "An array for the values of the related options to this variant.",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "is_default": {
+          "type": "boolean",
+          "description": "Whether or not enable showing that the product variant is the default "
+        },
+        "weight": {
+          "type": "number",
+          "description": "The numerical value that represents the mass or weight of a specific variant of a product.",
+          "examples": [
+            3
+          ]
+        },
+        "weight_type": {
+          "type": "string",
+          "description": "Product variant weight type",
+          "examples": [
+            "kg"
+          ]
+        },
+        "weight_label": {
+          "type": "string",
+          "description": "Product variant weight label representing the type of the weight.",
+          "examples": [
+            "٣ كجم"
+          ]
+        },
+        "gtin": {
+          "type": "string",
+          "description": "Global Trade Item Number, a unique and standardized identifier used to uniquely represent products, in the global marketplace, to enable efficient tracking and management across supply chains and retail sectors. If `product_type` is set to any of the following: `product`, `group_products`, `codes`, `digital`, `donating` then value can be set. Otherwise, it can be set to `null`"
+        },
+        "mpn": {
+          "type": "string",
+          "description": "Manufacturer Part Number, a unique identifier assigned by a manufacturer to a specific product or component."
+        },
+        "notify_low": {
+          "type": "integer",
+          "description": "Sets a threshold value to trigger notifications when inventory falls below."
+        },
+        "has_special_price": {
+          "type": "boolean",
+          "readOnly": true,
+          "description": "Whether or not the product variant has a special price."
+        },
+        "is_user_subscribed_to_sku": {
+          "type": "boolean",
+          "readOnly": true,
+          "description": "Whether or not the user subscribed for the sku."
+        },
+        "updated_at": {
+          "$ref": "#/definitions/1307388",
+          "description": "The date and time product variant is updated."
+        }
+      }
+    },
+    "1307398": {
+      "description": "To help companies and merchants, Salla provides a “urls” attribute that has been added to different modules to guide the merchants to have the full URL of this module from both scopes, the dashboard scope as a store admin, and as a customer.",
+      "type": "object",
+      "title": "Urls",
+      "properties": {
+        "customer": {
+          "type": "string",
+          "description": "Customer link directly to the order.",
+          "examples": [
+            "https://salla.sa/StoreLink"
+          ]
+        },
+        "admin": {
+          "type": "string",
+          "description": "Admin dashboard link directly to the order.",
+          "examples": [
+            "https://s.salla./YourStoreDashboard"
+          ]
+        },
+        "digital_content": {
+          "type": "string",
+          "description": "A direct URL link to the digital asset, such as an e-book, image, PDF, video, or any downloadable file linked to the order or product."
+        },
+        "rating": {
+          "type": "string",
+          "description": "Order Rating Link. <br> Note that the order has to be of either of the following statuses: `completed`, `delivered`, or `shipped`. The merchant has to allow the product to be rated from the [Store Settings](https://s.salla.sa/settings) > Rating Settings"
+        },
+        "checkout": {
+          "type": "string",
+          "description": "Order Checkout URL. <br>Note that the variable will only be returned if the order is unpaid. If the order is already paid, the variable will not appear in the response."
+        }
+      }
+    },
+    "1387918": {
+      "type": "object",
+      "title": "Category",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "Category ID, is a unique identifier assigned to a specific product category, facilitating organized classification and efficient management of products within a similar group. List of categories can be found [here](https://docs.salla.dev/api-5394207)."
+        },
+        "urls": {
+          "$ref": "#/definitions/1307398"
+        },
+        "parent_id": {
+          "type": "integer",
+          "description": "Category Parent ID refers to the unique identifier assigned to the parent category of a subcategory, establishing a hierarchical relationship between different levels of product classification."
+        },
+        "sort_order": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "The sequence or arrangement of categories when displayed to users. "
+        },
+        "status": {
+          "type": "string",
+          "description": "The category status indicates whether the category is currently visible and accessible to users `active` or intentionally concealed from view `hidden`. It essentially controls whether the category is publicly displayed or kept private within the system.",
+          "enum": [
+            "active",
+            "hidden"
+          ]
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "Category SEO Metadata Title which is a concise label used to optimize search engine results and enhance the visibility of a category page."
+            },
+            "description": {
+              "type": "string",
+              "description": "A succinct summary crafted to enhance search engine optimization and spotlight a brand's attributes within a category."
+            },
+            "url": {
+              "type": "string",
+              "description": "Metadata URL is a web address that contains information designed to improve a webpage's search engine visibility and shareability on social platforms."
+            }
+          }
+        },
+        "image": {
+          "type": "string",
+          "description": "The category image"
+        },
+        "show_in": {
+          "type": "object",
+          "properties": {
+            "app": {
+              "type": "boolean",
+              "description": "Whether or not to show the category in the Salla Merchant App"
+            },
+            "salla_points": {
+              "type": "boolean",
+              "description": "Whether or not to show the category in Salla Points"
+            }
+          }
+        },
+        "has_hidden_products": {
+          "type": "boolean",
+          "description": "Whether or not the category has hidden products."
+        },
+        "update_at": {
+          "type": "string",
+          "description": "The date where the category is updated in."
+        },
+        "sub_categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The subcategories list of the main category."
+        },
+        "translations": {
+          "type": "object",
+          "properties": {
+            "en": {
+              "type": "object",
+              "properties": {
+                "metadata": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "description": "Translated Category SEO Metadata Title which is a concise label used to optimize search engine results and enhance the visibility of a category page."
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "A succinct summary crafted to enhance search engine optimization and spotlight a brand's attributes within a Translated category."
+                    },
+                    "url": {
+                      "type": "string",
+                      "description": "Translated Metadata URL is a web address that contains information designed to improve a webpage's search engine visibility and shareability on social platforms."
+                    }
+                  }
+                }
+              },
+              "description": "Translation in English language."
+            }
+          },
+          "description": "**You will get this object in the response if you use `with=translations` query parameter.** \n\nCategory translations are based on the store's enabled language locale. For instance, if the store supports both Arabic and English, the `translations` object will return two entries: `ar` for Arabic and `en` for English."
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/1387918",
+            "description": "Category items"
+          },
+          "description": "**You will get this array in the response if you use `with=items` query parameter.**"
+        },
+        "product_sort_type": {
+          "type": "string",
+          "description": "unified or scoped\nunified means the same sort is applied for all markets if exist, scoped means the sort is applied based on the market."
+        }
+      }
+    },
+    "1579787": {
+      "description": "Detailed structure of the product option model object showing its fields and data types.",
+      "type": "object",
+      "title": "MiniProductOption",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "A unique identifier assigned to a specific product configuration or variant."
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A text or content that provides detailed information about a specific choice associated with a product."
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of the product option, it can be a `radio` button or `checkbox`",
+          "enum": [
+            "radio",
+            "checkbox"
+          ]
+        },
+        "required": {
+          "type": "boolean",
+          "description": "Whether or not to indicate the product option is obligatory."
+        },
+        "associated_with_order_time": {
+          "type": [
+            "integer",
+            "boolean"
+          ],
+          "description": "The product option is only relevant to order receiving time when it pertains to date-time selections. **ONLY** for date time options."
+        },
+        "sort": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "Product option sort refers to the method or criteria used to arrange or order product options."
+        },
+        "display_type": {
+          "type": "string",
+          "description": "The manner in which product choices or attributes are presented.",
+          "enum": [
+            "text",
+            "image",
+            "color"
+          ]
+        },
+        "visibility": {
+          "type": "string",
+          "description": "Product option visibility based on condition is applied exclusively to products categorized as 'food' or 'service', allowing certain choices or attributes to be shown or hidden based on specific criteria.",
+          "enum": [
+            "always",
+            "on_condition"
+          ]
+        },
+        "visibility_condition_type": {
+          "type": "string",
+          "description": "Product option visiblity condition type.",
+          "enum": [
+            ">",
+            "<",
+            "=",
+            "!="
+          ]
+        },
+        "visibility_condition_option": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "A unique identifier assigned to a specific product option."
+        },
+        "visibility_condition_value": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "A unique identifier associated with a specific value or choice within a product option."
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/1307294"
+          }
+        }
+      }
+    }
+  }
+}

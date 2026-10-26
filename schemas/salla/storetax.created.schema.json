@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "storetax.created",
+  "description": "Triggered when a store tax is created. Generated from https://docs.salla.dev/webhook-events/store (fetched 2026-10-26).",
+  "type": "object",
+  "properties": {
+    "event": {
+      "type": "string",
+      "description": "A label or title used to identify a specific event ",
+      "enum": [
+        "storetax.created"
+      ]
+    },
+    "merchant": {
+      "type": "number",
+      "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "The date and time when a particular Webhook was created or initiated."
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "A unique identifier assigned to a specific store. "
+        },
+        "tax": {
+          "type": "string",
+          "description": "Tax amount value."
+        },
+        "status": {
+          "type": "string",
+          "description": "The condition or classification of an entity or transaction with respect to taxation."
+        },
+        "country": {
+          "type": "string",
+          "description": "The specific country or jurisdiction where taxes are levied, collected, and regulated in relation to a particular entity or transaction"
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "event": "storetax.created",
+      "merchant": 814202285,
+      "created_at": "Tue Aug 03 2021 09:35:16 GMT+0300",
+      "data": {
+        "id": 5541564,
+        "tax": "5",
+        "status": "active",
+        "country": "All Countries"
+      }
+    },
+    {
+      "id": 5541564,
+      "tax": "5",
+      "status": "active",
+      "country": "All Countries"
+    }
+  ]
+}

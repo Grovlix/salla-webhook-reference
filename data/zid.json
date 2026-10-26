@@ -1,0 +1,82 @@
+{
+  "platform": "zid",
+  "name": "Zid",
+  "name_ar": "زد",
+  "events_doc": "https://docs.zid.sa/webhooks",
+  "groups": [
+    {
+      "slug": "orders",
+      "title": "Order",
+      "title_ar": "الطلبات",
+      "intro": "`order.create` and `order.status.update` support subscription conditions on `status`, `payment_method` and `delivery_option_id`. See [Subscribing](/guides/getting-started#zid).",
+      "intro_ar": "يدعم الحدثان `order.create` و`order.status.update` شروط اشتراك على `status` و`payment_method` و`delivery_option_id`.",
+      "events": [
+        { "name": "order.create", "model": "2771504", "description": "Triggered when a new order is created.", "description_ar": "يُرسل عند إنشاء طلب جديد." },
+        { "name": "order.status.update", "model": "2771504", "description": "Triggered when an order's status is updated.", "description_ar": "يُرسل عند تحديث حالة الطلب." },
+        { "name": "order.payment_status.update", "model": "2771504", "description": "Triggered when an order's payment status changes to `paid` or `unpaid`. `unpaid` covers `pending`, `refunded` and `voided`.", "description_ar": "يُرسل عند تغيّر حالة الدفع إلى `paid` أو `unpaid`، وتشمل `unpaid` الحالات `pending` و`refunded` و`voided`." }
+      ]
+    },
+    {
+      "slug": "products",
+      "title": "Product",
+      "title_ar": "المنتجات",
+      "events": [
+        { "name": "product.create", "model": "2771485", "description": "Triggered when a new product is created.", "description_ar": "يُرسل عند إضافة منتج جديد." },
+        { "name": "product.update", "model": "2771485", "description": "Triggered when a product's details are updated.", "description_ar": "يُرسل عند تحديث بيانات منتج." },
+        { "name": "product.publish", "model": "2771485", "description": "Triggered when a product is published.", "description_ar": "يُرسل عند نشر منتج." },
+        { "name": "product.delete", "model": "2771485", "description": "Triggered when a product is deleted.", "description_ar": "يُرسل عند حذف منتج.", "note": "Zid's events table links this event to a separate \"Product deleted\" payload, but its docs only publish the full product schema shown here. Don't rely on every field being present." }
+      ]
+    },
+    {
+      "slug": "abandoned-carts",
+      "title": "Abandoned cart",
+      "title_ar": "السلات المتروكة",
+      "events": [
+        { "name": "abandoned_cart.created", "model": "2771501", "description": "Triggered when a shopping cart is abandoned.", "description_ar": "يُرسل عند ترك العميل سلة التسوق دون إتمام الشراء." },
+        { "name": "abandoned_cart.completed", "model": "2771501", "description": "Triggered when an abandoned cart is completed.", "description_ar": "يُرسل عند إتمام شراء سلة متروكة." }
+      ]
+    },
+    {
+      "slug": "customers",
+      "title": "Customer",
+      "title_ar": "العملاء",
+      "events": [
+        { "name": "customer.create", "model": "2771519", "description": "Triggered when a new customer account is created.", "description_ar": "يُرسل عند إنشاء حساب عميل جديد." },
+        { "name": "customer.update", "model": "2771519", "description": "Triggered when a customer's details are updated.", "description_ar": "يُرسل عند تحديث بيانات عميل." },
+        { "name": "customer.merchant.update", "model": "2771519", "description": "Triggered when the merchant updates details related to a customer.", "description_ar": "يُرسل عندما يعدّل التاجر بيانات متعلقة بالعميل." },
+        { "name": "customer.login", "model": "2771519", "description": "Triggered when a customer logs in.", "description_ar": "يُرسل عند تسجيل دخول العميل." }
+      ]
+    },
+    {
+      "slug": "categories",
+      "title": "Product category",
+      "title_ar": "التصنيفات",
+      "events": [
+        { "name": "category.create", "model": "2771475", "description": "Triggered when a new category is created.", "description_ar": "يُرسل عند إنشاء تصنيف." },
+        { "name": "category.update", "model": "2771475", "description": "Triggered when a category's details are updated.", "description_ar": "يُرسل عند تحديث تصنيف." },
+        { "name": "category.delete", "model": "2771475", "description": "Triggered when a category is deleted.", "description_ar": "يُرسل عند حذف تصنيف." }
+      ]
+    },
+    {
+      "slug": "app",
+      "title": "App and subscription",
+      "title_ar": "التطبيق والاشتراكات",
+      "intro": "These events are about your app itself rather than the store's data. You subscribe to them in the Zid Partner Dashboard, not through the Create Webhook API. The payload names the event in `event_name`; use that to tell events apart, not `status`. Identify the store by `store_uuid`.",
+      "intro_ar": "تتعلق هذه الأحداث بتطبيقك نفسه، وتشترك فيها من لوحة شركاء زد لا من واجهة إنشاء الويب هوك. يأتي اسم الحدث في الحقل `event_name`، فاعتمد عليه للتمييز بين الأحداث بدلًا من `status`، وحدّد المتجر عبر `store_uuid`.",
+      "events": [
+        { "name": "app.market.application.authorized", "description": "Triggered when a merchant grants your app its permissions, before installing.", "description_ar": "يُرسل عندما يمنح التاجر تطبيقك الصلاحيات قبل التثبيت." },
+        { "name": "app.market.application.install", "description": "Triggered when a merchant installs your app.", "description_ar": "يُرسل عند تثبيت التاجر لتطبيقك." },
+        { "name": "app.market.application.uninstall", "description": "Triggered when a merchant removes your app. Zid revokes your tokens for that store at the same time, so this is the only reliable uninstall signal.", "description_ar": "يُرسل عند إزالة التاجر لتطبيقك. تلغي زد رموز الوصول لهذا المتجر في الوقت نفسه، لذا هذا الحدث هو الطريقة الموثوقة الوحيدة لمعرفة الإزالة." },
+        { "name": "app.market.application.rated", "description": "Triggered when a merchant rates or reviews your app.", "description_ar": "يُرسل عند تقييم التاجر لتطبيقك أو كتابة مراجعة." },
+        { "name": "app.market.private.plan.request", "description": "Triggered when a merchant requests a private plan.", "description_ar": "يُرسل عند طلب التاجر خطة خاصة." },
+        { "name": "app.market.subscription.active", "description": "Triggered when a subscription becomes active after payment.", "description_ar": "يُرسل عند تفعيل الاشتراك بعد الدفع." },
+        { "name": "app.market.subscription.warning", "description": "Triggered 3 days before a recurring subscription ends, or 30 days after a usage-based charge is left unpaid.", "description_ar": "يُرسل قبل انتهاء الاشتراك الدوري بثلاثة أيام، أو بعد 30 يومًا من بقاء رسوم الاستخدام دون دفع." },
+        { "name": "app.market.subscription.suspended", "description": "Triggered 1 day after a recurring subscription ends.", "description_ar": "يُرسل بعد يوم واحد من انتهاء الاشتراك الدوري." },
+        { "name": "app.market.subscription.expired", "description": "Triggered 5 days after a recurring subscription ends, or 30 days after a usage-based charge became overdue.", "description_ar": "يُرسل بعد 5 أيام من انتهاء الاشتراك الدوري، أو بعد 30 يومًا من تأخر دفع رسوم الاستخدام." },
+        { "name": "app.market.subscription.renew", "description": "Triggered after a renewal or extension completes. Also fires on free-plan renewal, when a paused subscription resumes, and when a usage-based charge is paid.", "description_ar": "يُرسل بعد اكتمال التجديد أو التمديد، وكذلك عند تجديد الخطة المجانية واستئناف الاشتراك المتوقف ودفع رسوم الاستخدام." },
+        { "name": "app.market.subscription.upgrade", "description": "Triggered when a merchant moves to a different plan.", "description_ar": "يُرسل عند انتقال التاجر إلى خطة أخرى." },
+        { "name": "app.market.subscription.refunded", "description": "Triggered when a payment is refunded to the merchant.", "description_ar": "يُرسل عند استرداد مبلغ مدفوع للتاجر." }
+      ]
+    }
+  ]
+}

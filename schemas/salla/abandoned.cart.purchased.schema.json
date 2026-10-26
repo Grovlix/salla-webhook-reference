@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "abandoned.cart.purchased",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "event": {
+      "type": "string",
+      "description": "Event Name",
+      "enum": [
+        "abandoned.cart.purchased"
+      ]
+    },
+    "merchant": {
+      "type": "number",
+      "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)",
+      "examples": [
+        1305146709
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Event Created at Timestamp",
+      "examples": [
+        "Tue Jan 25 2022 13:00:27 GMT+0300"
+      ]
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "A unique identifier associated with a shopping cart."
+        },
+        "total": {
+          "type": "number",
+          "description": "The sum of the prices of all the items in a cart."
+        },
+        "subtotal": {
+          "type": "number",
+          "description": "The sub-total cost of items in a cart."
+        },
+        "total_discount": {
+          "type": "number",
+          "description": "Cumulative reduction in price applied to the items in a cart."
+        },
+        "status": {
+          "type": "string",
+          "description": "Abandoned Cart Status, which can be one of the allowed enum values",
+          "enum": [
+            "active",
+            "purchased"
+          ]
+        },
+        "currency": {
+          "type": "string",
+          "description": "Abandoned Cart Currency value",
+          "examples": [
+            "SAR"
+          ]
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "event": "abandoned.cart.purchased",
+      "merchant": 1305146709,
+      "created_at": "Tue Jan 25 2022 13:00:27 GMT+0300",
+      "data": {
+        "id": 1097962121,
+        "total": {
+          "amount": 80.5,
+          "currency": "SAR"
+        },
+        "subtotal": {
+          "amount": 70,
+          "currency": "SAR"
+        },
+        "total_discount": {
+          "amount": 0,
+          "currency": "SAR"
+        },
+        "checkout_url": "https://salla.sa/dev-wofftr4xsra5xtlv/checkout/1097962121",
+        "age_in_minutes": 83,
+        "created_at": {
+          "date": "2022-01-25 11:37:24.000000",
+          "timezone_type": 3,
+          "timezone": "Asia/Riyadh"
+        },
+        "updated_at": {
+          "date": "2022-01-25 11:37:24.000000",
+          "timezone_type": 3,
+          "timezone": "Asia/Riyadh"
+        },
+        "customer": {
+          "id": 225167971,
+          "name": "User Name",
+          "mobile": "+977612917082",
+          "avatar": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+          "country": "السعودية",
+          "city": "الرياض"
+        },
+        "coupon": {
+          "id": 2036833834,
+          "code": "wizefriend",
+          "status": "active",
+          "type": "percentage",
+          "amount": {
+            "amount": 20,
+            "currency": "SAR"
+          },
+          "minimum_amount": {
+            "amount": 0,
+            "currency": "SAR"
+          },
+          "expiry_date": "2022-04-13 00:00:00",
+          "created_at": {
+            "date": "2022-01-24 13:47:47.000000",
+            "timezone_type": 3,
+            "timezone": "Asia/Riyadh"
+          }
+        },
+        "items": [
+          {
+            "id": 1793843311,
+            "product_id": 401511871,
+            "quantity": 2
+          }
+        ]
+      }
+    }
+  ]
+}

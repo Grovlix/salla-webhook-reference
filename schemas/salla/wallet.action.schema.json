@@ -1,0 +1,253 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "wallet.action",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "event": {
+      "type": "string",
+      "description": "Event Name",
+      "title": "",
+      "enum": [
+        "wallet.action"
+      ]
+    },
+    "merchant": {
+      "type": "number",
+      "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)",
+      "examples": [
+        1305146709
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Timestamp of webhook creation",
+      "examples": [
+        "Tue Jan 25 2022 13:00:27 GMT+0300"
+      ]
+    },
+    "data": {
+      "$ref": "#/definitions/16223956"
+    }
+  },
+  "examples": [
+    {
+      "event": "abandoned.cart",
+      "merchant": 1305146709,
+      "created_at": "Tue Jan 25 2022 13:00:27 GMT+0300",
+      "data": {
+        "id": 1097962121,
+        "total": {
+          "amount": 80.5,
+          "currency": "SAR"
+        },
+        "subtotal": {
+          "amount": 70,
+          "currency": "SAR"
+        },
+        "total_discount": {
+          "amount": 0,
+          "currency": "SAR"
+        },
+        "checkout_url": "https://salla.sa/dev-wofftr4xsra5xtlv/checkout/1097962121",
+        "age_in_minutes": 83,
+        "created_at": {
+          "date": "2022-01-25 11:37:24.000000",
+          "timezone_type": 3,
+          "timezone": "Asia/Riyadh"
+        },
+        "updated_at": {
+          "date": "2022-01-25 11:37:24.000000",
+          "timezone_type": 3,
+          "timezone": "Asia/Riyadh"
+        },
+        "customer": {
+          "id": 225167971,
+          "name": "User Name",
+          "mobile": "+977612917082",
+          "avatar": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+          "country": "السعودية",
+          "city": "الرياض"
+        },
+        "coupon": {
+          "id": 2036833834,
+          "code": "wizefriend",
+          "status": "active",
+          "type": "percentage",
+          "amount": {
+            "amount": 20,
+            "currency": "SAR"
+          },
+          "minimum_amount": {
+            "amount": 0,
+            "currency": "SAR"
+          },
+          "expiry_date": "2022-04-13 00:00:00",
+          "created_at": {
+            "date": "2022-01-24 13:47:47.000000",
+            "timezone_type": 3,
+            "timezone": "Asia/Riyadh"
+          }
+        },
+        "items": [
+          {
+            "id": 1793843311,
+            "product_id": 401511871,
+            "quantity": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": 1097962121,
+      "total": {
+        "amount": 80.5,
+        "currency": "SAR"
+      },
+      "subtotal": {
+        "amount": 70,
+        "currency": "SAR"
+      },
+      "total_discount": {
+        "amount": 0,
+        "currency": "SAR"
+      },
+      "checkout_url": "https://salla.sa/dev-wofftr4xsra5xtlv/checkout/1097962121",
+      "age_in_minutes": 83,
+      "created_at": {
+        "date": "2022-01-25 11:37:24.000000",
+        "timezone_type": 3,
+        "timezone": "Asia/Riyadh"
+      },
+      "updated_at": {
+        "date": "2022-01-25 11:37:24.000000",
+        "timezone_type": 3,
+        "timezone": "Asia/Riyadh"
+      },
+      "customer": {
+        "id": 225167971,
+        "name": "User Name",
+        "mobile": "+977612917082",
+        "avatar": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+        "country": "السعودية",
+        "city": "الرياض"
+      },
+      "coupon": {
+        "id": 2036833834,
+        "code": "wizefriend",
+        "status": "active",
+        "type": "percentage",
+        "amount": {
+          "amount": 20,
+          "currency": "SAR"
+        },
+        "minimum_amount": {
+          "amount": 0,
+          "currency": "SAR"
+        },
+        "expiry_date": "2022-04-13 00:00:00",
+        "created_at": {
+          "date": "2022-01-24 13:47:47.000000",
+          "timezone_type": 3,
+          "timezone": "Asia/Riyadh"
+        }
+      },
+      "items": [
+        {
+          "id": 1793843311,
+          "product_id": 401511871,
+          "quantity": 2
+        }
+      ]
+    }
+  ],
+  "definitions": {
+    "16223956": {
+      "type": "object",
+      "properties": {
+        "transaction_type": {
+          "type": "string",
+          "description": "Whether the wallet balance was added or deducted.",
+          "enum": [
+            "withdraw",
+            "deposit"
+          ]
+        },
+        "amount": {
+          "type": "integer",
+          "description": "Transaction amount."
+        },
+        "action_type": {
+          "type": "string",
+          "description": "Reason for the wallet transaction.",
+          "enum": [
+            "partner_api",
+            "refund",
+            "merchant_manual_entry",
+            "withdraw_balance",
+            "cashback",
+            "purchase_by_wallet",
+            "expiry_deduction"
+          ]
+        },
+        "created_at": {
+          "type": "object",
+          "description": "Transaction creation date and timezone.",
+          "properties": {
+            "date": {
+              "type": "string",
+              "description": "Creation date."
+            },
+            "timezone_type": {
+              "type": "integer",
+              "description": "Timezone format."
+            },
+            "timezone": {
+              "type": "string",
+              "description": "Timezone name."
+            }
+          }
+        },
+        "expiry_at": {
+          "type": "string",
+          "description": "Expiration date, if applicable."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Additional transaction notes."
+        },
+        "customer": {
+          "type": "object",
+          "description": "Customer associated with the transaction.",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "Customer unique identification number."
+            },
+            "mobile": {
+              "type": "string",
+              "description": "Customer mobile number."
+            },
+            "email": {
+              "type": "string",
+              "description": "Customer email."
+            },
+            "avatar": {
+              "type": "string",
+              "description": "Customer avatar URL."
+            },
+            "country": {
+              "type": "string",
+              "description": "Customer country."
+            },
+            "city": {
+              "type": "string",
+              "description": "Customer city."
+            }
+          }
+        }
+      },
+      "title": "CustomerWalletWebhook"
+    }
+  }
+}

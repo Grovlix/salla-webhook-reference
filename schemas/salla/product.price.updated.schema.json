@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "product.price.updated",
+  "description": "Triggered when a product's price is updated. Generated from https://docs.salla.dev/webhook-events/products (fetched 2026-10-26).",
+  "type": "object",
+  "properties": {
+    "event": {
+      "type": "string",
+      "description": "Event Name",
+      "enum": [
+        "product.price.updated"
+      ]
+    },
+    "merchant": {
+      "type": "number",
+      "description": "Unique identifier associated with the Merchant who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/9466620e0)"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Timestamp of the created Event"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "Unique product ID"
+        },
+        "sku": {
+          "type": "string",
+          "description": "Stock Keeping Unit identifier"
+        },
+        "mpn": {
+          "type": "string",
+          "description": "Manufacturer Part Number"
+        },
+        "gtin": {
+          "type": "string",
+          "description": "Global Trade Item Number"
+        },
+        "cost": {
+          "type": "number",
+          "description": "Base cost of the product"
+        },
+        "regular_price": {
+          "type": "number",
+          "description": "Standard selling price before discounts"
+        },
+        "price": {
+          "type": "number",
+          "description": "Current active selling price"
+        },
+        "sale_price": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "Discounted price during the promotion"
+            },
+            "expired_at": {
+              "type": "string",
+              "description": "When the sale price will expire (timestamp)"
+            }
+          }
+        },
+        "starting_price": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Lowest price starting point, if defined"
+        },
+        "currency": {
+          "type": "string",
+          "description": "Currency code in ISO format (e.g., 'SAR')"
+        },
+        "with_tax": {
+          "type": "boolean",
+          "description": "Whether the price includes tax"
+        },
+        "tax": {
+          "type": "number",
+          "description": "Tax amount applied on product price"
+        },
+        "taxed_price": {
+          "type": "number",
+          "description": "Product price including tax "
+        }
+      }
+    }
+  }
+}

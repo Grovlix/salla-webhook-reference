@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "store.owner.changed",
+  "description": "Triggered when store ownership moves to another user. Generated from https://docs.salla.dev/webhook-events/store (fetched 2026-10-26).",
+  "type": "object",
+  "properties": {
+    "event": {
+      "type": "string",
+      "description": "Event title or label to represent the event.",
+      "enum": [
+        "store.owner.changed"
+      ]
+    },
+    "merchant": {
+      "type": "number",
+      "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "The date and time when a particular event was created or initiated."
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "A unique identifier of the user."
+        },
+        "status": {
+          "type": "string",
+          "description": "Indicates the current status of the user.",
+          "enum": [
+            "active",
+            "inactive",
+            "expired",
+            "deleted"
+          ],
+          "examples": [
+            "active"
+          ]
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "Indicates whether the user account is enabled or not."
+        },
+        "mobile": {
+          "type": "string",
+          "description": "Store owner mobile number without the country code.",
+          "examples": [
+            "501234567"
+          ]
+        },
+        "mobile_code": {
+          "type": "string",
+          "description": "The country code for the mobile phone number.",
+          "examples": [
+            "+966"
+          ]
+        },
+        "email": {
+          "type": "string",
+          "description": "The store owner email address.",
+          "examples": [
+            "test@gmail.com"
+          ]
+        },
+        "avatar": {
+          "type": "string",
+          "description": "A URL of the store owner user avatar image."
+        },
+        "role": {
+          "type": "string",
+          "description": "Role of the store user. ",
+          "enum": [
+            "user",
+            "team"
+          ],
+          "examples": [
+            "user"
+          ]
+        }
+      }
+    }
+  }
+}
