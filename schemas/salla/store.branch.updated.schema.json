@@ -1,0 +1,231 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "store.branch.updated",
+  "description": "Triggered when a store branch is updated. Generated from https://docs.salla.dev/webhook-events/store (fetched 2026-10-26).",
+  "type": "object",
+  "properties": {
+    "event": {
+      "type": "string",
+      "description": "Event title or label to represent the event.",
+      "enum": [
+        "store.branch.created",
+        "store.branch.updated",
+        "store.branch.deleted",
+        "store.branch.setDefault",
+        "store.branch.activate"
+      ]
+    },
+    "merchant": {
+      "type": "number",
+      "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "The date and time when a particular event was created or initiated."
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "A unique identifier associated with a specific store."
+        },
+        "status": {
+          "type": "string",
+          "description": "Store status to indicate the current status of the store."
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "lat": {
+              "type": "string",
+              "description": "The geographic coordinates that specify a position on the Earth's surface using latitude values."
+            },
+            "lng": {
+              "type": "string",
+              "description": "The geographic coordinates that specify a position on the Earth's surface using longitude values."
+            }
+          }
+        },
+        "contacts": {
+          "type": "object",
+          "properties": {
+            "telephone": {
+              "type": "string",
+              "description": "A numerical sequence used to uniquely identify a telephone line or device and enable communication through voice calls."
+            },
+            "phone": {
+              "type": "string",
+              "description": "A numerical sequence used to uniquely identify a telephone line and enable communication through voice calls, text messages, or other forms of telecommunication."
+            },
+            "whatsapp": {
+              "type": "string",
+              "description": "A phone number associated with a WhatsApp account."
+            }
+          }
+        },
+        "preparation_time": {
+          "type": "string",
+          "description": "Preparation Time"
+        },
+        "is_open": {
+          "type": "boolean",
+          "description": "The option to indidcate if the store is open."
+        },
+        "closest_time": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "string",
+              "description": "The time which the store starts operating at."
+            },
+            "to": {
+              "type": "string",
+              "description": "The time which the store ends operating at."
+            }
+          }
+        },
+        "working_hours": {
+          "type": "array",
+          "description": "Working Hours",
+          "items": {
+            "type": "object",
+            "properties": {
+              "times": {
+                "type": "array",
+                "description": "Working Times",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "from": {
+                      "type": "string",
+                      "description": "The start time of this working period."
+                    },
+                    "to": {
+                      "type": "string",
+                      "description": "The end time of this working period."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "is_cod_available": {
+          "type": "boolean",
+          "default": true,
+          "description": "The option to inidicate the availability of Cash On Delivery payamnet method."
+        },
+        "is_default": {
+          "type": "boolean",
+          "default": false,
+          "description": "The option to indicate the store as the default store."
+        },
+        "type": {
+          "type": "string",
+          "description": "The classification of the store branch type, such as main branch, pickup branch, or warehouse."
+        },
+        "cod_cost": {
+          "type": "string",
+          "description": "Cash On Delivery Cost"
+        },
+        "country": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "A unique identifier associated with the specific country."
+            },
+            "name_en": {
+              "type": "string",
+              "description": "Country name represented in English characters."
+            },
+            "code": {
+              "type": "string",
+              "description": "A standardized two- or three-letter code assigned to each country by the ISO 3166 standard for various purposes, including international trade and internet domains."
+            },
+            "mobile_code": {
+              "type": "string",
+              "description": "A numerical prefix that represents a specific country when making international mobile phone calls. "
+            },
+            "capital": {
+              "type": "string",
+              "description": "The capital city of the country",
+              "examples": [
+                "Riyadh",
+                "Abu Dhabi",
+                "Paric"
+              ]
+            }
+          }
+        },
+        "city": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "A unique identifier associated with a specific City."
+            },
+            "name_en": {
+              "type": "string",
+              "description": "City name represented in English characters\r\n"
+            },
+            "country_id": {
+              "type": "number",
+              "description": "A unique identifier associated with a specific country."
+            }
+          }
+        },
+        "short_address": {
+          "type": "string",
+          "description": "A brief, human-readable version of the store address used for quick display in interfaces."
+        },
+        "street": {
+          "type": "string",
+          "description": "The street name or road on which the store is located."
+        },
+        "address_description": {
+          "type": "string",
+          "description": "Additional descriptive details that help clarify or explain the store address."
+        },
+        "additional_number": {
+          "type": "string",
+          "description": "An extra address reference such as apartment, unit, or additional national address number."
+        },
+        "building_number": {
+          "type": "string",
+          "description": "The building number associated with the store location."
+        },
+        "local": {
+          "type": "string",
+          "description": "The local area, neighborhood, or locality where the store is situated."
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "The postal or ZIP code assigned to the store's address."
+        },
+        "is_stock": {
+          "type": "boolean",
+          "description": "The option to indicate whether this branch is used as a stock or warehouse location."
+        },
+        "district": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "District ID"
+            },
+            "name_en": {
+              "type": "string",
+              "description": "District name in english"
+            }
+          },
+          "description": "The district or sub-area of the city where the store is located. Can be null if not provided."
+        }
+      }
+    }
+  }
+}

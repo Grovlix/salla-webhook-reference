@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "customer.otp.request",
+  "description": "Triggered when a customer requests a one-time password. Generated from https://docs.salla.dev/webhook-events/customers (fetched 2026-10-26).",
+  "type": "object",
+  "properties": {
+    "event": {
+      "type": "string",
+      "description": "A label or title used to identify a specific event.",
+      "examples": [
+        "customer.otp.request"
+      ]
+    },
+    "merchant": {
+      "type": "number",
+      "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)",
+      "examples": [
+        1029864349
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "description": "The date and time when a particular event was created or initiated.",
+      "examples": [
+        "Wed Jun 30 2021 12:09:11 GMT+0300"
+      ]
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "OTP Code, a temporary and unique numeric or alphanumeric code generated for the purpose of verification.",
+          "examples": [
+            "5331"
+          ]
+        },
+        "contact": {
+          "type": "string",
+          "description": "Option for contact method using phone number or email address .",
+          "examples": [
+            "+96652318526"
+          ]
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "event": "customer.otp.request",
+      "merchant": 1029864349,
+      "created_at": "Wed Jun 30 2021 12:09:11 GMT+0300",
+      "data": {
+        "code": "5331",
+        "contact": "+96652318526"
+      }
+    },
+    {
+      "code": "5331",
+      "contact": "+96652318526"
+    }
+  ]
+}

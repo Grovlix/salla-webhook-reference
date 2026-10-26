@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "product.channels.changed",
+  "description": "Triggered when the sales channels a product is shown on change. Generated from https://docs.salla.dev/webhook-events/products (fetched 2026-10-26).",
+  "type": "object",
+  "properties": {
+    "event": {
+      "type": "string",
+      "description": "Event Name",
+      "enum": [
+        "product.channels.changed"
+      ]
+    },
+    "merchant": {
+      "type": "integer",
+      "description": "Unique identifier associated with the Merchant who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/9466620e0)"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Timestamp of the created Event"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique identifier associated with a product. Get a list of product IDs [here](https://docs.salla.dev/5394169e0)"
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "app",
+              "web",
+              "vendors",
+              "mahly"
+            ]
+          },
+          "description": "The product to appear in specific channels"
+        }
+      }
+    }
+  }
+}

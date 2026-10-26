@@ -1,0 +1,89 @@
+{
+  "source_url": "https://docs.zid.sa/webhook-events-customer",
+  "fetched_at": "2026-10-26",
+  "definitions": {
+    "2771519": {
+      "title": "Customer",
+      "type": "object",
+      "x-stoplight": {
+        "id": "01y4lnsmaqkd3"
+      },
+      "properties": {
+        "id": {
+          "type": "integer",
+          "x-stoplight": {
+            "id": "xuyjncc0ckszi"
+          },
+          "examples": [
+            123
+          ]
+        },
+        "name": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "mccywott7nnp7"
+          },
+          "examples": [
+            "John Doe"
+          ]
+        },
+        "email": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "frgv0q1ss27us"
+          },
+          "format": "email",
+          "examples": [
+            "john.doe@zid.sa"
+          ]
+        },
+        "telephone": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "cyr576oo6n6qt"
+          },
+          "examples": [
+            "+962785134221"
+          ]
+        },
+        "gender": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "8ttjnek7k1q9a"
+          },
+          "pattern": "male / female",
+          "examples": [
+            "male"
+          ]
+        },
+        "birth_date": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "d6e8gnny6b1t0"
+          },
+          "format": "date",
+          "examples": [
+            "1990-01-01"
+          ]
+        },
+        "is_active": {
+          "type": "boolean",
+          "x-stoplight": {
+            "id": "2m8j9n72zhdsf"
+          }
+        }
+      },
+      "x-apidog-orders": [
+        "id",
+        "name",
+        "email",
+        "telephone",
+        "gender",
+        "birth_date",
+        "is_active"
+      ],
+      "name": "Customer"
+    }
+  },
+  "examples": []
+}

@@ -1,0 +1,138 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "brand.updated",
+  "description": "Triggered when a brand is updated. Generated from https://docs.salla.dev/webhook-events/brands (fetched 2026-10-26).",
+  "type": "object",
+  "properties": {
+    "event": {
+      "type": "string",
+      "description": "Event Name",
+      "enum": [
+        "brand.created",
+        "brand.updated",
+        "brand.deleted"
+      ]
+    },
+    "merchant": {
+      "type": "number",
+      "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Timestamp of the created event"
+    },
+    "data": {
+      "$ref": "#/definitions/1307297"
+    }
+  },
+  "examples": [
+    {
+      "event": "brand.created",
+      "merchant": 1305146709,
+      "created_at": "Tue Jan 25 2022 13:22:11 GMT+0300",
+      "data": {
+        "id": 1838214943,
+        "name": "بوما",
+        "description": "",
+        "banner": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+        "logo": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+        "ar_char": "ب",
+        "en_char": "B",
+        "metadata": {
+          "title": "Zara brand",
+          "description": "Brand awareness seo",
+          "url": "zara/item"
+        }
+      }
+    },
+    {
+      "id": 1838214943,
+      "name": "بوما",
+      "description": "",
+      "banner": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+      "logo": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+      "ar_char": "ب",
+      "en_char": "B"
+    }
+  ],
+  "definitions": {
+    "1307297": {
+      "description": "Detailed structure of the brand model object showing its fields and data types.",
+      "type": "object",
+      "title": "Brand",
+      "properties": {
+        "id": {
+          "description": "A unique identifier assigned to a specific brand.",
+          "type": "number"
+        },
+        "description": {
+          "type": "string",
+          "description": "A brief summary of a company, highlighting key attributes, values, and offerings to convey its identity and purpose. 🌐 [Support multi-language](doc-421122)"
+        },
+        "banner": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A text or URL linking to a banner file, used as a visual identifier for a brand on a webpage or platform."
+        },
+        "logo": {
+          "type": "string",
+          "description": "A text-based representation or URL link that directs to the logo file."
+        },
+        "ar_char": {
+          "type": "string",
+          "description": "Brand represented in Arabic characters."
+        },
+        "en_char": {
+          "type": "string",
+          "description": "Brand represented in English characters."
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "A concise metadata title used to improve search engine visibility and optimize a brand page’s search ranking. 🌐 [Support multi-language](doc-421122)"
+            },
+            "description": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Concise content enhancing search visibility and social sharing.  🌐 [Support multi-language](doc-421122)"
+            },
+            "url": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Web link for enhanced search engine visibility and social media sharing.  🌐 🌐 [Support multi-language](doc-421122)"
+            }
+          }
+        },
+        "label": {
+          "type": "string",
+          "description": "The label given to a particular  company, to identify its products in the market. 🌐 [Support multi-language](doc-421122)"
+        },
+        "status": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Brand status"
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Brand channels"
+        }
+      }
+    }
+  }
+}

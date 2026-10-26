@@ -1,0 +1,1406 @@
+{
+  "source_url": "https://docs.salla.dev/webhook-events/misc",
+  "fetched_at": "2026-10-26",
+  "definitions": {
+    "1307410": {
+      "type": "object",
+      "properties": {
+        "event": {
+          "type": "string",
+          "description": "A label or title used to identify a specific event.",
+          "examples": [
+            "review.added"
+          ]
+        },
+        "merchant": {
+          "type": "integer",
+          "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID using the endpoint https://docs.salla.dev/api-8330089",
+          "examples": [
+            1029864349
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "description": "The date and time when a particular event was created or initiated.",
+          "examples": [
+            "Wed Jul 7 2021 15:52:52 GMT+0300"
+          ]
+        },
+        "data": {
+          "type": "object",
+          "description": "Payload body that contains detailed information about the review, customer, product, and related order.",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "The categorization or classification of a review based on its nature or purpose.",
+              "examples": [
+                "rating"
+              ]
+            },
+            "rating": {
+              "type": "string",
+              "description": "A numerical or qualitative evaluation given to a product, service, or experience in a review.",
+              "examples": [
+                5
+              ]
+            },
+            "content": {
+              "type": "string",
+              "description": "The written or textual portion of a review that provides detailed feedback, opinions, comments, or descriptions of a product, service, experience, or other subject of review.",
+              "examples": [
+                "Nice"
+              ]
+            },
+            "customer": {
+              "type": "object",
+              "description": "Information about the customer who submitted the review.",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "A unique identifier associated with a specific customer.",
+                  "examples": [
+                    2107468057
+                  ]
+                },
+                "name": {
+                  "type": "string",
+                  "description": "A label or title used to identify a specific customer.",
+                  "examples": [
+                    "Mohammed Ali"
+                  ]
+                },
+                "mobile": {
+                  "type": "string",
+                  "description": "The mobile phone number associated with a customer.",
+                  "examples": [
+                    "+92837482364876237846"
+                  ]
+                },
+                "avatar": {
+                  "type": "string",
+                  "description": "A fictional representation or profile that embodies the characteristics, demographics, behaviors, and preferences of a brand's ideal customer.",
+                  "examples": [
+                    "https://i.ibb.co/jyqRQfQ/avatar-male.webp"
+                  ]
+                },
+                "country": {
+                  "type": "string",
+                  "description": "The country of residence or location associated with a customer.",
+                  "examples": [
+                    "السعودية"
+                  ]
+                },
+                "city": {
+                  "type": "string",
+                  "description": "The city or urban area where a customer resides or is located.",
+                  "examples": [
+                    "الرياض"
+                  ]
+                },
+                "email": {
+                  "type": "string",
+                  "description": "Customer email address used for communication and account identification."
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "mobile",
+                "email",
+                "avatar",
+                "country",
+                "city"
+              ],
+              "x-apidog-orders": [
+                "id",
+                "name",
+                "mobile",
+                "email",
+                "avatar",
+                "country",
+                "city"
+              ]
+            },
+            "product": {
+              "type": "object",
+              "description": "Snapshot of the product that the review is associated with.",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "A unique identifier associated with a specific product.",
+                  "examples": [
+                    1653503260
+                  ]
+                },
+                "type": {
+                  "type": "string",
+                  "description": "The categorization or classification of a product based on its nature or purpose.",
+                  "examples": [
+                    "codes"
+                  ]
+                },
+                "promotion": {
+                  "type": "object",
+                  "description": "Promotion metadata attached to this product at the time of the review, if any.",
+                  "properties": {
+                    "title": {
+                      "type": "null",
+                      "description": "A label or title used to identify a specific promotion."
+                    },
+                    "sub_title": {
+                      "type": "null",
+                      "description": "Additional label or title used to identify a specific promotion."
+                    }
+                  },
+                  "required": [
+                    "title",
+                    "sub_title"
+                  ],
+                  "x-apidog-orders": [
+                    "title",
+                    "sub_title"
+                  ]
+                },
+                "quantity": {
+                  "type": "null"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "is_available": {
+                  "type": "boolean",
+                  "description": "The option to indicate the product availability"
+                },
+                "sku": {
+                  "type": "string",
+                  "description": "Stock-keeping unit, a unique code used to identify and manage specific products in inventory."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The name or label assigned to a specific product.",
+                  "examples": [
+                    "FW180017"
+                  ]
+                },
+                "price": {
+                  "type": "object",
+                  "description": "Price object that represents the current product price.",
+                  "properties": {
+                    "amount": {
+                      "type": "integer",
+                      "description": "Price amount value.",
+                      "examples": [
+                        1600
+                      ]
+                    },
+                    "currency": {
+                      "type": "string",
+                      "description": "Price currency.",
+                      "examples": [
+                        "SAR"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "currency"
+                  ],
+                  "x-apidog-orders": [
+                    "amount",
+                    "currency"
+                  ]
+                },
+                "sale_price": {
+                  "type": "object",
+                  "description": "Sale price applied to the product, if any.",
+                  "properties": {
+                    "amount": {
+                      "type": "integer",
+                      "description": "Sale price amount value.",
+                      "examples": [
+                        20
+                      ]
+                    },
+                    "currency": {
+                      "type": "string",
+                      "description": "Sale price currency.",
+                      "examples": [
+                        "SAR"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "currency"
+                  ],
+                  "x-apidog-orders": [
+                    "amount",
+                    "currency"
+                  ]
+                },
+                "currency": {
+                  "type": "string",
+                  "description": "Currency in which the product is purchased at.",
+                  "examples": [
+                    "SAR"
+                  ]
+                },
+                "url": {
+                  "type": "string",
+                  "description": "A web address that leads directly to a specific product's page or listing on a website.",
+                  "examples": [
+                    "https://store.test/nabilanazer/dpXnr"
+                  ]
+                },
+                "thumbnail": {
+                  "type": "string",
+                  "description": "A small, reduced-size image or visual representation of a product."
+                },
+                "has_special_price": {
+                  "type": "boolean",
+                  "description": "The option to indicate the availability of special price."
+                },
+                "regular_price": {
+                  "type": "object",
+                  "description": "Original regular price of the product.",
+                  "properties": {
+                    "amount": {
+                      "type": "integer",
+                      "description": "Regular price amount value.",
+                      "examples": [
+                        1600
+                      ]
+                    },
+                    "currency": {
+                      "type": "string",
+                      "description": "Regular price currency.",
+                      "examples": [
+                        "SAR"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "currency"
+                  ],
+                  "x-apidog-orders": [
+                    "amount",
+                    "currency"
+                  ]
+                },
+                "calories": {
+                  "type": "null"
+                },
+                "mpn": {
+                  "type": "null"
+                },
+                "gtin": {
+                  "type": "null"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "favorite": {
+                  "type": "null",
+                  "description": "Represents whether the product is marked as a favorite in this context."
+                },
+                "features": {
+                  "type": "object",
+                  "properties": {
+                    "availability_notify": {
+                      "type": "null"
+                    },
+                    "show_rating": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "availability_notify",
+                    "show_rating"
+                  ],
+                  "x-apidog-orders": [
+                    "availability_notify",
+                    "show_rating"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "type",
+                "promotion",
+                "quantity",
+                "status",
+                "is_available",
+                "sku",
+                "name",
+                "price",
+                "sale_price",
+                "currency",
+                "url",
+                "thumbnail",
+                "has_special_price",
+                "regular_price",
+                "calories",
+                "mpn",
+                "gtin",
+                "description",
+                "favorite",
+                "features"
+              ],
+              "x-apidog-orders": [
+                "id",
+                "type",
+                "promotion",
+                "quantity",
+                "status",
+                "is_available",
+                "sku",
+                "name",
+                "price",
+                "sale_price",
+                "currency",
+                "url",
+                "thumbnail",
+                "has_special_price",
+                "regular_price",
+                "calories",
+                "mpn",
+                "gtin",
+                "description",
+                "favorite",
+                "features"
+              ]
+            },
+            "order": {
+              "type": "object",
+              "description": "Snapshot of the order associated with this review.",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Order ID Number, a unique alphanumeric identifier assigned to a specific order.",
+                  "examples": [
+                    1289663293
+                  ]
+                },
+                "reference_id": {
+                  "type": "integer",
+                  "description": "A unique alphanumeric identifier assigned to a specific order.",
+                  "examples": [
+                    27290
+                  ]
+                },
+                "total": {
+                  "type": "object",
+                  "description": "Order total amount and currency.",
+                  "properties": {
+                    "amount": {
+                      "type": "number",
+                      "description": "Total amount value.",
+                      "examples": [
+                        3732
+                      ]
+                    },
+                    "currency": {
+                      "type": "string",
+                      "description": "The currency of the total order amount.",
+                      "examples": [
+                        "SAR"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "currency"
+                  ],
+                  "x-apidog-orders": [
+                    "amount",
+                    "currency"
+                  ]
+                },
+                "urls": {
+                  "type": "object",
+                  "properties": {
+                    "customer": {
+                      "type": "string"
+                    },
+                    "admin": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "customer",
+                    "admin"
+                  ],
+                  "x-apidog-orders": [
+                    "customer",
+                    "admin"
+                  ]
+                },
+                "exchange_rate": {
+                  "type": "object",
+                  "properties": {
+                    "base_currency": {
+                      "type": "string"
+                    },
+                    "exchange_currency": {
+                      "type": "string"
+                    },
+                    "rate": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "base_currency",
+                    "exchange_currency",
+                    "rate"
+                  ],
+                  "x-apidog-orders": [
+                    "base_currency",
+                    "exchange_currency",
+                    "rate"
+                  ]
+                },
+                "date": {
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "type": "string"
+                    },
+                    "timezone_type": {
+                      "type": "integer"
+                    },
+                    "timezone": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "date",
+                    "timezone_type",
+                    "timezone"
+                  ],
+                  "x-apidog-orders": [
+                    "date",
+                    "timezone_type",
+                    "timezone"
+                  ]
+                },
+                "source": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "slug": {
+                      "type": "string"
+                    },
+                    "original": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name"
+                      ],
+                      "x-apidog-orders": [
+                        "id",
+                        "name"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "slug",
+                    "original"
+                  ],
+                  "x-apidog-orders": [
+                    "id",
+                    "name",
+                    "slug",
+                    "original"
+                  ]
+                },
+                "draft": {
+                  "type": "boolean"
+                },
+                "read": {
+                  "type": "boolean"
+                },
+                "can_cancel": {
+                  "type": "boolean"
+                },
+                "can_reorder": {
+                  "type": "boolean"
+                },
+                "payment_method": {
+                  "type": "string"
+                },
+                "is_pending_payment": {
+                  "type": "boolean"
+                },
+                "pending_payment_ends_at": {
+                  "type": "integer"
+                },
+                "features": {
+                  "type": "object",
+                  "properties": {
+                    "shippable": {
+                      "type": "boolean"
+                    },
+                    "digitalable": {
+                      "type": "boolean"
+                    },
+                    "pickable": {
+                      "type": "boolean"
+                    },
+                    "has_suspicious_alert": {
+                      "type": "boolean"
+                    },
+                    "bullet_delivery": {
+                      "type": "object",
+                      "properties": {
+                        "is_bullet_delivery": {
+                          "type": "boolean"
+                        },
+                        "bullet_countdown": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "is_bullet_delivery",
+                        "bullet_countdown"
+                      ],
+                      "x-apidog-orders": [
+                        "is_bullet_delivery",
+                        "bullet_countdown"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "shippable",
+                    "digitalable",
+                    "pickable",
+                    "has_suspicious_alert",
+                    "bullet_delivery"
+                  ],
+                  "x-apidog-orders": [
+                    "shippable",
+                    "digitalable",
+                    "pickable",
+                    "has_suspicious_alert",
+                    "bullet_delivery"
+                  ]
+                },
+                "payment_actions": {
+                  "type": "object",
+                  "properties": {
+                    "refund_action": {
+                      "type": "object",
+                      "properties": {
+                        "has_refund_amount": {
+                          "type": "boolean"
+                        },
+                        "payment_method_label": {
+                          "type": "string"
+                        },
+                        "can_print_refund_invoice": {
+                          "type": "boolean"
+                        },
+                        "paid_amount": {
+                          "type": "object",
+                          "properties": {
+                            "amount": {
+                              "type": "integer"
+                            },
+                            "currency": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "amount",
+                            "currency"
+                          ],
+                          "x-apidog-orders": [
+                            "amount",
+                            "currency"
+                          ]
+                        },
+                        "refund_amount": {
+                          "type": "object",
+                          "properties": {
+                            "amount": {
+                              "type": "integer"
+                            },
+                            "currency": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "amount",
+                            "currency"
+                          ],
+                          "x-apidog-orders": [
+                            "amount",
+                            "currency"
+                          ]
+                        },
+                        "loyalty_point_programs": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "can_send_sms": {
+                          "type": "boolean"
+                        },
+                        "can_send_sms_msg": {
+                          "type": "string"
+                        },
+                        "can_refund_loyalty_prize_points": {
+                          "type": "boolean"
+                        },
+                        "can_restore_loyalty_buy_from_store_points": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "has_refund_amount",
+                        "payment_method_label",
+                        "can_print_refund_invoice",
+                        "paid_amount",
+                        "refund_amount",
+                        "loyalty_point_programs",
+                        "can_send_sms",
+                        "can_send_sms_msg",
+                        "can_refund_loyalty_prize_points",
+                        "can_restore_loyalty_buy_from_store_points"
+                      ],
+                      "x-apidog-orders": [
+                        "has_refund_amount",
+                        "payment_method_label",
+                        "can_print_refund_invoice",
+                        "paid_amount",
+                        "refund_amount",
+                        "loyalty_point_programs",
+                        "can_send_sms",
+                        "can_send_sms_msg",
+                        "can_refund_loyalty_prize_points",
+                        "can_restore_loyalty_buy_from_store_points"
+                      ]
+                    },
+                    "remaining_action": {
+                      "type": "object",
+                      "properties": {
+                        "has_remaining_amount": {
+                          "type": "boolean"
+                        },
+                        "payment_method_label": {
+                          "type": "string"
+                        },
+                        "paid_amount": {
+                          "type": "object",
+                          "properties": {
+                            "amount": {
+                              "type": "integer"
+                            },
+                            "currency": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "amount",
+                            "currency"
+                          ],
+                          "x-apidog-orders": [
+                            "amount",
+                            "currency"
+                          ]
+                        },
+                        "checkout_url": {
+                          "type": "string"
+                        },
+                        "remaining_amount": {
+                          "type": "object",
+                          "properties": {
+                            "amount": {
+                              "type": "number"
+                            },
+                            "currency": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "amount",
+                            "currency"
+                          ],
+                          "x-apidog-orders": [
+                            "amount",
+                            "currency"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "has_remaining_amount",
+                        "payment_method_label",
+                        "paid_amount",
+                        "checkout_url",
+                        "remaining_amount"
+                      ],
+                      "x-apidog-orders": [
+                        "has_remaining_amount",
+                        "payment_method_label",
+                        "paid_amount",
+                        "checkout_url",
+                        "remaining_amount"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "refund_action",
+                    "remaining_action"
+                  ],
+                  "x-apidog-orders": [
+                    "refund_action",
+                    "remaining_action"
+                  ]
+                },
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "description": "The name or label assigned to a specific product, object, or entity.",
+                        "examples": [
+                          "FW180016"
+                        ]
+                      },
+                      "quantity": {
+                        "type": "integer",
+                        "description": "The numerical value that specifies the quantity or number of a particular item or product.",
+                        "examples": [
+                          1
+                        ]
+                      },
+                      "thumbnail": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "quantity",
+                      "thumbnail"
+                    ],
+                    "x-apidog-orders": [
+                      "name",
+                      "quantity",
+                      "thumbnail"
+                    ]
+                  }
+                },
+                "customer": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "full_name": {
+                      "type": "string"
+                    },
+                    "first_name": {
+                      "type": "string"
+                    },
+                    "last_name": {
+                      "type": "string"
+                    },
+                    "mobile": {
+                      "type": "integer"
+                    },
+                    "mobile_code": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "urls": {
+                      "type": "object",
+                      "properties": {
+                        "customer": {
+                          "type": "string"
+                        },
+                        "admin": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "customer",
+                        "admin"
+                      ],
+                      "x-apidog-orders": [
+                        "customer",
+                        "admin"
+                      ]
+                    },
+                    "avatar": {
+                      "type": "string"
+                    },
+                    "gender": {
+                      "type": "string"
+                    },
+                    "birthday": {
+                      "type": "object",
+                      "properties": {
+                        "date": {
+                          "type": "string"
+                        },
+                        "timezone_type": {
+                          "type": "integer"
+                        },
+                        "timezone": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "date",
+                        "timezone_type",
+                        "timezone"
+                      ],
+                      "x-apidog-orders": [
+                        "date",
+                        "timezone_type",
+                        "timezone"
+                      ]
+                    },
+                    "city": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "country_code": {
+                      "type": "string"
+                    },
+                    "currency": {
+                      "type": "string"
+                    },
+                    "location": {
+                      "type": "string"
+                    },
+                    "lang": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "object",
+                      "properties": {
+                        "date": {
+                          "type": "string"
+                        },
+                        "timezone_type": {
+                          "type": "integer"
+                        },
+                        "timezone": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "date",
+                        "timezone_type",
+                        "timezone"
+                      ],
+                      "x-apidog-orders": [
+                        "date",
+                        "timezone_type",
+                        "timezone"
+                      ]
+                    },
+                    "updated_at": {
+                      "type": "object",
+                      "properties": {
+                        "date": {
+                          "type": "string"
+                        },
+                        "timezone_type": {
+                          "type": "integer"
+                        },
+                        "timezone": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "date",
+                        "timezone_type",
+                        "timezone"
+                      ],
+                      "x-apidog-orders": [
+                        "date",
+                        "timezone_type",
+                        "timezone"
+                      ]
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "groups": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "full_name",
+                    "first_name",
+                    "last_name",
+                    "mobile",
+                    "mobile_code",
+                    "email",
+                    "urls",
+                    "avatar",
+                    "gender",
+                    "birthday",
+                    "city",
+                    "country",
+                    "country_code",
+                    "currency",
+                    "location",
+                    "lang",
+                    "created_at",
+                    "updated_at",
+                    "type",
+                    "groups"
+                  ],
+                  "x-apidog-orders": [
+                    "id",
+                    "full_name",
+                    "first_name",
+                    "last_name",
+                    "mobile",
+                    "mobile_code",
+                    "email",
+                    "urls",
+                    "avatar",
+                    "gender",
+                    "birthday",
+                    "city",
+                    "country",
+                    "country_code",
+                    "currency",
+                    "location",
+                    "lang",
+                    "created_at",
+                    "updated_at",
+                    "type",
+                    "groups"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "reference_id",
+                "urls",
+                "total",
+                "exchange_rate",
+                "date",
+                "source",
+                "status",
+                "draft",
+                "read",
+                "can_cancel",
+                "can_reorder",
+                "payment_method",
+                "is_pending_payment",
+                "pending_payment_ends_at",
+                "features",
+                "payment_actions",
+                "items",
+                "customer"
+              ],
+              "x-apidog-orders": [
+                "id",
+                "reference_id",
+                "urls",
+                "total",
+                "exchange_rate",
+                "date",
+                "source",
+                "status",
+                "draft",
+                "read",
+                "can_cancel",
+                "can_reorder",
+                "payment_method",
+                "is_pending_payment",
+                "pending_payment_ends_at",
+                "features",
+                "payment_actions",
+                "items",
+                "customer"
+              ]
+            },
+            "status": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "A unique identifier associated with a specific status.",
+                  "examples": [
+                    1298199463
+                  ]
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The descriptive name or label associated with a specific status.",
+                  "examples": [
+                    "تم التنفيذ"
+                  ]
+                },
+                "customized": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "description": "A unique identifier associated with a specific customization or personalized configuration.",
+                      "examples": [
+                        1693817923
+                      ]
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The descriptive name or label associated with a specific customization.",
+                      "examples": [
+                        "تم التنفيذ"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ],
+                  "x-apidog-orders": [
+                    "id",
+                    "name"
+                  ]
+                },
+                "can_cancel": {
+                  "type": "boolean",
+                  "default": false,
+                  "description": "The option to enable cancelling the status."
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "customized",
+                "can_cancel"
+              ],
+              "x-apidog-orders": [
+                "id",
+                "name",
+                "customized",
+                "can_cancel"
+              ]
+            },
+            "is_available": {
+              "type": "boolean",
+              "default": false,
+              "description": "The option to indicate the product availability"
+            },
+            "sku": {
+              "type": "string",
+              "description": "Stock-keeping unit, a unique code used to identify and manage specific products in inventory."
+            },
+            "name": {
+              "type": "string",
+              "description": "The name or label assigned to a specific product.",
+              "examples": [
+                "FW180017"
+              ]
+            },
+            "price": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "number",
+                  "description": "Price amount value.",
+                  "examples": [
+                    1600
+                  ]
+                },
+                "currency": {
+                  "type": "string",
+                  "description": "Price currency.",
+                  "examples": [
+                    "SAR"
+                  ]
+                }
+              },
+              "required": [
+                "amount",
+                "currency"
+              ],
+              "x-apidog-orders": [
+                "amount",
+                "currency"
+              ]
+            },
+            "sale_price": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "number",
+                  "description": "Sale price amount value.",
+                  "examples": [
+                    20
+                  ]
+                },
+                "currency": {
+                  "type": "string",
+                  "description": "Sale price currency.",
+                  "examples": [
+                    "SAR"
+                  ]
+                }
+              },
+              "required": [
+                "amount",
+                "currency"
+              ],
+              "x-apidog-orders": [
+                "amount",
+                "currency"
+              ]
+            },
+            "currency": {
+              "type": "string",
+              "description": "Currency in which the product is purchased at.",
+              "examples": [
+                "SAR"
+              ]
+            },
+            "url": {
+              "type": "string",
+              "description": "A web address that leads directly to a specific product's page or listing on a website.",
+              "examples": [
+                "https://store.test/nabilanazer/dpXnr"
+              ]
+            },
+            "thumbnail": {
+              "type": "null",
+              "description": "A small, reduced-size image or visual representation of a product."
+            },
+            "has_special_price": {
+              "type": "boolean",
+              "default": false,
+              "description": "The option to indicate the availability of special price."
+            },
+            "regular_price": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "number",
+                  "description": "Regular price amount value.",
+                  "examples": [
+                    1600
+                  ]
+                },
+                "currency": {
+                  "type": "string",
+                  "description": "Regular price currency.",
+                  "examples": [
+                    "SAR"
+                  ]
+                }
+              },
+              "required": [
+                "amount",
+                "currency"
+              ],
+              "x-apidog-orders": [
+                "amount",
+                "currency"
+              ]
+            },
+            "favorite": {
+              "type": "null",
+              "description": "Represents whether the product is marked as a favorite in this context."
+            },
+            "date": {
+              "type": "array",
+              "description": "A specific point in time within the calendar system, typically consisting of the day, month, and year.",
+              "items": {
+                "type": "string"
+              }
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The name or label assigned to a specific product, object, or entity.",
+                    "examples": [
+                      "FW180016"
+                    ]
+                  },
+                  "quantity": {
+                    "type": "number",
+                    "description": "The numerical value that specifies the quantity or number of a particular item or product.",
+                    "examples": [
+                      1
+                    ]
+                  }
+                },
+                "required": [
+                  "name",
+                  "quantity"
+                ],
+                "x-apidog-orders": [
+                  "name",
+                  "quantity"
+                ]
+              }
+            }
+          },
+          "required": [
+            "type",
+            "rating",
+            "content",
+            "customer",
+            "product",
+            "order"
+          ],
+          "x-apidog-orders": [
+            "type",
+            "rating",
+            "content",
+            "customer",
+            "product",
+            "order",
+            "status",
+            "is_available",
+            "sku",
+            "name",
+            "price",
+            "sale_price",
+            "currency",
+            "url",
+            "thumbnail",
+            "has_special_price",
+            "regular_price",
+            "favorite",
+            "date",
+            "items"
+          ]
+        }
+      },
+      "required": [
+        "event",
+        "merchant",
+        "created_at",
+        "data"
+      ],
+      "x-apidog-orders": [
+        "event",
+        "merchant",
+        "created_at",
+        "data"
+      ],
+      "title": "Review Added Webhook Event Model",
+      "name": "Review Added Webhook Event Model"
+    }
+  },
+  "examples": [
+    {
+      "heading": "Review Added Webhook Event Model",
+      "event": "review.added",
+      "repaired": false,
+      "payload": {
+        "event": "review.added",
+        "merchant": 1029864349,
+        "created_at": "Wed Jul 7 2021 14:50:48 GMT+0300",
+        "data": {
+          "type": "rating",
+          "rating": "5",
+          "content": "Nice",
+          "customer": {
+            "id": "2107468057",
+            "name": "Mohammed Ali",
+            "mobile": "+28364687236547523745",
+            "avatar": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+            "country": "السعودية",
+            "city": "الرياض"
+          },
+          "product": {
+            "id": "1653503260",
+            "type": "codes",
+            "promotion": {
+              "title": null,
+              "sub_title": null
+            }
+          },
+          "status": {
+            "id": "1298199463",
+            "name": "تم التنفيذ",
+            "customized": {
+              "id": "1693817923",
+              "name": "تم التنفيذ"
+            },
+            "can_cancel": false
+          },
+          "is_available": false,
+          "sku": " ",
+          "name": "FW180017",
+          "price": {
+            "amount": 1600,
+            "currency": "SAR"
+          },
+          "sale_price": {
+            "amount": "0",
+            "currency": "SAR"
+          },
+          "currency": "SAR",
+          "url": "https://store.test/nabilanazer/dpXnr",
+          "thumbnail": null,
+          "has_special_price": false,
+          "regular_price": {
+            "amount": "1600",
+            "currency": "SAR"
+          },
+          "favorite": null,
+          "order": {
+            "id": "1289663293",
+            "reference_id": "27290",
+            "total": {
+              "amount": "3732",
+              "currency": "SAR"
+            }
+          },
+          "date": [
+            "2022-12-31"
+          ],
+          "items": [
+            {
+              "name": "FW180016",
+              "quantity": "1"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

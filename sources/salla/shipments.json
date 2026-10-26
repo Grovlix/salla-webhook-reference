@@ -1,0 +1,461 @@
+{
+  "source_url": "https://docs.salla.dev/webhook-events/shipments",
+  "fetched_at": "2026-10-26",
+  "definitions": {
+    "1307439": {
+      "type": "object",
+      "x-examples": {
+        "Example": {
+          "event": "shipment.creating",
+          "merchant": 136409261,
+          "created_at": "Sun Jan 29 2023 21:16:38 GMT+0300",
+          "data": {
+            "id": 362985662,
+            "order_id": 560695738,
+            "order_reference_id": 48927,
+            "created_at": {
+              "date": "2023-01-29 21:16:38.000000",
+              "timezone_type": 3,
+              "timezone": "Asia/Riyadh"
+            },
+            "type": "shipment",
+            "courier_id": 1927161457,
+            "courier_name": "Shipping App",
+            "courier_logo": "https://company.com/logo.png",
+            "shipping_number": "846984645",
+            "tracking_number": "4324233",
+            "pickup_id": null,
+            "trackable": true,
+            "tracking_link": "https://www.company/tracking/tracking-express.html?submit=1&tracking-id=12345",
+            "label": {
+              "format": "pdf",
+              "url": "https://company.com/lable.pdf"
+            },
+            "payment_method": "cod",
+            "source": "api",
+            "status": "delivered",
+            "total": {
+              "amount": 25.5,
+              "currency": "SAR"
+            },
+            "cash_on_delivery": {
+              "amount": 10.7,
+              "currency": "SAR"
+            },
+            "is_international": false,
+            "total_weight": {
+              "value": 5,
+              "units": "kg"
+            },
+            "packages": [
+              {
+                "item_id": 2077288690,
+                "external_id": null,
+                "name": "منتج تجريبي",
+                "sku": "6ytrrhrhr",
+                "price": {
+                  "amount": 25.5,
+                  "currency": "SAR"
+                },
+                "quantity": 1,
+                "weight": {
+                  "value": 5,
+                  "unit": "kg"
+                }
+              }
+            ],
+            "ship_from": {
+              "type": "branch",
+              "name": "الفرع الرئيسي",
+              "email": "",
+              "phone": "966920034002",
+              "country": "السعودية",
+              "city": "Mecca",
+              "address_line": "Mecca,السعودية",
+              "street_number": null,
+              "block": null,
+              "postal_code": null,
+              "latitude": 21.3825905096851,
+              "longitude": 39.77319103068542,
+              "branch_id": 1987977866
+            },
+            "ship_to": {
+              "type": "address",
+              "name": "Username",
+              "email": "username@email.com",
+              "phone": "966501806978",
+              "country": "السعودية",
+              "city": "الرياض",
+              "address_line": " شارع 2345، الحي السلام 95128،, شارع عبدالله  سنابل السلام  مكة  السعوديه,, الرياض, السعودية",
+              "street_number": "2345",
+              "block": "السلام",
+              "postal_code": "95128",
+              "latitude": 21.382590509685,
+              "longitude": 39.773191030685
+            },
+            "meta": {
+              "app_id": 1222362158,
+              "policy_options": {
+                "boxes": 1
+              }
+            }
+          }
+        }
+      },
+      "title": "Shipments Webhook Events Model",
+      "x-stoplight": {
+        "id": "5vwrvd5370lww"
+      },
+      "description": "This webhook schema defines shipment event properties, including event name, merchant ID, creation timestamp, shipment data (order and shipment ID, type, courier, tracking, payment, and status), and other details. The webhook provides shipment-specific details to update the receiver's systems.",
+      "x-tags": [
+        "Store Events Webhook Model"
+      ],
+      "properties": {
+        "event": {
+          "type": "string",
+          "enum": [
+            "shipment.creating",
+            "shipment.created",
+            "shipment.updated",
+            "shipment.cancelled"
+          ],
+          "description": "Event Name"
+        },
+        "merchant": {
+          "type": "number",
+          "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)"
+        },
+        "created_at": {
+          "type": "string",
+          "description": "Webhook Created At Date Timestamp"
+        },
+        "data": {
+          "$ref": "#/definitions/1389473"
+        }
+      },
+      "x-apidog-orders": [
+        "event",
+        "merchant",
+        "created_at",
+        "data"
+      ],
+      "name": "ShipmentsWebhookEventsModel"
+    },
+    "1389473": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "tracking_link": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ship_to": {
+          "$ref": "#/definitions/14071964"
+        },
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "type": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "pickup",
+            "delivery"
+          ]
+        },
+        "courier_id": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "courier_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "courier_logo": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "shipping_number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tracking_number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pickup_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "trackable": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "payment_method": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "pending",
+            "under_review",
+            "in_progress",
+            "completed",
+            "canceled",
+            "payment_failed",
+            "payment_pending",
+            "restored",
+            "delivering",
+            "delivered",
+            "restoring",
+            "shipped",
+            "cancelled",
+            "returned",
+            "returning",
+            "created",
+            "creating",
+            "deleted",
+            "other"
+          ]
+        },
+        "total": {
+          "$ref": "#/definitions/14071961"
+        },
+        "cash_on_delivery": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/14071961"
+            }
+          ],
+          "type": "null"
+        },
+        "is_international": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "packages": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "object",
+            "properties": {
+              "item_id": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "external_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "sku": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "price": {
+                "$ref": "#/definitions/14071961"
+              },
+              "quantity": {
+                "type": "integer"
+              }
+            },
+            "x-apidog-orders": [
+              "item_id",
+              "external_id",
+              "name",
+              "sku",
+              "price",
+              "quantity"
+            ]
+          }
+        },
+        "ship_from": {
+          "$ref": "#/definitions/14071964"
+        },
+        "translated_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tracking_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "driver_info": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "mobile": {
+              "type": "string"
+            },
+            "reference_number": {
+              "type": "string"
+            }
+          },
+          "x-apidog-orders": [
+            "name",
+            "mobile",
+            "reference_number"
+          ],
+          "required": [
+            "name",
+            "mobile"
+          ]
+        }
+      },
+      "x-apidog-orders": [
+        "tracking_link",
+        "ship_to",
+        "id",
+        "type",
+        "courier_id",
+        "courier_name",
+        "courier_logo",
+        "shipping_number",
+        "tracking_number",
+        "pickup_id",
+        "trackable",
+        "payment_method",
+        "source",
+        "status",
+        "total",
+        "cash_on_delivery",
+        "is_international",
+        "packages",
+        "ship_from",
+        "translated_status",
+        "tracking_url",
+        "driver_info"
+      ],
+      "title": "Shipment",
+      "name": "Shipment"
+    },
+    "14071961": {
+      "type": "object",
+      "description": "Monetary amount with currency",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "format": "double",
+          "examples": [
+            150
+          ]
+        },
+        "currency": {
+          "type": "string",
+          "examples": [
+            "SAR"
+          ]
+        }
+      },
+      "x-apidog-orders": [
+        "amount",
+        "currency"
+      ],
+      "title": "Price",
+      "name": "Price"
+    },
+    "14071964": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "country": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "city": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "company": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "branch_id": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int64"
+        },
+        "address_line": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "x-apidog-orders": [
+        "country",
+        "city",
+        "company",
+        "branch_id",
+        "address_line"
+      ],
+      "title": "ShippingAddress",
+      "name": "ShippingAddress"
+    }
+  },
+  "examples": []
+}

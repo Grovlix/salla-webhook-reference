@@ -1,0 +1,1195 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "order.shipment.created",
+  "description": "Triggered when an order shipment is created. Generated from https://docs.salla.dev/webhook-events/orders (fetched 2026-10-26).",
+  "type": "object",
+  "properties": {
+    "event": {
+      "type": "string",
+      "enum": [
+        "order.shipment.creating",
+        "order.shipment.created",
+        "order.shipment.return.creating",
+        "order.shipment.return.created"
+      ],
+      "description": "Event Name"
+    },
+    "merchant": {
+      "type": "number",
+      "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Timestamp of webhook creation"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "Order ID"
+        },
+        "reference_id": {
+          "type": "number",
+          "description": "Order refrence ID, that appears to customers in the store."
+        },
+        "urls": {
+          "$ref": "#/definitions/1307398"
+        },
+        "date": {
+          "$ref": "#/definitions/1307388"
+        },
+        "source": {
+          "type": "string",
+          "description": "The source of the order."
+        },
+        "source_device": {
+          "type": "string",
+          "description": "The machine or device used when the customer placed the order."
+        },
+        "source_details": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "Order Source Type"
+            },
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Order Source Value"
+            },
+            "device": {
+              "type": "string",
+              "description": "Order Source Device"
+            },
+            "user-agent": {
+              "type": "string",
+              "description": "Order Source User Agent"
+            },
+            "ip": {
+              "type": "string",
+              "description": "Order Source IP"
+            }
+          }
+        },
+        "first_complete_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Gets the first date of changing the order status to `completed`."
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "Status ID"
+            },
+            "slug": {
+              "type": "string",
+              "description": "Status Slug"
+            },
+            "customized": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "Customized Status ID"
+                }
+              }
+            }
+          }
+        },
+        "payment_method": {
+          "type": "string",
+          "description": "Order payment method"
+        },
+        "currency": {
+          "type": "string",
+          "description": "Order currency"
+        },
+        "amounts": {
+          "type": "object",
+          "properties": {
+            "sub_total": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "integer",
+                  "description": "Order sub total amount"
+                },
+                "currency": {
+                  "type": "string",
+                  "description": "Order sub total currency"
+                }
+              }
+            },
+            "shipping_cost": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "integer",
+                  "description": "Order shipping cost amount"
+                },
+                "currency": {
+                  "type": "string",
+                  "description": "Order shipping cost amount"
+                }
+              }
+            },
+            "cash_on_delivery": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "integer",
+                  "description": "Order cash on delivery cost amount"
+                },
+                "currency": {
+                  "type": "string",
+                  "description": "Order cash on delivery cost curreny"
+                }
+              }
+            },
+            "tax": {
+              "type": "object",
+              "properties": {
+                "percent": {
+                  "type": "string",
+                  "description": "Tax percentage value"
+                },
+                "amount": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "integer",
+                      "description": "Order tax amount"
+                    },
+                    "currency": {
+                      "type": "string",
+                      "description": "Order tax amount currency"
+                    }
+                  }
+                }
+              }
+            },
+            "discounts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "Order discounts title"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "Order discounts type"
+                  },
+                  "code": {
+                    "type": "string",
+                    "description": "Order discounts code"
+                  },
+                  "discount": {
+                    "type": "string",
+                    "description": "Order discount  value"
+                  },
+                  "discounted_shipping": {
+                    "type": "integer",
+                    "description": "Order discount shipping"
+                  }
+                }
+              }
+            },
+            "total": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "integer",
+                  "description": "Order total cost amount."
+                },
+                "currency": {
+                  "type": "string",
+                  "description": "Order total cost currency"
+                }
+              }
+            }
+          }
+        },
+        "shipping": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "Order shipping ID"
+            },
+            "app_id": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "Shipping Application ID"
+            },
+            "company": {
+              "type": "string",
+              "description": "Order shipping company"
+            },
+            "logo": {
+              "type": "string",
+              "description": "Shipping company logo"
+            },
+            "receiver": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "description": "Order receiver details"
+                },
+                "phone": {
+                  "type": "string",
+                  "description": "Order receiver phone"
+                }
+              }
+            },
+            "shipper": {
+              "type": "object",
+              "properties": {
+                "company_name": {
+                  "type": "string",
+                  "description": "Order shipper company name"
+                },
+                "email": {
+                  "type": "string",
+                  "description": "Order shipper email"
+                },
+                "phone": {
+                  "type": "string",
+                  "description": "Order shipper phone"
+                }
+              }
+            },
+            "pickup_address": {
+              "type": "object",
+              "properties": {
+                "country": {
+                  "type": "string",
+                  "description": "Order pickup address country"
+                },
+                "country_code": {
+                  "type": "string",
+                  "description": "Order pickup address country code"
+                },
+                "city": {
+                  "type": "string",
+                  "description": "Order pickup address city"
+                },
+                "shipping_address": {
+                  "type": "string",
+                  "description": "Order pickup address shipping address"
+                },
+                "street_number": {
+                  "type": "string",
+                  "description": "Order pickup address street number"
+                },
+                "block": {
+                  "type": "string",
+                  "description": "Order pickup address block"
+                },
+                "postal_code": {
+                  "type": "string",
+                  "description": "Order pickup address postal code"
+                },
+                "geo_coordinates": {
+                  "type": "object",
+                  "properties": {
+                    "lat": {
+                      "type": "number",
+                      "description": "Pick Up address GEO coordinates latitude "
+                    },
+                    "lng": {
+                      "type": "number",
+                      "description": "Pick Up address GEO coordinates longitude"
+                    }
+                  }
+                }
+              }
+            },
+            "address": {
+              "type": "object",
+              "properties": {
+                "country": {
+                  "type": "string",
+                  "description": "Order shipping address country"
+                },
+                "country_code": {
+                  "type": "string",
+                  "description": "Order shipping address country code"
+                },
+                "city": {
+                  "type": "string",
+                  "description": "Order shipping address city"
+                },
+                "shipping_address": {
+                  "type": "string",
+                  "description": "Order shipping address"
+                },
+                "street_number": {
+                  "type": "string",
+                  "description": "Order shipping address street number"
+                },
+                "block": {
+                  "type": "string",
+                  "description": "Order shipping address block"
+                },
+                "postal_code": {
+                  "type": "string",
+                  "description": "Order shipping address postal code"
+                },
+                "geo_coordinates": {
+                  "type": "object",
+                  "properties": {
+                    "lat": {
+                      "type": "integer",
+                      "description": "Address GEO latitude "
+                    },
+                    "lng": {
+                      "type": "integer",
+                      "description": "Address GEO longitude"
+                    }
+                  }
+                }
+              }
+            },
+            "shipment": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "Order shipment ID"
+                },
+                "pickup_id": {
+                  "type": "number",
+                  "description": "Order shipment pickup ID"
+                },
+                "tracking_link": {
+                  "type": "string",
+                  "description": "Order tracking link"
+                },
+                "label": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "format": {
+                        "type": "string",
+                        "description": "Label Format"
+                      },
+                      "url": {
+                        "type": "string",
+                        "description": "Label URL"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "policy_options": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "boxes": {
+                    "type": "string",
+                    "description": "Number of boxes when generating the awb"
+                  }
+                }
+              }
+            },
+            "shipment_reference": {
+              "type": "integer",
+              "examples": [
+                2030962235
+              ]
+            },
+            "branch_id": {
+              "type": "number",
+              "examples": [
+                2094289474
+              ]
+            }
+          }
+        },
+        "can_cancel": {
+          "type": "boolean",
+          "description": "Whether or not if the order is allowed to be cancelled by store customers.<br>\n`True` value should be set if the order status is in under review and in progress, as according to the store settings."
+        },
+        "show_weight": {
+          "type": "boolean",
+          "description": "Whether or not to show weight value"
+        },
+        "can_reorder": {
+          "type": "boolean",
+          "description": "Whether or not the order allowed to be re-order by customers"
+        },
+        "is_pending_payment": {
+          "type": "boolean",
+          "description": "Waiting the customer to pay the order or the order status is `payment_pending`"
+        },
+        "rating_link": {
+          "type": "string",
+          "description": "The rating URL to review the order.\n\n🛑 The variable is to be deprecated; use `data.urls.rating` variable instead.",
+          "deprecated": true
+        },
+        "checkout_url": {
+          "type": "string",
+          "description": "The checkout URL to settle payments related to the order\n\n🛑 The variable is to be deprecated; use `data.urls.checkout` variable instead.",
+          "deprecated": true
+        },
+        "pending_payment_ends_at": {
+          "type": "integer",
+          "description": "Last date allowed to customer to pay the order"
+        },
+        "total_weight": {
+          "type": "string",
+          "description": "Total weight value"
+        },
+        "shipment_branch": {
+          "$ref": "#/definitions/1307401"
+        },
+        "customer": {
+          "$ref": "#/definitions/1307288"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number",
+                "description": "Order item ID"
+              },
+              "product_id": {
+                "type": "number",
+                "description": "Order Product ID"
+              },
+              "sku": {
+                "type": "number",
+                "description": "Order item sku"
+              },
+              "quantity": {
+                "type": "number",
+                "description": "Order item quantity"
+              },
+              "weight": {
+                "type": "number",
+                "description": "Order item weight"
+              },
+              "amounts": {
+                "type": "object",
+                "properties": {
+                  "price_without_tax": {
+                    "type": "object",
+                    "properties": {
+                      "amount": {
+                        "type": "integer",
+                        "description": "Order item amounts price without tax "
+                      },
+                      "currency": {
+                        "type": "string",
+                        "description": "Order item amounts price without tax currency"
+                      }
+                    }
+                  },
+                  "total_discount": {
+                    "type": "object",
+                    "properties": {
+                      "amount": {
+                        "type": "integer",
+                        "description": "Order item amounts total discount amount"
+                      },
+                      "currency": {
+                        "type": "string",
+                        "description": "Order item amounts total discount currency"
+                      }
+                    }
+                  },
+                  "tax": {
+                    "type": "object",
+                    "properties": {
+                      "percent": {
+                        "type": "string",
+                        "description": "Order item amounts tax percent"
+                      },
+                      "amount": {
+                        "type": "object",
+                        "properties": {
+                          "amount": {
+                            "type": "integer",
+                            "description": "Order item amounts tax amount"
+                          },
+                          "currency": {
+                            "type": "string",
+                            "description": "Order item amounts tax caurrency"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "total": {
+                    "type": "object",
+                    "properties": {
+                      "amount": {
+                        "type": "integer",
+                        "description": "Order item amounts total amount"
+                      },
+                      "currency": {
+                        "type": "string",
+                        "description": "Order item amounts total currency"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "shipments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/1389473"
+          }
+        },
+        "payment_methods": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "number",
+                "description": "Amount associated with the payment method.",
+                "format": "double"
+              },
+              "payment_method": {
+                "type": "string",
+                "description": "Payment method identifier."
+              },
+              "transaction_reference": {
+                "type": "string",
+                "description": "Payment transaction reference, if available."
+              }
+            }
+          },
+          "description": "List of payment methods associated with the order."
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "event": "order.shipment.creating",
+      "merchant": 1305146709,
+      "created_at": "Sun Jun 26 2022 13:29:51 GMT+0300",
+      "data": {
+        "id": 1427738113,
+        "reference_id": 41030566,
+        "urls": {
+          "customer": "https://salla.sa/dev-wofftr4xsra5xtlv/order/AB3exRyLdXv5Wp8KwZ9WrGg4p7Ej8ZKl",
+          "admin": "https://s.salla.sa/orders/order/AB3exRyLdXv5Wp8KwZ9WrGg4p7Ej8ZKl"
+        },
+        "date": {
+          "date": "2022-06-26 13:29:43.000000",
+          "timezone_type": 3,
+          "timezone": "Asia/Riyadh"
+        },
+        "source": "dashboard",
+        "source_device": "desktop",
+        "source_details": {
+          "type": "dashboard",
+          "value": null,
+          "device": "desktop",
+          "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36",
+          "ip": null
+        },
+        "first_complete_at": null,
+        "status": {
+          "id": 566146469,
+          "name": "بإنتظار المراجعة",
+          "slug": "under_review",
+          "customized": {
+            "id": 986688842,
+            "name": "بإنتظار المراجعة"
+          }
+        },
+        "payment_method": "bank",
+        "currency": "SAR",
+        "amounts": {
+          "sub_total": {
+            "amount": 79,
+            "currency": "SAR"
+          },
+          "shipping_cost": {
+            "amount": 35,
+            "currency": "SAR"
+          },
+          "cash_on_delivery": {
+            "amount": 0,
+            "currency": "SAR"
+          },
+          "tax": {
+            "percent": "0.00",
+            "amount": {
+              "amount": 0,
+              "currency": "SAR"
+            }
+          },
+          "discounts": [],
+          "total": {
+            "amount": 114,
+            "currency": "SAR"
+          }
+        },
+        "shipping": {
+          "id": 1935030040,
+          "app_id": "2032004508",
+          "company": "usertest@gmail.com",
+          "logo": "https://salla-dev-portal.s3.eu-central-1.amazonaws.com/uploads/T3GFoIZXP7BsIKMEfdL3XoT9rxSXZN9WpKoFifa8.png",
+          "receiver": {
+            "name": "Del Don",
+            "email": "user@gmail.com",
+            "phone": "971555555555"
+          },
+          "shipper": {
+            "name": "Demo",
+            "company_name": "dev-wofftr4xsra5xtlv",
+            "email": "wofftr4xsra5xtlv@email.partners",
+            "phone": "966500000000"
+          },
+          "pickup_address": {
+            "country": "السعودية",
+            "country_code": "SA",
+            "city": "مكة",
+            "shipping_address": "شارع عبدالله,السلام,23233, سنابل السلام, مكة,السعودية",
+            "street_number": "شارع عبدالله",
+            "block": "السلام",
+            "postal_code": "23233",
+            "geo_coordinates": {
+              "lat": 21.3825905096851,
+              "lng": 39.77319103068542
+            }
+          },
+          "address": {
+            "country": "SA",
+            "country_code": "SA",
+            "city": "جدة",
+            "shipping_address": " شارع Abu tamimah، الحي az zahraa 23233،, 5,, جدة, السعودية",
+            "street_number": "Abu tamimah",
+            "block": "az zahraa",
+            "postal_code": "23233",
+            "geo_coordinates": {
+              "lat": 0,
+              "lng": 0
+            }
+          },
+          "shipment": {
+            "id": "0",
+            "pickup_id": null,
+            "tracking_link": "0",
+            "label": []
+          },
+          "policy_options": {
+            "boxes": "2"
+          }
+        },
+        "can_cancel": true,
+        "show_weight": false,
+        "can_reorder": true,
+        "is_pending_payment": false,
+        "pending_payment_ends_at": 172791,
+        "total_weight": "٠٫٢٥ كجم",
+        "shipment_branch": [
+          {
+            "id": 731280709,
+            "name": "الفرع الرئيسي",
+            "status": "active",
+            "is_default": true,
+            "type": {}
+          }
+        ],
+        "customer": {
+          "id": 1550968832,
+          "name": "Del Don",
+          "mobile": "+971555555555",
+          "email": "user@gmail.com",
+          "avatar": "https://store-test.com/cp/assets/images/avatar_male.png",
+          "country": "الامارات",
+          "city": ""
+        },
+        "items": [
+          {
+            "id": 1907902809,
+            "product_id": 1994210129,
+            "name": "تنورة",
+            "sku": "2400409-20000012660-",
+            "quantity": 1,
+            "weight": 0.25,
+            "amounts": {
+              "price_without_tax": {
+                "amount": 79,
+                "currency": "SAR"
+              },
+              "total_discount": {
+                "amount": 0,
+                "currency": "SAR"
+              },
+              "tax": {
+                "percent": "0.00",
+                "amount": {
+                  "amount": 0,
+                  "currency": "SAR"
+                }
+              },
+              "total": {
+                "amount": 79,
+                "currency": "SAR"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "definitions": {
+    "1307288": {
+      "description": "Detailed structure of the customer model object showing its fields and data types.",
+      "type": "object",
+      "title": "Customer",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "A unique identifier for the customer."
+        },
+        "first_name": {
+          "type": "string",
+          "description": "The customer's first name.",
+          "maxLength": 25
+        },
+        "last_name": {
+          "type": "string",
+          "description": "The customer's last name.",
+          "maxLength": 25
+        },
+        "mobile": {
+          "type": "number",
+          "description": "The customer's mobile phone number without the country code."
+        },
+        "mobile_code": {
+          "type": "string",
+          "description": "The country code for the customer's mobile phone number."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The customer's email address."
+        },
+        "urls": {
+          "$ref": "#/definitions/1307398",
+          "description": "A list of URLs associated with the customer, such as their website or social media profiles."
+        },
+        "avatar": {
+          "type": "string",
+          "description": "A URL to the customer's avatar image."
+        },
+        "gender": {
+          "type": "string",
+          "description": "The customer's gender",
+          "enum": [
+            "male",
+            "female"
+          ]
+        },
+        "birthday": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string",
+              "format": "date-time",
+              "description": "The customer's date of birth."
+            },
+            "timezone_type": {
+              "type": "integer",
+              "format": "int32",
+              "description": "The time zone type for the customer's date of birth."
+            },
+            "timezone": {
+              "type": "string",
+              "description": "The time zone for the customer's date of birth."
+            }
+          },
+          "description": "The customer date of birth"
+        },
+        "city": {
+          "type": "string",
+          "description": "The city where the customer lives."
+        },
+        "country": {
+          "type": "string",
+          "description": "The country where the customer lives."
+        },
+        "country_code": {
+          "type": "string",
+          "description": "The country code for the customer's country."
+        },
+        "currency": {
+          "type": "string",
+          "description": "The currency that the customer uses."
+        },
+        "location": {
+          "type": "string",
+          "description": "The customer's location, represented as a string."
+        },
+        "updated_at": {
+          "$ref": "#/definitions/1307388",
+          "description": "The date and time when the customer's information was last updated."
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "description": "A list of group IDs that the customer belongs to."
+        }
+      }
+    },
+    "1307388": {
+      "type": "object",
+      "title": "Date",
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "A specific point in time, typically expressed in terms of a calendar system, including the day, month, year, hour, minutes, seconds and nano seconds. For example: \"2020-10-14 14:28:03.000000\""
+        },
+        "timezone_type": {
+          "type": "number",
+          "description": "Timezone type of the date, for Middel East = 3 "
+        },
+        "timezone": {
+          "type": "string",
+          "description": "Timezone value \"Asia/Riyadh\""
+        }
+      }
+    },
+    "1307398": {
+      "description": "To help companies and merchants, Salla provides a “urls” attribute that has been added to different modules to guide the merchants to have the full URL of this module from both scopes, the dashboard scope as a store admin, and as a customer.",
+      "type": "object",
+      "title": "Urls",
+      "properties": {
+        "customer": {
+          "type": "string",
+          "description": "Customer link directly to the order.",
+          "examples": [
+            "https://salla.sa/StoreLink"
+          ]
+        },
+        "admin": {
+          "type": "string",
+          "description": "Admin dashboard link directly to the order.",
+          "examples": [
+            "https://s.salla./YourStoreDashboard"
+          ]
+        },
+        "digital_content": {
+          "type": "string",
+          "description": "A direct URL link to the digital asset, such as an e-book, image, PDF, video, or any downloadable file linked to the order or product."
+        },
+        "rating": {
+          "type": "string",
+          "description": "Order Rating Link. <br> Note that the order has to be of either of the following statuses: `completed`, `delivered`, or `shipped`. The merchant has to allow the product to be rated from the [Store Settings](https://s.salla.sa/settings) > Rating Settings"
+        },
+        "checkout": {
+          "type": "string",
+          "description": "Order Checkout URL. <br>Note that the variable will only be returned if the order is unpaid. If the order is already paid, the variable will not appear in the response."
+        }
+      }
+    },
+    "1307401": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int64"
+        },
+        "status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "is_default": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "title": "ShipmentBranch"
+    },
+    "1389473": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "tracking_link": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ship_to": {
+          "$ref": "#/definitions/14071964"
+        },
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "type": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "pickup",
+            "delivery"
+          ]
+        },
+        "courier_id": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "courier_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "courier_logo": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "shipping_number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tracking_number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pickup_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "trackable": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "payment_method": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "pending",
+            "under_review",
+            "in_progress",
+            "completed",
+            "canceled",
+            "payment_failed",
+            "payment_pending",
+            "restored",
+            "delivering",
+            "delivered",
+            "restoring",
+            "shipped",
+            "cancelled",
+            "returned",
+            "returning",
+            "created",
+            "creating",
+            "deleted",
+            "other"
+          ]
+        },
+        "total": {
+          "$ref": "#/definitions/14071961"
+        },
+        "cash_on_delivery": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/14071961"
+            }
+          ],
+          "type": "null"
+        },
+        "is_international": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "packages": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "object",
+            "properties": {
+              "item_id": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "external_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "sku": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "price": {
+                "$ref": "#/definitions/14071961"
+              },
+              "quantity": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "ship_from": {
+          "$ref": "#/definitions/14071964"
+        },
+        "translated_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tracking_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "driver_info": {
+          "type": "object",
+          "properties": {
+            "mobile": {
+              "type": "string"
+            },
+            "reference_number": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "title": "Shipment"
+    },
+    "14071961": {
+      "type": "object",
+      "description": "Monetary amount with currency",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "format": "double",
+          "examples": [
+            150
+          ]
+        },
+        "currency": {
+          "type": "string",
+          "examples": [
+            "SAR"
+          ]
+        }
+      },
+      "title": "Price"
+    },
+    "14071964": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "country": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "city": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "company": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "branch_id": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int64"
+        },
+        "address_line": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "title": "ShippingAddress"
+    }
+  }
+}

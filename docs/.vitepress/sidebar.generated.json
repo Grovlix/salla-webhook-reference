@@ -1,0 +1,597 @@
+{
+  "/salla/": [
+    {
+      "text": "Salla events",
+      "link": "/salla/"
+    },
+    {
+      "text": "Order",
+      "collapsed": true,
+      "link": "/salla/orders/",
+      "items": [
+        {
+          "text": "order.created",
+          "link": "/salla/orders/order.created.md"
+        },
+        {
+          "text": "order.updated",
+          "link": "/salla/orders/order.updated.md"
+        },
+        {
+          "text": "order.status.updated",
+          "link": "/salla/orders/order.status.updated.md"
+        },
+        {
+          "text": "order.cancelled",
+          "link": "/salla/orders/order.cancelled.md"
+        },
+        {
+          "text": "order.refunded",
+          "link": "/salla/orders/order.refunded.md"
+        },
+        {
+          "text": "order.deleted",
+          "link": "/salla/orders/order.deleted.md"
+        },
+        {
+          "text": "order.products.updated",
+          "link": "/salla/orders/order.products.updated.md"
+        },
+        {
+          "text": "order.payment.updated",
+          "link": "/salla/orders/order.payment.updated.md"
+        },
+        {
+          "text": "order.coupon.updated",
+          "link": "/salla/orders/order.coupon.updated.md"
+        },
+        {
+          "text": "order.total.price.updated",
+          "link": "/salla/orders/order.total.price.updated.md"
+        },
+        {
+          "text": "order.shipping.address.updated",
+          "link": "/salla/orders/order.shipping.address.updated.md"
+        },
+        {
+          "text": "order.customer.updated",
+          "link": "/salla/orders/order.customer.updated.md"
+        },
+        {
+          "text": "order.shipment.creating",
+          "link": "/salla/orders/order.shipment.creating.md"
+        },
+        {
+          "text": "order.shipment.created",
+          "link": "/salla/orders/order.shipment.created.md"
+        },
+        {
+          "text": "order.shipment.cancelled",
+          "link": "/salla/orders/order.shipment.cancelled.md"
+        },
+        {
+          "text": "order.shipment.return.creating",
+          "link": "/salla/orders/order.shipment.return.creating.md"
+        },
+        {
+          "text": "order.shipment.return.created",
+          "link": "/salla/orders/order.shipment.return.created.md"
+        },
+        {
+          "text": "order.shipment.return.cancelled",
+          "link": "/salla/orders/order.shipment.return.cancelled.md"
+        }
+      ]
+    },
+    {
+      "text": "Product",
+      "collapsed": true,
+      "link": "/salla/products/",
+      "items": [
+        {
+          "text": "product.created",
+          "link": "/salla/products/product.created.md"
+        },
+        {
+          "text": "product.updated",
+          "link": "/salla/products/product.updated.md"
+        },
+        {
+          "text": "product.deleted",
+          "link": "/salla/products/product.deleted.md"
+        },
+        {
+          "text": "product.available",
+          "link": "/salla/products/product.available.md"
+        },
+        {
+          "text": "product.quantity.low",
+          "link": "/salla/products/product.quantity.low.md"
+        },
+        {
+          "text": "product.price.updated",
+          "link": "/salla/products/product.price.updated.md"
+        },
+        {
+          "text": "product.status.updated",
+          "link": "/salla/products/product.status.updated.md"
+        },
+        {
+          "text": "product.image.updated",
+          "link": "/salla/products/product.image.updated.md"
+        },
+        {
+          "text": "product.category.updated",
+          "link": "/salla/products/product.category.updated.md"
+        },
+        {
+          "text": "product.brand.updated",
+          "link": "/salla/products/product.brand.updated.md"
+        },
+        {
+          "text": "product.tags.updated",
+          "link": "/salla/products/product.tags.updated.md"
+        },
+        {
+          "text": "product.channels.changed",
+          "link": "/salla/products/product.channels.changed.md"
+        }
+      ]
+    },
+    {
+      "text": "Shipment",
+      "collapsed": true,
+      "link": "/salla/shipments/",
+      "items": [
+        {
+          "text": "shipment.creating",
+          "link": "/salla/shipments/shipment.creating.md"
+        },
+        {
+          "text": "shipment.created",
+          "link": "/salla/shipments/shipment.created.md"
+        },
+        {
+          "text": "shipment.updated",
+          "link": "/salla/shipments/shipment.updated.md"
+        },
+        {
+          "text": "shipment.cancelled",
+          "link": "/salla/shipments/shipment.cancelled.md"
+        }
+      ]
+    },
+    {
+      "text": "Shipping company and zone",
+      "collapsed": true,
+      "link": "/salla/shipping/",
+      "items": [
+        {
+          "text": "shipping.zone.created",
+          "link": "/salla/shipping/shipping.zone.created.md"
+        },
+        {
+          "text": "shipping.zone.updated",
+          "link": "/salla/shipping/shipping.zone.updated.md"
+        },
+        {
+          "text": "shipping.company.created",
+          "link": "/salla/shipping/shipping.company.created.md"
+        },
+        {
+          "text": "shipping.company.updated",
+          "link": "/salla/shipping/shipping.company.updated.md"
+        },
+        {
+          "text": "shipping.company.deleted",
+          "link": "/salla/shipping/shipping.company.deleted.md"
+        }
+      ]
+    },
+    {
+      "text": "Customer",
+      "collapsed": true,
+      "link": "/salla/customers/",
+      "items": [
+        {
+          "text": "customer.created",
+          "link": "/salla/customers/customer.created.md"
+        },
+        {
+          "text": "customer.updated",
+          "link": "/salla/customers/customer.updated.md"
+        },
+        {
+          "text": "customer.login",
+          "link": "/salla/customers/customer.login.md"
+        },
+        {
+          "text": "customer.otp.request",
+          "link": "/salla/customers/customer.otp.request.md"
+        }
+      ]
+    },
+    {
+      "text": "Category",
+      "collapsed": true,
+      "link": "/salla/categories/",
+      "items": [
+        {
+          "text": "category.created",
+          "link": "/salla/categories/category.created.md"
+        },
+        {
+          "text": "category.updated",
+          "link": "/salla/categories/category.updated.md"
+        }
+      ]
+    },
+    {
+      "text": "Brand",
+      "collapsed": true,
+      "link": "/salla/brands/",
+      "items": [
+        {
+          "text": "brand.created",
+          "link": "/salla/brands/brand.created.md"
+        },
+        {
+          "text": "brand.updated",
+          "link": "/salla/brands/brand.updated.md"
+        },
+        {
+          "text": "brand.deleted",
+          "link": "/salla/brands/brand.deleted.md"
+        }
+      ]
+    },
+    {
+      "text": "Store",
+      "collapsed": true,
+      "link": "/salla/store/",
+      "items": [
+        {
+          "text": "store.branch.created",
+          "link": "/salla/store/store.branch.created.md"
+        },
+        {
+          "text": "store.branch.updated",
+          "link": "/salla/store/store.branch.updated.md"
+        },
+        {
+          "text": "store.branch.setDefault",
+          "link": "/salla/store/store.branch.setDefault.md"
+        },
+        {
+          "text": "store.branch.activated",
+          "link": "/salla/store/store.branch.activated.md"
+        },
+        {
+          "text": "store.branch.deleted",
+          "link": "/salla/store/store.branch.deleted.md"
+        },
+        {
+          "text": "storetax.created",
+          "link": "/salla/store/storetax.created.md"
+        },
+        {
+          "text": "store.owner.changed",
+          "link": "/salla/store/store.owner.changed.md"
+        }
+      ]
+    },
+    {
+      "text": "Abandoned cart and coupon",
+      "collapsed": true,
+      "link": "/salla/carts/",
+      "items": [
+        {
+          "text": "abandoned.cart",
+          "link": "/salla/carts/abandoned.cart.md"
+        },
+        {
+          "text": "abandoned.cart.update",
+          "link": "/salla/carts/abandoned.cart.update.md"
+        },
+        {
+          "text": "abandoned.cart.status.changed",
+          "link": "/salla/carts/abandoned.cart.status.changed.md"
+        },
+        {
+          "text": "abandoned.cart.purchased",
+          "link": "/salla/carts/abandoned.cart.purchased.md"
+        },
+        {
+          "text": "coupon.applied",
+          "link": "/salla/carts/coupon.applied.md"
+        }
+      ]
+    },
+    {
+      "text": "Invoice",
+      "collapsed": true,
+      "link": "/salla/invoices/",
+      "items": [
+        {
+          "text": "invoice.created",
+          "link": "/salla/invoices/invoice.created.md"
+        }
+      ]
+    },
+    {
+      "text": "Special offer",
+      "collapsed": true,
+      "link": "/salla/special-offers/",
+      "items": [
+        {
+          "text": "specialoffer.created",
+          "link": "/salla/special-offers/specialoffer.created.md"
+        },
+        {
+          "text": "specialoffer.updated",
+          "link": "/salla/special-offers/specialoffer.updated.md"
+        }
+      ]
+    },
+    {
+      "text": "Review",
+      "collapsed": true,
+      "link": "/salla/reviews/",
+      "items": [
+        {
+          "text": "review.added",
+          "link": "/salla/reviews/review.added.md"
+        }
+      ]
+    },
+    {
+      "text": "Customer wallet",
+      "collapsed": true,
+      "link": "/salla/customer-wallet/",
+      "items": [
+        {
+          "text": "wallet.action",
+          "link": "/salla/customer-wallet/wallet.action.md"
+        }
+      ]
+    },
+    {
+      "text": "Communication apps",
+      "collapsed": true,
+      "link": "/salla/communication/",
+      "items": [
+        {
+          "text": "communication.sms.send",
+          "link": "/salla/communication/communication.sms.send.md"
+        },
+        {
+          "text": "communication.email.send",
+          "link": "/salla/communication/communication.email.send.md"
+        },
+        {
+          "text": "communication.whatsapp.send",
+          "link": "/salla/communication/communication.whatsapp.send.md"
+        }
+      ]
+    },
+    {
+      "text": "App and subscription",
+      "collapsed": true,
+      "link": "/salla/app/",
+      "items": [
+        {
+          "text": "app.store.authorize",
+          "link": "/salla/app/app.store.authorize.md"
+        },
+        {
+          "text": "app.installed",
+          "link": "/salla/app/app.installed.md"
+        },
+        {
+          "text": "app.updated",
+          "link": "/salla/app/app.updated.md"
+        },
+        {
+          "text": "app.uninstalled",
+          "link": "/salla/app/app.uninstalled.md"
+        },
+        {
+          "text": "app.trial.started",
+          "link": "/salla/app/app.trial.started.md"
+        },
+        {
+          "text": "app.trial.expired",
+          "link": "/salla/app/app.trial.expired.md"
+        },
+        {
+          "text": "app.trial.canceled",
+          "link": "/salla/app/app.trial.canceled.md"
+        },
+        {
+          "text": "app.subscription.started",
+          "link": "/salla/app/app.subscription.started.md"
+        },
+        {
+          "text": "app.subscription.expired",
+          "link": "/salla/app/app.subscription.expired.md"
+        },
+        {
+          "text": "app.subscription.canceled",
+          "link": "/salla/app/app.subscription.canceled.md"
+        },
+        {
+          "text": "app.subscription.renewed",
+          "link": "/salla/app/app.subscription.renewed.md"
+        },
+        {
+          "text": "app.feedback.created",
+          "link": "/salla/app/app.feedback.created.md"
+        },
+        {
+          "text": "app.settings.updated",
+          "link": "/salla/app/app.settings.updated.md"
+        }
+      ]
+    }
+  ],
+  "/zid/": [
+    {
+      "text": "Zid events",
+      "link": "/zid/"
+    },
+    {
+      "text": "Order",
+      "collapsed": true,
+      "link": "/zid/orders/",
+      "items": [
+        {
+          "text": "order.create",
+          "link": "/zid/orders/order.create.md"
+        },
+        {
+          "text": "order.status.update",
+          "link": "/zid/orders/order.status.update.md"
+        },
+        {
+          "text": "order.payment_status.update",
+          "link": "/zid/orders/order.payment_status.update.md"
+        }
+      ]
+    },
+    {
+      "text": "Product",
+      "collapsed": true,
+      "link": "/zid/products/",
+      "items": [
+        {
+          "text": "product.create",
+          "link": "/zid/products/product.create.md"
+        },
+        {
+          "text": "product.update",
+          "link": "/zid/products/product.update.md"
+        },
+        {
+          "text": "product.publish",
+          "link": "/zid/products/product.publish.md"
+        },
+        {
+          "text": "product.delete",
+          "link": "/zid/products/product.delete.md"
+        }
+      ]
+    },
+    {
+      "text": "Abandoned cart",
+      "collapsed": true,
+      "link": "/zid/abandoned-carts/",
+      "items": [
+        {
+          "text": "abandoned_cart.created",
+          "link": "/zid/abandoned-carts/abandoned_cart.created.md"
+        },
+        {
+          "text": "abandoned_cart.completed",
+          "link": "/zid/abandoned-carts/abandoned_cart.completed.md"
+        }
+      ]
+    },
+    {
+      "text": "Customer",
+      "collapsed": true,
+      "link": "/zid/customers/",
+      "items": [
+        {
+          "text": "customer.create",
+          "link": "/zid/customers/customer.create.md"
+        },
+        {
+          "text": "customer.update",
+          "link": "/zid/customers/customer.update.md"
+        },
+        {
+          "text": "customer.merchant.update",
+          "link": "/zid/customers/customer.merchant.update.md"
+        },
+        {
+          "text": "customer.login",
+          "link": "/zid/customers/customer.login.md"
+        }
+      ]
+    },
+    {
+      "text": "Product category",
+      "collapsed": true,
+      "link": "/zid/categories/",
+      "items": [
+        {
+          "text": "category.create",
+          "link": "/zid/categories/category.create.md"
+        },
+        {
+          "text": "category.update",
+          "link": "/zid/categories/category.update.md"
+        },
+        {
+          "text": "category.delete",
+          "link": "/zid/categories/category.delete.md"
+        }
+      ]
+    },
+    {
+      "text": "App and subscription",
+      "collapsed": true,
+      "link": "/zid/app/",
+      "items": [
+        {
+          "text": "app.market.application.authorized",
+          "link": "/zid/app/app.market.application.authorized.md"
+        },
+        {
+          "text": "app.market.application.install",
+          "link": "/zid/app/app.market.application.install.md"
+        },
+        {
+          "text": "app.market.application.uninstall",
+          "link": "/zid/app/app.market.application.uninstall.md"
+        },
+        {
+          "text": "app.market.application.rated",
+          "link": "/zid/app/app.market.application.rated.md"
+        },
+        {
+          "text": "app.market.private.plan.request",
+          "link": "/zid/app/app.market.private.plan.request.md"
+        },
+        {
+          "text": "app.market.subscription.active",
+          "link": "/zid/app/app.market.subscription.active.md"
+        },
+        {
+          "text": "app.market.subscription.warning",
+          "link": "/zid/app/app.market.subscription.warning.md"
+        },
+        {
+          "text": "app.market.subscription.suspended",
+          "link": "/zid/app/app.market.subscription.suspended.md"
+        },
+        {
+          "text": "app.market.subscription.expired",
+          "link": "/zid/app/app.market.subscription.expired.md"
+        },
+        {
+          "text": "app.market.subscription.renew",
+          "link": "/zid/app/app.market.subscription.renew.md"
+        },
+        {
+          "text": "app.market.subscription.upgrade",
+          "link": "/zid/app/app.market.subscription.upgrade.md"
+        },
+        {
+          "text": "app.market.subscription.refunded",
+          "link": "/zid/app/app.market.subscription.refunded.md"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1090 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "product.delete",
+  "description": "Triggered when a product is deleted. Generated from https://docs.zid.sa/webhook-events-product (fetched 2026-10-26).",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "null",
+      "description": "Unique identifier for the product. (Set to null if is_external_product is true)"
+    },
+    "product_class": {
+      "type": "string",
+      "description": " Set to \"grouped_product\" to indicate it's a group of sub-products."
+    },
+    "sku": {
+      "type": "string",
+      "description": "Stock Keeping Unit - unique identifier that allows a product to be tracked for inventory purposes."
+    },
+    "barcode": {
+      "type": "string",
+      "description": "This field allows you to specify a barcode associated with the product, if applicable."
+    },
+    "parent_id": {
+      "type": "null",
+      "description": "Unique identifier for the parent product, if any. This product could be a variant of the parent product. (Set to null if is_external_product is true)"
+    },
+    "slug": {
+      "type": "string",
+      "description": "SEO friendly URL, usually derived from the product name."
+    },
+    "price": {
+      "type": "integer",
+      "description": "Base price of the grouped product (100.0)."
+    },
+    "short_description": {
+      "type": "null",
+      "description": "This field is optional and can be used to provide a brief description of the product."
+    },
+    "sale_price": {
+      "type": "integer",
+      "description": "If the product is on sale, this field specifies the discounted price in the smallest currency unit.",
+      "examples": [
+        50
+      ]
+    },
+    "formatted_price": {
+      "type": "string",
+      "description": "This field contains the base price formatted according to the currency settings.",
+      "examples": [
+        "10$"
+      ]
+    },
+    "formatted_sale_price": {
+      "type": "string",
+      "description": " If applicable, this field holds the formatted discounted price.",
+      "examples": [
+        "8$"
+      ]
+    },
+    "currency": {
+      "type": "string"
+    },
+    "currency_symbol": {
+      "type": "string",
+      "description": "Shows the currency type."
+    },
+    "attributes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "display_order": {
+      "type": "null",
+      "description": "This field is currently unused but might be reserved for future functionalities related to product display order."
+    },
+    "has_options": {
+      "type": "boolean",
+      "description": "This flag indicates whether the product has options (variations) available. (e.g., different sizes or colors).",
+      "default": false
+    },
+    "has_fields": {
+      "type": "boolean",
+      "description": "This flag signifies whether the product has custom form fields associated with it."
+    },
+    "images": {
+      "type": "array",
+      "description": "This array stores information about the product images.",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "is_draft": {
+      "type": "boolean",
+      "description": "Indicates if the product is a draft (False - published)."
+    },
+    "quantity": {
+      "type": "null",
+      "description": "Shows the quanitity of the product."
+    },
+    "is_infinite": {
+      "type": "boolean"
+    },
+    "html_url": {
+      "type": "string",
+      "description": "This field contains the URL for the product page on your storefront."
+    },
+    "weight": {
+      "type": "object",
+      "description": "Weight of the product.",
+      "properties": {
+        "value": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "Currently set to null, indicating the weight value might need to be provided elsewhere.",
+          "examples": [
+            100
+          ]
+        },
+        "unit": {
+          "type": "string",
+          "description": "This field allows you to specify the unit of weight (e.g., \"g\", \"kg\", \"lb\").",
+          "examples": [
+            "kg"
+          ]
+        }
+      }
+    },
+    "keywords": {
+      "type": "array",
+      "description": "This array allows you to define a list of relevant keywords associated with the product for better search optimization.",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "requires_shipping": {
+      "type": "boolean"
+    },
+    "is_taxable": {
+      "type": "boolean",
+      "description": "Indicates if the product is taxable.",
+      "default": false
+    },
+    "structure": {
+      "type": "string"
+    },
+    "seo": {
+      "type": "object",
+      "description": "SEO-related data for the product.",
+      "properties": {
+        "title": {
+          "type": "object",
+          "description": "SEO title for the product page.",
+          "properties": {
+            "ar": {
+              "type": "string"
+            },
+            "en": {
+              "type": "string"
+            }
+          }
+        },
+        "description": {
+          "type": "object",
+          "description": "SEO description for the product page.",
+          "properties": {}
+        }
+      }
+    },
+    "rating": {
+      "type": "object",
+      "description": "This object provides average product rating information.",
+      "properties": {
+        "average": {
+          "type": "integer",
+          "description": "Average rating score.",
+          "examples": [
+            3.9
+          ]
+        },
+        "total_count": {
+          "type": "integer",
+          "description": "Total number of ratings received.",
+          "examples": [
+            400
+          ]
+        },
+        "1_ratings": {
+          "type": "object",
+          "properties": {
+            "percentage": {
+              "type": "integer"
+            },
+            "count": {
+              "type": "integer"
+            }
+          }
+        },
+        "2_ratings": {
+          "type": "object",
+          "properties": {
+            "percentage": {
+              "type": "integer"
+            },
+            "count": {
+              "type": "integer"
+            }
+          }
+        },
+        "3_ratings": {
+          "type": "object",
+          "properties": {
+            "percentage": {
+              "type": "integer"
+            },
+            "count": {
+              "type": "integer"
+            }
+          }
+        },
+        "4_ratings": {
+          "type": "object",
+          "properties": {
+            "percentage": {
+              "type": "integer"
+            },
+            "count": {
+              "type": "integer"
+            }
+          }
+        },
+        "5_ratings": {
+          "type": "object",
+          "properties": {
+            "percentage": {
+              "type": "integer"
+            },
+            "count": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    },
+    "store_id": {
+      "type": "integer",
+      "description": "Unique identifier of the store in which the product is listed."
+    },
+    "purchase_restrictions": {
+      "type": "object",
+      "properties": {
+        "min_quantity_per_cart": {
+          "type": "null"
+        },
+        "max_quantity_per_cart": {
+          "type": "null"
+        },
+        "availability_period_start": {
+          "type": "null"
+        },
+        "availability_period_end": {
+          "type": "null"
+        },
+        "sale_price_period_start": {
+          "type": "string",
+          "description": "This parameter indicates the start date and time for the sale price of the product. It is represented in ISO 8601 format (YYYY-MM-DDTHH:MM\n.sssZ) and determines when the discounted sale price becomes effective.",
+          "examples": [
+            "2024-09-18T21:00:00.000000Z"
+          ]
+        },
+        "sale_price_period_end": {
+          "type": "string",
+          "description": "This parameter represents the end date and time for the sale price of the product. It is also in ISO 8601 format and defines when the discounted sale price ends.",
+          "examples": [
+            "2024-09-19T20:59:59.000000Z"
+          ]
+        }
+      }
+    },
+    "metafields": {
+      "type": "null"
+    },
+    "meta": {
+      "type": "object",
+      "properties": {}
+    },
+    "badge": {
+      "type": "object",
+      "properties": {
+        "body": {
+          "type": "object",
+          "properties": {
+            "ar": {
+              "type": "string"
+            },
+            "en": {
+              "type": "string"
+            }
+          }
+        },
+        "icon": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "related_products_settings": {
+      "type": "string"
+    },
+    "related_products_title": {
+      "type": "null"
+    },
+    "variants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "options": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "cost": {
+      "type": "integer"
+    },
+    "is_published": {
+      "type": "boolean",
+      "description": "Indicates if the product is published and visible (true)."
+    },
+    "waiting_customers_count": {
+      "type": "null"
+    },
+    "description": {
+      "type": "object",
+      "properties": {}
+    },
+    "custom_user_input_fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "custom_option_fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "related_products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "next_product": {
+      "type": "null"
+    },
+    "previous_product": {
+      "type": "null"
+    },
+    "group_products": {
+      "type": "array",
+      "description": "An array of objects representing the sub-products included in the grouped product. Only required when product_class is set to \"grouped_product\". Refer to the Update Existing Product documentation for details on the \"group_products\" fields.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of the sub-product within the group.",
+            "examples": [
+              "143"
+            ]
+          },
+          "item": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "product_class": {
+                "type": "null",
+                "description": "Indicates the type of product. Set to \"grouped_product\" for grouped products. (Required for Grouped Products)"
+              },
+              "sku": {
+                "type": "string"
+              },
+              "barcode": {
+                "type": "string"
+              },
+              "parent_id": {
+                "type": "null"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "price": {
+                "type": "integer",
+                "description": "The selling price of the product."
+              },
+              "short_description": {
+                "type": "null"
+              },
+              "sale_price": {
+                "type": "null"
+              },
+              "formatted_price": {
+                "type": "string",
+                "description": "Price of the product, formatted with currency symbol for display purposes."
+              },
+              "formatted_sale_price": {
+                "type": "null",
+                "description": "Sale price of the product, formatted with currency symbol for display purposes."
+              },
+              "currency": {
+                "type": "string",
+                "description": "Currency code in which the prices are displayed, such as USD or EUR."
+              },
+              "currency_symbol": {
+                "type": "string",
+                "description": "Symbol of the currency in which the prices are displayed, such as $ or €."
+              },
+              "attributes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {}
+                }
+              },
+              "categories": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {}
+                }
+              },
+              "display_order": {
+                "type": "null",
+                "description": "Order in which the product is displayed relative to other products."
+              },
+              "has_options": {
+                "type": "boolean"
+              },
+              "has_fields": {
+                "type": "boolean"
+              },
+              "images": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {}
+                }
+              },
+              "is_draft": {
+                "type": "boolean"
+              },
+              "quantity": {
+                "type": "null"
+              },
+              "is_infinite": {
+                "type": "boolean",
+                "description": "Indicates if the product has infinite stock."
+              },
+              "html_url": {
+                "type": "string"
+              },
+              "weight": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "null"
+                  },
+                  "unit": {
+                    "type": "string"
+                  }
+                }
+              },
+              "keywords": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {}
+                }
+              },
+              "requires_shipping": {
+                "type": "boolean",
+                "description": "(true) Indicates if shipping is required for this product."
+              },
+              "is_taxable": {
+                "type": "boolean",
+                "description": "(true) Indicates if the product is taxable."
+              },
+              "structure": {
+                "type": "string"
+              },
+              "seo": {
+                "type": "object",
+                "description": "This object contains search engine optimization (SEO) related data for the product.",
+                "properties": {
+                  "title": {
+                    "type": "object",
+                    "description": "SEO title for the product page, potentially including ar and en fields for different languages.",
+                    "properties": {
+                      "ar": {
+                        "type": "string"
+                      },
+                      "en": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "description": {
+                    "type": "object",
+                    "properties": {}
+                  }
+                }
+              },
+              "rating": {
+                "type": "object",
+                "description": "This object provides average product rating information.",
+                "properties": {
+                  "average": {
+                    "type": "integer",
+                    "description": "Average rating score.",
+                    "examples": [
+                      4.1
+                    ]
+                  },
+                  "total_count": {
+                    "type": "integer",
+                    "description": "Total number of ratings received.",
+                    "examples": [
+                      50
+                    ]
+                  },
+                  "1_ratings": {
+                    "type": "object",
+                    "properties": {
+                      "percentage": {
+                        "type": "integer"
+                      },
+                      "count": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "2_ratings": {
+                    "type": "object",
+                    "properties": {
+                      "percentage": {
+                        "type": "integer"
+                      },
+                      "count": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "3_ratings": {
+                    "type": "object",
+                    "properties": {
+                      "percentage": {
+                        "type": "integer"
+                      },
+                      "count": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "4_ratings": {
+                    "type": "object",
+                    "properties": {
+                      "percentage": {
+                        "type": "integer"
+                      },
+                      "count": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "5_ratings": {
+                    "type": "object",
+                    "properties": {
+                      "percentage": {
+                        "type": "integer"
+                      },
+                      "count": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              },
+              "store_id": {
+                "type": "integer"
+              },
+              "purchase_restrictions": {
+                "type": "object",
+                "properties": {
+                  "min_quantity_per_cart": {
+                    "type": "null"
+                  },
+                  "max_quantity_per_cart": {
+                    "type": "null"
+                  },
+                  "availability_period_start": {
+                    "type": "null"
+                  },
+                  "availability_period_end": {
+                    "type": "null"
+                  }
+                }
+              },
+              "metafields": {
+                "type": "null"
+              },
+              "meta": {
+                "type": "null"
+              },
+              "badge": {
+                "type": "null",
+                "description": "A badge is a predefined label or icon a merchant can add to their store."
+              },
+              "related_products_settings": {
+                "type": "string"
+              },
+              "related_products_title": {
+                "type": "null"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              },
+              "options": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {}
+                }
+              },
+              "group_products": {
+                "type": "null",
+                "description": "An array of objects representing the sub-products included in the grouped product. Only required when product_class is set to \"grouped_product\"."
+              },
+              "stocks": {
+                "type": "array",
+                "description": "This array provides details about product stock levels. However, the provided fields within stocks seem incomplete.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "location": {
+                      "type": "object",
+                      "description": "Details about the storage location (ID and name).",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "available_quantity": {
+                      "type": "null",
+                      "description": "Quantity of the product in stock."
+                    },
+                    "is_infinite": {
+                      "type": "boolean",
+                      "description": "Flag to indicate if the product quantity is infinite.",
+                      "default": false
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "origin_product_id": {
+            "type": "string"
+          },
+          "item_id": {
+            "type": "string"
+          },
+          "item_quantity": {
+            "type": "integer"
+          },
+          "in_stock": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "stocks": {
+      "type": "array",
+      "description": "This array provides details about product stock.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "location": {
+            "type": "object",
+            "description": "Details about the storage location (ID and name).",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            }
+          },
+          "available_quantity": {
+            "type": "null",
+            "description": "Quantity of the product in stock."
+          },
+          "is_infinite": {
+            "type": "boolean",
+            "description": "Flag to indicate if the product quantity is infinite."
+          }
+        }
+      }
+    },
+    "sold_products_count": {
+      "type": "null"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Date and time the product was created."
+    },
+    "updated_at": {
+      "type": "string",
+      "description": "Date and time the product was last updated."
+    },
+    "is_external_product": {
+      "type": "boolean",
+      "description": "This property is used to indicate whether the product is sourced externally.",
+      "default": false
+    }
+  },
+  "examples": [
+    {
+      "id": "157ea0ee-3963-4e3d-ba3b-b9b0f6a50535",
+      "product_class": "grouped_product",
+      "sku": "Z.1.1234567890",
+      "barcode": "",
+      "parent_id": null,
+      "name": {
+        "ar": "NewProduct",
+        "en": "NewProduct"
+      },
+      "slug": "NewProduct",
+      "price": 100,
+      "short_description": null,
+      "sale_price": 90,
+      "formatted_price": "100.00  ر.س ",
+      "formatted_sale_price": "90.00  ر.س ",
+      "currency": "SAR",
+      "currency_symbol": " ر.س ",
+      "attributes": [],
+      "categories": [],
+      "display_order": null,
+      "has_options": false,
+      "has_fields": false,
+      "images": [],
+      "is_draft": false,
+      "quantity": null,
+      "is_infinite": true,
+      "html_url": "https://zggesq.localhost:8084/products/NewProduct",
+      "weight": {
+        "value": null,
+        "unit": "kg"
+      },
+      "keywords": [],
+      "requires_shipping": true,
+      "is_taxable": true,
+      "structure": "standalone",
+      "seo": {
+        "title": {
+          "ar": "NewProduct",
+          "en": "NewProduct"
+        },
+        "description": {}
+      },
+      "rating": {
+        "average": 0,
+        "total_count": 0,
+        "1_ratings": {
+          "percentage": 0,
+          "count": 0
+        },
+        "2_ratings": {
+          "percentage": 0,
+          "count": 0
+        },
+        "3_ratings": {
+          "percentage": 0,
+          "count": 0
+        },
+        "4_ratings": {
+          "percentage": 0,
+          "count": 0
+        },
+        "5_ratings": {
+          "percentage": 0,
+          "count": 0
+        }
+      },
+      "store_id": 1,
+      "purchase_restrictions": {
+        "min_quantity_per_cart": null,
+        "max_quantity_per_cart": null,
+        "availability_period_start": null,
+        "availability_period_end": null
+      },
+      "metafields": null,
+      "meta": {},
+      "badge": {
+        "body": {
+          "ar": "خصم {discount_percent}",
+          "en": "{discount_percent} Discount"
+        },
+        "icon": {
+          "code": "discount_percent"
+        }
+      },
+      "related_products_settings": "AUTO_GENERATED",
+      "related_products_title": null,
+      "variants": [],
+      "options": [],
+      "cost": 0,
+      "is_published": true,
+      "waiting_customers_count": null,
+      "description": {},
+      "custom_user_input_fields": [],
+      "custom_option_fields": [],
+      "related_products": [],
+      "next_product": null,
+      "previous_product": null,
+      "group_products": [
+        {
+          "id": "5f3a844c-0c22-430e-93a6-1932954f6034",
+          "item": {
+            "id": "371f63f1-7e82-4921-a1e7-f7f02b5573e8",
+            "product_class": null,
+            "sku": "Z.1.1715508211439691",
+            "barcode": "",
+            "parent_id": null,
+            "name": {
+              "ar": "test123",
+              "en": "test123"
+            },
+            "slug": "test123",
+            "price": 12,
+            "short_description": null,
+            "sale_price": null,
+            "formatted_price": "12.00  ر.س ",
+            "formatted_sale_price": null,
+            "currency": "SAR",
+            "currency_symbol": " ر.س ",
+            "attributes": [],
+            "categories": [],
+            "display_order": null,
+            "has_options": false,
+            "has_fields": false,
+            "images": [],
+            "is_draft": false,
+            "quantity": null,
+            "is_infinite": true,
+            "html_url": "https://zggesq.localhost:8084/products/test123",
+            "weight": {
+              "value": null,
+              "unit": "kg"
+            },
+            "keywords": [],
+            "requires_shipping": true,
+            "is_taxable": true,
+            "structure": "standalone",
+            "seo": {
+              "title": {
+                "ar": "test123",
+                "en": "test123"
+              },
+              "description": {}
+            },
+            "rating": {
+              "average": 0,
+              "total_count": 0,
+              "1_ratings": {
+                "percentage": 0,
+                "count": 0
+              },
+              "2_ratings": {
+                "percentage": 0,
+                "count": 0
+              },
+              "3_ratings": {
+                "percentage": 0,
+                "count": 0
+              },
+              "4_ratings": {
+                "percentage": 0,
+                "count": 0
+              },
+              "5_ratings": {
+                "percentage": 0,
+                "count": 0
+              }
+            },
+            "store_id": 1,
+            "purchase_restrictions": {
+              "min_quantity_per_cart": null,
+              "max_quantity_per_cart": null,
+              "availability_period_start": null,
+              "availability_period_end": null
+            },
+            "metafields": null,
+            "meta": null,
+            "badge": null,
+            "related_products_settings": "AUTO_GENERATED",
+            "related_products_title": null,
+            "created_at": "2024-05-12T10:03:31.440247Z",
+            "updated_at": "2024-05-20T08:14:45.821898Z",
+            "options": [],
+            "group_products": null,
+            "stocks": [
+              {
+                "id": "95aaf1a8-1c8a-4e6e-8d90-6b12638856bc",
+                "location": {
+                  "id": "904afcec-dacf-449d-b892-fd7a5cbbf6c9",
+                  "name": {
+                    "ar": "لحوم ساقية الرياض"
+                  },
+                  "type": "PHYSICAL"
+                },
+                "available_quantity": null,
+                "is_infinite": true
+              }
+            ]
+          },
+          "origin_product_id": "157ea0ee-3963-4e3d-ba3b-b9b0f6a50535",
+          "item_id": "371f63f1-7e82-4921-a1e7-f7f02b5573e8",
+          "item_quantity": 2,
+          "in_stock": false
+        },
+        {
+          "id": "9801f935-82b0-410c-ae35-6e06a6e64575",
+          "item": {
+            "id": "f1965956-b6ba-47a8-a91f-a18440495a12",
+            "product_class": null,
+            "sku": "Z.1.17146366424425128",
+            "barcode": "",
+            "parent_id": null,
+            "name": {
+              "ar": "TestNew",
+              "en": "TestNew"
+            },
+            "slug": "testnew",
+            "price": 1,
+            "short_description": null,
+            "sale_price": null,
+            "formatted_price": "1.00  ر.س ",
+            "formatted_sale_price": null,
+            "currency": "SAR",
+            "currency_symbol": " ر.س ",
+            "attributes": [],
+            "categories": [],
+            "display_order": null,
+            "has_options": false,
+            "has_fields": false,
+            "images": [],
+            "is_draft": false,
+            "quantity": null,
+            "is_infinite": true,
+            "html_url": "https://zggesq.localhost:8084/products/testnew",
+            "weight": {
+              "value": null,
+              "unit": "kg"
+            },
+            "keywords": [],
+            "requires_shipping": true,
+            "is_taxable": true,
+            "structure": "standalone",
+            "seo": {
+              "title": {
+                "ar": "TestNew",
+                "en": "TestNew"
+              },
+              "description": {}
+            },
+            "rating": {
+              "average": 0,
+              "total_count": 0,
+              "1_ratings": {
+                "percentage": 0,
+                "count": 0
+              },
+              "2_ratings": {
+                "percentage": 0,
+                "count": 0
+              },
+              "3_ratings": {
+                "percentage": 0,
+                "count": 0
+              },
+              "4_ratings": {
+                "percentage": 0,
+                "count": 0
+              },
+              "5_ratings": {
+                "percentage": 0,
+                "count": 0
+              }
+            },
+            "store_id": 1,
+            "purchase_restrictions": {
+              "min_quantity_per_cart": null,
+              "max_quantity_per_cart": null,
+              "availability_period_start": null,
+              "availability_period_end": null
+            },
+            "metafields": null,
+            "meta": null,
+            "badge": null,
+            "related_products_settings": "AUTO_GENERATED",
+            "related_products_title": null,
+            "created_at": "2024-05-02T07:57:22.442860Z",
+            "updated_at": "2024-05-20T08:16:21.995611Z",
+            "options": [],
+            "group_products": null,
+            "stocks": [
+              {
+                "id": "b152dc0f-73f1-4620-a310-e8d72bd370a6",
+                "location": {
+                  "id": "904afcec-dacf-449d-b892-fd7a5cbbf6c9",
+                  "name": {
+                    "ar": "لحوم ساقية الرياض"
+                  },
+                  "type": "PHYSICAL"
+                },
+                "available_quantity": null,
+                "is_infinite": true
+              }
+            ]
+          },
+          "origin_product_id": "157ea0ee-3963-4e3d-ba3b-b9b0f6a50535",
+          "item_id": "f1965956-b6ba-47a8-a91f-a18440495a12",
+          "item_quantity": 3,
+          "in_stock": false
+        }
+      ],
+      "stocks": [
+        {
+          "id": "fe1e47bf-3fa5-4240-8cbe-66c07e4608a7",
+          "location": {
+            "id": "904afcec-dacf-449d-b892-fd7a5cbbf6c9",
+            "name": {
+              "ar": "لحوم ساقية الرياض"
+            },
+            "type": "PHYSICAL"
+          },
+          "available_quantity": null,
+          "is_infinite": true
+        }
+      ],
+      "sold_products_count": null,
+      "created_at": "2024-05-22T13:32:42.047362Z",
+      "updated_at": "2024-05-22T13:32:42.047380Z"
+    }
+  ]
+}

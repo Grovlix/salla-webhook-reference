@@ -1,0 +1,106 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "product.image.updated",
+  "description": "Triggered when a product's images are updated. Generated from https://docs.salla.dev/webhook-events/products (fetched 2026-10-26).",
+  "type": "object",
+  "properties": {
+    "event": {
+      "type": "string",
+      "description": "Event Name",
+      "enum": [
+        "product.image.updated"
+      ]
+    },
+    "merchant": {
+      "type": "number",
+      "description": "Unique identifier associated with the Merchant who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/9466620e0)"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Timestamp of the created Event"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique identifier associated with a product. Get a list of product IDs [here](https://docs.salla.dev/5394169e0)."
+        },
+        "sku": {
+          "type": "string",
+          "description": "Stock Keeping Unit"
+        },
+        "mpn": {
+          "type": "string",
+          "description": "Manufacturer Part Number"
+        },
+        "gtin": {
+          "type": "string",
+          "description": "Global Trade Item Number"
+        },
+        "main_image": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "Image ID"
+            },
+            "url": {
+              "type": "string",
+              "description": "URL of the main image"
+            },
+            "video_url": {
+              "type": "string",
+              "description": "Video URL if the image links to a video"
+            },
+            "type": {
+              "type": "string",
+              "description": "Type of visual asset (e.g., image, video)"
+            }
+          }
+        },
+        "images": {
+          "type": "array",
+          "description": "All images related to the product",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "description": "Unique identifier associated with a product. Get a list of product IDs [here](https://docs.salla.dev/5394169e0)"
+              },
+              "url": {
+                "type": "string",
+                "description": "Direct URL of the image"
+              },
+              "main": {
+                "type": "boolean",
+                "description": "Indicates if this is the main image"
+              },
+              "three_d_image_url": {
+                "type": "string",
+                "description": "3D view image URL if available"
+              },
+              "alt": {
+                "type": "string",
+                "description": "Alt text for accessibility"
+              },
+              "video_url": {
+                "type": "string",
+                "description": "Video URL if the image links to a video"
+              },
+              "type": {
+                "type": "string",
+                "description": "Type of visual asset (e.g., image, video)"
+              },
+              "sort": {
+                "type": "integer",
+                "description": "Sort order for display"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

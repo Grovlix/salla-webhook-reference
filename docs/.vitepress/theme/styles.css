@@ -135,3 +135,9 @@ html[dir="rtl"] .DocSearch-Input {
     page-break-inside: avoid;
   }
 }
+
+/* Arabic lines inside English pages */
+[dir="rtl"][lang="ar"] {
+  font-family: var(--font-rtl);
+  text-align: right;
+}

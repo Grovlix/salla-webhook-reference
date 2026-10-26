@@ -1,0 +1,198 @@
+{
+  "platform": "salla",
+  "name": "Salla",
+  "name_ar": "سلة",
+  "events_doc": "https://docs.salla.dev/doc-421119",
+  "groups": [
+    {
+      "slug": "orders",
+      "title": "Order",
+      "title_ar": "الطلبات",
+      "events": [
+        { "name": "order.created", "model": "1307433", "description": "Triggered when an order is created.", "description_ar": "يُرسل عند إنشاء طلب جديد." },
+        { "name": "order.updated", "model": "1307433", "description": "Triggered when an order is updated.", "description_ar": "يُرسل عند تحديث بيانات طلب." },
+        { "name": "order.status.updated", "model": "1307436", "description": "Triggered when an order's status changes.", "description_ar": "يُرسل عند تغيّر حالة الطلب." },
+        { "name": "order.cancelled", "model": "1307433", "description": "Triggered when an order is cancelled.", "description_ar": "يُرسل عند إلغاء طلب." },
+        { "name": "order.refunded", "model": "1307433", "description": "Triggered when an order is refunded.", "description_ar": "يُرسل عند استرداد مبلغ الطلب." },
+        { "name": "order.deleted", "model": "1307433", "description": "Triggered when an order is deleted.", "description_ar": "يُرسل عند حذف طلب." },
+        { "name": "order.products.updated", "model": "1307433", "description": "Triggered when the products in an order are updated.", "description_ar": "يُرسل عند تعديل منتجات الطلب." },
+        { "name": "order.payment.updated", "model": "1307433", "description": "Triggered when an order's payment is updated.", "description_ar": "يُرسل عند تحديث بيانات الدفع للطلب." },
+        { "name": "order.coupon.updated", "model": "1307433", "description": "Triggered when the coupon on an order is updated.", "description_ar": "يُرسل عند تعديل الكوبون المطبّق على الطلب." },
+        { "name": "order.total.price.updated", "model": "1307433", "description": "Triggered when an order's total price is updated.", "description_ar": "يُرسل عند تغيّر إجمالي سعر الطلب." },
+        { "name": "order.shipping.address.updated", "model": "1307433", "description": "Triggered when an order's shipping address is updated.", "description_ar": "يُرسل عند تعديل عنوان الشحن للطلب." },
+        { "name": "order.customer.updated", "model": "1307433", "description": "Triggered when the customer on an order is updated.", "description_ar": "يُرسل عند تعديل بيانات العميل في الطلب.", "note": "Listed in the `event` enum of Salla's order schema but not in the main events table." },
+        { "name": "order.shipment.creating", "model": "1307434", "description": "Triggered while an order shipment is being created.", "description_ar": "يُرسل أثناء إنشاء شحنة للطلب." },
+        { "name": "order.shipment.created", "model": "1307434", "description": "Triggered when an order shipment is created.", "description_ar": "يُرسل بعد إنشاء شحنة للطلب." },
+        { "name": "order.shipment.cancelled", "model": "1307435", "description": "Triggered when an order shipment is cancelled.", "description_ar": "يُرسل عند إلغاء شحنة الطلب." },
+        { "name": "order.shipment.return.creating", "model": "1307434", "description": "Triggered while an order return shipment is being created.", "description_ar": "يُرسل أثناء إنشاء شحنة إرجاع للطلب." },
+        { "name": "order.shipment.return.created", "model": "1307434", "description": "Triggered when an order return shipment is created.", "description_ar": "يُرسل بعد إنشاء شحنة إرجاع للطلب." },
+        { "name": "order.shipment.return.cancelled", "model": "1307435", "description": "Triggered when an order return shipment is cancelled.", "description_ar": "يُرسل عند إلغاء شحنة إرجاع الطلب." }
+      ]
+    },
+    {
+      "slug": "products",
+      "title": "Product",
+      "title_ar": "المنتجات",
+      "events": [
+        { "name": "product.created", "model": "1307419", "description": "Triggered when a product is created.", "description_ar": "يُرسل عند إضافة منتج جديد." },
+        { "name": "product.updated", "model": "1307419", "deprecated": true, "description": "Triggered when a product is updated.", "description_ar": "يُرسل عند تحديث منتج." },
+        { "name": "product.deleted", "model": "1307419", "description": "Triggered when a product is deleted.", "description_ar": "يُرسل عند حذف منتج." },
+        { "name": "product.available", "model": "1307419", "deprecated": true, "description": "Triggered when a product comes back in stock.", "description_ar": "يُرسل عند توفّر المنتج في المخزون من جديد." },
+        { "name": "product.quantity.low", "model": "1307419", "description": "Triggered when a product's stock is low.", "description_ar": "يُرسل عند انخفاض كمية المنتج في المخزون." },
+        { "name": "product.price.updated", "model": "8346513", "description": "Triggered when a product's price is updated.", "description_ar": "يُرسل عند تغيير سعر منتج." },
+        { "name": "product.status.updated", "model": "8346866", "description": "Triggered when a product's status changes.", "description_ar": "يُرسل عند تغيير حالة منتج." },
+        { "name": "product.image.updated", "model": "8346974", "description": "Triggered when a product's images are updated.", "description_ar": "يُرسل عند تحديث صور منتج." },
+        { "name": "product.category.updated", "model": "8347044", "description": "Triggered when a product's categories are updated.", "description_ar": "يُرسل عند تغيير تصنيفات منتج." },
+        { "name": "product.brand.updated", "model": "8347098", "description": "Triggered when a product's brand is updated.", "description_ar": "يُرسل عند تغيير ماركة منتج." },
+        { "name": "product.tags.updated", "model": "8347105", "description": "Triggered when a product's tags are updated.", "description_ar": "يُرسل عند تحديث وسوم منتج." },
+        { "name": "product.channels.changed", "model": "4212181", "description": "Triggered when the sales channels a product is shown on change.", "description_ar": "يُرسل عند تغيير قنوات البيع التي يظهر فيها المنتج.", "note": "Documented on Salla's product events page but not in the main events table." }
+      ]
+    },
+    {
+      "slug": "shipments",
+      "title": "Shipment",
+      "title_ar": "الشحنات",
+      "events": [
+        { "name": "shipment.creating", "model": "1307439", "description": "Triggered when a shipment is assigned to a shipping company.", "description_ar": "يُرسل عند إسناد شحنة إلى شركة شحن." },
+        { "name": "shipment.created", "model": "1307439", "description": "Triggered when the shipping company updates a shipment for the first time.", "description_ar": "يُرسل عندما تحدّث شركة الشحن الشحنة لأول مرة." },
+        { "name": "shipment.updated", "model": "1307439", "description": "Triggered when a shipment is updated after creation.", "description_ar": "يُرسل عند تحديث الشحنة بعد إنشائها." },
+        { "name": "shipment.cancelled", "model": "1307439", "description": "Triggered when a shipment is cancelled.", "description_ar": "يُرسل عند إلغاء شحنة." }
+      ]
+    },
+    {
+      "slug": "shipping",
+      "title": "Shipping company and zone",
+      "title_ar": "شركات ومناطق الشحن",
+      "events": [
+        { "name": "shipping.zone.created", "model": "1307427", "description": "Triggered when a shipping zone is created for a custom shipping company.", "description_ar": "يُرسل عند إنشاء منطقة شحن لشركة شحن مخصّصة." },
+        { "name": "shipping.zone.updated", "model": "1307427", "description": "Triggered when a shipping zone is updated for a custom shipping company.", "description_ar": "يُرسل عند تحديث منطقة شحن لشركة شحن مخصّصة." },
+        { "name": "shipping.company.created", "model": "1307428", "description": "Triggered when a custom shipping company is created.", "description_ar": "يُرسل عند إنشاء شركة شحن مخصّصة." },
+        { "name": "shipping.company.updated", "model": "1307428", "description": "Triggered when a custom shipping company is updated.", "description_ar": "يُرسل عند تحديث شركة شحن مخصّصة." },
+        { "name": "shipping.company.deleted", "model": "1307428", "description": "Triggered when a custom shipping company is deleted.", "description_ar": "يُرسل عند حذف شركة شحن مخصّصة." }
+      ]
+    },
+    {
+      "slug": "customers",
+      "title": "Customer",
+      "title_ar": "العملاء",
+      "events": [
+        { "name": "customer.created", "model": "1307420", "description": "Triggered when a customer is created.", "description_ar": "يُرسل عند تسجيل عميل جديد." },
+        { "name": "customer.updated", "model": "1307420", "description": "Triggered when a customer is updated.", "description_ar": "يُرسل عند تحديث بيانات عميل." },
+        { "name": "customer.login", "model": "1307420", "description": "Triggered when a customer logs in to their account.", "description_ar": "يُرسل عند تسجيل دخول العميل إلى حسابه." },
+        { "name": "customer.otp.request", "model": "1307405", "description": "Triggered when a customer requests a one-time password.", "description_ar": "يُرسل عند طلب العميل رمز تحقق لمرة واحدة (OTP)." }
+      ]
+    },
+    {
+      "slug": "categories",
+      "title": "Category",
+      "title_ar": "التصنيفات",
+      "events": [
+        { "name": "category.created", "model": "11412296", "description": "Triggered when a category is created.", "description_ar": "يُرسل عند إنشاء تصنيف." },
+        { "name": "category.updated", "model": "11412296", "description": "Triggered when a category is updated.", "description_ar": "يُرسل عند تحديث تصنيف." }
+      ]
+    },
+    {
+      "slug": "brands",
+      "title": "Brand",
+      "title_ar": "الماركات",
+      "events": [
+        { "name": "brand.created", "model": "1307422", "description": "Triggered when a brand is created.", "description_ar": "يُرسل عند إنشاء ماركة." },
+        { "name": "brand.updated", "model": "1307422", "description": "Triggered when a brand is updated.", "description_ar": "يُرسل عند تحديث ماركة." },
+        { "name": "brand.deleted", "model": "1307422", "description": "Triggered when a brand is deleted.", "description_ar": "يُرسل عند حذف ماركة." }
+      ]
+    },
+    {
+      "slug": "store",
+      "title": "Store",
+      "title_ar": "المتجر",
+      "events": [
+        { "name": "store.branch.created", "model": "1307409", "description": "Triggered when a store branch is created.", "description_ar": "يُرسل عند إنشاء فرع للمتجر." },
+        { "name": "store.branch.updated", "model": "1307409", "description": "Triggered when a store branch is updated.", "description_ar": "يُرسل عند تحديث فرع للمتجر." },
+        { "name": "store.branch.setDefault", "model": "1307409", "description": "Triggered when a store branch is set as the default branch.", "description_ar": "يُرسل عند تعيين فرع كفرع افتراضي." },
+        { "name": "store.branch.activated", "model": "1307409", "description": "Triggered when a store branch is activated.", "description_ar": "يُرسل عند تفعيل فرع للمتجر.", "note": "Salla's events table spells this `store.branch.activated`, but the `event` enum in the schema lists `store.branch.activate`. Log the `event` field you receive before matching on it." },
+        { "name": "store.branch.deleted", "model": "1307409", "description": "Triggered when a store branch is deleted.", "description_ar": "يُرسل عند حذف فرع للمتجر." },
+        { "name": "storetax.created", "model": "1307413", "description": "Triggered when a store tax is created.", "description_ar": "يُرسل عند إنشاء ضريبة للمتجر." },
+        { "name": "store.owner.changed", "model": "9554130", "description": "Triggered when store ownership moves to another user.", "description_ar": "يُرسل عند نقل ملكية المتجر إلى مستخدم آخر.", "note": "Documented on Salla's store events page but not in the main events table." }
+      ]
+    },
+    {
+      "slug": "carts",
+      "title": "Abandoned cart and coupon",
+      "title_ar": "السلات المتروكة والكوبونات",
+      "events": [
+        { "name": "abandoned.cart", "model": "1307423", "description": "Triggered when an abandoned cart is created.", "description_ar": "يُرسل عند ظهور سلة متروكة." },
+        { "name": "abandoned.cart.update", "model": "1307423", "description": "Triggered when an abandoned cart is updated.", "description_ar": "يُرسل عند تحديث سلة متروكة.", "note": "Listed in the `event` enum of Salla's abandoned cart schema but not in the main events table." },
+        { "name": "abandoned.cart.status.changed", "model": "3632393", "description": "Triggered when an abandoned cart's status changes.", "description_ar": "يُرسل عند تغيّر حالة سلة متروكة.", "note": "Documented on Salla's cart events page but not in the main events table." },
+        { "name": "abandoned.cart.purchased", "model": "3632400", "description": "Triggered when an abandoned cart is purchased (status set to `purchased`).", "description_ar": "يُرسل عند إتمام شراء سلة متروكة (تصبح حالتها `purchased`).", "note": "Documented on Salla's cart events page but not in the main events table." },
+        { "name": "coupon.applied", "model": "1307411", "description": "Triggered when a coupon is applied.", "description_ar": "يُرسل عند تطبيق كوبون خصم." }
+      ]
+    },
+    {
+      "slug": "invoices",
+      "title": "Invoice",
+      "title_ar": "الفواتير",
+      "events": [
+        { "name": "invoice.created", "model": "1307440", "description": "Triggered when an order's status becomes `completed` or `restored`.", "description_ar": "يُرسل عندما تصبح حالة الطلب `completed` أو `restored`." }
+      ]
+    },
+    {
+      "slug": "special-offers",
+      "title": "Special offer",
+      "title_ar": "العروض الخاصة",
+      "events": [
+        { "name": "specialoffer.created", "model": "11412295", "description": "Triggered when a special offer is created.", "description_ar": "يُرسل عند إنشاء عرض خاص." },
+        { "name": "specialoffer.updated", "model": "11412295", "description": "Triggered when a special offer is updated.", "description_ar": "يُرسل عند تحديث عرض خاص." }
+      ]
+    },
+    {
+      "slug": "reviews",
+      "title": "Review",
+      "title_ar": "التقييمات",
+      "events": [
+        { "name": "review.added", "model": "1307410", "description": "Triggered when a product review is added.", "description_ar": "يُرسل عند إضافة تقييم لمنتج." }
+      ]
+    },
+    {
+      "slug": "customer-wallet",
+      "title": "Customer wallet",
+      "title_ar": "محفظة العميل",
+      "events": [
+        { "name": "wallet.action", "model": "16223997", "description": "Triggered when a customer wallet transaction is made.", "description_ar": "يُرسل عند تنفيذ عملية على محفظة العميل." }
+      ]
+    },
+    {
+      "slug": "communication",
+      "title": "Communication apps",
+      "title_ar": "تطبيقات التواصل",
+      "intro": "Only apps registered as communication apps receive these events. Each one carries a `type` (for example `order.status.updated` or `auth.otp.verification`) that says which store notification is being sent.",
+      "intro_ar": "تصل هذه الأحداث لتطبيقات التواصل فقط. يحمل كل حدث قيمة `type` (مثل `order.status.updated` أو `auth.otp.verification`) توضّح نوع الإشعار المُرسل من المتجر.",
+      "events": [
+        { "name": "communication.sms.send", "model": "8806995", "description": "Triggered when the store sends an SMS message.", "description_ar": "يُرسل عندما يرسل المتجر رسالة SMS." },
+        { "name": "communication.email.send", "model": "8806995", "description": "Triggered when the store sends an email.", "description_ar": "يُرسل عندما يرسل المتجر بريدًا إلكترونيًا." },
+        { "name": "communication.whatsapp.send", "model": "8806995", "description": "Triggered when the store sends a WhatsApp message.", "description_ar": "يُرسل عندما يرسل المتجر رسالة واتساب." }
+      ]
+    },
+    {
+      "slug": "app",
+      "title": "App and subscription",
+      "title_ar": "التطبيق والاشتراكات",
+      "intro": "These events are about your app itself rather than the store's data. You select them in the Salla Partners portal under your app's webhook settings.",
+      "intro_ar": "تتعلق هذه الأحداث بتطبيقك نفسه لا ببيانات المتجر، وتختارها من إعدادات الويب هوك لتطبيقك في بوابة شركاء سلة.",
+      "events": [
+        { "name": "app.store.authorize", "description": "Triggered when a store authorizes your app's scopes. The payload carries the store's access and refresh tokens.", "description_ar": "يُرسل عندما يمنح المتجر تطبيقك الصلاحيات، ويحمل رمزي الوصول والتحديث الخاصين بالمتجر." },
+        { "name": "app.installed", "description": "Triggered when your app is installed on a store.", "description_ar": "يُرسل عند تثبيت تطبيقك في متجر." },
+        { "name": "app.updated", "description": "Triggered when your app is updated.", "description_ar": "يُرسل عند تحديث تطبيقك." },
+        { "name": "app.uninstalled", "description": "Triggered when your app is uninstalled from a store.", "description_ar": "يُرسل عند إزالة تطبيقك من متجر." },
+        { "name": "app.trial.started", "description": "Triggered when a store starts a trial of your app.", "description_ar": "يُرسل عند بدء فترة تجريبية لتطبيقك في متجر." },
+        { "name": "app.trial.expired", "description": "Triggered when a store's trial of your app expires.", "description_ar": "يُرسل عند انتهاء الفترة التجريبية لتطبيقك في متجر." },
+        { "name": "app.trial.canceled", "description": "Triggered when a store's trial of your app is cancelled.", "description_ar": "يُرسل عند إلغاء الفترة التجريبية لتطبيقك في متجر." },
+        { "name": "app.subscription.started", "description": "Triggered when a subscription to your app or one of its add-ons starts.", "description_ar": "يُرسل عند بدء اشتراك في تطبيقك أو في إحدى إضافاته." },
+        { "name": "app.subscription.expired", "description": "Triggered when a subscription to your app or one of its add-ons ends.", "description_ar": "يُرسل عند انتهاء اشتراك في تطبيقك أو في إحدى إضافاته." },
+        { "name": "app.subscription.canceled", "description": "Triggered when a subscription to your app or one of its add-ons is cancelled.", "description_ar": "يُرسل عند إلغاء اشتراك في تطبيقك أو في إحدى إضافاته." },
+        { "name": "app.subscription.renewed", "description": "Triggered when a subscription to your app or one of its add-ons is renewed.", "description_ar": "يُرسل عند تجديد اشتراك في تطبيقك أو في إحدى إضافاته." },
+        { "name": "app.feedback.created", "description": "Triggered when a merchant leaves feedback on your app.", "description_ar": "يُرسل عندما يضيف التاجر ملاحظة أو تقييمًا لتطبيقك." },
+        { "name": "app.settings.updated", "description": "Triggered when a merchant activates or updates your app's settings.", "description_ar": "يُرسل عندما يفعّل التاجر إعدادات تطبيقك أو يعدّلها." }
+      ]
+    }
+  ]
+}

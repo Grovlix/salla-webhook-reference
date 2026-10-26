@@ -1,0 +1,376 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "coupon.applied",
+  "description": "Triggered when a coupon is applied. Generated from https://docs.salla.dev/webhook-events/carts (fetched 2026-10-26).",
+  "type": "object",
+  "properties": {
+    "event": {
+      "type": "string",
+      "description": "A label or title used to identify a specific event.",
+      "examples": [
+        "coupon.applied"
+      ],
+      "enum": [
+        "coupon.applied"
+      ]
+    },
+    "merchant": {
+      "type": "number",
+      "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)",
+      "examples": [
+        1029864349
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "description": "The date and time when a particular event was created or initiated.",
+      "examples": [
+        "Wed Jul 7 2021 14:50:48 GMT+0300"
+      ]
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "cart": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "A unique identifier assigned to a specific cart. "
+            },
+            "total": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "number",
+                  "description": "Cart total amount value."
+                },
+                "currency": {
+                  "type": "string",
+                  "description": "Cart total currency."
+                }
+              }
+            },
+            "subtotal": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "number",
+                  "description": "Cart subtotal amount value."
+                },
+                "currency": {
+                  "type": "string",
+                  "description": "Cart Subtotal Currency"
+                }
+              }
+            },
+            "total_discount": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "number",
+                  "description": "Cart total discount amount value."
+                },
+                "currency": {
+                  "type": "string",
+                  "description": "Cart total discount currency."
+                }
+              }
+            },
+            "checkout_url": {
+              "type": "string",
+              "description": "A web address or hyperlink that directs users to a specific page or interface where they can complete a transaction."
+            },
+            "age_in_minutes": {
+              "type": "number",
+              "description": "The amount of time that has passed, measured in minutes, since a particular item or items were added to a cart."
+            },
+            "created_at": {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "type": "string",
+                  "description": "The date and time when a cart initiated."
+                },
+                "timezone_type": {
+                  "type": "number",
+                  "description": "The classification or category of a timezone."
+                },
+                "timezone": {
+                  "type": "string",
+                  "description": "Timezone value."
+                }
+              }
+            },
+            "updated_at": {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "type": "string",
+                  "description": "The date and time when a cart was updated at."
+                },
+                "timezone_type": {
+                  "type": "number",
+                  "description": "The classification or category of a timezone."
+                },
+                "timezone": {
+                  "type": "string",
+                  "description": "Timezone vlaue"
+                }
+              }
+            },
+            "customer": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "A unique identifier assigned to a specific customer. "
+                },
+                "mobile": {
+                  "type": "string",
+                  "description": "The numerical contact information belonging to a customer that allows communication via telephone, without country code."
+                },
+                "avatar": {
+                  "type": "string",
+                  "description": "The categorization of an individual as male, female, based on their  biologically determined characteristics."
+                },
+                "country": {
+                  "type": "string",
+                  "description": "The nation of origin or residence of the customer."
+                },
+                "city": {
+                  "type": "string",
+                  "description": "The city where the customer resides."
+                }
+              }
+            },
+            "coupon": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "A unique identifier assigned to a specific coupon. "
+                },
+                "code": {
+                  "type": "string",
+                  "description": "A unique combination of letters, numbers, or characters to apply a discount or special offer to a purchase during the checkout process."
+                },
+                "status": {
+                  "type": "string",
+                  "description": "The current status "
+                },
+                "type": {
+                  "type": "string",
+                  "description": "The category or classification of a co"
+                },
+                "amount": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "number",
+                      "description": "Coupon amount value."
+                    },
+                    "currency": {
+                      "type": "string",
+                      "description": "Coupon currency."
+                    }
+                  }
+                },
+                "minimum_amount": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "number",
+                      "description": "Minimum amount of purchase to be qualified for using the coupon. \r\n"
+                    },
+                    "currency": {
+                      "type": "string",
+                      "description": "Coupon minimum vlaue currency."
+                    }
+                  }
+                },
+                "expiry_date": {
+                  "type": "string",
+                  "description": "the date which the coupon expires at and is no longer ac"
+                },
+                "created_at": {
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "type": "string",
+                      "description": "The date and time when a coupon was created or initiated."
+                    },
+                    "timezone_type": {
+                      "type": "number",
+                      "description": "Timezone type."
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "description": "Timezone value."
+                    }
+                  }
+                }
+              }
+            },
+            "items": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number",
+                    "description": "A unique identifier assigned to a specific item. "
+                  },
+                  "product_id": {
+                    "type": "number",
+                    "description": "A unique identifier assigned to a specific product. "
+                  },
+                  "quantity": {
+                    "type": "number",
+                    "description": "The numerical value that indicates the quantity or number of a particular item or product."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "event": "coupon.applied",
+      "merchant": 847769313,
+      "created_at": "Wed Jan 26 2022 22:38:30 GMT+0300",
+      "data": {
+        "cart": {
+          "id": 746780865,
+          "total": {
+            "amount": 2910,
+            "currency": "SAR"
+          },
+          "subtotal": {
+            "amount": 3000,
+            "currency": "SAR"
+          },
+          "total_discount": {
+            "amount": 100,
+            "currency": "SAR"
+          },
+          "checkout_url": "https://robbama.com/checkout/746780865",
+          "age_in_minutes": 3517,
+          "created_at": {
+            "date": "2022-01-24 12:01:24.000000",
+            "timezone_type": 3,
+            "timezone": "Asia/Riyadh"
+          },
+          "updated_at": {
+            "date": "2022-01-26 22:38:30.000000",
+            "timezone_type": 3,
+            "timezone": "Asia/Riyadh"
+          },
+          "customer": {
+            "id": 1448307086,
+            "name": "Nabil Mohammed",
+            "mobile": "+251944130250",
+            "avatar": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+            "country": "السعودية",
+            "city": "جدة"
+          },
+          "coupon": {
+            "id": 2036833834,
+            "code": "wizefriend",
+            "status": "active",
+            "type": "percentage",
+            "amount": {
+              "amount": 20,
+              "currency": "SAR"
+            },
+            "minimum_amount": {
+              "amount": 0,
+              "currency": "SAR"
+            },
+            "expiry_date": "2022-04-13 00:00:00",
+            "created_at": {
+              "date": "2022-01-24 13:47:47.000000",
+              "timezone_type": 3,
+              "timezone": "Asia/Riyadh"
+            }
+          },
+          "items": [
+            {
+              "id": 2093591642,
+              "product_id": 91502809,
+              "quantity": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "cart": {
+        "id": 746780865,
+        "total": {
+          "amount": 2910,
+          "currency": "SAR"
+        },
+        "subtotal": {
+          "amount": 3000,
+          "currency": "SAR"
+        },
+        "total_discount": {
+          "amount": 100,
+          "currency": "SAR"
+        },
+        "checkout_url": "https://robbama.com/checkout/746780865",
+        "age_in_minutes": 3517,
+        "created_at": {
+          "date": "2022-01-24 12:01:24.000000",
+          "timezone_type": 3,
+          "timezone": "Asia/Riyadh"
+        },
+        "updated_at": {
+          "date": "2022-01-26 22:38:30.000000",
+          "timezone_type": 3,
+          "timezone": "Asia/Riyadh"
+        },
+        "customer": {
+          "id": 1448307086,
+          "name": "Nabil Mohammed",
+          "mobile": "+251944130250",
+          "avatar": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+          "country": "السعودية",
+          "city": "جدة"
+        },
+        "coupon": {
+          "id": 2036833834,
+          "code": "wizefriend",
+          "status": "active",
+          "type": "percentage",
+          "amount": {
+            "amount": 20,
+            "currency": "SAR"
+          },
+          "minimum_amount": {
+            "amount": 0,
+            "currency": "SAR"
+          },
+          "expiry_date": "2022-04-13 00:00:00",
+          "created_at": {
+            "date": "2022-01-24 13:47:47.000000",
+            "timezone_type": 3,
+            "timezone": "Asia/Riyadh"
+          }
+        },
+        "items": [
+          {
+            "id": 2093591642,
+            "product_id": 91502809,
+            "quantity": 2
+          }
+        ]
+      }
+    }
+  ]
+}

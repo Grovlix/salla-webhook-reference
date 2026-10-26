@@ -1,0 +1,1504 @@
+{
+  "source_url": "https://docs.salla.dev/webhook-events/carts",
+  "fetched_at": "2026-10-26",
+  "definitions": {
+    "1307411": {
+      "title": "Coupon Applied Webhook Event Model",
+      "x-stoplight": {
+        "id": "3a303557a8a42"
+      },
+      "type": "object",
+      "x-examples": {
+        "Webhook V2": {
+          "event": "coupon.applied",
+          "merchant": 847769313,
+          "created_at": "Wed Jan 26 2022 22:38:30 GMT+0300",
+          "data": {
+            "cart": {
+              "id": 746780865,
+              "total": {
+                "amount": 2910,
+                "currency": "SAR"
+              },
+              "subtotal": {
+                "amount": 3000,
+                "currency": "SAR"
+              },
+              "total_discount": {
+                "amount": 100,
+                "currency": "SAR"
+              },
+              "checkout_url": "https://robbama.com/checkout/746780865",
+              "age_in_minutes": 3517,
+              "created_at": {
+                "date": "2022-01-24 12:01:24.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Riyadh"
+              },
+              "updated_at": {
+                "date": "2022-01-26 22:38:30.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Riyadh"
+              },
+              "customer": {
+                "id": 1448307086,
+                "name": "Nabil Mohammed",
+                "mobile": "+251944130250",
+                "avatar": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+                "country": "السعودية",
+                "city": "جدة"
+              },
+              "coupon": {
+                "id": 2036833834,
+                "code": "wizefriend",
+                "status": "active",
+                "type": "percentage",
+                "amount": {
+                  "amount": 20,
+                  "currency": "SAR"
+                },
+                "minimum_amount": {
+                  "amount": 0,
+                  "currency": "SAR"
+                },
+                "expiry_date": "2022-04-13 00:00:00",
+                "created_at": {
+                  "date": "2022-01-24 13:47:47.000000",
+                  "timezone_type": 3,
+                  "timezone": "Asia/Riyadh"
+                }
+              },
+              "items": [
+                {
+                  "id": 2093591642,
+                  "product_id": 91502809,
+                  "quantity": 2
+                }
+              ]
+            }
+          }
+        },
+        "Webhook V1": {
+          "cart": {
+            "id": 746780865,
+            "total": {
+              "amount": 2910,
+              "currency": "SAR"
+            },
+            "subtotal": {
+              "amount": 3000,
+              "currency": "SAR"
+            },
+            "total_discount": {
+              "amount": 100,
+              "currency": "SAR"
+            },
+            "checkout_url": "https://robbama.com/checkout/746780865",
+            "age_in_minutes": 3517,
+            "created_at": {
+              "date": "2022-01-24 12:01:24.000000",
+              "timezone_type": 3,
+              "timezone": "Asia/Riyadh"
+            },
+            "updated_at": {
+              "date": "2022-01-26 22:38:30.000000",
+              "timezone_type": 3,
+              "timezone": "Asia/Riyadh"
+            },
+            "customer": {
+              "id": 1448307086,
+              "name": "Nabil Mohammed",
+              "mobile": "+251944130250",
+              "avatar": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+              "country": "السعودية",
+              "city": "جدة"
+            },
+            "coupon": {
+              "id": 2036833834,
+              "code": "wizefriend",
+              "status": "active",
+              "type": "percentage",
+              "amount": {
+                "amount": 20,
+                "currency": "SAR"
+              },
+              "minimum_amount": {
+                "amount": 0,
+                "currency": "SAR"
+              },
+              "expiry_date": "2022-04-13 00:00:00",
+              "created_at": {
+                "date": "2022-01-24 13:47:47.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Riyadh"
+              }
+            },
+            "items": [
+              {
+                "id": 2093591642,
+                "product_id": 91502809,
+                "quantity": 2
+              }
+            ]
+          }
+        }
+      },
+      "x-tags": [
+        "Store Events Webhook Model"
+      ],
+      "properties": {
+        "event": {
+          "type": "string",
+          "description": "A label or title used to identify a specific event.",
+          "examples": [
+            "coupon.applied"
+          ],
+          "enum": [
+            "coupon.applied"
+          ],
+          "x-apidog-enum": [
+            {
+              "value": "coupon.applied",
+              "name": "",
+              "description": ""
+            }
+          ]
+        },
+        "merchant": {
+          "type": "number",
+          "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)",
+          "examples": [
+            1029864349
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "description": "The date and time when a particular event was created or initiated.",
+          "examples": [
+            "Wed Jul 7 2021 14:50:48 GMT+0300"
+          ]
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "cart": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "A unique identifier assigned to a specific cart. "
+                },
+                "total": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "number",
+                      "description": "Cart total amount value."
+                    },
+                    "currency": {
+                      "type": "string",
+                      "description": "Cart total currency."
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "amount",
+                    "currency"
+                  ]
+                },
+                "subtotal": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "number",
+                      "description": "Cart subtotal amount value."
+                    },
+                    "currency": {
+                      "type": "string",
+                      "description": "Cart Subtotal Currency"
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "amount",
+                    "currency"
+                  ]
+                },
+                "total_discount": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "number",
+                      "description": "Cart total discount amount value."
+                    },
+                    "currency": {
+                      "type": "string",
+                      "description": "Cart total discount currency."
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "amount",
+                    "currency"
+                  ]
+                },
+                "checkout_url": {
+                  "type": "string",
+                  "description": "A web address or hyperlink that directs users to a specific page or interface where they can complete a transaction."
+                },
+                "age_in_minutes": {
+                  "type": "number",
+                  "description": "The amount of time that has passed, measured in minutes, since a particular item or items were added to a cart."
+                },
+                "created_at": {
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "type": "string",
+                      "description": "The date and time when a cart initiated."
+                    },
+                    "timezone_type": {
+                      "type": "number",
+                      "description": "The classification or category of a timezone."
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "description": "Timezone value."
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "date",
+                    "timezone_type",
+                    "timezone"
+                  ]
+                },
+                "updated_at": {
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "type": "string",
+                      "description": "The date and time when a cart was updated at."
+                    },
+                    "timezone_type": {
+                      "type": "number",
+                      "description": "The classification or category of a timezone."
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "description": "Timezone vlaue"
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "date",
+                    "timezone_type",
+                    "timezone"
+                  ]
+                },
+                "customer": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "description": "A unique identifier assigned to a specific customer. "
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "A label or title used to identify a specific customer."
+                    },
+                    "mobile": {
+                      "type": "string",
+                      "description": "The numerical contact information belonging to a customer that allows communication via telephone, without country code."
+                    },
+                    "avatar": {
+                      "type": "string",
+                      "description": "The categorization of an individual as male, female, based on their  biologically determined characteristics."
+                    },
+                    "country": {
+                      "type": "string",
+                      "description": "The nation of origin or residence of the customer."
+                    },
+                    "city": {
+                      "type": "string",
+                      "description": "The city where the customer resides."
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "id",
+                    "name",
+                    "mobile",
+                    "avatar",
+                    "country",
+                    "city"
+                  ]
+                },
+                "coupon": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "description": "A unique identifier assigned to a specific coupon. "
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "A unique combination of letters, numbers, or characters to apply a discount or special offer to a purchase during the checkout process."
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "The current status "
+                    },
+                    "type": {
+                      "type": "string",
+                      "description": "The category or classification of a co"
+                    },
+                    "amount": {
+                      "type": "object",
+                      "properties": {
+                        "amount": {
+                          "type": "number",
+                          "description": "Coupon amount value."
+                        },
+                        "currency": {
+                          "type": "string",
+                          "description": "Coupon currency."
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "amount",
+                        "currency"
+                      ]
+                    },
+                    "minimum_amount": {
+                      "type": "object",
+                      "properties": {
+                        "amount": {
+                          "type": "number",
+                          "description": "Minimum amount of purchase to be qualified for using the coupon. \r\n"
+                        },
+                        "currency": {
+                          "type": "string",
+                          "description": "Coupon minimum vlaue currency."
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "amount",
+                        "currency"
+                      ]
+                    },
+                    "expiry_date": {
+                      "type": "string",
+                      "description": "the date which the coupon expires at and is no longer ac"
+                    },
+                    "created_at": {
+                      "type": "object",
+                      "properties": {
+                        "date": {
+                          "type": "string",
+                          "description": "The date and time when a coupon was created or initiated."
+                        },
+                        "timezone_type": {
+                          "type": "number",
+                          "description": "Timezone type."
+                        },
+                        "timezone": {
+                          "type": "string",
+                          "description": "Timezone value."
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "date",
+                        "timezone_type",
+                        "timezone"
+                      ]
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "id",
+                    "code",
+                    "status",
+                    "type",
+                    "amount",
+                    "minimum_amount",
+                    "expiry_date",
+                    "created_at"
+                  ]
+                },
+                "items": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "description": "A unique identifier assigned to a specific item. "
+                      },
+                      "product_id": {
+                        "type": "number",
+                        "description": "A unique identifier assigned to a specific product. "
+                      },
+                      "quantity": {
+                        "type": "number",
+                        "description": "The numerical value that indicates the quantity or number of a particular item or product."
+                      }
+                    },
+                    "x-apidog-orders": [
+                      "id",
+                      "product_id",
+                      "quantity"
+                    ]
+                  }
+                }
+              },
+              "x-apidog-orders": [
+                "id",
+                "total",
+                "subtotal",
+                "total_discount",
+                "checkout_url",
+                "age_in_minutes",
+                "created_at",
+                "updated_at",
+                "customer",
+                "coupon",
+                "items"
+              ]
+            }
+          },
+          "x-apidog-orders": [
+            "cart"
+          ]
+        }
+      },
+      "x-apidog-orders": [
+        "event",
+        "merchant",
+        "created_at",
+        "data"
+      ],
+      "name": "Coupon Applied Webhook Response"
+    },
+    "1307423": {
+      "description": "",
+      "type": "object",
+      "x-examples": {
+        "Webhook V2": {
+          "event": "abandoned.cart",
+          "merchant": 1305146709,
+          "created_at": "Tue Jan 25 2022 13:00:27 GMT+0300",
+          "data": {
+            "id": 1097962121,
+            "total": {
+              "amount": 80.5,
+              "currency": "SAR"
+            },
+            "subtotal": {
+              "amount": 70,
+              "currency": "SAR"
+            },
+            "total_discount": {
+              "amount": 0,
+              "currency": "SAR"
+            },
+            "checkout_url": "https://salla.sa/dev-wofftr4xsra5xtlv/checkout/1097962121",
+            "age_in_minutes": 83,
+            "created_at": {
+              "date": "2022-01-25 11:37:24.000000",
+              "timezone_type": 3,
+              "timezone": "Asia/Riyadh"
+            },
+            "updated_at": {
+              "date": "2022-01-25 11:37:24.000000",
+              "timezone_type": 3,
+              "timezone": "Asia/Riyadh"
+            },
+            "customer": {
+              "id": 225167971,
+              "name": "User Name",
+              "mobile": "+977612917082",
+              "avatar": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+              "country": "السعودية",
+              "city": "الرياض"
+            },
+            "coupon": {
+              "id": 2036833834,
+              "code": "wizefriend",
+              "status": "active",
+              "type": "percentage",
+              "amount": {
+                "amount": 20,
+                "currency": "SAR"
+              },
+              "minimum_amount": {
+                "amount": 0,
+                "currency": "SAR"
+              },
+              "expiry_date": "2022-04-13 00:00:00",
+              "created_at": {
+                "date": "2022-01-24 13:47:47.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Riyadh"
+              }
+            },
+            "items": [
+              {
+                "id": 1793843311,
+                "product_id": 401511871,
+                "quantity": 2
+              }
+            ]
+          }
+        },
+        "Webhook V1": {
+          "id": 1097962121,
+          "total": {
+            "amount": 80.5,
+            "currency": "SAR"
+          },
+          "subtotal": {
+            "amount": 70,
+            "currency": "SAR"
+          },
+          "total_discount": {
+            "amount": 0,
+            "currency": "SAR"
+          },
+          "checkout_url": "https://salla.sa/dev-wofftr4xsra5xtlv/checkout/1097962121",
+          "age_in_minutes": 83,
+          "created_at": {
+            "date": "2022-01-25 11:37:24.000000",
+            "timezone_type": 3,
+            "timezone": "Asia/Riyadh"
+          },
+          "updated_at": {
+            "date": "2022-01-25 11:37:24.000000",
+            "timezone_type": 3,
+            "timezone": "Asia/Riyadh"
+          },
+          "customer": {
+            "id": 225167971,
+            "name": "User Name",
+            "mobile": "+977612917082",
+            "avatar": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+            "country": "السعودية",
+            "city": "الرياض"
+          },
+          "coupon": {
+            "id": 2036833834,
+            "code": "wizefriend",
+            "status": "active",
+            "type": "percentage",
+            "amount": {
+              "amount": 20,
+              "currency": "SAR"
+            },
+            "minimum_amount": {
+              "amount": 0,
+              "currency": "SAR"
+            },
+            "expiry_date": "2022-04-13 00:00:00",
+            "created_at": {
+              "date": "2022-01-24 13:47:47.000000",
+              "timezone_type": 3,
+              "timezone": "Asia/Riyadh"
+            }
+          },
+          "items": [
+            {
+              "id": 1793843311,
+              "product_id": 401511871,
+              "quantity": 2
+            }
+          ]
+        }
+      },
+      "title": "Abandoned Cart Webhook Event Model",
+      "properties": {
+        "event": {
+          "type": "string",
+          "description": "Event Name",
+          "title": "",
+          "enum": [
+            "abandoned.cart",
+            "abandoned.cart.update"
+          ],
+          "x-apidog-enum": [
+            {
+              "value": "abandoned.cart",
+              "name": "",
+              "description": ""
+            },
+            {
+              "value": "abandoned.cart.update",
+              "name": "",
+              "description": ""
+            }
+          ]
+        },
+        "merchant": {
+          "type": "number",
+          "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)",
+          "examples": [
+            1305146709
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "description": "Timestamp of webhook creation",
+          "examples": [
+            "Tue Jan 25 2022 13:00:27 GMT+0300"
+          ]
+        },
+        "data": {
+          "$ref": "#/definitions/3632422"
+        }
+      },
+      "x-tags": [
+        "Store Events Webhook Model"
+      ],
+      "x-apidog-orders": [
+        "event",
+        "merchant",
+        "created_at",
+        "data"
+      ],
+      "name": "AbandonedCartWebhookEventModal"
+    },
+    "3632393": {
+      "description": "",
+      "type": "object",
+      "x-examples": {
+        "Example": {
+          "event": "abandoned.cart.status.changed",
+          "merchant": 1305146709,
+          "created_at": "Tue Jan 25 2022 13:00:27 GMT+0300",
+          "data": {
+            "id": 1097962121,
+            "total": {
+              "amount": 80.5,
+              "currency": "SAR"
+            },
+            "subtotal": {
+              "amount": 70,
+              "currency": "SAR"
+            },
+            "total_discount": {
+              "amount": 0,
+              "currency": "SAR"
+            },
+            "checkout_url": "https://salla.sa/dev-wofftr4xsra5xtlv/checkout/1097962121",
+            "age_in_minutes": 83,
+            "created_at": {
+              "date": "2022-01-25 11:37:24.000000",
+              "timezone_type": 3,
+              "timezone": "Asia/Riyadh"
+            },
+            "updated_at": {
+              "date": "2022-01-25 11:37:24.000000",
+              "timezone_type": 3,
+              "timezone": "Asia/Riyadh"
+            },
+            "customer": {
+              "id": 225167971,
+              "name": "User Name",
+              "mobile": "+977612917082",
+              "avatar": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+              "country": "السعودية",
+              "city": "الرياض"
+            },
+            "coupon": {
+              "id": 2036833834,
+              "code": "wizefriend",
+              "status": "active",
+              "type": "percentage",
+              "amount": {
+                "amount": 20,
+                "currency": "SAR"
+              },
+              "minimum_amount": {
+                "amount": 0,
+                "currency": "SAR"
+              },
+              "expiry_date": "2022-04-13 00:00:00",
+              "created_at": {
+                "date": "2022-01-24 13:47:47.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Riyadh"
+              }
+            },
+            "items": [
+              {
+                "id": 1793843311,
+                "product_id": 401511871,
+                "quantity": 2
+              }
+            ]
+          }
+        }
+      },
+      "title": "Abandoned Cart Status Changed Webhook Event Model",
+      "properties": {
+        "event": {
+          "type": "string",
+          "description": "Event Name",
+          "enum": [
+            "abandoned.cart.status.changed"
+          ],
+          "x-apidog-enum": [
+            {
+              "value": "abandoned.cart.status.changed",
+              "name": "",
+              "description": ""
+            }
+          ]
+        },
+        "merchant": {
+          "type": "number",
+          "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)",
+          "examples": [
+            1305146709
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "description": "Event Created at Timestamp",
+          "examples": [
+            "Tue Jan 25 2022 13:00:27 GMT+0300"
+          ]
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "A unique identifier associated with a shopping cart."
+            },
+            "status": {
+              "type": "string",
+              "description": "Abandoned Cart Status, which can be one of the allowed enum values",
+              "enum": [
+                "active",
+                "purchased"
+              ],
+              "x-apidog-enum": [
+                {
+                  "value": "active",
+                  "name": "",
+                  "description": "When the Abandoned Cart is active"
+                },
+                {
+                  "value": "purchased",
+                  "name": "",
+                  "description": "When the Abandoned Cart is purchased"
+                }
+              ]
+            }
+          },
+          "x-apidog-orders": [
+            "id",
+            "status"
+          ]
+        }
+      },
+      "x-tags": [
+        "Store Events Webhook Model"
+      ],
+      "x-apidog-orders": [
+        "event",
+        "merchant",
+        "created_at",
+        "data"
+      ],
+      "name": "AbandonedCartStatusChangedEventModel"
+    },
+    "3632400": {
+      "description": "",
+      "type": "object",
+      "x-examples": {
+        "Example": {
+          "event": "abandoned.cart.purchased",
+          "merchant": 1305146709,
+          "created_at": "Tue Jan 25 2022 13:00:27 GMT+0300",
+          "data": {
+            "id": 1097962121,
+            "total": {
+              "amount": 80.5,
+              "currency": "SAR"
+            },
+            "subtotal": {
+              "amount": 70,
+              "currency": "SAR"
+            },
+            "total_discount": {
+              "amount": 0,
+              "currency": "SAR"
+            },
+            "checkout_url": "https://salla.sa/dev-wofftr4xsra5xtlv/checkout/1097962121",
+            "age_in_minutes": 83,
+            "created_at": {
+              "date": "2022-01-25 11:37:24.000000",
+              "timezone_type": 3,
+              "timezone": "Asia/Riyadh"
+            },
+            "updated_at": {
+              "date": "2022-01-25 11:37:24.000000",
+              "timezone_type": 3,
+              "timezone": "Asia/Riyadh"
+            },
+            "customer": {
+              "id": 225167971,
+              "name": "User Name",
+              "mobile": "+977612917082",
+              "avatar": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+              "country": "السعودية",
+              "city": "الرياض"
+            },
+            "coupon": {
+              "id": 2036833834,
+              "code": "wizefriend",
+              "status": "active",
+              "type": "percentage",
+              "amount": {
+                "amount": 20,
+                "currency": "SAR"
+              },
+              "minimum_amount": {
+                "amount": 0,
+                "currency": "SAR"
+              },
+              "expiry_date": "2022-04-13 00:00:00",
+              "created_at": {
+                "date": "2022-01-24 13:47:47.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Riyadh"
+              }
+            },
+            "items": [
+              {
+                "id": 1793843311,
+                "product_id": 401511871,
+                "quantity": 2
+              }
+            ]
+          }
+        }
+      },
+      "title": "Abandoned Cart Purchased Webhook Event Model",
+      "properties": {
+        "event": {
+          "type": "string",
+          "description": "Event Name",
+          "enum": [
+            "abandoned.cart.purchased"
+          ],
+          "x-apidog-enum": [
+            {
+              "value": "abandoned.cart.purchased",
+              "name": "",
+              "description": ""
+            }
+          ]
+        },
+        "merchant": {
+          "type": "number",
+          "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)",
+          "examples": [
+            1305146709
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "description": "Event Created at Timestamp",
+          "examples": [
+            "Tue Jan 25 2022 13:00:27 GMT+0300"
+          ]
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "A unique identifier associated with a shopping cart."
+            },
+            "total": {
+              "type": "number",
+              "description": "The sum of the prices of all the items in a cart."
+            },
+            "subtotal": {
+              "type": "number",
+              "description": "The sub-total cost of items in a cart."
+            },
+            "total_discount": {
+              "type": "number",
+              "description": "Cumulative reduction in price applied to the items in a cart."
+            },
+            "status": {
+              "type": "string",
+              "description": "Abandoned Cart Status, which can be one of the allowed enum values",
+              "enum": [
+                "active",
+                "purchased"
+              ],
+              "x-apidog-enum": [
+                {
+                  "value": "active",
+                  "name": "",
+                  "description": "When the Abandoned Cart is active"
+                },
+                {
+                  "value": "purchased",
+                  "name": "",
+                  "description": "When the Abandoned Cart is purchased"
+                }
+              ]
+            },
+            "currency": {
+              "type": "string",
+              "description": "Abandoned Cart Currency value",
+              "examples": [
+                "SAR"
+              ]
+            }
+          },
+          "x-apidog-orders": [
+            "id",
+            "total",
+            "subtotal",
+            "total_discount",
+            "status",
+            "currency"
+          ]
+        }
+      },
+      "x-tags": [
+        "Store Events Webhook Model"
+      ],
+      "x-apidog-orders": [
+        "event",
+        "merchant",
+        "created_at",
+        "data"
+      ],
+      "name": "AbandonedCartPurchasedEventModel"
+    },
+    "3632422": {
+      "title": "AbandonedCartWebhook",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "A unique identifier associated with a shopping cart."
+        },
+        "total": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "Total amount"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Total currency",
+              "examples": [
+                "SAR"
+              ]
+            }
+          },
+          "x-apidog-orders": [
+            "amount",
+            "currency"
+          ],
+          "description": "The sum of the prices of all the items in a cart.",
+          "required": [
+            "amount",
+            "currency"
+          ]
+        },
+        "subtotal": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "Subtotal amount"
+            },
+            "currency": {
+              "type": "string",
+              "examples": [
+                "SAR"
+              ],
+              "description": "Subtotal currency"
+            }
+          },
+          "x-apidog-orders": [
+            "amount",
+            "currency"
+          ],
+          "description": "The sub-total cost of items in a shopping cart.",
+          "required": [
+            "amount",
+            "currency"
+          ]
+        },
+        "total_discount": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "Discount amount"
+            },
+            "currency": {
+              "type": "string",
+              "examples": [
+                "SAR"
+              ],
+              "description": "Discount currency"
+            }
+          },
+          "x-apidog-orders": [
+            "amount",
+            "currency"
+          ],
+          "description": "Cumulative reduction in price applied to the items in a cart.",
+          "required": [
+            "amount",
+            "currency"
+          ]
+        },
+        "checkout_url": {
+          "type": "string",
+          "description": "A web link or address that directs a user to a specific page or interface where they can proceed with the final steps of a purchase or transaction."
+        },
+        "age_in_minutes": {
+          "type": "number",
+          "description": "The age of cart, aka the time difference between cart's `created_at` and time now in minutes."
+        },
+        "created_at": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Timestamp to indicate the create date of the cart."
+            },
+            "timezone_type": {
+              "type": "number",
+              "description": "The classification or category of a timezone."
+            },
+            "timezone": {
+              "type": "string",
+              "description": "Timezone value."
+            }
+          },
+          "x-apidog-orders": [
+            "date",
+            "timezone_type",
+            "timezone"
+          ],
+          "required": [
+            "date",
+            "timezone_type",
+            "timezone"
+          ]
+        },
+        "updated_at": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Timestamp to indicate the update date of the cart."
+            },
+            "timezone_type": {
+              "type": "number",
+              "description": "The classification or category of a timezone."
+            },
+            "timezone": {
+              "type": "string",
+              "description": "Timezone value."
+            }
+          },
+          "x-apidog-orders": [
+            "date",
+            "timezone_type",
+            "timezone"
+          ],
+          "required": [
+            "date",
+            "timezone_type",
+            "timezone"
+          ]
+        },
+        "customer": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "A unique identifier associated with an individual or entity in a database or system."
+            },
+            "name": {
+              "type": "string",
+              "description": "The personal or business name of an individual or entity that is a customer of a company or organization."
+            },
+            "mobile": {
+              "type": "string",
+              "description": "The numerical contact information belonging to a customer that allows communication via telephone."
+            },
+            "email": {
+              "type": "string",
+              "description": "Email address of the customer used for electronic communication."
+            },
+            "avatar": {
+              "type": "string",
+              "description": "Image representing the customer, often a personal photograph or avatar."
+            },
+            "country": {
+              "type": "string",
+              "description": "The nation of origin or residence of the customer."
+            },
+            "city": {
+              "type": "string",
+              "description": "The city where the customer resides."
+            }
+          },
+          "x-apidog-orders": [
+            "id",
+            "name",
+            "mobile",
+            "email",
+            "avatar",
+            "country",
+            "city"
+          ],
+          "required": [
+            "id",
+            "name",
+            "mobile",
+            "avatar",
+            "country",
+            "city",
+            "email"
+          ]
+        },
+        "coupon": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "A unique identifier assigned to a specific coupon or discount code in an e-commerce or promotional system."
+            },
+            "code": {
+              "type": "string",
+              "description": "A specific alphanumeric sequence or combination of characters that customers can enter during the checkout process  to apply a discount, promotion, or special offer to their purchase"
+            },
+            "status": {
+              "type": "string",
+              "description": "The current condition or state of a coupon in [Salla Store](https://.salla.sa).",
+              "enum": [
+                "active",
+                "inactive",
+                "deleted"
+              ],
+              "x-apidog-enum": [
+                {
+                  "name": "",
+                  "value": "active",
+                  "description": "Coupon is active"
+                },
+                {
+                  "name": "",
+                  "value": "inactive",
+                  "description": "Coupon is inactive"
+                },
+                {
+                  "name": "",
+                  "value": "deleted",
+                  "description": "Coupon is deleted"
+                }
+              ]
+            },
+            "type": {
+              "type": "string",
+              "description": "The category or classification of a coupon, indicating the specific offer or promotion it provides."
+            },
+            "amount": {
+              "type": "number",
+              "description": "Amount value of the coupon."
+            },
+            "minimum_amount": {
+              "type": "number",
+              "description": "Minimum amount value the cart total amount should reach to get the coupon."
+            },
+            "expiry_date": {
+              "type": "string",
+              "description": "The specific date and time when a coupon becomes invalid or no longer usable",
+              "format": "date-time"
+            },
+            "created_at": {
+              "type": "string",
+              "description": "Timestamp indicating the date and time of creating the coupon.",
+              "format": "date-time"
+            },
+            "free_shipping": {
+              "type": "boolean"
+            },
+            "start_date": {
+              "type": "string",
+              "description": "The specific date and time when a coupon becomes valid ",
+              "format": "date-time"
+            }
+          },
+          "x-apidog-orders": [
+            "id",
+            "code",
+            "status",
+            "type",
+            "amount",
+            "minimum_amount",
+            "expiry_date",
+            "start_date",
+            "created_at",
+            "free_shipping"
+          ],
+          "required": [
+            "free_shipping",
+            "id",
+            "code",
+            "status",
+            "type",
+            "amount",
+            "minimum_amount",
+            "expiry_date",
+            "created_at",
+            "start_date"
+          ]
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number",
+                "description": "A unique identifier associated with each individual item added to a cart."
+              },
+              "product_id": {
+                "type": "number",
+                "description": "A unique identifier associated with a specific product."
+              },
+              "quantity": {
+                "type": "number",
+                "description": "The numerical value representing the number of units or items of a specific product that a customer has added to their cart."
+              }
+            },
+            "x-apidog-orders": [
+              "id",
+              "product_id",
+              "quantity"
+            ]
+          }
+        }
+      },
+      "x-apidog-orders": [
+        "id",
+        "total",
+        "subtotal",
+        "total_discount",
+        "checkout_url",
+        "age_in_minutes",
+        "created_at",
+        "updated_at",
+        "customer",
+        "coupon",
+        "items"
+      ],
+      "required": [
+        "id",
+        "total",
+        "subtotal",
+        "total_discount",
+        "checkout_url",
+        "age_in_minutes",
+        "created_at",
+        "updated_at",
+        "customer",
+        "coupon",
+        "items"
+      ],
+      "name": "AbandonedCartWebhook"
+    }
+  },
+  "examples": [
+    {
+      "heading": "Abandoned Cart Webhook Events Model",
+      "event": "abandoned.cart",
+      "repaired": false,
+      "payload": {
+        "event": "abandoned.cart",
+        "merchant": 1305146709,
+        "created_at": "Tue Jan 21 2025 18:00:32 GMT+0300",
+        "data": {
+          "id": 1097962121,
+          "total": {
+            "amount": 100,
+            "currency": "SAR"
+          },
+          "subtotal": {
+            "amount": 60,
+            "currency": "SAR"
+          },
+          "total_discount": {
+            "amount": 10,
+            "currency": "SAR"
+          },
+          "checkout_url": "https://salla.sa/dev-wofftr4xsra5xtlv/checkout/1097962121",
+          "age_in_minutes": 83,
+          "created_at": {
+            "date": "2025-01-21 17:09:39.000000",
+            "timezone_type": 3,
+            "timezone": "Asia/Riyadh"
+          },
+          "updated_at": {
+            "date": "2025-01-21 17:09:39.000000",
+            "timezone_type": 3,
+            "timezone": "Asia/Riyadh"
+          },
+          "customer": {
+            "id": 225167971,
+            "name": "User Name",
+            "mobile": "+977612917082",
+            "email": "customer@email.com",
+            "avatar": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+            "country": "السعودية",
+            "city": "الرياض"
+          },
+          "coupon": {
+            "id": 2036833834,
+            "code": "wizefriend",
+            "status": "active",
+            "type": "percentage",
+            "amount": 20,
+            "minimum_amount": 0,
+            "expiry_date": "2025-04-13 00:00:00",
+            "start_date": null,
+            "created_at": "Tue Jan 21 2025 17:00:00 GMT+0300",
+            "free_shipping": true
+          },
+          "items": [
+            {
+              "id": 1793843311,
+              "product_id": 401511871,
+              "quantity": 2
+            },
+            {
+              "id": 239847784,
+              "product_id": 64738276,
+              "quantity": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "heading": "Abandoned Cart Status Changed Webhook Event Model",
+      "event": "abandoned.cart.status.changed",
+      "repaired": false,
+      "payload": {
+        "event": "abandoned.cart.status.changed",
+        "merchant": 935918575,
+        "created_at": "Tue Mar 25 2025 11:59:37 GMT+0300",
+        "data": {
+          "id": 1305879817,
+          "status": "purchased"
+        }
+      }
+    },
+    {
+      "heading": "Abandoned Cart Purchased Webhook Event Model",
+      "event": "abandoned.cart.purchased",
+      "repaired": false,
+      "payload": {
+        "event": "abandoned.cart.purchased",
+        "merchant": 935918575,
+        "created_at": "Tue Mar 25 2025 11:59:37 GMT+0300",
+        "data": {
+          "id": 1305879817,
+          "status": "purchased",
+          "currency": "SAR",
+          "total": 34.99,
+          "subtotal": 30.43,
+          "total_discount": 0
+        }
+      }
+    },
+    {
+      "heading": "Coupon Applied Webhook Event Model",
+      "event": "coupon.applied",
+      "repaired": false,
+      "payload": {
+        "event": "coupon.applied",
+        "merchant": 847769313,
+        "created_at": "Wed Jan 26 2022 22:38:30 GMT+0300",
+        "data": {
+          "cart": {
+            "id": 746780865,
+            "total": {
+              "amount": 2910,
+              "currency": "SAR"
+            },
+            "subtotal": {
+              "amount": 3000,
+              "currency": "SAR"
+            },
+            "total_discount": {
+              "amount": 100,
+              "currency": "SAR"
+            },
+            "checkout_url": "https://robbama.com/checkout/746780865",
+            "age_in_minutes": 3517,
+            "created_at": {
+              "date": "2022-01-24 12:01:24.000000",
+              "timezone_type": 3,
+              "timezone": "Asia/Riyadh"
+            },
+            "updated_at": {
+              "date": "2022-01-26 22:38:30.000000",
+              "timezone_type": 3,
+              "timezone": "Asia/Riyadh"
+            },
+            "customer": {
+              "id": 1448307086,
+              "name": "Nabil Mohammed",
+              "mobile": "+251944130250",
+              "avatar": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+              "country": "السعودية",
+              "city": "جدة"
+            },
+            "coupon": {
+              "id": 2036833834,
+              "code": "wizefriend",
+              "status": "active",
+              "type": "percentage",
+              "amount": {
+                "amount": 20,
+                "currency": "SAR"
+              },
+              "minimum_amount": {
+                "amount": 0,
+                "currency": "SAR"
+              },
+              "expiry_date": "2022-04-13 00:00:00",
+              "created_at": {
+                "date": "2022-01-24 13:47:47.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Riyadh"
+              }
+            },
+            "items": [
+              {
+                "id": 2093591642,
+                "product_id": 91502809,
+                "quantity": 2
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

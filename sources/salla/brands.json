@@ -1,0 +1,280 @@
+{
+  "source_url": "https://docs.salla.dev/webhook-events/brands",
+  "fetched_at": "2026-10-26",
+  "definitions": {
+    "1307297": {
+      "description": "Detailed structure of the brand model object showing its fields and data types.",
+      "type": "object",
+      "x-examples": {
+        "Webhook V2": {
+          "value": {
+            "event": "brand.deleted",
+            "merchent": 674390266,
+            "created_at": "2021-06-02 22:17:06",
+            "data": {
+              "id": 1473353380,
+              "name": "زارا",
+              "description": "زارا",
+              "banner": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+              "logo": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+              "ar_char": "ز",
+              "en_char": "z",
+              "metadata": {
+                "title": "Zara brand",
+                "description": "Brand awareness seo",
+                "url": "zara/item"
+              }
+            }
+          }
+        },
+        "Webhook V1": {
+          "value": {
+            "id": 1473353380,
+            "name": "زارا",
+            "description": "زارا",
+            "banner": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+            "logo": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+            "ar_char": "ز",
+            "en_char": "z",
+            "metadata": {
+              "title": "Zara brand",
+              "description": "Brand awareness seo",
+              "url": "zara/item"
+            }
+          }
+        }
+      },
+      "x-tags": [
+        "Models"
+      ],
+      "title": "Brand",
+      "properties": {
+        "id": {
+          "description": "A unique identifier assigned to a specific brand.",
+          "type": "number"
+        },
+        "name": {
+          "type": "string",
+          "description": "The label given to a particular  company, to identify its products in the market. 🌐 [Support multi-language](doc-421122)"
+        },
+        "description": {
+          "type": "string",
+          "description": "A brief summary of a company, highlighting key attributes, values, and offerings to convey its identity and purpose. 🌐 [Support multi-language](doc-421122)"
+        },
+        "banner": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A text or URL linking to a banner file, used as a visual identifier for a brand on a webpage or platform."
+        },
+        "logo": {
+          "type": "string",
+          "description": "A text-based representation or URL link that directs to the logo file."
+        },
+        "ar_char": {
+          "type": "string",
+          "description": "Brand represented in Arabic characters."
+        },
+        "en_char": {
+          "type": "string",
+          "description": "Brand represented in English characters."
+        },
+        "metadata": {
+          "type": "object",
+          "x-stoplight": {
+            "id": "8d0s0tfwzpf28"
+          },
+          "properties": {
+            "title": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "A concise metadata title used to improve search engine visibility and optimize a brand page’s search ranking. 🌐 [Support multi-language](doc-421122)",
+              "x-stoplight": {
+                "id": "bwvcv90k4e5uu"
+              }
+            },
+            "description": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Concise content enhancing search visibility and social sharing.  🌐 [Support multi-language](doc-421122)",
+              "x-stoplight": {
+                "id": "idnybfvxrkyyv"
+              }
+            },
+            "url": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Web link for enhanced search engine visibility and social media sharing.  🌐 🌐 [Support multi-language](doc-421122)",
+              "x-stoplight": {
+                "id": "ztu8v1b826bp3"
+              }
+            }
+          },
+          "x-apidog-orders": [
+            "title",
+            "description",
+            "url"
+          ],
+          "required": [
+            "title",
+            "description",
+            "url"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "description": "The label given to a particular  company, to identify its products in the market. 🌐 [Support multi-language](doc-421122)"
+        },
+        "status": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Brand status"
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Brand channels"
+        }
+      },
+      "x-apidog-orders": [
+        "id",
+        "name",
+        "label",
+        "status",
+        "description",
+        "banner",
+        "logo",
+        "ar_char",
+        "en_char",
+        "channels",
+        "metadata"
+      ],
+      "required": [
+        "id",
+        "name",
+        "description",
+        "banner",
+        "logo",
+        "ar_char",
+        "en_char",
+        "metadata",
+        "status"
+      ],
+      "name": "Brand"
+    },
+    "1307422": {
+      "title": "Brands Webhook Events Model",
+      "x-stoplight": {
+        "id": "wy6fgexx041sz"
+      },
+      "type": "object",
+      "properties": {
+        "event": {
+          "type": "string",
+          "description": "Event Name",
+          "enum": [
+            "brand.created",
+            "brand.updated",
+            "brand.deleted"
+          ],
+          "x-apidog": {
+            "enumDescriptions": {
+              "brand.created": "",
+              "brand.updated": "",
+              "brand.deleted": ""
+            }
+          }
+        },
+        "merchant": {
+          "type": "number",
+          "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)"
+        },
+        "created_at": {
+          "type": "string",
+          "description": "Timestamp of the created event"
+        },
+        "data": {
+          "$ref": "#/definitions/1307297"
+        }
+      },
+      "x-examples": {
+        "Webhook V2": {
+          "event": "brand.created",
+          "merchant": 1305146709,
+          "created_at": "Tue Jan 25 2022 13:22:11 GMT+0300",
+          "data": {
+            "id": 1838214943,
+            "name": "بوما",
+            "description": "",
+            "banner": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+            "logo": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+            "ar_char": "ب",
+            "en_char": "B",
+            "metadata": {
+              "title": "Zara brand",
+              "description": "Brand awareness seo",
+              "url": "zara/item"
+            }
+          }
+        },
+        "Webhook V1": {
+          "id": 1838214943,
+          "name": "بوما",
+          "description": "",
+          "banner": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+          "logo": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+          "ar_char": "ب",
+          "en_char": "B"
+        }
+      },
+      "x-tags": [
+        "Store Events Webhook Model"
+      ],
+      "x-apidog-orders": [
+        "event",
+        "merchant",
+        "created_at",
+        "data"
+      ],
+      "name": "BrandsWebhookEventsModel"
+    }
+  },
+  "examples": [
+    {
+      "heading": "Brand Webhook Events Model",
+      "event": "brand.created",
+      "repaired": false,
+      "payload": {
+        "event": "brand.created",
+        "merchant": 596493488,
+        "created_at": "Sun Mar 24 2024 16:09:48 GMT+0300",
+        "data": {
+          "id": 190175156,
+          "name": "test1212",
+          "description": "test",
+          "banner": "https://cdn.salla.sa/image/banner1.png",
+          "logo": "https://cdn.salla.sa/image/logo1.png",
+          "status": true,
+          "ar_char": "ت",
+          "en_char": "T",
+          "metadata": {
+            "title": "1231",
+            "description": "123",
+            "url": "123"
+          }
+        }
+      }
+    }
+  ]
+}

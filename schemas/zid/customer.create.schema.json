@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "customer.create",
+  "description": "Triggered when a new customer account is created. Generated from https://docs.zid.sa/webhook-events-customer (fetched 2026-10-26).",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "examples": [
+        123
+      ]
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "examples": [
+        "john.doe@zid.sa"
+      ]
+    },
+    "telephone": {
+      "type": "string",
+      "examples": [
+        "+962785134221"
+      ]
+    },
+    "gender": {
+      "type": "string",
+      "pattern": "male / female",
+      "examples": [
+        "male"
+      ]
+    },
+    "birth_date": {
+      "type": "string",
+      "format": "date",
+      "examples": [
+        "1990-01-01"
+      ]
+    },
+    "is_active": {
+      "type": "boolean"
+    }
+  }
+}

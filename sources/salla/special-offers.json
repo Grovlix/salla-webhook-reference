@@ -1,0 +1,691 @@
+{
+  "source_url": "https://docs.salla.dev/webhook-events/special-offers",
+  "fetched_at": "2026-10-26",
+  "definitions": {
+    "1307295": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "xml": {
+        "name": "Category"
+      },
+      "x-apidog-orders": [
+        "id",
+        "name"
+      ],
+      "title": "Category",
+      "name": "Category"
+    },
+    "1307389": {
+      "description": "Detailed structure of the Product short payload model object showing its fields and data types.",
+      "type": "object",
+      "title": "ProductCard",
+      "x-tags": [
+        "Models"
+      ],
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "A unique identifier associated with a specific product."
+        },
+        "type": {
+          "type": "string",
+          "description": "The category or classification that a specific product belongs to based on its attributes, characteristics, or intended use.",
+          "enum": [
+            "product",
+            "service",
+            "group_products",
+            "codes",
+            "digital",
+            "food",
+            "donating"
+          ],
+          "x-apidog-enum": [
+            {
+              "value": "product",
+              "name": "",
+              "description": "Tangible and shippable products"
+            },
+            {
+              "value": "service",
+              "name": "",
+              "description": "Servecable products, such as design, rsearch, printing, writing etc"
+            },
+            {
+              "value": "group_products",
+              "name": "",
+              "description": "More than a product under one product"
+            },
+            {
+              "value": "codes",
+              "name": "",
+              "description": "Chargable cards (PlayStation Cards), sellable account (Netflix) etc"
+            },
+            {
+              "value": "digital",
+              "name": "",
+              "description": "Electronic books, Courses, Downloadable files etc"
+            },
+            {
+              "value": "food",
+              "name": "",
+              "description": "Food and drinks that require special shipping"
+            },
+            {
+              "value": "donating",
+              "name": "",
+              "description": "Only in case when the store is of type charity"
+            }
+          ]
+        },
+        "promotion": {
+          "type": "object",
+          "description": "Product promotion details.",
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "The name or label assigned to a specific marketing or promotional campaign, deal, or offer."
+            },
+            "sub_title": {
+              "type": "string",
+              "description": "The additional name or label assigned to a specific marketing or promotional campaign, deal, or offer. "
+            }
+          },
+          "x-apidog-orders": [
+            "title",
+            "sub_title"
+          ],
+          "required": [
+            "title",
+            "sub_title"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "description": "The product status. available values 'hidden','sale','out'."
+        },
+        "is_available": {
+          "type": "boolean",
+          "description": "Check if the product is available to order or in-stock."
+        },
+        "sku": {
+          "type": "string",
+          "description": "A unique Stock Keeping Unit (SKU) identifier assigned to a specific variant of a product."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name or title of a product."
+        },
+        "price": {
+          "type": "object",
+          "description": "Product price details",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "Product price amount"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Product price currency"
+            }
+          },
+          "x-apidog-orders": [
+            "amount",
+            "currency"
+          ]
+        },
+        "sale_price": {
+          "type": "object",
+          "description": "Product sale price details",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "Product sale price amount"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Product sale price curren"
+            }
+          },
+          "x-apidog-orders": [
+            "amount",
+            "currency"
+          ],
+          "required": [
+            "amount",
+            "currency"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "description": "Product url "
+        },
+        "has_special_price": {
+          "type": "boolean",
+          "description": "Whether or not the product has a special price"
+        },
+        "regular_price": {
+          "type": "object",
+          "description": "Product regular price details",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "Product regular price amount"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Product regular price currency"
+            }
+          },
+          "x-apidog-orders": [
+            "amount",
+            "currency"
+          ],
+          "required": [
+            "amount",
+            "currency"
+          ]
+        },
+        "currency": {
+          "type": "string",
+          "description": "The specific currency of the product price."
+        },
+        "thumbnail": {
+          "type": "string",
+          "description": "Scaled-down image or visual representation of a product."
+        },
+        "calories": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Calories amount of the product."
+        },
+        "mpn": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Manufacturer Part Number, a unique identifier assigned by a manufacturer to a specific product or component, which helps distinguish it from other similar products and facilitates inventory management, product tracking, and ordering processes."
+        },
+        "gtin": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "\"Global Trade Item Number\" (GTIN), a unique and standardized identifier used to uniquely represent products, items, or services in the global marketplace, to enable efficient tracking and management across supply chains and retail sectors."
+        },
+        "favorite": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Product marked as favorite"
+        },
+        "starting_price": {
+          "description": "Product starting price",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "x-apidog-orders": [
+        "id",
+        "type",
+        "promotion",
+        "status",
+        "is_available",
+        "sku",
+        "name",
+        "price",
+        "sale_price",
+        "url",
+        "has_special_price",
+        "regular_price",
+        "currency",
+        "thumbnail",
+        "calories",
+        "mpn",
+        "gtin",
+        "favorite",
+        "starting_price"
+      ],
+      "required": [
+        "id",
+        "type",
+        "promotion",
+        "status",
+        "is_available",
+        "sku",
+        "name",
+        "price",
+        "sale_price",
+        "url",
+        "has_special_price",
+        "regular_price",
+        "currency",
+        "thumbnail",
+        "calories",
+        "mpn",
+        "gtin",
+        "favorite",
+        "starting_price"
+      ],
+      "name": "ProductCard"
+    },
+    "11412295": {
+      "title": "Special Offer Webhook Event Model",
+      "x-stoplight": {
+        "id": "w38ot1eo6bgv7"
+      },
+      "type": "object",
+      "x-examples": {
+        "Webhook V2": {
+          "event": "specialoffer.updated",
+          "merchant": 1305146709,
+          "created_at": "Tue Jan 25 2022 13:26:20 GMT+0300",
+          "data": {
+            "id": 1649524234,
+            "name": "اشتري 1 واحصل على الاخر مجانا",
+            "message": "اشتري قطعة واحصل على قطعة واحدة مجاناً من التصنيفات التالية",
+            "expiry_date": null,
+            "offer_type": "buy_x_get_y",
+            "status": "inactive",
+            "buy": {
+              "type": "category",
+              "quantity": "1",
+              "categories": [
+                {
+                  "id": 1548056,
+                  "name": "البلايز",
+                  "avatar": "sicon-store",
+                  "created_at": "2021-11-01 16:46:06",
+                  "updated_at": "2022-01-16 15:35:55",
+                  "deleted_at": null,
+                  "store_id": 577778,
+                  "parent_id": 0,
+                  "products_counts": 3,
+                  "show_in_menu": 0,
+                  "sort_order": 2,
+                  "status": "active",
+                  "has_hidden_products": 0,
+                  "show_in_app": 1,
+                  "extra_attributes": [],
+                  "custom_url": null
+                }
+              ]
+            },
+            "get": {
+              "categories": [
+                {
+                  "id": 256950451,
+                  "name": "البلايز",
+                  "urls": {
+                    "customer": "https://salla.sa/dev-wofftr4xsra5xtlv/category/zvawao",
+                    "admin": "https://s.salla.sa/categories"
+                  },
+                  "items": [],
+                  "parent_id": 0,
+                  "status": "active",
+                  "sort_order": 2,
+                  "sub_categories": []
+                }
+              ],
+              "type": "category",
+              "discount_type": "free-product"
+            }
+          }
+        },
+        "Webhook V1": {
+          "id": 1649524234,
+          "name": "اشتري 1 واحصل على الاخر مجانا",
+          "message": "اشتري قطعة واحصل على قطعتين مجاناً من التصنيفات التالية",
+          "expiry_date": null,
+          "offer_type": "buy_x_get_y",
+          "status": "active",
+          "buy": {
+            "type": "category",
+            "quantity": "1",
+            "categories": [
+              {
+                "id": 1548056,
+                "name": "البلايز",
+                "avatar": "sicon-store",
+                "created_at": "2021-11-01 16:46:06",
+                "updated_at": "2022-01-16 15:35:55",
+                "deleted_at": null,
+                "store_id": 577778,
+                "parent_id": 0,
+                "products_counts": 3,
+                "show_in_menu": 0,
+                "sort_order": 2,
+                "status": "active",
+                "has_hidden_products": 0,
+                "show_in_app": 1,
+                "extra_attributes": [],
+                "custom_url": null
+              }
+            ]
+          },
+          "get": {
+            "categories": [
+              {
+                "id": 256950451,
+                "name": "البلايز",
+                "urls": {
+                  "customer": "https://salla.sa/dev-wofftr4xsra5xtlv/category/zvawao",
+                  "admin": "https://s.salla.sa/categories"
+                },
+                "items": [],
+                "parent_id": 0,
+                "status": "active",
+                "sort_order": 2,
+                "sub_categories": []
+              }
+            ],
+            "type": "category",
+            "discount_type": "free-product"
+          }
+        }
+      },
+      "x-tags": [
+        "Store Events Webhook Model"
+      ],
+      "properties": {
+        "event": {
+          "type": "string",
+          "description": "a label or title used to identify a specific event.",
+          "enum": [
+            "specialoffer.created",
+            "specialoffer.updated"
+          ]
+        },
+        "merchant": {
+          "type": "number",
+          "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)",
+          "examples": [
+            814202285
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "description": "The date and time when a particular Webhook was created or initiated.",
+          "examples": [
+            "Tue Aug 03 2021 09:30:16 GMT+0300"
+          ]
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "A unique identifier assigned to the special offer id. ",
+              "examples": [
+                525144736
+              ]
+            },
+            "name": {
+              "type": "string",
+              "description": "A label or title used to identify the special offer. ",
+              "examples": [
+                "fixed amount specialoffer"
+              ]
+            },
+            "message": {
+              "type": "string",
+              "description": "A promotional message or notification that communicates a specific deal, discount, promotion, or incentive to customers. ",
+              "examples": [
+                "اشتري قطعة واحصل على خصم 10 ر.س من المنتجات التالية"
+              ]
+            },
+            "expiry_date": {
+              "type": "string",
+              "description": "The date on which a promotional or discount offer is set to expire or become no longer valid. ",
+              "examples": [
+                "2021-08-09"
+              ]
+            },
+            "offer_type": {
+              "type": "string",
+              "description": "The category or classification of a specific promotion, discount, or incentive within a marketing or sales context.",
+              "examples": [
+                "fixed_amount"
+              ],
+              "enum": [
+                "fixed_amount",
+                "buy_x_get_y",
+                "percentage"
+              ],
+              "x-apidog-enum": [
+                {
+                  "name": "",
+                  "value": "fixed_amount",
+                  "description": ""
+                },
+                {
+                  "name": "",
+                  "value": "buy_x_get_y",
+                  "description": ""
+                },
+                {
+                  "name": "",
+                  "value": "percentage",
+                  "description": ""
+                }
+              ]
+            },
+            "status": {
+              "type": "string",
+              "description": "The current condition or state of a promotional offer. ",
+              "examples": [
+                "active"
+              ]
+            },
+            "applied_to": {
+              "type": "string",
+              "description": "The way a promotional or discount offer is implemented to or used.",
+              "examples": [
+                "order"
+              ]
+            },
+            "buy": {
+              "type": "object",
+              "properties": {
+                "min_amount": {
+                  "type": "string",
+                  "description": "Minimum amount of purchase to entitle for the special offer. \r\n",
+                  "examples": [
+                    "100"
+                  ]
+                },
+                "min_items": {
+                  "type": "number",
+                  "description": "Minimum items to be purchaseed to entitle for the special offer. \r\n",
+                  "examples": [
+                    0
+                  ]
+                },
+                "categories": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/1307295"
+                  },
+                  "description": "Contains all categories details that are included in the offer"
+                },
+                "products": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/1307389"
+                  },
+                  "description": "Contains all products details that are included in the offer"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "The type of the offer in `buy` section in case of `buy_x_get_y`"
+                }
+              },
+              "x-apidog-orders": [
+                "type",
+                "min_amount",
+                "min_items",
+                "categories",
+                "products"
+              ]
+            },
+            "get": {
+              "type": "object",
+              "properties": {
+                "discount_amount": {
+                  "type": "string",
+                  "description": "Discount amount value.",
+                  "examples": [
+                    "10"
+                  ]
+                },
+                "type": {
+                  "type": "string",
+                  "examples": [
+                    "products",
+                    "category",
+                    "product"
+                  ],
+                  "description": "The type of the offer in `get` section in case of `buy_x_get_y`"
+                },
+                "categories": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/1307295"
+                  },
+                  "description": "Contains all categories details that are included in the offer"
+                },
+                "products": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/1307389"
+                  },
+                  "description": "Contains all products details that are included in the offer"
+                },
+                "discount_type": {
+                  "type": "string",
+                  "description": "Discount type of the `get` sectin",
+                  "enum": [
+                    "fixed",
+                    "percentage"
+                  ],
+                  "x-apidog-enum": [
+                    {
+                      "name": "",
+                      "value": "fixed",
+                      "description": ""
+                    },
+                    {
+                      "name": "",
+                      "value": "percentage",
+                      "description": ""
+                    }
+                  ]
+                }
+              },
+              "x-apidog-orders": [
+                "discount_amount",
+                "discount_type",
+                "type",
+                "categories",
+                "products"
+              ]
+            }
+          },
+          "x-apidog-orders": [
+            "id",
+            "name",
+            "message",
+            "expiry_date",
+            "offer_type",
+            "status",
+            "applied_to",
+            "buy",
+            "get"
+          ]
+        }
+      },
+      "x-apidog-orders": [
+        "event",
+        "merchant",
+        "created_at",
+        "data"
+      ],
+      "name": "Special Offer Webhook Event Model "
+    }
+  },
+  "examples": [
+    {
+      "heading": "Special Offer Webhook Events Model",
+      "event": "specialoffer.updated",
+      "repaired": false,
+      "payload": {
+        "event": "specialoffer.updated",
+        "merchant": 1305146709,
+        "created_at": "Tue Jan 25 2022 13:26:20 GMT+0300",
+        "data": {
+          "id": 1649524234,
+          "name": "اشتري 1 واحصل على الاخر مجانا",
+          "message": "اشتري قطعة واحصل على قطعة واحدة مجاناً من التصنيفات التالية",
+          "expiry_date": null,
+          "offer_type": "buy_x_get_y",
+          "status": "inactive",
+          "buy": {
+            "type": "category",
+            "quantity": "1",
+            "categories": [
+              {
+                "id": 1548056,
+                "name": "البلايز",
+                "avatar": "sicon-store",
+                "created_at": "2021-11-01 16:46:06",
+                "updated_at": "2022-01-16 15:35:55",
+                "deleted_at": null,
+                "store_id": 577778,
+                "parent_id": 0,
+                "products_counts": 3,
+                "show_in_menu": 0,
+                "sort_order": 2,
+                "status": "active",
+                "has_hidden_products": 0,
+                "show_in_app": 1,
+                "extra_attributes": [],
+                "custom_url": null
+              }
+            ]
+          },
+          "get": {
+            "categories": [
+              {
+                "id": 256950451,
+                "name": "البلايز",
+                "urls": {
+                  "customer": "https://salla.sa/dev-wofftr4xsra5xtlv/category/zvawao",
+                  "admin": "https://s.salla.sa/categories"
+                },
+                "items": [],
+                "parent_id": 0,
+                "status": "active",
+                "sort_order": 2,
+                "sub_categories": []
+              }
+            ],
+            "type": "category",
+            "discount_type": "free-product"
+          }
+        }
+      }
+    }
+  ]
+}

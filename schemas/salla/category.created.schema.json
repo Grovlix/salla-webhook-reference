@@ -1,0 +1,237 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "category.created",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "event": {
+      "type": "string",
+      "description": "Event Name",
+      "enum": [
+        "category.created",
+        "category.updated"
+      ]
+    },
+    "merchant": {
+      "type": "number",
+      "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID using the endpoint [here](https://docs.salla.dev/api-8330089)"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Timestamp of the created event"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "Category ID"
+        },
+        "urls": {
+          "type": "object",
+          "properties": {
+            "customer": {
+              "type": "string",
+              "description": "Customer URL"
+            },
+            "admin": {
+              "type": "string",
+              "description": "Admin URL"
+            }
+          },
+          "description": "URLs related to the category for different interfaces"
+        },
+        "parent_id": {
+          "type": "number",
+          "description": "Category Parent ID"
+        },
+        "status": {
+          "type": "string",
+          "description": "The status of the category, whether or not it is `active` or `hidden`",
+          "enum": [
+            "active",
+            "hidden"
+          ]
+        },
+        "sort_order": {
+          "type": "number",
+          "description": "Sort Order number"
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "Category SEO Metadata Title"
+            },
+            "description": {
+              "type": "string",
+              "description": "Category SEO Metadata Description"
+            },
+            "url": {
+              "type": "string",
+              "description": "Category SEO Metadata URL"
+            }
+          },
+          "description": "SEO metadata information for the category"
+        },
+        "update_at": {
+          "type": "string",
+          "examples": [
+            "2024-03-25 13:28:13"
+          ],
+          "description": "Category last updated date."
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number",
+                "description": "Subcategory ID"
+              },
+              "image": {
+                "type": "string",
+                "description": "Subcategory image url"
+              },
+              "urls": {
+                "type": "object",
+                "properties": {
+                  "customer": {
+                    "type": "string",
+                    "description": "Customer URL"
+                  },
+                  "admin": {
+                    "type": "string",
+                    "description": "Admin URL"
+                  }
+                },
+                "description": "URLs related to the subcategory for different interfaces"
+              },
+              "parent_id": {
+                "type": "number",
+                "description": "Subcategory parent ID"
+              },
+              "sort_order": {
+                "type": "number",
+                "description": "Sort Order number"
+              },
+              "status": {
+                "type": "string",
+                "description": "The status of the subcategory, whether or not it is `active` or `hidden`"
+              },
+              "show_in": {
+                "type": "object",
+                "properties": {
+                  "app": {
+                    "type": "boolean",
+                    "description": "Whether the subcategory should be displayed in the mobile app"
+                  },
+                  "salla_points": {
+                    "type": "boolean",
+                    "description": "Whether the subcategory should be displayed in Salla Points system"
+                  }
+                },
+                "description": "Visibility settings for where the subcategory should be displayed"
+              },
+              "has_hidden_products": {
+                "type": "boolean",
+                "description": "Indicates whether this subcategory contains any hidden products"
+              },
+              "update_at": {
+                "type": "string",
+                "description": "Subcategory last updated date."
+              },
+              "metadata": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "Subcategory SEO Metadata Title"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Subcategory SEO Metadata Description"
+                  },
+                  "url": {
+                    "type": "string",
+                    "description": "Subcategory SEO Metadata URL"
+                  }
+                },
+                "description": "SEO metadata information for the subcategory"
+              }
+            }
+          },
+          "description": "Array of subcategories"
+        },
+        "image": {
+          "type": "string",
+          "description": "Category image url"
+        },
+        "show_in": {
+          "type": "object",
+          "properties": {
+            "app": {
+              "type": "boolean",
+              "description": "Whether the category should be displayed in the mobile app"
+            },
+            "salla_points": {
+              "type": "boolean",
+              "description": "Whether the category should be displayed in Salla Points system"
+            }
+          },
+          "description": "Visibility settings for where the category should be displayed"
+        },
+        "has_hidden_products": {
+          "type": "boolean",
+          "description": "Indicates whether this category contains any hidden products"
+        }
+      },
+      "description": "Category data object containing all the category information"
+    }
+  },
+  "examples": [
+    {
+      "event": "category.updated",
+      "merchant": 1305146709,
+      "created_at": "Tue Jan 25 2022 13:20:37 GMT+0300",
+      "data": {
+        "id": 386705693,
+        "name": "رقمية",
+        "urls": {
+          "customer": "https://salla.sa/dev-wofftr4xsra5xtlv/category/ondDoR",
+          "admin": "https://s.salla.sa/categories"
+        },
+        "items": [],
+        "parent_id": 0,
+        "status": "hidden",
+        "sort_order": 4,
+        "sub_categories": [],
+        "metadata": {
+          "title": "Dress",
+          "description": "Amazing Dress",
+          "url": "https://dress.com"
+        }
+      }
+    },
+    {
+      "id": 386705693,
+      "name": "رقمية",
+      "urls": {
+        "customer": "https://salla.sa/dev-wofftr4xsra5xtlv/category/ondDoR",
+        "admin": "https://s.salla.sa/categories"
+      },
+      "items": [],
+      "parent_id": 0,
+      "status": "hidden",
+      "sort_order": 4,
+      "sub_categories": [],
+      "metadata": {
+        "title": "Dress",
+        "description": "Amazing Dress",
+        "url": "https://dress.com"
+      }
+    }
+  ]
+}

@@ -1,0 +1,383 @@
+{
+  "source_url": "https://docs.salla.dev/webhook-events/customer-wallet",
+  "fetched_at": "2026-10-26",
+  "definitions": {
+    "16223956": {
+      "type": "object",
+      "properties": {
+        "transaction_type": {
+          "type": "string",
+          "description": "Whether the wallet balance was added or deducted.",
+          "enum": [
+            "withdraw",
+            "deposit"
+          ],
+          "x-apidog-enum": [
+            {
+              "value": "withdraw",
+              "name": "Withdraw",
+              "description": "Deducts funds from the wallet."
+            },
+            {
+              "value": "deposit",
+              "name": "Deposit",
+              "description": "Adds funds to the wallet."
+            }
+          ]
+        },
+        "amount": {
+          "type": "integer",
+          "description": "Transaction amount."
+        },
+        "action_type": {
+          "type": "string",
+          "description": "Reason for the wallet transaction.",
+          "enum": [
+            "partner_api",
+            "refund",
+            "merchant_manual_entry",
+            "withdraw_balance",
+            "cashback",
+            "purchase_by_wallet",
+            "expiry_deduction"
+          ],
+          "x-apidog-enum": [
+            {
+              "value": "partner_api",
+              "name": "Partner API",
+              "description": "Created through the Partner API."
+            },
+            {
+              "value": "refund",
+              "name": "Refund",
+              "description": "Refunded to the wallet."
+            },
+            {
+              "value": "merchant_manual_entry",
+              "name": "Manual Entry",
+              "description": "Added manually by the merchant."
+            },
+            {
+              "value": "withdraw_balance",
+              "name": "Withdraw Balance",
+              "description": "Withdrawn from the wallet."
+            },
+            {
+              "value": "cashback",
+              "name": "Cashback",
+              "description": "Cashback reward."
+            },
+            {
+              "value": "purchase_by_wallet",
+              "name": "Wallet Purchase",
+              "description": "Used to pay for an order."
+            },
+            {
+              "value": "expiry_deduction",
+              "name": "Expiry Deduction",
+              "description": "Deducted after expiration."
+            }
+          ]
+        },
+        "created_at": {
+          "type": "object",
+          "description": "Transaction creation date and timezone.",
+          "properties": {
+            "date": {
+              "type": "string",
+              "description": "Creation date."
+            },
+            "timezone_type": {
+              "type": "integer",
+              "description": "Timezone format."
+            },
+            "timezone": {
+              "type": "string",
+              "description": "Timezone name."
+            }
+          },
+          "x-apidog-orders": [
+            "date",
+            "timezone_type",
+            "timezone"
+          ]
+        },
+        "expiry_at": {
+          "type": "string",
+          "description": "Expiration date, if applicable."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Additional transaction notes."
+        },
+        "customer": {
+          "type": "object",
+          "description": "Customer associated with the transaction.",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "Customer unique identification number."
+            },
+            "name": {
+              "type": "string",
+              "description": "Customer name."
+            },
+            "mobile": {
+              "type": "string",
+              "description": "Customer mobile number."
+            },
+            "email": {
+              "type": "string",
+              "description": "Customer email."
+            },
+            "avatar": {
+              "type": "string",
+              "description": "Customer avatar URL."
+            },
+            "country": {
+              "type": "string",
+              "description": "Customer country."
+            },
+            "city": {
+              "type": "string",
+              "description": "Customer city."
+            }
+          },
+          "x-apidog-orders": [
+            "id",
+            "name",
+            "mobile",
+            "email",
+            "avatar",
+            "country",
+            "city"
+          ]
+        }
+      },
+      "x-apidog-orders": [
+        "transaction_type",
+        "amount",
+        "action_type",
+        "created_at",
+        "expiry_at",
+        "notes",
+        "customer"
+      ],
+      "title": "CustomerWalletWebhook",
+      "name": "CustomerWalletWebhook"
+    },
+    "16223997": {
+      "description": "",
+      "type": "object",
+      "x-examples": {
+        "Webhook V2": {
+          "event": "abandoned.cart",
+          "merchant": 1305146709,
+          "created_at": "Tue Jan 25 2022 13:00:27 GMT+0300",
+          "data": {
+            "id": 1097962121,
+            "total": {
+              "amount": 80.5,
+              "currency": "SAR"
+            },
+            "subtotal": {
+              "amount": 70,
+              "currency": "SAR"
+            },
+            "total_discount": {
+              "amount": 0,
+              "currency": "SAR"
+            },
+            "checkout_url": "https://salla.sa/dev-wofftr4xsra5xtlv/checkout/1097962121",
+            "age_in_minutes": 83,
+            "created_at": {
+              "date": "2022-01-25 11:37:24.000000",
+              "timezone_type": 3,
+              "timezone": "Asia/Riyadh"
+            },
+            "updated_at": {
+              "date": "2022-01-25 11:37:24.000000",
+              "timezone_type": 3,
+              "timezone": "Asia/Riyadh"
+            },
+            "customer": {
+              "id": 225167971,
+              "name": "User Name",
+              "mobile": "+977612917082",
+              "avatar": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+              "country": "السعودية",
+              "city": "الرياض"
+            },
+            "coupon": {
+              "id": 2036833834,
+              "code": "wizefriend",
+              "status": "active",
+              "type": "percentage",
+              "amount": {
+                "amount": 20,
+                "currency": "SAR"
+              },
+              "minimum_amount": {
+                "amount": 0,
+                "currency": "SAR"
+              },
+              "expiry_date": "2022-04-13 00:00:00",
+              "created_at": {
+                "date": "2022-01-24 13:47:47.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Riyadh"
+              }
+            },
+            "items": [
+              {
+                "id": 1793843311,
+                "product_id": 401511871,
+                "quantity": 2
+              }
+            ]
+          }
+        },
+        "Webhook V1": {
+          "id": 1097962121,
+          "total": {
+            "amount": 80.5,
+            "currency": "SAR"
+          },
+          "subtotal": {
+            "amount": 70,
+            "currency": "SAR"
+          },
+          "total_discount": {
+            "amount": 0,
+            "currency": "SAR"
+          },
+          "checkout_url": "https://salla.sa/dev-wofftr4xsra5xtlv/checkout/1097962121",
+          "age_in_minutes": 83,
+          "created_at": {
+            "date": "2022-01-25 11:37:24.000000",
+            "timezone_type": 3,
+            "timezone": "Asia/Riyadh"
+          },
+          "updated_at": {
+            "date": "2022-01-25 11:37:24.000000",
+            "timezone_type": 3,
+            "timezone": "Asia/Riyadh"
+          },
+          "customer": {
+            "id": 225167971,
+            "name": "User Name",
+            "mobile": "+977612917082",
+            "avatar": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+            "country": "السعودية",
+            "city": "الرياض"
+          },
+          "coupon": {
+            "id": 2036833834,
+            "code": "wizefriend",
+            "status": "active",
+            "type": "percentage",
+            "amount": {
+              "amount": 20,
+              "currency": "SAR"
+            },
+            "minimum_amount": {
+              "amount": 0,
+              "currency": "SAR"
+            },
+            "expiry_date": "2022-04-13 00:00:00",
+            "created_at": {
+              "date": "2022-01-24 13:47:47.000000",
+              "timezone_type": 3,
+              "timezone": "Asia/Riyadh"
+            }
+          },
+          "items": [
+            {
+              "id": 1793843311,
+              "product_id": 401511871,
+              "quantity": 2
+            }
+          ]
+        }
+      },
+      "title": "Customer Wallet Webhook Event Model",
+      "properties": {
+        "event": {
+          "type": "string",
+          "description": "Event Name",
+          "title": "",
+          "enum": [
+            "wallet.action"
+          ],
+          "x-apidog-enum": [
+            {
+              "value": "wallet.action",
+              "name": "Wallet Action",
+              "description": ""
+            }
+          ]
+        },
+        "merchant": {
+          "type": "number",
+          "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)",
+          "examples": [
+            1305146709
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "description": "Timestamp of webhook creation",
+          "examples": [
+            "Tue Jan 25 2022 13:00:27 GMT+0300"
+          ]
+        },
+        "data": {
+          "$ref": "#/definitions/16223956"
+        }
+      },
+      "x-tags": [
+        "Store Events Webhook Model"
+      ],
+      "x-apidog-orders": [
+        "event",
+        "merchant",
+        "created_at",
+        "data"
+      ],
+      "name": "CustomerWalletWebhookEventModel"
+    }
+  },
+  "examples": [
+    {
+      "heading": "Customer Wallet Webhook Events Model",
+      "event": "wallet.action",
+      "repaired": true,
+      "payload": {
+        "event": "wallet.action",
+        "merchant": 1540043194,
+        "created_at": "Thu Jul 02 2026 16:04:49 GMT+0300",
+        "data": {
+          "transaction_type": "withdraw",
+          "amount": 20,
+          "action_type": "merchant_manual_entry",
+          "created_at": {
+            "date": "2026-07-02 16:04:47.505700",
+            "timezone_type": 3,
+            "timezone": "Asia/Riyadh"
+          },
+          "expiry_at": null,
+          "notes": "deduct note",
+          "customer": {
+            "id": 1736803527,
+            "name": "Mohammad Atamimi",
+            "mobile": "+966511231233",
+            "email": "customer@customer.com",
+            "avatar": "https://cdn.assets.salla.network/beta/admin/026ee41957390da30791147a05da80c6/cp/assets/images/avatar_male.png",
+            "country": "Saudi Arabia",
+            "city": "الرياض"
+          }
+        }
+      }
+    }
+  ]
+}

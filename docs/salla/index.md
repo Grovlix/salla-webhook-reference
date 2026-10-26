@@ -1,195 +1,165 @@
-# Salla Webhooks Documentation
-# دليل Webhooks الخاص بسلة
-
-## Overview (نظرة عامة)
-
-**English:** Salla webhooks enable real-time notifications for events occurring in your Salla store. This documentation covers all available webhook events, their payloads, and implementation examples.
-
-**العربية:** تمكنك Webhooks الخاصة بسلة من الحصول على إشعارات فورية للأحداث التي تحدث في متجرك. يغطي هذا الدليل جميع أحداث Webhook المتاحة وحمولاتها وأمثلة التنفيذ.
-
-## Table of Contents (فهرس المحتويات)
-
-### [Order Events (أحداث الطلبات)](order/)
-- [order.created - طلب جديد](order/order.created.md)
-- [order.updated - تحديث الطلب](order/order.updated.md)
-- [order.status.updated - تغيير حالة الطلب](order/order.status.updated.md)
-- [order.returned - استرجاع طلب](order/order.returned.md)
-- [order.cancelled - إلغاء طلب](order/order.cancelled.md)
-
-### [Product Events (أحداث المنتجات)](product/)
-- [product.created - إنشاء منتج](product/product.created.md)
-- [product.updated - تحديث منتج](product/product.updated.md)
-- [product.deleted - حذف منتج](product/product.deleted.md)
-- [product.price.updated - تغيير سعر المنتج](product/product.price.updated.md)
-- [product.quantity.updated - تحديث المخزون](product/product.quantity.updated.md)
-- [product.hidden - إخفاء المنتج](product/product.hidden.md)
-- [product.visible - إظهار المنتج](product/product.visible.md)
-
-### [Customer Events (أحداث العملاء)](customer/)
-- [customer.created - إنشاء عميل](customer/customer.created.md)
-- [customer.updated - تحديث عميل](customer/customer.updated.md)
-- [customer.deleted - حذف عميل](customer/customer.deleted.md)
-- [customer.login - تسجيل دخول العميل](customer/customer.login.md)
-
-### [Cart Events (أحداث السلة)](cart/)
-- [cart.abandoned - سلة متروكة](cart/cart.abandoned.md)
-- [cart.updated - تحديث السلة](cart/cart.updated.md)
-- [cart.completed - إتمام السلة](cart/cart.completed.md)
-
-### [Shipment Events (أحداث الشحن)](shipment/)
-- [shipment.created - إنشاء شحنة](shipment/shipment.created.md)
-- [shipment.updated - تحديث الشحنة](shipment/shipment.updated.md)
-- [shipment.in_delivery - شحنة قيد التوصيل](shipment/shipment.in_delivery.md)
-- [shipment.delivered - تم التسليم](shipment/shipment.delivered.md)
-- [shipment.failed - فشل التسليم](shipment/shipment.failed.md)
-- [shipment.cancelled - إلغاء الشحنة](shipment/shipment.cancelled.md)
-- [shipment.returned - إرجاع الشحنة](shipment/shipment.returned.md)
-
-### [Invoice Events (أحداث الفواتير)](invoice/)
-- [invoice.created - إنشاء فاتورة](invoice/invoice.created.md)
-- [invoice.updated - تحديث الفاتورة](invoice/invoice.updated.md)
-- [invoice.sent - إرسال الفاتورة](invoice/invoice.sent.md)
-- [invoice.paid - دفع الفاتورة](invoice/invoice.paid.md)
-- [invoice.cancelled - إلغاء الفاتورة](invoice/invoice.cancelled.md)
-
-### [Payment Events (أحداث الدفع)](payment/)
-- [payment.paid - دفع ناجح](payment/payment.paid.md)
-- [payment.failed - فشل الدفع](payment/payment.failed.md)
-- [payment.refunded - استرداد الدفع](payment/payment.refunded.md)
-- [payment.partially_refunded - استرداد جزئي](payment/payment.partially_refunded.md)
-
-### [Coupon Events (أحداث القسائم)](coupon/)
-- [coupon.applied - تطبيق قسيمة](coupon/coupon.applied.md)
-- [coupon.created - إنشاء قسيمة](coupon/coupon.created.md)
-- [coupon.updated - تحديث قسيمة](coupon/coupon.updated.md)
-- [coupon.deleted - حذف قسيمة](coupon/coupon.deleted.md)
-
-### [Special Offer Events (أحداث العروض الخاصة)](special-offer/)
-- [special_offer.created - إنشاء عرض خاص](special-offer/special_offer.created.md)
-- [special_offer.updated - تحديث عرض خاص](special-offer/special_offer.updated.md)
-- [special_offer.activated - تفعيل عرض خاص](special-offer/special_offer.activated.md)
-- [special_offer.deactivated - إيقاف عرض خاص](special-offer/special_offer.deactivated.md)
-- [special_offer.deleted - حذف عرض خاص](special-offer/special_offer.deleted.md)
-
-### [Store Events (أحداث المتجر)](store/)
-- [store.updated - تحديث المتجر](store/store.updated.md)
-- [store.app.installed - تثبيت تطبيق](store/store.app.installed.md)
-- [store.app.uninstalled - إلغاء تثبيت تطبيق](store/store.app.uninstalled.md)
-- [store.settings.updated - تحديث إعدادات المتجر](store/store.settings.updated.md)
-
-### [Branch Events (أحداث الفروع)](branch/)
-- [branch.created - إنشاء فرع](branch/branch.created.md)
-- [branch.updated - تحديث الفرع](branch/branch.updated.md)
-- [branch.deleted - حذف فرع](branch/branch.deleted.md)
-
-### [Category Events (أحداث الفئات)](category/)
-- [category.created - إنشاء فئة](category/category.created.md)
-- [category.updated - تحديث فئة](category/category.updated.md)
-- [category.deleted - حذف فئة](category/category.deleted.md)
-
-### [Review Events (أحداث التقييمات)](review/)
-- [review.created - تقييم جديد](review/review.created.md)
-- [review.updated - تحديث التقييم](review/review.updated.md)
-
-### [Communication Events (أحداث التواصل)](communication/)
-- [message.received - رسالة جديدة](communication/message.received.md)
-- [message.replied - رد على الرسالة](communication/message.replied.md)
-- [cart.reminder.sent - تذكير بالسلة](communication/cart.reminder.sent.md)
-
-### [Ticket Events (أحداث التذاكر)](ticket/)
-- [ticket.created - إنشاء تذكرة](ticket/ticket.created.md)
-- [ticket.updated - تحديث التذكرة](ticket/ticket.updated.md)
-- [ticket.closed - إغلاق التذكرة](ticket/ticket.closed.md)
-
-### [Brand Events (أحداث العلامات التجارية)](brand/)
-- [brand.created - إنشاء علامة تجارية](brand/brand.created.md)
-- [brand.updated - تحديث العلامة التجارية](brand/brand.updated.md)
-- [brand.deleted - حذف العلامة التجارية](brand/brand.deleted.md)
-
-## Authentication & Security (المصادقة والأمان)
-
-### Signature Verification (التحقق من التوقيع)
-
-**English:** Salla uses HMAC SHA256 for webhook signature verification. The signature is sent in the `X-Salla-Signature` header.
-
-**العربية:** تستخدم سالة HMAC SHA256 للتحقق من توقيع Webhook. يتم إرسال التوقيع في الترويسة `X-Salla-Signature`.
-
-### Headers (الترويسات)
-
-| Header (الترويسة) | Description (الوصف) | Example (مثال) |
-|-------------------|---------------------|----------------|
-| `Content-Type` | نوع البيانات | `application/json` |
-| `X-Salla-Signature` | توقيع HMAC للتحقق | `sha256=...` |
-| `X-Salla-Event` | نوع الحدث | `order.created` |
-| `X-Salla-Delivery` | معرف التسليم الفريد | `unique-delivery-id` |
-| `X-Salla-Store-ID` | معرف المتجر | `123456789` |
-
-## Quick Start (البدء السريع)
-
-### PHP Example (مثال PHP)
-
-```php
-<?php
-function verifySallaWebhook($payload, $signature, $secret) {
-    $expectedSignature = 'sha256=' . hash_hmac('sha256', json_encode($payload), $secret);
-    return hash_equals($expectedSignature, $signature);
-}
-
-$payload = json_decode(file_get_contents('php://input'), true);
-$signature = $_SERVER['HTTP_X_SALLA_SIGNATURE'] ?? '';
-$secret = 'your-webhook-secret';
-
-if (verifySallaWebhook($payload, $signature, $secret)) {
-    $event = $_SERVER['HTTP_X_SALLA_EVENT'] ?? '';
-    // معالجة الحدث
-    http_response_code(200);
-    echo json_encode(['received' => true]);
-} else {
-    http_response_code(403);
-    echo 'Invalid signature';
-}
-```
-
-### JavaScript Example (مثال JavaScript)
-
-```javascript
-const crypto = require('crypto');
-
-function verifySallaWebhook(payload, signature, secret) {
-    const hmac = crypto.createHmac('sha256', secret);
-    const digest = hmac.update(JSON.stringify(payload)).digest('hex');
-    const expectedSignature = `sha256=${digest}`;
-    return crypto.timingSafeEqual(
-        Buffer.from(signature),
-        Buffer.from(expectedSignature)
-    );
-}
-
-// Express.js example
-app.post('/webhook', (req, res) => {
-    const signature = req.headers['x-salla-signature'];
-    const secret = process.env.WEBHOOK_SECRET;
-
-    if (verifySallaWebhook(req.body, signature, secret)) {
-        const event = req.headers['x-salla-event'];
-        // Process webhook
-        res.status(200).json({ received: true });
-    } else {
-        res.status(403).send('Invalid signature');
-    }
-});
-```
-
-## Official Resources (الموارد الرسمية)
-
-| Resource (المورد) | URL |
-|-------------------|-----|
-| Salla Developer Portal | https://docs.salla.dev |
-| Webhooks Overview | https://docs.salla.dev/merchant-api/webhooks |
-| List Events | https://docs.salla.dev/merchant-api/webhooks/list-events |
-| Developer Support | support@salla.dev |
-
+---
+title: Salla webhook events
 ---
 
-*Last Updated: مارس 2026*
-*آخر تحديث: مارس 2026*
+# Salla webhook events
+
+<p dir="rtl" lang="ar">جميع أحداث الويب هوك في سلة</p>
+
+81 events, taken from Salla's [official documentation](https://docs.salla.dev/doc-421119). Each page shows the official example payload, the field list from Salla's schema, and a JSON Schema you can validate against.
+
+## Order | الطلبات
+
+| Event | Description | الوصف |
+| --- | --- | --- |
+| [`order.created`](./orders/order.created.md) | Triggered when an order is created. | يُرسل عند إنشاء طلب جديد. |
+| [`order.updated`](./orders/order.updated.md) | Triggered when an order is updated. | يُرسل عند تحديث بيانات طلب. |
+| [`order.status.updated`](./orders/order.status.updated.md) | Triggered when an order's status changes. | يُرسل عند تغيّر حالة الطلب. |
+| [`order.cancelled`](./orders/order.cancelled.md) | Triggered when an order is cancelled. | يُرسل عند إلغاء طلب. |
+| [`order.refunded`](./orders/order.refunded.md) | Triggered when an order is refunded. | يُرسل عند استرداد مبلغ الطلب. |
+| [`order.deleted`](./orders/order.deleted.md) | Triggered when an order is deleted. | يُرسل عند حذف طلب. |
+| [`order.products.updated`](./orders/order.products.updated.md) | Triggered when the products in an order are updated. | يُرسل عند تعديل منتجات الطلب. |
+| [`order.payment.updated`](./orders/order.payment.updated.md) | Triggered when an order's payment is updated. | يُرسل عند تحديث بيانات الدفع للطلب. |
+| [`order.coupon.updated`](./orders/order.coupon.updated.md) | Triggered when the coupon on an order is updated. | يُرسل عند تعديل الكوبون المطبّق على الطلب. |
+| [`order.total.price.updated`](./orders/order.total.price.updated.md) | Triggered when an order's total price is updated. | يُرسل عند تغيّر إجمالي سعر الطلب. |
+| [`order.shipping.address.updated`](./orders/order.shipping.address.updated.md) | Triggered when an order's shipping address is updated. | يُرسل عند تعديل عنوان الشحن للطلب. |
+| [`order.customer.updated`](./orders/order.customer.updated.md) | Triggered when the customer on an order is updated. | يُرسل عند تعديل بيانات العميل في الطلب. |
+| [`order.shipment.creating`](./orders/order.shipment.creating.md) | Triggered while an order shipment is being created. | يُرسل أثناء إنشاء شحنة للطلب. |
+| [`order.shipment.created`](./orders/order.shipment.created.md) | Triggered when an order shipment is created. | يُرسل بعد إنشاء شحنة للطلب. |
+| [`order.shipment.cancelled`](./orders/order.shipment.cancelled.md) | Triggered when an order shipment is cancelled. | يُرسل عند إلغاء شحنة الطلب. |
+| [`order.shipment.return.creating`](./orders/order.shipment.return.creating.md) | Triggered while an order return shipment is being created. | يُرسل أثناء إنشاء شحنة إرجاع للطلب. |
+| [`order.shipment.return.created`](./orders/order.shipment.return.created.md) | Triggered when an order return shipment is created. | يُرسل بعد إنشاء شحنة إرجاع للطلب. |
+| [`order.shipment.return.cancelled`](./orders/order.shipment.return.cancelled.md) | Triggered when an order return shipment is cancelled. | يُرسل عند إلغاء شحنة إرجاع الطلب. |
+
+## Product | المنتجات
+
+| Event | Description | الوصف |
+| --- | --- | --- |
+| [`product.created`](./products/product.created.md) | Triggered when a product is created. | يُرسل عند إضافة منتج جديد. |
+| [`product.updated`](./products/product.updated.md) (deprecated) | Triggered when a product is updated. | يُرسل عند تحديث منتج. |
+| [`product.deleted`](./products/product.deleted.md) | Triggered when a product is deleted. | يُرسل عند حذف منتج. |
+| [`product.available`](./products/product.available.md) (deprecated) | Triggered when a product comes back in stock. | يُرسل عند توفّر المنتج في المخزون من جديد. |
+| [`product.quantity.low`](./products/product.quantity.low.md) | Triggered when a product's stock is low. | يُرسل عند انخفاض كمية المنتج في المخزون. |
+| [`product.price.updated`](./products/product.price.updated.md) | Triggered when a product's price is updated. | يُرسل عند تغيير سعر منتج. |
+| [`product.status.updated`](./products/product.status.updated.md) | Triggered when a product's status changes. | يُرسل عند تغيير حالة منتج. |
+| [`product.image.updated`](./products/product.image.updated.md) | Triggered when a product's images are updated. | يُرسل عند تحديث صور منتج. |
+| [`product.category.updated`](./products/product.category.updated.md) | Triggered when a product's categories are updated. | يُرسل عند تغيير تصنيفات منتج. |
+| [`product.brand.updated`](./products/product.brand.updated.md) | Triggered when a product's brand is updated. | يُرسل عند تغيير ماركة منتج. |
+| [`product.tags.updated`](./products/product.tags.updated.md) | Triggered when a product's tags are updated. | يُرسل عند تحديث وسوم منتج. |
+| [`product.channels.changed`](./products/product.channels.changed.md) | Triggered when the sales channels a product is shown on change. | يُرسل عند تغيير قنوات البيع التي يظهر فيها المنتج. |
+
+## Shipment | الشحنات
+
+| Event | Description | الوصف |
+| --- | --- | --- |
+| [`shipment.creating`](./shipments/shipment.creating.md) | Triggered when a shipment is assigned to a shipping company. | يُرسل عند إسناد شحنة إلى شركة شحن. |
+| [`shipment.created`](./shipments/shipment.created.md) | Triggered when the shipping company updates a shipment for the first time. | يُرسل عندما تحدّث شركة الشحن الشحنة لأول مرة. |
+| [`shipment.updated`](./shipments/shipment.updated.md) | Triggered when a shipment is updated after creation. | يُرسل عند تحديث الشحنة بعد إنشائها. |
+| [`shipment.cancelled`](./shipments/shipment.cancelled.md) | Triggered when a shipment is cancelled. | يُرسل عند إلغاء شحنة. |
+
+## Shipping company and zone | شركات ومناطق الشحن
+
+| Event | Description | الوصف |
+| --- | --- | --- |
+| [`shipping.zone.created`](./shipping/shipping.zone.created.md) | Triggered when a shipping zone is created for a custom shipping company. | يُرسل عند إنشاء منطقة شحن لشركة شحن مخصّصة. |
+| [`shipping.zone.updated`](./shipping/shipping.zone.updated.md) | Triggered when a shipping zone is updated for a custom shipping company. | يُرسل عند تحديث منطقة شحن لشركة شحن مخصّصة. |
+| [`shipping.company.created`](./shipping/shipping.company.created.md) | Triggered when a custom shipping company is created. | يُرسل عند إنشاء شركة شحن مخصّصة. |
+| [`shipping.company.updated`](./shipping/shipping.company.updated.md) | Triggered when a custom shipping company is updated. | يُرسل عند تحديث شركة شحن مخصّصة. |
+| [`shipping.company.deleted`](./shipping/shipping.company.deleted.md) | Triggered when a custom shipping company is deleted. | يُرسل عند حذف شركة شحن مخصّصة. |
+
+## Customer | العملاء
+
+| Event | Description | الوصف |
+| --- | --- | --- |
+| [`customer.created`](./customers/customer.created.md) | Triggered when a customer is created. | يُرسل عند تسجيل عميل جديد. |
+| [`customer.updated`](./customers/customer.updated.md) | Triggered when a customer is updated. | يُرسل عند تحديث بيانات عميل. |
+| [`customer.login`](./customers/customer.login.md) | Triggered when a customer logs in to their account. | يُرسل عند تسجيل دخول العميل إلى حسابه. |
+| [`customer.otp.request`](./customers/customer.otp.request.md) | Triggered when a customer requests a one-time password. | يُرسل عند طلب العميل رمز تحقق لمرة واحدة (OTP). |
+
+## Category | التصنيفات
+
+| Event | Description | الوصف |
+| --- | --- | --- |
+| [`category.created`](./categories/category.created.md) | Triggered when a category is created. | يُرسل عند إنشاء تصنيف. |
+| [`category.updated`](./categories/category.updated.md) | Triggered when a category is updated. | يُرسل عند تحديث تصنيف. |
+
+## Brand | الماركات
+
+| Event | Description | الوصف |
+| --- | --- | --- |
+| [`brand.created`](./brands/brand.created.md) | Triggered when a brand is created. | يُرسل عند إنشاء ماركة. |
+| [`brand.updated`](./brands/brand.updated.md) | Triggered when a brand is updated. | يُرسل عند تحديث ماركة. |
+| [`brand.deleted`](./brands/brand.deleted.md) | Triggered when a brand is deleted. | يُرسل عند حذف ماركة. |
+
+## Store | المتجر
+
+| Event | Description | الوصف |
+| --- | --- | --- |
+| [`store.branch.created`](./store/store.branch.created.md) | Triggered when a store branch is created. | يُرسل عند إنشاء فرع للمتجر. |
+| [`store.branch.updated`](./store/store.branch.updated.md) | Triggered when a store branch is updated. | يُرسل عند تحديث فرع للمتجر. |
+| [`store.branch.setDefault`](./store/store.branch.setDefault.md) | Triggered when a store branch is set as the default branch. | يُرسل عند تعيين فرع كفرع افتراضي. |
+| [`store.branch.activated`](./store/store.branch.activated.md) | Triggered when a store branch is activated. | يُرسل عند تفعيل فرع للمتجر. |
+| [`store.branch.deleted`](./store/store.branch.deleted.md) | Triggered when a store branch is deleted. | يُرسل عند حذف فرع للمتجر. |
+| [`storetax.created`](./store/storetax.created.md) | Triggered when a store tax is created. | يُرسل عند إنشاء ضريبة للمتجر. |
+| [`store.owner.changed`](./store/store.owner.changed.md) | Triggered when store ownership moves to another user. | يُرسل عند نقل ملكية المتجر إلى مستخدم آخر. |
+
+## Abandoned cart and coupon | السلات المتروكة والكوبونات
+
+| Event | Description | الوصف |
+| --- | --- | --- |
+| [`abandoned.cart`](./carts/abandoned.cart.md) | Triggered when an abandoned cart is created. | يُرسل عند ظهور سلة متروكة. |
+| [`abandoned.cart.update`](./carts/abandoned.cart.update.md) | Triggered when an abandoned cart is updated. | يُرسل عند تحديث سلة متروكة. |
+| [`abandoned.cart.status.changed`](./carts/abandoned.cart.status.changed.md) | Triggered when an abandoned cart's status changes. | يُرسل عند تغيّر حالة سلة متروكة. |
+| [`abandoned.cart.purchased`](./carts/abandoned.cart.purchased.md) | Triggered when an abandoned cart is purchased (status set to `purchased`). | يُرسل عند إتمام شراء سلة متروكة (تصبح حالتها `purchased`). |
+| [`coupon.applied`](./carts/coupon.applied.md) | Triggered when a coupon is applied. | يُرسل عند تطبيق كوبون خصم. |
+
+## Invoice | الفواتير
+
+| Event | Description | الوصف |
+| --- | --- | --- |
+| [`invoice.created`](./invoices/invoice.created.md) | Triggered when an order's status becomes `completed` or `restored`. | يُرسل عندما تصبح حالة الطلب `completed` أو `restored`. |
+
+## Special offer | العروض الخاصة
+
+| Event | Description | الوصف |
+| --- | --- | --- |
+| [`specialoffer.created`](./special-offers/specialoffer.created.md) | Triggered when a special offer is created. | يُرسل عند إنشاء عرض خاص. |
+| [`specialoffer.updated`](./special-offers/specialoffer.updated.md) | Triggered when a special offer is updated. | يُرسل عند تحديث عرض خاص. |
+
+## Review | التقييمات
+
+| Event | Description | الوصف |
+| --- | --- | --- |
+| [`review.added`](./reviews/review.added.md) | Triggered when a product review is added. | يُرسل عند إضافة تقييم لمنتج. |
+
+## Customer wallet | محفظة العميل
+
+| Event | Description | الوصف |
+| --- | --- | --- |
+| [`wallet.action`](./customer-wallet/wallet.action.md) | Triggered when a customer wallet transaction is made. | يُرسل عند تنفيذ عملية على محفظة العميل. |
+
+## Communication apps | تطبيقات التواصل
+
+| Event | Description | الوصف |
+| --- | --- | --- |
+| [`communication.sms.send`](./communication/communication.sms.send.md) | Triggered when the store sends an SMS message. | يُرسل عندما يرسل المتجر رسالة SMS. |
+| [`communication.email.send`](./communication/communication.email.send.md) | Triggered when the store sends an email. | يُرسل عندما يرسل المتجر بريدًا إلكترونيًا. |
+| [`communication.whatsapp.send`](./communication/communication.whatsapp.send.md) | Triggered when the store sends a WhatsApp message. | يُرسل عندما يرسل المتجر رسالة واتساب. |
+
+## App and subscription | التطبيق والاشتراكات
+
+| Event | Description | الوصف |
+| --- | --- | --- |
+| [`app.store.authorize`](./app/app.store.authorize.md) | Triggered when a store authorizes your app's scopes. The payload carries the store's access and refresh tokens. | يُرسل عندما يمنح المتجر تطبيقك الصلاحيات، ويحمل رمزي الوصول والتحديث الخاصين بالمتجر. |
+| [`app.installed`](./app/app.installed.md) | Triggered when your app is installed on a store. | يُرسل عند تثبيت تطبيقك في متجر. |
+| [`app.updated`](./app/app.updated.md) | Triggered when your app is updated. | يُرسل عند تحديث تطبيقك. |
+| [`app.uninstalled`](./app/app.uninstalled.md) | Triggered when your app is uninstalled from a store. | يُرسل عند إزالة تطبيقك من متجر. |
+| [`app.trial.started`](./app/app.trial.started.md) | Triggered when a store starts a trial of your app. | يُرسل عند بدء فترة تجريبية لتطبيقك في متجر. |
+| [`app.trial.expired`](./app/app.trial.expired.md) | Triggered when a store's trial of your app expires. | يُرسل عند انتهاء الفترة التجريبية لتطبيقك في متجر. |
+| [`app.trial.canceled`](./app/app.trial.canceled.md) | Triggered when a store's trial of your app is cancelled. | يُرسل عند إلغاء الفترة التجريبية لتطبيقك في متجر. |
+| [`app.subscription.started`](./app/app.subscription.started.md) | Triggered when a subscription to your app or one of its add-ons starts. | يُرسل عند بدء اشتراك في تطبيقك أو في إحدى إضافاته. |
+| [`app.subscription.expired`](./app/app.subscription.expired.md) | Triggered when a subscription to your app or one of its add-ons ends. | يُرسل عند انتهاء اشتراك في تطبيقك أو في إحدى إضافاته. |
+| [`app.subscription.canceled`](./app/app.subscription.canceled.md) | Triggered when a subscription to your app or one of its add-ons is cancelled. | يُرسل عند إلغاء اشتراك في تطبيقك أو في إحدى إضافاته. |
+| [`app.subscription.renewed`](./app/app.subscription.renewed.md) | Triggered when a subscription to your app or one of its add-ons is renewed. | يُرسل عند تجديد اشتراك في تطبيقك أو في إحدى إضافاته. |
+| [`app.feedback.created`](./app/app.feedback.created.md) | Triggered when a merchant leaves feedback on your app. | يُرسل عندما يضيف التاجر ملاحظة أو تقييمًا لتطبيقك. |
+| [`app.settings.updated`](./app/app.settings.updated.md) | Triggered when a merchant activates or updates your app's settings. | يُرسل عندما يفعّل التاجر إعدادات تطبيقك أو يعدّلها. |

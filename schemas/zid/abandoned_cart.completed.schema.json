@@ -1,0 +1,425 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "abandoned_cart.completed",
+  "description": "This schema provides a detailed representation of an abandoned cart. \nAn abandoned cart is a shopping cart where items have been added but the \npurchase has not been finalized. The cart is considered abandoned \nafter **10 minutes** of inactivity. This schema outlines all the \nrelevant information about the cart, the customer, and the products involved.\n",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "description": "The status of the request.",
+      "examples": [
+        "object"
+      ]
+    },
+    "abandoned_cart": {
+      "type": "object",
+      "description": "Details of the abandoned cart.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the abandoned cart.",
+          "examples": [
+            "18a40fc6-2381-4ab2-9f72-467e6c39a599"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "description": "URL to access the abandoned cart and continue the checkout process. This is crucial for re-engaging customers.",
+          "examples": [
+            "https://store.zidtest.com/checkout/fromBasket/WS56eLg6j2J2KAFB6KkX0B3uJSs3oINu"
+          ]
+        },
+        "store_id": {
+          "type": "string",
+          "description": "Unique identifier for the store.",
+          "examples": [
+            "3dfc16e6-ad19-4126-9c2a-5e4a7fb73051"
+          ]
+        },
+        "store_name": {
+          "type": "string",
+          "description": "Name of the store.",
+          "examples": [
+            "Zid Store on Testing"
+          ]
+        },
+        "store_logo": {
+          "type": "string",
+          "description": "URL of the store's logo.",
+          "examples": [
+            "https://zid-testing.s3.eu-west-1.amazonaws.com/3dfc16e6-ad19-4126-9c2a-5e4a7fb73051/d24a04a4-483c-4cfd-937e-35e7f419d127-200x.png"
+          ]
+        },
+        "store_url": {
+          "type": "string",
+          "description": "URL of the store.",
+          "examples": [
+            "https://store.zidtest.com/"
+          ]
+        },
+        "products_count": {
+          "type": "integer",
+          "description": "Number of products in the abandoned cart.",
+          "examples": [
+            1
+          ]
+        },
+        "products": {
+          "type": "array",
+          "description": "List of products in the abandoned cart.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number",
+                "description": "Unique identifier for the product. (Set to null if is_external_product is true)",
+                "examples": [
+                  900584062
+                ]
+              },
+              "sku": {
+                "type": "string",
+                "description": "Stock Keeping Unit - unique identifier that allows a product to be tracked for inventory purposes.",
+                "examples": [
+                  "HJRMR0500R"
+                ]
+              },
+              "price": {
+                "type": "integer",
+                "description": "The base price of the item, represented as a floating-point number. This value does not include any additional charges or discounts.",
+                "examples": [
+                  239
+                ]
+              },
+              "formatted_sale_price": {
+                "type": "string",
+                "description": "The number of units of the item being purchased or included in the order.",
+                "examples": [
+                  "1"
+                ]
+              },
+              "images": {
+                "type": "array",
+                "description": "This array stores information about the product images.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "A unique identifier for the image, typically represented as a UUID (Universally Unique Identifier)."
+                    },
+                    "origin": {
+                      "type": "string",
+                      "description": "The URL of the original image or its default thumbnail. "
+                    },
+                    "thumbs": {
+                      "type": "object",
+                      "properties": {
+                        "fullSize": {
+                          "type": "string",
+                          "description": "The URL of the full-sized, high-resolution version of the image. "
+                        },
+                        "thumbnail": {
+                          "type": "string",
+                          "description": "The URL of a small-sized thumbnail image, optimized for use in compact display spaces such as galleries or lists."
+                        },
+                        "small": {
+                          "type": "string",
+                          "description": "The URL of a slightly larger version of the image compared to thumbnail, suitable for small-sized displays or previews."
+                        },
+                        "medium": {
+                          "type": "string",
+                          "description": "The URL of a medium-sized image, ideal for standard display spaces or when more detail is needed without the full resolution."
+                        },
+                        "large": {
+                          "type": "string",
+                          "description": "The URL of a large-sized version of the image, useful for bigger displays or when a higher level of detail is required."
+                        }
+                      },
+                      "description": "An object containing different resolutions of the image for various use cases. Each key within this object represents a specific size or type of image thumbnail."
+                    }
+                  }
+                }
+              },
+              "product_id": {
+                "type": "string",
+                "description": "Unique identifier for the product.",
+                "examples": [
+                  "0b00ssx2ee9c3141c4cd0d955dce5deb8c"
+                ]
+              },
+              "product URL": {
+                "type": "string",
+                "description": "URL of the product.",
+                "examples": [
+                  "https://storeurl.com/products/0b00ssx2ee9c3141c4cd0d955dce5deb8c"
+                ]
+              },
+              "custom_field": {
+                "type": "string",
+                "description": "A list of custom attributes or metadata associated with the item.",
+                "examples": [
+                  "[]"
+                ]
+              },
+              "price_string": {
+                "type": "string",
+                "description": "The base price of the item, formatted as a string with currency (e.g., \"SAR\"). This representation is typically used for display purposes.",
+                "examples": [
+                  "239.00 SAR"
+                ]
+              },
+              "additions_price": {
+                "type": "integer",
+                "description": "The total price of any optional additions or extras added to the item. This value is represented as a floating-point number.",
+                "examples": [
+                  0
+                ]
+              },
+              "additions_price_string": {
+                "type": "string",
+                "description": "The total price of additions, formatted as a string with currency. Used for display purposes to show the cost of extras in a user-friendly format.",
+                "examples": [
+                  "00.00 SAR"
+                ]
+              },
+              "total": {
+                "type": "string",
+                "description": "The total cost for the item.",
+                "examples": [
+                  "239.00"
+                ]
+              },
+              "total_string": {
+                "type": "string",
+                "description": "The total cost for the item, formatted as a string with currency.",
+                "examples": [
+                  "239.00 SAR"
+                ]
+              }
+            }
+          }
+        },
+        "city": {
+          "$ref": "#/definitions/2771518"
+        },
+        "history": {
+          "type": "array",
+          "description": "History of actions related to the abandoned cart.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "uuid": {
+                "type": "string",
+                "description": "Unique identifier for the history entry."
+              },
+              "abandoned_cart_id": {
+                "type": "string",
+                "description": "Identifier linking to the abandoned cart.",
+                "examples": [
+                  "18a40fc6-2381-4ab2-9f72-467e6c39a599"
+                ]
+              },
+              "type": {
+                "type": "string",
+                "description": "Type of action performed.",
+                "examples": [
+                  "تم إرسال التذكير"
+                ]
+              },
+              "created_at": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Timestamp when the action was performed.",
+                "examples": [
+                  "2023-07-12T10:17:42.000000Z"
+                ]
+              },
+              "updated_at": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Timestamp when the action was last updated.",
+                "examples": [
+                  "2023-07-12T10:17:42.000000Z"
+                ]
+              }
+            }
+          }
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the cart was created.",
+          "examples": [
+            "2023-07-12 08:17:02"
+          ]
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the cart was last updated.",
+          "examples": [
+            "2023-07-19 09:01:18"
+          ]
+        },
+        "phase": {
+          "type": "string",
+          "description": "Current phase of the abandoned cart. This indicates the last step the customer reached before abandoning the cart.\nThe phases are as follows:\n- `completed`: The cart has been converted into an order.\n- `shipping_address`: The customer has provided a shipping address.\n- `verification`: The customer is in the verification process.\n- `shipping_method`: The customer has chosen a shipping method.\n- `new`: The cart has been recently created but no further action has been taken.\n- `login`: The customer is prompted to log in or register.\n- `payment-method`: The customer has selected a payment method but has not completed the purchase.",
+          "examples": [
+            "payment_method"
+          ]
+        },
+        "customer_id": {
+          "type": "string",
+          "description": "A unique identifier for the customer.",
+          "examples": [
+            "000000000"
+          ]
+        },
+        "customer_name": {
+          "type": "string",
+          "description": "The full name of the customer.",
+          "examples": [
+            "test customer name"
+          ]
+        },
+        "customer_email": {
+          "type": "string",
+          "description": "The email address of the customer.",
+          "examples": [
+            "testemail@gmail.com"
+          ]
+        },
+        "customer_mobile": {
+          "type": "string",
+          "description": "The customer's mobile phone number.",
+          "examples": [
+            "966555555555"
+          ]
+        },
+        "reminders_count": {
+          "type": "string",
+          "description": "The number of reminders sent to the customer regarding the transaction or payment.",
+          "examples": [
+            "0"
+          ]
+        },
+        "cart_total": {
+          "type": "string",
+          "description": "The total cost of items in the cart, represented as a floating-point number.",
+          "examples": [
+            "239.00"
+          ]
+        },
+        "cart_total_string": {
+          "type": "string",
+          "description": "The total cost of items in the cart, formatted as a string with the currency (e.g., \"SAR\").",
+          "examples": [
+            "239.00 SAR"
+          ]
+        },
+        "source": {
+          "type": "string",
+          "description": "Indicating the source or channel of the order. This can be one of several predefined values:\n- **catalog**: Order was made through a product catalog or online storefront.\n- **mobile_app**: Order was made through the store's mobile application.",
+          "examples": [
+            "catalog"
+          ]
+        }
+      }
+    },
+    "message": {
+      "type": "object",
+      "description": "Message related to the request status.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Type of the message.",
+          "examples": [
+            "object"
+          ]
+        },
+        "code": {
+          "type": "string",
+          "description": "Code associated with the message."
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of the message."
+        }
+      }
+    }
+  },
+  "definitions": {
+    "2771518": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique identifier of the city",
+          "examples": [
+            1
+          ]
+        },
+        "national_id": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "National identifier of the city.",
+          "examples": [
+            3
+          ]
+        },
+        "priority": {
+          "type": "integer",
+          "description": "Priority of the city. Higher number indicates higher priority.",
+          "examples": [
+            10
+          ]
+        },
+        "country_id": {
+          "type": "integer",
+          "description": "Unique identifier of the country the city is located in",
+          "examples": [
+            184
+          ]
+        },
+        "country_name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Name of the country the city is located in (in Arabic)",
+          "examples": [
+            "السعودية"
+          ]
+        },
+        "country_code": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Two-letter country code according to ISO 3166-1 alpha-2",
+          "examples": [
+            "SA"
+          ]
+        },
+        "ar_name": {
+          "type": "string",
+          "description": "Name of the city in Arabic",
+          "examples": [
+            "الرياض"
+          ]
+        },
+        "en_name": {
+          "type": "string",
+          "description": "Name of the city in English",
+          "examples": [
+            "Riyadh"
+          ]
+        }
+      },
+      "title": "CityPresenter"
+    }
+  }
+}

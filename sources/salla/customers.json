@@ -1,0 +1,582 @@
+{
+  "source_url": "https://docs.salla.dev/webhook-events/customers",
+  "fetched_at": "2026-10-26",
+  "definitions": {
+    "1307288": {
+      "description": "Detailed structure of the customer model object showing its fields and data types.",
+      "type": "object",
+      "x-tags": [
+        "Models"
+      ],
+      "title": "Customer",
+      "x-examples": {
+        "Example": {
+          "id": 2107468057,
+          "first_name": "Mohammed",
+          "last_name": "Ali",
+          "mobile": 665323256199,
+          "mobile_code": "+999",
+          "email": "customer@demo.com",
+          "avatar": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+          "gender": "male",
+          "birthday": {
+            "date": "1997-06-03 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "Asia/Riyadh"
+          },
+          "city": "الرياض",
+          "country": "السعودية",
+          "country_code": "sa",
+          "currency": "SAR",
+          "location": "35.35418",
+          "updated_at": "2020-01-01 01:01:00.000000",
+          "groups": [
+            11323141,
+            11323142
+          ]
+        }
+      },
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "A unique identifier for the customer."
+        },
+        "first_name": {
+          "type": "string",
+          "description": "The customer's first name.",
+          "maxLength": 25
+        },
+        "last_name": {
+          "type": "string",
+          "description": "The customer's last name.",
+          "maxLength": 25
+        },
+        "mobile": {
+          "type": "number",
+          "description": "The customer's mobile phone number without the country code."
+        },
+        "mobile_code": {
+          "type": "string",
+          "description": "The country code for the customer's mobile phone number."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The customer's email address."
+        },
+        "urls": {
+          "$ref": "#/definitions/1307398",
+          "description": "A list of URLs associated with the customer, such as their website or social media profiles."
+        },
+        "avatar": {
+          "type": "string",
+          "description": "A URL to the customer's avatar image."
+        },
+        "gender": {
+          "type": "string",
+          "description": "The customer's gender",
+          "enum": [
+            "male",
+            "female"
+          ],
+          "x-apidog-enum": [
+            {
+              "value": "male",
+              "name": "",
+              "description": "Male Person"
+            },
+            {
+              "value": "female",
+              "name": "",
+              "description": "Female Person"
+            }
+          ]
+        },
+        "birthday": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string",
+              "format": "date-time",
+              "description": "The customer's date of birth."
+            },
+            "timezone_type": {
+              "type": "integer",
+              "format": "int32",
+              "description": "The time zone type for the customer's date of birth."
+            },
+            "timezone": {
+              "type": "string",
+              "description": "The time zone for the customer's date of birth."
+            }
+          },
+          "x-apidog-orders": [
+            "date",
+            "timezone_type",
+            "timezone"
+          ],
+          "required": [
+            "date",
+            "timezone_type"
+          ],
+          "description": "The customer date of birth"
+        },
+        "city": {
+          "type": "string",
+          "description": "The city where the customer lives."
+        },
+        "country": {
+          "type": "string",
+          "description": "The country where the customer lives."
+        },
+        "country_code": {
+          "type": "string",
+          "description": "The country code for the customer's country."
+        },
+        "currency": {
+          "type": "string",
+          "description": "The currency that the customer uses."
+        },
+        "location": {
+          "type": "string",
+          "description": "The customer's location, represented as a string."
+        },
+        "updated_at": {
+          "$ref": "#/definitions/1307388",
+          "description": "The date and time when the customer's information was last updated."
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "description": "A list of group IDs that the customer belongs to."
+        }
+      },
+      "required": [
+        "first_name",
+        "last_name",
+        "mobile",
+        "id",
+        "mobile_code",
+        "email",
+        "urls",
+        "avatar",
+        "gender",
+        "city",
+        "country",
+        "country_code",
+        "currency",
+        "location",
+        "updated_at",
+        "groups",
+        "birthday"
+      ],
+      "x-apidog-orders": [
+        "id",
+        "first_name",
+        "last_name",
+        "mobile",
+        "mobile_code",
+        "email",
+        "urls",
+        "avatar",
+        "gender",
+        "birthday",
+        "city",
+        "country",
+        "country_code",
+        "currency",
+        "location",
+        "updated_at",
+        "groups"
+      ],
+      "name": "Customer"
+    },
+    "1307388": {
+      "type": "object",
+      "title": "Date",
+      "x-examples": {
+        "Example": {
+          "date": "2020-10-14 14:28:03.000000",
+          "timezone_type": 3,
+          "timezone": "Asia/Riyadh"
+        }
+      },
+      "x-tags": [
+        "Models"
+      ],
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "A specific point in time, typically expressed in terms of a calendar system, including the day, month, year, hour, minutes, seconds and nano seconds. For example: \"2020-10-14 14:28:03.000000\""
+        },
+        "timezone_type": {
+          "type": "number",
+          "description": "Timezone type of the date, for Middel East = 3 "
+        },
+        "timezone": {
+          "type": "string",
+          "description": "Timezone value \"Asia/Riyadh\""
+        }
+      },
+      "x-apidog-orders": [
+        "date",
+        "timezone_type",
+        "timezone"
+      ],
+      "required": [
+        "date",
+        "timezone_type",
+        "timezone"
+      ],
+      "name": "Date"
+    },
+    "1307398": {
+      "description": "To help companies and merchants, Salla provides a “urls” attribute that has been added to different modules to guide the merchants to have the full URL of this module from both scopes, the dashboard scope as a store admin, and as a customer.",
+      "type": "object",
+      "title": "Urls",
+      "x-examples": {
+        "Example": {
+          "customer": "https://shtara.com/profile",
+          "admin": "https://shtara.com/profiles"
+        }
+      },
+      "x-tags": [
+        "Models"
+      ],
+      "properties": {
+        "customer": {
+          "type": "string",
+          "description": "Customer link directly to the order.",
+          "examples": [
+            "https://salla.sa/StoreLink"
+          ]
+        },
+        "admin": {
+          "type": "string",
+          "description": "Admin dashboard link directly to the order.",
+          "examples": [
+            "https://s.salla./YourStoreDashboard"
+          ]
+        },
+        "digital_content": {
+          "type": "string",
+          "description": "A direct URL link to the digital asset, such as an e-book, image, PDF, video, or any downloadable file linked to the order or product."
+        },
+        "rating": {
+          "type": "string",
+          "description": "Order Rating Link. <br> Note that the order has to be of either of the following statuses: `completed`, `delivered`, or `shipped`. The merchant has to allow the product to be rated from the [Store Settings](https://s.salla.sa/settings) > Rating Settings"
+        },
+        "checkout": {
+          "type": "string",
+          "description": "Order Checkout URL. <br>Note that the variable will only be returned if the order is unpaid. If the order is already paid, the variable will not appear in the response."
+        }
+      },
+      "x-apidog-orders": [
+        "customer",
+        "admin",
+        "digital_content",
+        "rating",
+        "checkout"
+      ],
+      "required": [
+        "customer",
+        "admin",
+        "digital_content"
+      ],
+      "name": "URLs"
+    },
+    "1307405": {
+      "title": "Customers OTP (One-Time Password) Webhook Event Model",
+      "type": "object",
+      "x-examples": {
+        "Webhook V2": {
+          "event": "customer.otp.request",
+          "merchant": 1029864349,
+          "created_at": "Wed Jun 30 2021 12:09:11 GMT+0300",
+          "data": {
+            "code": "5331",
+            "contact": "+96652318526"
+          }
+        },
+        "Webhook V1": {
+          "code": "5331",
+          "contact": "+96652318526"
+        }
+      },
+      "x-tags": [
+        "Store Events Webhook Model"
+      ],
+      "properties": {
+        "event": {
+          "type": "string",
+          "description": "A label or title used to identify a specific event.",
+          "examples": [
+            "customer.otp.request"
+          ]
+        },
+        "merchant": {
+          "type": "number",
+          "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)",
+          "examples": [
+            1029864349
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "description": "The date and time when a particular event was created or initiated.",
+          "examples": [
+            "Wed Jun 30 2021 12:09:11 GMT+0300"
+          ]
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "OTP Code, a temporary and unique numeric or alphanumeric code generated for the purpose of verification.",
+              "examples": [
+                "5331"
+              ]
+            },
+            "contact": {
+              "type": "string",
+              "description": "Option for contact method using phone number or email address .",
+              "examples": [
+                "+96652318526"
+              ]
+            }
+          },
+          "x-apidog-orders": [
+            "code",
+            "contact"
+          ]
+        }
+      },
+      "x-apidog-orders": [
+        "event",
+        "merchant",
+        "created_at",
+        "data"
+      ],
+      "name": "CustomersOTPRequest"
+    },
+    "1307420": {
+      "title": "Customer Webhook Events Model",
+      "x-stoplight": {
+        "id": "8lspe8xtmdfja"
+      },
+      "type": "object",
+      "x-examples": {
+        "Webhook V2": {
+          "event": "customer.login",
+          "merchant": 1305146709,
+          "created_at": "Tue Jan 25 2022 12:36:49 GMT+0300",
+          "data": {
+            "id": 225167971,
+            "first_name": "User",
+            "last_name": "Mohammed",
+            "mobile": 555555555,
+            "mobile_code": "+966",
+            "email": "test@gmail.com",
+            "urls": {
+              "customer": "https://salla.sa/dev-wofftr4xsra5xtlv/profile",
+              "admin": "https://s.salla.sa/customers/l7mYBdgXA9xJwWZRZK8WD42GNkZbjvRO"
+            },
+            "avatar": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+            "gender": "female",
+            "birthday": {
+              "date": "1997-06-03 00:00:00.000000",
+              "timezone_type": 3,
+              "timezone": "Asia/Riyadh"
+            },
+            "city": "الرياض",
+            "country": "السعودية",
+            "country_code": "SA",
+            "currency": "AED",
+            "location": "14",
+            "updated_at": {
+              "date": "2022-01-24 14:26:55.000000",
+              "timezone_type": 3,
+              "timezone": "Asia/Riyadh"
+            }
+          }
+        },
+        "Webhook V1": {
+          "id": 225167971,
+          "first_name": "Emil",
+          "last_name": "Mohammed",
+          "mobile": 555555555,
+          "mobile_code": "+966",
+          "email": "test@gmail.com",
+          "urls": {
+            "customer": "https://salla.sa/dev-wofftr4xsra5xtlv/profile",
+            "admin": "https://s.salla.sa/customers/l7mYBdgXA9xJwWZRZK8WD42GNkZbjvRO"
+          },
+          "avatar": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+          "gender": "female",
+          "birthday": {
+            "date": "1997-06-03 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "Asia/Riyadh"
+          },
+          "city": "الرياض",
+          "country": "السعودية",
+          "country_code": "SA",
+          "currency": "AED",
+          "location": "14",
+          "updated_at": {
+            "date": "2022-01-24 14:26:55.000000",
+            "timezone_type": 3,
+            "timezone": "Asia/Riyadh"
+          }
+        }
+      },
+      "x-tags": [
+        "Store Events Webhook Model"
+      ],
+      "properties": {
+        "event": {
+          "type": "string",
+          "description": "Event Name",
+          "enum": [
+            "customer.created",
+            "customer.updated",
+            "customer.login"
+          ]
+        },
+        "merchant": {
+          "type": "number",
+          "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)"
+        },
+        "created_at": {
+          "type": "string",
+          "description": "Timestamp of the created Event"
+        },
+        "data": {
+          "type": "object",
+          "x-apidog-refs": {
+            "01HSTSTN975T01GGZ2SC1VT2A5": {
+              "$ref": "#/definitions/1307288",
+              "x-apidog-overrides": {}
+            }
+          },
+          "properties": {
+            "source": {
+              "type": "object",
+              "properties": {
+                "device": {
+                  "type": "string",
+                  "description": "Customer Device type",
+                  "examples": [
+                    "desktop"
+                  ]
+                },
+                "user-agent": {
+                  "type": "string",
+                  "description": "Customer Browser and Operating System infromtion"
+                },
+                "ip": {
+                  "type": "string",
+                  "description": "Customer IP Address",
+                  "examples": [
+                    "127.0.0.1"
+                  ]
+                }
+              },
+              "x-apidog-orders": [
+                "device",
+                "user-agent",
+                "ip"
+              ],
+              "description": "Customer source information"
+            },
+            "is_notifications_enabiled": {
+              "type": "boolean",
+              "description": "Customer has enabled notifications or not"
+            }
+          },
+          "x-apidog-orders": [
+            "01HSTSTN975T01GGZ2SC1VT2A5",
+            "source",
+            "is_notifications_enabiled"
+          ],
+          "required": [
+            "is_notifications_enabiled"
+          ]
+        }
+      },
+      "x-apidog-orders": [
+        "event",
+        "merchant",
+        "created_at",
+        "data"
+      ],
+      "name": "CustomerWebhookEventsModel"
+    }
+  },
+  "examples": [
+    {
+      "heading": "Customer Webhook Events Model",
+      "event": "customer.login",
+      "repaired": false,
+      "payload": {
+        "event": "customer.login",
+        "merchant": 1305146709,
+        "created_at": "Tue Jan 25 2022 12:36:49 GMT+0300",
+        "data": {
+          "id": 225167971,
+          "first_name": "User",
+          "last_name": "Mohammed",
+          "mobile": 555555555,
+          "mobile_code": "+966",
+          "email": "test@gmail.com",
+          "urls": {
+            "customer": "https://salla.sa/dev-wofftr4xsra5xtlv/profile",
+            "admin": "https://s.salla.sa/customers/l7mYBdgXA9xJwWZRZK8WD42GNkZbjvRO"
+          },
+          "avatar": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+          "gender": "female",
+          "birthday": {
+            "date": "1997-06-03 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "Asia/Riyadh"
+          },
+          "city": "الرياض",
+          "country": "السعودية",
+          "country_code": "SA",
+          "currency": "AED",
+          "location": "14",
+          "updated_at": {
+            "date": "2022-01-24 14:26:55.000000",
+            "timezone_type": 3,
+            "timezone": "Asia/Riyadh"
+          },
+          "groups": [],
+          "source": {
+            "device": "desktop",
+            "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+            "ip": "127.0.0.1"
+          },
+          "is_notifications_enabled": true
+        }
+      }
+    },
+    {
+      "heading": "Customers OTP (One-Time Password) Webhook Event Model",
+      "event": "customer.otp.request",
+      "repaired": false,
+      "payload": {
+        "event": "customer.otp.request",
+        "merchant": 1029864349,
+        "created_at": "Wed Jun 30 2021 12:09:11 GMT+0300",
+        "data": {
+          "code": "5331",
+          "contact": "+96652318526"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,704 @@
+{
+  "source_url": "https://docs.salla.dev/webhook-events/store",
+  "fetched_at": "2026-10-26",
+  "definitions": {
+    "1307409": {
+      "title": "Store Branch Webhook Event Model",
+      "x-stoplight": {
+        "id": "l0tv9zduxls64"
+      },
+      "type": "object",
+      "x-tags": [
+        "Store Events Webhook Model"
+      ],
+      "properties": {
+        "event": {
+          "type": "string",
+          "description": "Event title or label to represent the event.",
+          "enum": [
+            "store.branch.created",
+            "store.branch.updated",
+            "store.branch.deleted",
+            "store.branch.setDefault",
+            "store.branch.activate"
+          ],
+          "x-apidog-enum": [
+            {
+              "value": "store.branch.created",
+              "name": "Store Branch Created",
+              "description": "Triggered when a new store branch is created."
+            },
+            {
+              "value": "store.branch.updated",
+              "name": "Store Branch Updated",
+              "description": "Triggered when an existing store branch is updated."
+            },
+            {
+              "value": "store.branch.deleted",
+              "name": "Store Branch Deleted",
+              "description": "Triggered when a store branch is deleted or removed."
+            },
+            {
+              "value": "store.branch.setDefault",
+              "name": "Store Branch Set as Default",
+              "description": "Triggered when a store branch is set as the default branch."
+            },
+            {
+              "value": "store.branch.activate",
+              "name": "Store Branch Activated",
+              "description": "Triggered when a store branch is activated and made available."
+            }
+          ]
+        },
+        "merchant": {
+          "type": "number",
+          "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)"
+        },
+        "created_at": {
+          "type": "string",
+          "description": "The date and time when a particular event was created or initiated."
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "A unique identifier associated with a specific store."
+            },
+            "name": {
+              "type": "string",
+              "description": "A title or label that represnts the store."
+            },
+            "status": {
+              "type": "string",
+              "description": "Store status to indicate the current status of the store."
+            },
+            "location": {
+              "type": "object",
+              "properties": {
+                "lat": {
+                  "type": "string",
+                  "description": "The geographic coordinates that specify a position on the Earth's surface using latitude values."
+                },
+                "lng": {
+                  "type": "string",
+                  "description": "The geographic coordinates that specify a position on the Earth's surface using longitude values."
+                }
+              },
+              "x-apidog-orders": [
+                "lat",
+                "lng"
+              ]
+            },
+            "contacts": {
+              "type": "object",
+              "properties": {
+                "telephone": {
+                  "type": "string",
+                  "description": "A numerical sequence used to uniquely identify a telephone line or device and enable communication through voice calls."
+                },
+                "phone": {
+                  "type": "string",
+                  "description": "A numerical sequence used to uniquely identify a telephone line and enable communication through voice calls, text messages, or other forms of telecommunication."
+                },
+                "whatsapp": {
+                  "type": "string",
+                  "description": "A phone number associated with a WhatsApp account."
+                }
+              },
+              "x-apidog-orders": [
+                "telephone",
+                "phone",
+                "whatsapp"
+              ]
+            },
+            "preparation_time": {
+              "type": "string",
+              "description": "Preparation Time"
+            },
+            "is_open": {
+              "type": "boolean",
+              "description": "The option to indidcate if the store is open."
+            },
+            "closest_time": {
+              "type": "object",
+              "properties": {
+                "from": {
+                  "type": "string",
+                  "description": "The time which the store starts operating at."
+                },
+                "to": {
+                  "type": "string",
+                  "description": "The time which the store ends operating at."
+                }
+              },
+              "x-apidog-orders": [
+                "from",
+                "to"
+              ]
+            },
+            "working_hours": {
+              "type": "array",
+              "description": "Working Hours",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Working Hours Name"
+                  },
+                  "times": {
+                    "type": "array",
+                    "description": "Working Times",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "from": {
+                          "type": "string",
+                          "description": "The start time of this working period."
+                        },
+                        "to": {
+                          "type": "string",
+                          "description": "The end time of this working period."
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "from",
+                        "to"
+                      ]
+                    }
+                  }
+                },
+                "x-apidog-orders": [
+                  "name",
+                  "times"
+                ]
+              }
+            },
+            "is_cod_available": {
+              "type": "boolean",
+              "default": true,
+              "description": "The option to inidicate the availability of Cash On Delivery payamnet method."
+            },
+            "is_default": {
+              "type": "boolean",
+              "default": false,
+              "description": "The option to indicate the store as the default store."
+            },
+            "type": {
+              "type": "string",
+              "description": "The classification of the store branch type, such as main branch, pickup branch, or warehouse."
+            },
+            "cod_cost": {
+              "type": "string",
+              "description": "Cash On Delivery Cost"
+            },
+            "country": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "A unique identifier associated with the specific country."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Title or label to represent the country. \r\n"
+                },
+                "name_en": {
+                  "type": "string",
+                  "description": "Country name represented in English characters."
+                },
+                "code": {
+                  "type": "string",
+                  "description": "A standardized two- or three-letter code assigned to each country by the ISO 3166 standard for various purposes, including international trade and internet domains."
+                },
+                "mobile_code": {
+                  "type": "string",
+                  "description": "A numerical prefix that represents a specific country when making international mobile phone calls. "
+                },
+                "capital": {
+                  "type": "string",
+                  "description": "The capital city of the country",
+                  "examples": [
+                    "Riyadh",
+                    "Abu Dhabi",
+                    "Paric"
+                  ]
+                }
+              },
+              "x-apidog-orders": [
+                "id",
+                "name",
+                "name_en",
+                "code",
+                "mobile_code",
+                "capital"
+              ]
+            },
+            "city": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "A unique identifier associated with a specific City."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The official name or title of a specific city, serving as a distinctive label to identify and locate that particular urban area within a geographic region or country."
+                },
+                "name_en": {
+                  "type": "string",
+                  "description": "City name represented in English characters\r\n"
+                },
+                "country_id": {
+                  "type": "number",
+                  "description": "A unique identifier associated with a specific country."
+                }
+              },
+              "x-apidog-orders": [
+                "id",
+                "name",
+                "name_en",
+                "country_id"
+              ]
+            },
+            "short_address": {
+              "type": "string",
+              "description": "A brief, human-readable version of the store address used for quick display in interfaces."
+            },
+            "street": {
+              "type": "string",
+              "description": "The street name or road on which the store is located."
+            },
+            "address_description": {
+              "type": "string",
+              "description": "Additional descriptive details that help clarify or explain the store address."
+            },
+            "additional_number": {
+              "type": "string",
+              "description": "An extra address reference such as apartment, unit, or additional national address number."
+            },
+            "building_number": {
+              "type": "string",
+              "description": "The building number associated with the store location."
+            },
+            "local": {
+              "type": "string",
+              "description": "The local area, neighborhood, or locality where the store is situated."
+            },
+            "postal_code": {
+              "type": "string",
+              "description": "The postal or ZIP code assigned to the store's address."
+            },
+            "is_stock": {
+              "type": "boolean",
+              "description": "The option to indicate whether this branch is used as a stock or warehouse location."
+            },
+            "district": {
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "District ID"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "District name in the default language (arabic)"
+                },
+                "name_en": {
+                  "type": "string",
+                  "description": "District name in english"
+                }
+              },
+              "x-apidog-orders": [
+                "id",
+                "name",
+                "name_en"
+              ],
+              "description": "The district or sub-area of the city where the store is located. Can be null if not provided.",
+              "required": [
+                "id",
+                "name",
+                "name_en"
+              ]
+            }
+          },
+          "x-apidog-orders": [
+            "id",
+            "name",
+            "status",
+            "location",
+            "short_address",
+            "street",
+            "address_description",
+            "additional_number",
+            "building_number",
+            "local",
+            "postal_code",
+            "contacts",
+            "preparation_time",
+            "is_open",
+            "closest_time",
+            "working_hours",
+            "is_cod_available",
+            "is_default",
+            "is_stock",
+            "type",
+            "cod_cost",
+            "country",
+            "city",
+            "district"
+          ],
+          "required": [
+            "is_stock"
+          ]
+        }
+      },
+      "x-apidog-orders": [
+        "event",
+        "merchant",
+        "created_at",
+        "data"
+      ],
+      "name": "Store Branch Webhook Event Model"
+    },
+    "1307413": {
+      "title": "Store Tax Webhook Event Model",
+      "type": "object",
+      "x-examples": {
+        "Webhook V2": {
+          "event": "storetax.created",
+          "merchant": 814202285,
+          "created_at": "Tue Aug 03 2021 09:35:16 GMT+0300",
+          "data": {
+            "id": 5541564,
+            "tax": "5",
+            "status": "active",
+            "country": "All Countries"
+          }
+        },
+        "Webhook V1": {
+          "id": 5541564,
+          "tax": "5",
+          "status": "active",
+          "country": "All Countries"
+        }
+      },
+      "x-tags": [
+        "Store Events Webhook Model"
+      ],
+      "properties": {
+        "event": {
+          "type": "string",
+          "description": "A label or title used to identify a specific event ",
+          "enum": [
+            "storetax.created"
+          ],
+          "x-apidog": {
+            "enumDescriptions": {
+              "storetax.created": ""
+            }
+          }
+        },
+        "merchant": {
+          "type": "number",
+          "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)"
+        },
+        "created_at": {
+          "type": "string",
+          "description": "The date and time when a particular Webhook was created or initiated."
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "A unique identifier assigned to a specific store. "
+            },
+            "tax": {
+              "type": "string",
+              "description": "Tax amount value."
+            },
+            "status": {
+              "type": "string",
+              "description": "The condition or classification of an entity or transaction with respect to taxation."
+            },
+            "country": {
+              "type": "string",
+              "description": "The specific country or jurisdiction where taxes are levied, collected, and regulated in relation to a particular entity or transaction"
+            }
+          },
+          "x-apidog-orders": [
+            "id",
+            "tax",
+            "status",
+            "country"
+          ]
+        }
+      },
+      "x-apidog-orders": [
+        "event",
+        "merchant",
+        "created_at",
+        "data"
+      ],
+      "name": "StoreTaxWebhookResponse"
+    },
+    "9554130": {
+      "title": "Store Owner Changed Webhook Event Model",
+      "type": "object",
+      "properties": {
+        "event": {
+          "type": "string",
+          "description": "Event title or label to represent the event.",
+          "enum": [
+            "store.owner.changed"
+          ]
+        },
+        "merchant": {
+          "type": "number",
+          "description": "Merchant ID who installed the application on their store. Get details on the Merchant via the ID  using the endpoint [here](https://docs.salla.dev/api-8330089)"
+        },
+        "created_at": {
+          "type": "string",
+          "description": "The date and time when a particular event was created or initiated."
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "A unique identifier of the user."
+            },
+            "name": {
+              "type": "string",
+              "description": "Store owner user first name."
+            },
+            "status": {
+              "type": "string",
+              "description": "Indicates the current status of the user.",
+              "enum": [
+                "active",
+                "inactive",
+                "expired",
+                "deleted"
+              ],
+              "x-apidog-enum": [
+                {
+                  "value": "active",
+                  "name": "",
+                  "description": ""
+                },
+                {
+                  "value": "inactive",
+                  "name": "",
+                  "description": ""
+                },
+                {
+                  "value": "expired",
+                  "name": "",
+                  "description": ""
+                },
+                {
+                  "value": "deleted",
+                  "name": "",
+                  "description": ""
+                }
+              ],
+              "examples": [
+                "active"
+              ]
+            },
+            "enabled": {
+              "type": "boolean",
+              "description": "Indicates whether the user account is enabled or not."
+            },
+            "mobile": {
+              "type": "string",
+              "description": "Store owner mobile number without the country code.",
+              "examples": [
+                "501234567"
+              ]
+            },
+            "mobile_code": {
+              "type": "string",
+              "description": "The country code for the mobile phone number.",
+              "examples": [
+                "+966"
+              ]
+            },
+            "email": {
+              "type": "string",
+              "description": "The store owner email address.",
+              "examples": [
+                "test@gmail.com"
+              ]
+            },
+            "avatar": {
+              "type": "string",
+              "description": "A URL of the store owner user avatar image."
+            },
+            "role": {
+              "type": "string",
+              "description": "Role of the store user. ",
+              "enum": [
+                "user",
+                "team"
+              ],
+              "x-apidog-enum": [
+                {
+                  "value": "user",
+                  "name": "",
+                  "description": "User type is user."
+                },
+                {
+                  "value": "team",
+                  "name": "",
+                  "description": "User type is team."
+                }
+              ],
+              "examples": [
+                "user"
+              ]
+            }
+          },
+          "x-apidog-orders": [
+            "id",
+            "name",
+            "mobile",
+            "mobile_code",
+            "email",
+            "avatar",
+            "role",
+            "status",
+            "enabled"
+          ],
+          "required": [
+            "mobile",
+            "mobile_code",
+            "email",
+            "avatar",
+            "role",
+            "name",
+            "id",
+            "status",
+            "enabled"
+          ]
+        }
+      },
+      "x-apidog-orders": [
+        "event",
+        "merchant",
+        "created_at",
+        "data"
+      ],
+      "required": [
+        "data",
+        "created_at",
+        "event",
+        "merchant"
+      ],
+      "name": "Store Owner Changed Webhook Event Model"
+    }
+  },
+  "examples": [
+    {
+      "heading": "Store Webhook Events Model",
+      "event": "store.branch.updated",
+      "repaired": false,
+      "payload": {
+        "event": "store.branch.updated",
+        "merchant": "1029864349",
+        "created_at": "Wed Jun 30 2021 15:24:18 GMT+0300",
+        "data": {
+          "id": "1866839222",
+          "name": "Riyadh Branch",
+          "status": "active",
+          "location": {
+            "lat": "21.4267",
+            "lang": "39.8261"
+          },
+          "contacts": {
+            "telephone": "0555555555",
+            "phone": "+96652318526",
+            "whatsapp": "+96652318526"
+          },
+          "preparation_time": "2",
+          "is_open": false,
+          "closest_time": {
+            "from": "07:00",
+            "to": "12:00"
+          },
+          "working_hours": [
+            {
+              "name": "الثلاثاء",
+              "times": [
+                {
+                  "from": "07:00",
+                  "to": "12:00"
+                }
+              ]
+            }
+          ],
+          "is_cod_available": true,
+          "is_default": false,
+          "type": {},
+          "cod_cost": "10.00",
+          "country": {
+            "id": 1473353380,
+            "name": "السعودية",
+            "name_en": "Saudi Arabia",
+            "code": "SA",
+            "mobile_code": "+966"
+          },
+          "city": {
+            "id": 1473353380,
+            "name": "الرياض",
+            "name_en": "Riyadh",
+            "country_id": 1473353380
+          }
+        }
+      }
+    },
+    {
+      "heading": "Store Tax Webhook Events Model",
+      "event": "storetax.created",
+      "repaired": false,
+      "payload": {
+        "event": "storetax.created",
+        "merchant": 814202285,
+        "created_at": "Tue Aug 03 2021 09:35:16 GMT+0300",
+        "data": {
+          "id": 5541564,
+          "tax": "5",
+          "status": "active",
+          "country": "All Countries"
+        }
+      }
+    },
+    {
+      "heading": "Store Owner Changed Webhook Event Model",
+      "event": "store.owner.changed",
+      "repaired": false,
+      "payload": {
+        "event": "store.owner.changed",
+        "merchant": 1234509876,
+        "created_at": "Wed Sep 17 2025 14:57:43 GMT+0300",
+        "data": {
+          "id": 8114012345,
+          "name": "User",
+          "mobile": "555555555",
+          "mobile_code": "+966",
+          "email": "test@gmail.com",
+          "avatar": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+          "role": "user",
+          "status": "active",
+          "enabled": true
+        }
+      }
+    }
+  ]
+}
